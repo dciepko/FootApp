@@ -1,0 +1,37 @@
+/* Resetowanie marginesów i paddingu */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: #fa4043;
+  box-sizing: border-box;
+}
+
+.container {
+  clip-path: polygon(
+    7.5% 2.5%,
+    98.5% 2.5%,
+    98.5% 92.5%,
+    92.5% 97.5%,
+    1.5% 97.5%,
+    1.5% 7.5%
+  );
+  background-color: white;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: repeating-conic-gradient(#e0e0e000 0 25%, #ffffff 0 50%) 24px 0 /
+      calc(2 * 24px) calc(2 * 24px),
+    radial-gradient(50% 50%, #e6edf1 98%, #ffffff) 0 0/24px 24px;
+}
+
+header {
+  background-color: green;
+  min-width: 10vw;
+}
+
+main {
+  background-color: green;
+  min-width: none;
+}
