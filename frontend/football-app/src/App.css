@@ -43,7 +43,7 @@ header {
 }
 
 main {
-  background-color: blue;
+  background-color: rgb(245, 245, 245);
   min-width: none;
   height: 88%;
 }
