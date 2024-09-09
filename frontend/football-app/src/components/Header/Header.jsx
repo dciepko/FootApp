@@ -1,11 +1,10 @@
 import classes from "./Header.module.css";
-import logo from "../../assets/logoprz2.jpg";
 
 export default function Header() {
   return (
     <header className={classes.container}>
       <div className={classes.logoContainer}>
-        <img className={classes.logoPicture} src={logo} alt="Logo picture" />
+        <div className={classes.logoPicture} />
         <h1 className={classes.logoSign}>FootVision</h1>
       </div>
       <div className={classes.buttonContainer}>

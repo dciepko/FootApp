@@ -1,7 +1,6 @@
 main {
   background-color: white;
-  min-width: none;
-  height: 88%;
+  min-height: 88%;
 }
 
 .navMenu ul {
@@ -30,4 +29,30 @@ main {
   background-color: transparent;
   font-family: "Chakra Petch", sans-serif;
   font-size: 1.5rem;
+}
+
+.mainSection {
+  max-height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 75% 25%;
+}
+
+.currentResultsContainer {
+  grid-column: 1;
+  grid-row: 1/3;
+  background-color: red;
+  height: 100%;
+}
+
+.leaguesContainer {
+  grid-column: 2;
+  grid-row: 1;
+  background-color: blue;
+}
+
+.additionalContainer {
+  grid-column: 2;
+  grid-row: 2;
+  background-color: yellow;
 }

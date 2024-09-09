@@ -10,15 +10,15 @@ export default function HomePage() {
           </li>
           <li>Rozgrywki</li>
           <li>Zawodnicy</li>
-          <li>Ulubione</li>
+          <li>Porównaj</li>
           <li>Kursy</li>
           <li>Symulacje</li>
         </ul>
       </nav>
-      <section>
-        <article></article>
-        <article></article>
-        <article></article>
+      <section className={classes.mainSection}>
+        <article className={classes.currentResultsContainer}></article>
+        <article className={classes.leaguesContainer}></article>
+        <article className={classes.additionalContainer}></article>
       </section>
     </main>
   );
