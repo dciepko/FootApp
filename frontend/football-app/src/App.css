@@ -36,9 +36,3 @@ html {
   flex-direction: column;
   justify-content: stretch;
 }
-
-main {
-  background-color: rgb(245, 245, 245);
-  min-width: none;
-  height: 88%;
-}

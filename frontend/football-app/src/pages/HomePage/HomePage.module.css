@@ -1,0 +1,33 @@
+main {
+  background-color: white;
+  min-width: none;
+  height: 88%;
+}
+
+.navMenu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+}
+
+.navMenu ul li {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 1.5rem;
+  border: 1px gray solid;
+  text-align: center;
+  padding: 0.8rem 0;
+}
+
+.navMenu ul li:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
+.navMenu ul li button {
+  border: none;
+  background-color: transparent;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 1.5rem;
+}
