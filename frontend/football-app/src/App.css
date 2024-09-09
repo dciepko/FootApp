@@ -29,17 +29,12 @@ html {
 }
 
 .app {
-  height: 85vh;
+  height: 90vh;
   width: 80vw;
-  padding: 2rem 0 0 0;
+  padding: 1rem 0 0 0;
   display: flex;
   flex-direction: column;
   justify-content: stretch;
-}
-
-header {
-  background-color: green;
-  height: 12%;
 }
 
 main {

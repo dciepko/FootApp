@@ -1,6 +1,58 @@
 .container {
-  background-color: green;
   height: 12%;
   display: flex;
   justify-content: space-between;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 90%;
+}
+
+.logoPicture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logoSign {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 4rem;
+  margin-left: 1rem;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 30%;
+}
+
+.headerButton {
+  position: relative;
+  text-decoration: none;
+  color: gray;
+  background-color: black;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 1.6rem;
+  padding: 0.6rem 1rem;
+  clip-path: polygon(85% 0, 100% 25%, 100% 100%, 15% 100%, 0% 75%, 0 0);
+  z-index: 2;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.headerButton::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  background-color: rgb(250, 250, 250);
+  clip-path: inherit;
+  z-index: -1;
+  box-sizing: border-box;
 }
