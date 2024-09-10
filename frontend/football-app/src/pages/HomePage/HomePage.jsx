@@ -16,9 +16,15 @@ export default function HomePage() {
         </ul>
       </nav>
       <section className={classes.mainSection}>
-        <article className={classes.currentResultsContainer}></article>
-        <article className={classes.leaguesContainer}></article>
-        <article className={classes.additionalContainer}></article>
+        <div className={classes.currentResultsContainer}>
+          <article></article>
+        </div>
+        <div className={classes.leaguesContainer}>
+          <article></article>
+        </div>
+        <div className={classes.additionalContainer}>
+          <article></article>
+        </div>
       </section>
     </main>
   );

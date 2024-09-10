@@ -1,5 +1,5 @@
 .container {
-  max-height: 12vh;
+  height: 12vh;
   display: flex;
   justify-content: space-between;
 }
@@ -16,8 +16,8 @@
   height: 6rem;
   overflow: hidden;
   background-image: url("../../assets/logoprz2.jpg");
-  background-size: cover; /* Dopasowuje obrazek do kontenera, przycinając nadmiar */
-  background-position: center; /* Centruje obrazek w kontenerze */
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
 }
 
