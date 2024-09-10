@@ -17,13 +17,13 @@ export default function HomePage() {
       </nav>
       <section className={classes.mainSection}>
         <div className={classes.currentResultsContainer}>
-          <article></article>
+          <div className={classes.currentResultsShape}></div>
         </div>
         <div className={classes.leaguesContainer}>
-          <article></article>
+          <div className={classes.leaguesShape}></div>
         </div>
         <div className={classes.additionalContainer}>
-          <article></article>
+          <div className={classes.additionalShape}></div>
         </div>
       </section>
     </main>
