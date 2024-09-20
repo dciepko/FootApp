@@ -5,54 +5,54 @@
 }
 
 .logoContainer {
+  height: 90%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  height: 90%;
 }
 
 .logoPicture {
   width: 6rem;
   height: 6rem;
-  overflow: hidden;
   background-image: url("../../assets/logoprz2.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 .logoSign {
+  margin-left: 1rem;
   font-family: "Chakra Petch", sans-serif;
   font-size: 4rem;
-  margin-left: 1rem;
 }
 
 .buttonContainer {
+  width: 30%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 30%;
 }
 
 .headerButton {
-  position: relative;
-  text-decoration: none;
-  color: white;
-  background-color: black;
-  font-family: "Chakra Petch", sans-serif;
-  font-size: 1.6rem;
   padding: 0.6rem 1rem;
-  clip-path: polygon(85% 0, 100% 25%, 100% 100%, 15% 100%, 0% 75%, 0 0);
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  text-decoration: none;
+  background-color: black;
+  color: white;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 1.6rem;
+  clip-path: polygon(85% 0, 100% 25%, 100% 100%, 15% 100%, 0% 75%, 0 0);
 }
 
 .headerButton::after {
-  content: "";
-  position: absolute;
   width: calc(100% - 0.3rem);
   height: calc(100% - 0.3rem);
+  content: "";
+  position: absolute;
   background-color: #e6292c;
   z-index: -1;
   clip-path: inherit;
@@ -60,12 +60,12 @@
 }
 
 .headerButton::before {
-  content: "";
-  position: absolute;
-  top: -100%;
-  left: -100%;
   width: 200%;
   height: 200%;
+  top: -100%;
+  left: -100%;
+  content: "";
+  position: absolute;
   background-color: #8d2829;
   transition: transform 0.25s ease;
   transform: translate(-100%, -100%);

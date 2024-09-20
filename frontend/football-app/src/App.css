@@ -11,6 +11,12 @@ html {
 }
 
 .container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: repeating-conic-gradient(#e0e0e000 0 25%, #ffffff 0 50%) 24px 0 /
+      calc(2 * 24px) calc(2 * 24px),
+    radial-gradient(50% 50%, #e6edf1 98%, #ffffff) 0 0/24px 24px;
   clip-path: polygon(
     calc(0.075 * var(--width)) calc(0.025 * var(--height)),
     calc(0.985 * var(--width)) calc(0.025 * var(--height)),
@@ -19,13 +25,6 @@ html {
     calc(0.015 * var(--width)) calc(0.975 * var(--height)),
     calc(0.015 * var(--width)) calc(0.075 * var(--height))
   );
-
-  min-height: 100vh;
-  background: repeating-conic-gradient(#e0e0e000 0 25%, #ffffff 0 50%) 24px 0 /
-      calc(2 * 24px) calc(2 * 24px),
-    radial-gradient(50% 50%, #e6edf1 98%, #ffffff) 0 0/24px 24px;
-  display: flex;
-  justify-content: center;
 }
 
 .app {

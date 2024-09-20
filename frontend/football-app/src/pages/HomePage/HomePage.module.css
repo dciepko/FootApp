@@ -1,8 +1,8 @@
 main {
-  background-color: white;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  background-color: white;
   border-left: 0.2rem gray solid;
   border-right: 0.2rem gray solid;
   border-bottom: 0.2rem gray solid;
@@ -11,31 +11,31 @@ main {
 .navMenu ul {
   margin: 0;
   padding: 0;
-  list-style: none;
   display: grid;
   grid-template-columns: auto auto auto auto auto auto;
+  list-style: none;
 }
 
 .navMenu ul li {
-  font-family: "Chakra Petch", sans-serif;
-  font-size: 1.5rem;
+  padding: 0.8rem 0;
+  position: relative;
   border: 0.15rem gray solid;
   border-top: 0.2rem gray solid;
   border-bottom: 0.2rem gray solid;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 1.5rem;
   text-align: center;
-  padding: 0.8rem 0;
-  position: relative;
   overflow: hidden;
   transition: color 0.4s ease;
 }
 
 .navMenu ul li::before {
-  content: "";
-  position: absolute;
-  top: -100%;
-  left: 0;
   width: 100%;
   height: 100%;
+  top: -100%;
+  left: 0;
+  position: absolute;
+  content: "";
   background-color: #e6292c;
   transition: top 0.25s ease;
   z-index: 0;
@@ -46,21 +46,21 @@ main {
 }
 
 .navMenuOption {
+  position: relative;
   border: none;
   background-color: transparent;
-  font-family: "Chakra Petch", sans-serif;
-  font-size: 1.5rem;
-  position: relative;
-  z-index: 1;
   color: black;
   text-decoration: none;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 1.5rem;
+  z-index: 1;
 }
 
 .mainSection {
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 3% 67% 27% 3%;
-  height: 100%;
 }
 
 .currentResultsContainer {
@@ -79,61 +79,61 @@ main {
 }
 
 .currentResultsShape {
-  clip-path: polygon(80% 5%, 95% 10%, 95% 95%, 20% 95%, 5% 90%, 5% 5%);
-  background-color: rgb(88, 88, 88);
   height: 100%;
   width: 100%;
   position: relative;
+  background-color: rgb(88, 88, 88);
+  clip-path: polygon(80% 5%, 95% 10%, 95% 95%, 20% 95%, 5% 90%, 5% 5%);
 }
 
 .currentResultsShape::after {
-  position: absolute;
-  top: 0.2rem;
-  left: 0.2rem;
   width: calc(100% - 0.4rem);
   height: calc(100% - 0.4rem);
+  top: 0.2rem;
+  left: 0.2rem;
+  position: absolute;
+  content: "";
   background-color: #e6edf1;
   clip-path: inherit;
-  content: "";
   box-sizing: border-box;
 }
 
 .leaguesShape {
-  clip-path: polygon(80% 5%, 95% 10%, 95% 95%, 20% 95%, 5% 90%, 5% 5%);
-  background-color: rgb(88, 88, 88);
   height: 100%;
   width: 100%;
   position: relative;
+  background-color: rgb(88, 88, 88);
+  clip-path: polygon(80% 5%, 95% 10%, 95% 95%, 20% 95%, 5% 90%, 5% 5%);
 }
 
 .leaguesShape::after {
-  position: absolute;
-  top: 0.2rem;
-  left: 0.2rem;
   width: calc(100% - 0.4rem);
   height: calc(100% - 0.4rem);
+  top: 0.2rem;
+  left: 0.2rem;
+  position: absolute;
+  content: "";
   background-color: #e6edf1;
   clip-path: inherit;
-  content: "";
   box-sizing: border-box;
 }
 
 .additionalShape {
-  clip-path: polygon(90% 5%, 95% 10%, 95% 95%, 10% 95%, 5% 90%, 5% 5%);
-  background-color: rgb(88, 88, 88);
   height: 100%;
   width: 100%;
   position: relative;
+  background-color: rgb(88, 88, 88);
+  clip-path: polygon(90% 5%, 95% 10%, 95% 95%, 10% 95%, 5% 90%, 5% 5%);
 }
 
 .additionalShape::after {
+  width: calc(100% - 0.4rem);
+  height: calc(100% - 0.4rem);
   position: absolute;
   top: 0.2rem;
   left: 0.2rem;
-  width: calc(100% - 0.4rem);
-  height: calc(100% - 0.4rem);
+  content: "";
   background-color: #e6edf1;
   clip-path: inherit;
-  content: "";
   box-sizing: border-box;
 }
