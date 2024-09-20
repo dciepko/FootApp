@@ -59,6 +59,24 @@
   box-sizing: border-box;
 }
 
-.headerButton:hover::after {
-  background-color: aqua;
+.headerButton::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  background-color: #8d2829;
+  transition: transform 0.25s ease;
+  transform: translate(-100%, -100%);
+  z-index: 0;
+}
+
+.headerButton:hover::before {
+  transform: translate(0, 0);
+}
+
+.headerButton span {
+  position: relative;
+  z-index: 5;
 }

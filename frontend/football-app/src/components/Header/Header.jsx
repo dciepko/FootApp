@@ -9,10 +9,10 @@ export default function Header() {
       </div>
       <div className={classes.buttonContainer}>
         <a className={classes.headerButton} href="#">
-          Zaloguj się
+          <span>Zaloguj się</span>
         </a>
         <a className={classes.headerButton} href="#">
-          Zarejestruj się
+          <span>Zarejestruj się</span>
         </a>
       </div>
     </header>

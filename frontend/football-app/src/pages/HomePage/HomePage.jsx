@@ -6,13 +6,33 @@ export default function HomePage() {
       <nav className={classes.navMenu}>
         <ul>
           <li style={{ borderLeft: 0 }}>
-            <button>Szukaj</button>
+            <button className={classes.navMenuOption}>Szukaj</button>
           </li>
-          <li>Rozgrywki</li>
-          <li>Zawodnicy</li>
-          <li>Porównaj</li>
-          <li>Kursy</li>
-          <li style={{ borderRight: 0 }}>Symulacje</li>
+          <li>
+            <a href="#" className={classes.navMenuOption}>
+              Rozgrywki
+            </a>
+          </li>
+          <li>
+            <a href="#" className={classes.navMenuOption}>
+              Zawodnicy
+            </a>
+          </li>
+          <li>
+            <a href="#" className={classes.navMenuOption}>
+              Porównaj
+            </a>
+          </li>
+          <li>
+            <a href="#" className={classes.navMenuOption}>
+              Kursy
+            </a>
+          </li>
+          <li style={{ borderRight: 0 }}>
+            <a href="#" className={classes.navMenuOption}>
+              Symulacje
+            </a>
+          </li>
         </ul>
       </nav>
       <section className={classes.mainSection}>
