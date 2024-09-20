@@ -5,14 +5,14 @@ export default function HomePage() {
     <main>
       <nav className={classes.navMenu}>
         <ul>
-          <li>
+          <li style={{ borderLeft: 0 }}>
             <button>Szukaj</button>
           </li>
           <li>Rozgrywki</li>
           <li>Zawodnicy</li>
           <li>Porównaj</li>
           <li>Kursy</li>
-          <li>Symulacje</li>
+          <li style={{ borderRight: 0 }}>Symulacje</li>
         </ul>
       </nav>
       <section className={classes.mainSection}>
