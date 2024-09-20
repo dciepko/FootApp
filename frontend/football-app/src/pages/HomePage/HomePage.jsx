@@ -37,13 +37,19 @@ export default function HomePage() {
       </nav>
       <section className={classes.mainSection}>
         <div className={classes.currentResultsContainer}>
-          <div className={classes.currentResultsShape}></div>
+          <div className={classes.currentResultsShape}>
+            <div className={classes.currentResultsList}></div>
+          </div>
         </div>
         <div className={classes.leaguesContainer}>
-          <div className={classes.leaguesShape}></div>
+          <div className={classes.leaguesShape}>
+            <div className={classes.leaguesList}></div>
+          </div>
         </div>
         <div className={classes.additionalContainer}>
-          <div className={classes.additionalShape}></div>
+          <div className={classes.additionalShape}>
+            <div className={classes.additionalContent}></div>
+          </div>
         </div>
       </section>
     </main>

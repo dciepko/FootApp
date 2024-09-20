@@ -20,7 +20,7 @@ const fetchFixtures = async () => {
   }
 
   const result = await response.json();
-  return result;
+  return result.response;
 };
 
 const App = () => {
@@ -28,6 +28,7 @@ const App = () => {
     queryFn: fetchFixtures,
     queryKey: ["fixtures"],
   });
+  //const { response } = data;
 
   console.log(data);
   return (

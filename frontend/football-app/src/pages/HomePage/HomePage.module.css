@@ -45,15 +45,20 @@ main {
   top: 0;
 }
 
+.navMenu ul li:hover .navMenuOption {
+  color: white;
+}
+
 .navMenuOption {
   position: relative;
   border: none;
   background-color: transparent;
-  color: black;
   text-decoration: none;
+  color: black;
   font-family: "Chakra Petch", sans-serif;
   font-size: 1.5rem;
   z-index: 1;
+  transition: color 0.4s ease;
 }
 
 .mainSection {
@@ -84,6 +89,10 @@ main {
   position: relative;
   background-color: rgb(88, 88, 88);
   clip-path: polygon(80% 5%, 95% 10%, 95% 95%, 20% 95%, 5% 90%, 5% 5%);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .currentResultsShape::after {
@@ -96,6 +105,15 @@ main {
   background-color: #e6edf1;
   clip-path: inherit;
   box-sizing: border-box;
+  z-index: 2;
+}
+
+.currentResultsList {
+  height: 78%;
+  width: 80%;
+  background-color: blue;
+  position: absolute;
+  z-index: 5;
 }
 
 .leaguesShape {
@@ -104,6 +122,9 @@ main {
   position: relative;
   background-color: rgb(88, 88, 88);
   clip-path: polygon(80% 5%, 95% 10%, 95% 95%, 20% 95%, 5% 90%, 5% 5%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .leaguesShape::after {
@@ -118,12 +139,23 @@ main {
   box-sizing: border-box;
 }
 
+.leaguesList {
+  height: 78%;
+  width: 80%;
+  background-color: blue;
+  position: absolute;
+  z-index: 5;
+}
+
 .additionalShape {
   height: 100%;
   width: 100%;
   position: relative;
   background-color: rgb(88, 88, 88);
   clip-path: polygon(90% 5%, 95% 10%, 95% 95%, 10% 95%, 5% 90%, 5% 5%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .additionalShape::after {
@@ -136,4 +168,12 @@ main {
   background-color: #e6edf1;
   clip-path: inherit;
   box-sizing: border-box;
+}
+
+.additionalContent {
+  height: 78%;
+  width: 80%;
+  background-color: blue;
+  position: absolute;
+  z-index: 5;
 }
