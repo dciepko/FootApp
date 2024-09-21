@@ -1,0 +1,10 @@
+.barItem {
+  width: 100%;
+  list-style: none;
+  display: grid;
+}
+
+.barObject {
+  border: none;
+  background-color: transparent;
+}

@@ -112,6 +112,7 @@ main {
   height: 78%;
   width: 80%;
   background-color: blue;
+  overflow: auto;
   position: absolute;
   z-index: 5;
 }
@@ -142,7 +143,6 @@ main {
 .leaguesList {
   height: 78%;
   width: 80%;
-  background-color: blue;
   position: absolute;
   z-index: 5;
 }
@@ -173,7 +173,6 @@ main {
 .additionalContent {
   height: 78%;
   width: 80%;
-  background-color: blue;
   position: absolute;
   z-index: 5;
 }
