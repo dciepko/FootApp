@@ -111,7 +111,6 @@ main {
 .currentResultsList {
   height: 78%;
   width: 80%;
-  background-color: blue;
   overflow: auto;
   position: absolute;
   z-index: 5;
