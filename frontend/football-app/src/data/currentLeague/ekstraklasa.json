@@ -1,55 +1,55 @@
 [
   {
     "league": {
-      "id": 135,
-      "name": "Serie A",
-      "country": "Italy",
-      "logo": "https://media.api-sports.io/football/leagues/135.png",
-      "flag": "https://media.api-sports.io/flags/it.svg",
+      "id": 106,
+      "name": "Ekstraklasa",
+      "country": "Poland",
+      "logo": "https://media.api-sports.io/football/leagues/106.png",
+      "flag": "https://media.api-sports.io/flags/pl.svg",
       "season": 2024,
       "standings": [
         [
           {
             "rank": 1,
             "team": {
-              "id": 503,
-              "name": "Torino",
-              "logo": "https://media.api-sports.io/football/teams/503.png"
+              "id": 347,
+              "name": "Lech Poznan",
+              "logo": "https://media.api-sports.io/football/teams/347.png"
             },
-            "points": 11,
-            "goalsDiff": 3,
-            "group": "Serie A",
-            "form": "WDWWD",
+            "points": 19,
+            "goalsDiff": 13,
+            "group": "Ekstraklasa",
+            "form": "WWWWD",
             "status": "same",
-            "description": "Promotion - Champions League (League phase: )",
+            "description": "UEFA Champions League Qualifiers",
             "all": {
-              "played": 5,
-              "win": 3,
-              "draw": 2,
-              "lose": 0,
+              "played": 8,
+              "win": 6,
+              "draw": 1,
+              "lose": 1,
               "goals": {
-                "for": 8,
-                "against": 5
+                "for": 16,
+                "against": 3
               }
             },
             "home": {
-              "played": 2,
-              "win": 1,
-              "draw": 1,
+              "played": 4,
+              "win": 4,
+              "draw": 0,
               "lose": 0,
               "goals": {
-                "for": 2,
+                "for": 12,
                 "against": 1
               }
             },
             "away": {
-              "played": 3,
+              "played": 4,
               "win": 2,
               "draw": 1,
-              "lose": 0,
+              "lose": 1,
               "goals": {
-                "for": 6,
-                "against": 4
+                "for": 4,
+                "against": 2
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -57,44 +57,44 @@
           {
             "rank": 2,
             "team": {
-              "id": 494,
-              "name": "Udinese",
-              "logo": "https://media.api-sports.io/football/teams/494.png"
+              "id": 350,
+              "name": "Cracovia Krakow",
+              "logo": "https://media.api-sports.io/football/teams/350.png"
             },
-            "points": 10,
-            "goalsDiff": 3,
-            "group": "Serie A",
-            "form": "WWWD",
-            "status": "same",
-            "description": "Promotion - Champions League (League phase: )",
+            "points": 19,
+            "goalsDiff": 5,
+            "group": "Ekstraklasa",
+            "form": "WWLWW",
+            "status": "up",
+            "description": "UEFA Conference League Qualifiers",
             "all": {
-              "played": 4,
-              "win": 3,
+              "played": 9,
+              "win": 6,
               "draw": 1,
-              "lose": 0,
+              "lose": 2,
               "goals": {
-                "for": 7,
-                "against": 4
+                "for": 17,
+                "against": 12
               }
             },
             "home": {
-              "played": 2,
+              "played": 4,
               "win": 2,
-              "draw": 0,
-              "lose": 0,
+              "draw": 1,
+              "lose": 1,
               "goals": {
-                "for": 3,
-                "against": 1
+                "for": 7,
+                "against": 7
               }
             },
             "away": {
-              "played": 2,
-              "win": 1,
-              "draw": 1,
-              "lose": 0,
+              "played": 5,
+              "win": 4,
+              "draw": 0,
+              "lose": 1,
               "goals": {
-                "for": 4,
-                "against": 3
+                "for": 10,
+                "against": 5
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -102,44 +102,44 @@
           {
             "rank": 3,
             "team": {
-              "id": 492,
-              "name": "Napoli",
-              "logo": "https://media.api-sports.io/football/teams/492.png"
+              "id": 348,
+              "name": "Pogon Szczecin",
+              "logo": "https://media.api-sports.io/football/teams/348.png"
             },
-            "points": 10,
+            "points": 16,
             "goalsDiff": 5,
-            "group": "Serie A",
-            "form": "DWWWL",
-            "status": "same",
-            "description": "Promotion - Champions League (League phase: )",
+            "group": "Ekstraklasa",
+            "form": "WLWLW",
+            "status": "up",
+            "description": "UEFA Conference League Qualifiers",
             "all": {
-              "played": 5,
-              "win": 3,
+              "played": 9,
+              "win": 5,
               "draw": 1,
-              "lose": 1,
+              "lose": 3,
               "goals": {
-                "for": 9,
-                "against": 4
+                "for": 15,
+                "against": 10
               }
             },
             "home": {
-              "played": 2,
-              "win": 2,
+              "played": 5,
+              "win": 5,
               "draw": 0,
               "lose": 0,
               "goals": {
-                "for": 5,
-                "against": 1
+                "for": 12,
+                "against": 3
               }
             },
             "away": {
-              "played": 3,
-              "win": 1,
+              "played": 4,
+              "win": 0,
               "draw": 1,
-              "lose": 1,
+              "lose": 3,
               "goals": {
-                "for": 4,
-                "against": 3
+                "for": 3,
+                "against": 7
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -147,44 +147,44 @@
           {
             "rank": 4,
             "team": {
-              "id": 496,
-              "name": "Juventus",
-              "logo": "https://media.api-sports.io/football/teams/496.png"
+              "id": 6962,
+              "name": "Widzew Łódź",
+              "logo": "https://media.api-sports.io/football/teams/6962.png"
             },
-            "points": 9,
-            "goalsDiff": 6,
-            "group": "Serie A",
-            "form": "DDDWW",
-            "status": "same",
-            "description": "Promotion - Champions League (League phase: )",
+            "points": 15,
+            "goalsDiff": 2,
+            "group": "Ekstraklasa",
+            "form": "WDLWL",
+            "status": "up",
+            "description": null,
             "all": {
-              "played": 5,
-              "win": 2,
+              "played": 9,
+              "win": 4,
               "draw": 3,
-              "lose": 0,
+              "lose": 2,
               "goals": {
-                "for": 6,
-                "against": 0
+                "for": 12,
+                "against": 10
               }
             },
             "home": {
-              "played": 3,
-              "win": 1,
-              "draw": 2,
-              "lose": 0,
-              "goals": {
-                "for": 3,
-                "against": 0
-              }
-            },
-            "away": {
-              "played": 2,
-              "win": 1,
+              "played": 4,
+              "win": 3,
               "draw": 1,
               "lose": 0,
               "goals": {
-                "for": 3,
-                "against": 0
+                "for": 6,
+                "against": 3
+              }
+            },
+            "away": {
+              "played": 5,
+              "win": 1,
+              "draw": 2,
+              "lose": 2,
+              "goals": {
+                "for": 6,
+                "against": 7
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -192,44 +192,44 @@
           {
             "rank": 5,
             "team": {
-              "id": 511,
-              "name": "Empoli",
-              "logo": "https://media.api-sports.io/football/teams/511.png"
+              "id": 349,
+              "name": "Piast Gliwice",
+              "logo": "https://media.api-sports.io/football/teams/349.png"
             },
-            "points": 9,
-            "goalsDiff": 3,
-            "group": "Serie A",
-            "form": "WDDWD",
-            "status": "same",
-            "description": "Promotion - Europa League (League phase: )",
+            "points": 15,
+            "goalsDiff": 2,
+            "group": "Ekstraklasa",
+            "form": "LDWWL",
+            "status": "down",
+            "description": null,
             "all": {
-              "played": 5,
-              "win": 2,
+              "played": 9,
+              "win": 4,
               "draw": 3,
-              "lose": 0,
+              "lose": 2,
               "goals": {
-                "for": 5,
-                "against": 2
+                "for": 10,
+                "against": 8
               }
             },
             "home": {
-              "played": 2,
-              "win": 0,
+              "played": 4,
+              "win": 2,
               "draw": 2,
               "lose": 0,
               "goals": {
-                "for": 0,
-                "against": 0
+                "for": 6,
+                "against": 3
               }
             },
             "away": {
-              "played": 3,
+              "played": 5,
               "win": 2,
               "draw": 1,
-              "lose": 0,
+              "lose": 2,
               "goals": {
-                "for": 5,
-                "against": 2
+                "for": 4,
+                "against": 5
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -237,44 +237,44 @@
           {
             "rank": 6,
             "team": {
-              "id": 505,
-              "name": "Inter",
-              "logo": "https://media.api-sports.io/football/teams/505.png"
+              "id": 336,
+              "name": "Jagiellonia",
+              "logo": "https://media.api-sports.io/football/teams/336.png"
             },
-            "points": 8,
-            "goalsDiff": 6,
-            "group": "Serie A",
-            "form": "DWWD",
+            "points": 15,
+            "goalsDiff": -2,
+            "group": "Ekstraklasa",
+            "form": "WLWLL",
             "status": "same",
-            "description": "Promotion - Conference League (Qualification: )",
+            "description": null,
             "all": {
-              "played": 4,
-              "win": 2,
-              "draw": 2,
-              "lose": 0,
+              "played": 8,
+              "win": 5,
+              "draw": 0,
+              "lose": 3,
               "goals": {
-                "for": 9,
-                "against": 3
+                "for": 14,
+                "against": 16
               }
             },
             "home": {
-              "played": 2,
-              "win": 2,
+              "played": 5,
+              "win": 4,
               "draw": 0,
-              "lose": 0,
+              "lose": 1,
               "goals": {
-                "for": 6,
-                "against": 0
+                "for": 10,
+                "against": 6
               }
             },
             "away": {
-              "played": 2,
-              "win": 0,
-              "draw": 2,
-              "lose": 0,
+              "played": 3,
+              "win": 1,
+              "draw": 0,
+              "lose": 2,
               "goals": {
-                "for": 3,
-                "against": 3
+                "for": 4,
+                "against": 10
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -282,44 +282,44 @@
           {
             "rank": 7,
             "team": {
-              "id": 487,
-              "name": "Lazio",
-              "logo": "https://media.api-sports.io/football/teams/487.png"
+              "id": 339,
+              "name": "Legia Warszawa",
+              "logo": "https://media.api-sports.io/football/teams/339.png"
             },
-            "points": 7,
-            "goalsDiff": 2,
-            "group": "Serie A",
-            "form": "WDLW",
-            "status": "same",
+            "points": 14,
+            "goalsDiff": 6,
+            "group": "Ekstraklasa",
+            "form": "LLWDW",
+            "status": "down",
             "description": null,
             "all": {
-              "played": 4,
-              "win": 2,
-              "draw": 1,
-              "lose": 1,
+              "played": 9,
+              "win": 4,
+              "draw": 2,
+              "lose": 3,
               "goals": {
-                "for": 8,
-                "against": 6
+                "for": 16,
+                "against": 10
               }
             },
             "home": {
-              "played": 3,
-              "win": 2,
-              "draw": 1,
-              "lose": 0,
+              "played": 5,
+              "win": 3,
+              "draw": 0,
+              "lose": 2,
               "goals": {
-                "for": 7,
-                "against": 4
+                "for": 12,
+                "against": 6
               }
             },
             "away": {
-              "played": 1,
-              "win": 0,
-              "draw": 0,
+              "played": 4,
+              "win": 1,
+              "draw": 2,
               "lose": 1,
               "goals": {
-                "for": 1,
-                "against": 2
+                "for": 4,
+                "against": 4
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -327,44 +327,44 @@
           {
             "rank": 8,
             "team": {
-              "id": 499,
-              "name": "Atalanta",
-              "logo": "https://media.api-sports.io/football/teams/499.png"
+              "id": 3491,
+              "name": "Raków Częstochowa",
+              "logo": "https://media.api-sports.io/football/teams/3491.png"
             },
-            "points": 6,
-            "goalsDiff": 0,
-            "group": "Serie A",
-            "form": "WLLW",
-            "status": "same",
+            "points": 14,
+            "goalsDiff": 3,
+            "group": "Ekstraklasa",
+            "form": "WLWDD",
+            "status": "down",
             "description": null,
             "all": {
-              "played": 4,
-              "win": 2,
-              "draw": 0,
+              "played": 8,
+              "win": 4,
+              "draw": 2,
               "lose": 2,
               "goals": {
-                "for": 8,
-                "against": 8
+                "for": 6,
+                "against": 3
               }
             },
             "home": {
-              "played": 1,
-              "win": 1,
-              "draw": 0,
-              "lose": 0,
+              "played": 3,
+              "win": 0,
+              "draw": 1,
+              "lose": 2,
               "goals": {
-                "for": 3,
+                "for": 0,
                 "against": 2
               }
             },
             "away": {
-              "played": 3,
-              "win": 1,
-              "draw": 0,
-              "lose": 2,
+              "played": 5,
+              "win": 4,
+              "draw": 1,
+              "lose": 0,
               "goals": {
-                "for": 5,
-                "against": 6
+                "for": 6,
+                "against": 1
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -372,44 +372,44 @@
           {
             "rank": 9,
             "team": {
-              "id": 504,
-              "name": "Verona",
-              "logo": "https://media.api-sports.io/football/teams/504.png"
+              "id": 340,
+              "name": "Gornik Zabrze",
+              "logo": "https://media.api-sports.io/football/teams/340.png"
             },
-            "points": 6,
+            "points": 11,
             "goalsDiff": 0,
-            "group": "Serie A",
-            "form": "LLWLW",
-            "status": "same",
+            "group": "Ekstraklasa",
+            "form": "WLLLD",
+            "status": "up",
             "description": null,
             "all": {
-              "played": 5,
-              "win": 2,
-              "draw": 0,
-              "lose": 3,
+              "played": 9,
+              "win": 3,
+              "draw": 2,
+              "lose": 4,
               "goals": {
-                "for": 8,
-                "against": 8
+                "for": 12,
+                "against": 12
               }
             },
             "home": {
-              "played": 3,
-              "win": 1,
-              "draw": 0,
-              "lose": 2,
+              "played": 4,
+              "win": 2,
+              "draw": 1,
+              "lose": 1,
               "goals": {
-                "for": 5,
-                "against": 6
+                "for": 6,
+                "against": 3
               }
             },
             "away": {
-              "played": 2,
+              "played": 5,
               "win": 1,
-              "draw": 0,
-              "lose": 1,
+              "draw": 1,
+              "lose": 3,
               "goals": {
-                "for": 3,
-                "against": 2
+                "for": 6,
+                "against": 9
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -417,44 +417,44 @@
           {
             "rank": 10,
             "team": {
-              "id": 489,
-              "name": "AC Milan",
-              "logo": "https://media.api-sports.io/football/teams/489.png"
+              "id": 4248,
+              "name": "Radomiak Radom",
+              "logo": "https://media.api-sports.io/football/teams/4248.png"
             },
-            "points": 5,
-            "goalsDiff": 3,
-            "group": "Serie A",
-            "form": "WDLD",
-            "status": "same",
+            "points": 9,
+            "goalsDiff": -1,
+            "group": "Ekstraklasa",
+            "form": "WLWLL",
+            "status": "up",
             "description": null,
             "all": {
+              "played": 8,
+              "win": 3,
+              "draw": 0,
+              "lose": 5,
+              "goals": {
+                "for": 14,
+                "against": 15
+              }
+            },
+            "home": {
               "played": 4,
-              "win": 1,
-              "draw": 2,
-              "lose": 1,
+              "win": 2,
+              "draw": 0,
+              "lose": 2,
               "goals": {
                 "for": 9,
                 "against": 6
               }
             },
-            "home": {
-              "played": 2,
-              "win": 1,
-              "draw": 1,
-              "lose": 0,
-              "goals": {
-                "for": 6,
-                "against": 2
-              }
-            },
             "away": {
-              "played": 2,
-              "win": 0,
-              "draw": 1,
-              "lose": 1,
+              "played": 4,
+              "win": 1,
+              "draw": 0,
+              "lose": 3,
               "goals": {
-                "for": 3,
-                "against": 4
+                "for": 5,
+                "against": 9
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -462,44 +462,44 @@
           {
             "rank": 11,
             "team": {
-              "id": 523,
-              "name": "Parma",
-              "logo": "https://media.api-sports.io/football/teams/523.png"
+              "id": 14562,
+              "name": "Motor Lublin",
+              "logo": "https://media.api-sports.io/football/teams/14562.png"
             },
-            "points": 5,
-            "goalsDiff": -1,
-            "group": "Serie A",
-            "form": "DLLWD",
-            "status": "same",
+            "points": 9,
+            "goalsDiff": -2,
+            "group": "Ekstraklasa",
+            "form": "WLDDD",
+            "status": "up",
             "description": null,
             "all": {
-              "played": 5,
-              "win": 1,
-              "draw": 2,
+              "played": 7,
+              "win": 2,
+              "draw": 3,
               "lose": 2,
               "goals": {
-                "for": 8,
-                "against": 9
+                "for": 6,
+                "against": 8
               }
             },
             "home": {
+              "played": 4,
+              "win": 1,
+              "draw": 2,
+              "lose": 1,
+              "goals": {
+                "for": 2,
+                "against": 3
+              }
+            },
+            "away": {
               "played": 3,
               "win": 1,
               "draw": 1,
               "lose": 1,
               "goals": {
-                "for": 5,
+                "for": 4,
                 "against": 5
-              }
-            },
-            "away": {
-              "played": 2,
-              "win": 0,
-              "draw": 1,
-              "lose": 1,
-              "goals": {
-                "for": 3,
-                "against": 4
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -507,44 +507,44 @@
           {
             "rank": 12,
             "team": {
-              "id": 495,
-              "name": "Genoa",
-              "logo": "https://media.api-sports.io/football/teams/495.png"
+              "id": 3484,
+              "name": "GKS Katowice",
+              "logo": "https://media.api-sports.io/football/teams/3484.png"
             },
-            "points": 5,
+            "points": 9,
             "goalsDiff": -3,
-            "group": "Serie A",
+            "group": "Ekstraklasa",
             "form": "LDLWD",
-            "status": "same",
+            "status": "down",
             "description": null,
             "all": {
+              "played": 9,
+              "win": 2,
+              "draw": 3,
+              "lose": 4,
+              "goals": {
+                "for": 9,
+                "against": 12
+              }
+            },
+            "home": {
               "played": 5,
               "win": 1,
               "draw": 2,
               "lose": 2,
               "goals": {
-                "for": 4,
-                "against": 7
-              }
-            },
-            "home": {
-              "played": 3,
-              "win": 0,
-              "draw": 2,
-              "lose": 1,
-              "goals": {
-                "for": 3,
-                "against": 5
+                "for": 6,
+                "against": 6
               }
             },
             "away": {
-              "played": 2,
+              "played": 4,
               "win": 1,
-              "draw": 0,
-              "lose": 1,
+              "draw": 1,
+              "lose": 2,
               "goals": {
-                "for": 1,
-                "against": 2
+                "for": 3,
+                "against": 6
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -552,44 +552,44 @@
           {
             "rank": 13,
             "team": {
-              "id": 867,
-              "name": "Lecce",
-              "logo": "https://media.api-sports.io/football/teams/867.png"
+              "id": 346,
+              "name": "Korona Kielce",
+              "logo": "https://media.api-sports.io/football/teams/346.png"
             },
-            "points": 5,
-            "goalsDiff": -5,
-            "group": "Serie A",
-            "form": "DDWLL",
-            "status": "same",
+            "points": 9,
+            "goalsDiff": -7,
+            "group": "Ekstraklasa",
+            "form": "LWDWD",
+            "status": "up",
             "description": null,
             "all": {
-              "played": 5,
-              "win": 1,
-              "draw": 2,
-              "lose": 2,
+              "played": 9,
+              "win": 2,
+              "draw": 3,
+              "lose": 4,
               "goals": {
-                "for": 3,
-                "against": 8
+                "for": 6,
+                "against": 13
               }
             },
             "home": {
-              "played": 3,
-              "win": 1,
-              "draw": 1,
-              "lose": 1,
+              "played": 4,
+              "win": 2,
+              "draw": 0,
+              "lose": 2,
               "goals": {
-                "for": 3,
-                "against": 6
+                "for": 4,
+                "against": 4
               }
             },
             "away": {
-              "played": 2,
+              "played": 5,
               "win": 0,
-              "draw": 1,
-              "lose": 1,
+              "draw": 3,
+              "lose": 2,
               "goals": {
-                "for": 0,
-                "against": 2
+                "for": 2,
+                "against": 9
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -597,44 +597,44 @@
           {
             "rank": 14,
             "team": {
-              "id": 517,
-              "name": "Venezia",
-              "logo": "https://media.api-sports.io/football/teams/517.png"
+              "id": 3490,
+              "name": "Puszcza Niepołomice",
+              "logo": "https://media.api-sports.io/football/teams/3490.png"
             },
-            "points": 4,
-            "goalsDiff": -5,
-            "group": "Serie A",
-            "form": "WLLDL",
-            "status": "same",
+            "points": 8,
+            "goalsDiff": -1,
+            "group": "Ekstraklasa",
+            "form": "LDDDW",
+            "status": "down",
             "description": null,
             "all": {
-              "played": 5,
+              "played": 9,
               "win": 1,
-              "draw": 1,
+              "draw": 5,
               "lose": 3,
               "goals": {
-                "for": 3,
-                "against": 8
+                "for": 10,
+                "against": 11
               }
             },
             "home": {
-              "played": 2,
+              "played": 5,
               "win": 1,
-              "draw": 0,
+              "draw": 3,
               "lose": 1,
               "goals": {
-                "for": 2,
-                "against": 1
+                "for": 9,
+                "against": 7
               }
             },
             "away": {
-              "played": 3,
+              "played": 4,
               "win": 0,
-              "draw": 1,
+              "draw": 2,
               "lose": 2,
               "goals": {
                 "for": 1,
-                "against": 7
+                "against": 4
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -642,44 +642,44 @@
           {
             "rank": 15,
             "team": {
-              "id": 502,
-              "name": "Fiorentina",
-              "logo": "https://media.api-sports.io/football/teams/502.png"
+              "id": 345,
+              "name": "Zaglebie Lubin",
+              "logo": "https://media.api-sports.io/football/teams/345.png"
             },
-            "points": 3,
-            "goalsDiff": -1,
-            "group": "Serie A",
-            "form": "LDDD",
-            "status": "same",
+            "points": 8,
+            "goalsDiff": -4,
+            "group": "Ekstraklasa",
+            "form": "LWLLD",
+            "status": "down",
             "description": null,
             "all": {
-              "played": 4,
-              "win": 0,
-              "draw": 3,
-              "lose": 1,
+              "played": 8,
+              "win": 2,
+              "draw": 2,
+              "lose": 4,
               "goals": {
                 "for": 5,
-                "against": 6
+                "against": 9
               }
             },
             "home": {
-              "played": 2,
-              "win": 0,
-              "draw": 2,
-              "lose": 0,
-              "goals": {
-                "for": 2,
-                "against": 2
-              }
-            },
-            "away": {
-              "played": 2,
-              "win": 0,
+              "played": 4,
+              "win": 2,
               "draw": 1,
               "lose": 1,
               "goals": {
-                "for": 3,
-                "against": 4
+                "for": 4,
+                "against": 3
+              }
+            },
+            "away": {
+              "played": 4,
+              "win": 0,
+              "draw": 1,
+              "lose": 3,
+              "goals": {
+                "for": 1,
+                "against": 6
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -687,44 +687,44 @@
           {
             "rank": 16,
             "team": {
-              "id": 1579,
-              "name": "Monza",
-              "logo": "https://media.api-sports.io/football/teams/1579.png"
+              "id": 343,
+              "name": "Lechia Gdansk",
+              "logo": "https://media.api-sports.io/football/teams/343.png"
             },
-            "points": 3,
-            "goalsDiff": -1,
-            "group": "Serie A",
-            "form": "DDLD",
+            "points": 8,
+            "goalsDiff": -7,
+            "group": "Ekstraklasa",
+            "form": "LWWLL",
             "status": "same",
-            "description": null,
+            "description": "Relegation",
             "all": {
-              "played": 4,
-              "win": 0,
-              "draw": 3,
-              "lose": 1,
+              "played": 9,
+              "win": 2,
+              "draw": 2,
+              "lose": 5,
               "goals": {
-                "for": 3,
-                "against": 4
+                "for": 11,
+                "against": 18
               }
             },
             "home": {
-              "played": 2,
-              "win": 0,
+              "played": 4,
+              "win": 1,
               "draw": 1,
-              "lose": 1,
+              "lose": 2,
               "goals": {
-                "for": 1,
-                "against": 2
+                "for": 3,
+                "against": 5
               }
             },
             "away": {
-              "played": 2,
-              "win": 0,
-              "draw": 2,
-              "lose": 0,
+              "played": 5,
+              "win": 1,
+              "draw": 1,
+              "lose": 3,
               "goals": {
-                "for": 2,
-                "against": 2
+                "for": 8,
+                "against": 13
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -732,44 +732,44 @@
           {
             "rank": 17,
             "team": {
-              "id": 497,
-              "name": "AS Roma",
-              "logo": "https://media.api-sports.io/football/teams/497.png"
+              "id": 337,
+              "name": "Slask Wroclaw",
+              "logo": "https://media.api-sports.io/football/teams/337.png"
             },
-            "points": 3,
-            "goalsDiff": -1,
-            "group": "Serie A",
-            "form": "DDLD",
+            "points": 4,
+            "goalsDiff": -4,
+            "group": "Ekstraklasa",
+            "form": "LDDDL",
             "status": "same",
-            "description": null,
+            "description": "Relegation",
             "all": {
-              "played": 4,
+              "played": 6,
               "win": 0,
-              "draw": 3,
-              "lose": 1,
+              "draw": 4,
+              "lose": 2,
               "goals": {
-                "for": 2,
-                "against": 3
+                "for": 6,
+                "against": 10
               }
             },
             "home": {
-              "played": 1,
-              "win": 0,
-              "draw": 0,
-              "lose": 1,
-              "goals": {
-                "for": 1,
-                "against": 2
-              }
-            },
-            "away": {
               "played": 3,
               "win": 0,
               "draw": 3,
               "lose": 0,
               "goals": {
-                "for": 1,
-                "against": 1
+                "for": 3,
+                "against": 3
+              }
+            },
+            "away": {
+              "played": 3,
+              "win": 0,
+              "draw": 1,
+              "lose": 2,
+              "goals": {
+                "for": 3,
+                "against": 7
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -777,134 +777,44 @@
           {
             "rank": 18,
             "team": {
-              "id": 500,
-              "name": "Bologna",
-              "logo": "https://media.api-sports.io/football/teams/500.png"
+              "id": 3493,
+              "name": "Stal Mielec",
+              "logo": "https://media.api-sports.io/football/teams/3493.png"
             },
-            "points": 3,
-            "goalsDiff": -3,
-            "group": "Serie A",
-            "form": "DDLD",
+            "points": 4,
+            "goalsDiff": -5,
+            "group": "Ekstraklasa",
+            "form": "LLWLL",
             "status": "same",
-            "description": "Relegation - Serie B",
+            "description": "Relegation",
             "all": {
-              "played": 4,
-              "win": 0,
-              "draw": 3,
-              "lose": 1,
+              "played": 7,
+              "win": 1,
+              "draw": 1,
+              "lose": 5,
               "goals": {
                 "for": 4,
-                "against": 7
+                "against": 9
               }
             },
             "home": {
-              "played": 2,
-              "win": 0,
-              "draw": 2,
-              "lose": 0,
-              "goals": {
-                "for": 2,
-                "against": 2
-              }
-            },
-            "away": {
-              "played": 2,
-              "win": 0,
-              "draw": 1,
-              "lose": 1,
-              "goals": {
-                "for": 2,
-                "against": 5
-              }
-            },
-            "update": "2024-09-22T00:00:00+00:00"
-          },
-          {
-            "rank": 19,
-            "team": {
-              "id": 895,
-              "name": "Como",
-              "logo": "https://media.api-sports.io/football/teams/895.png"
-            },
-            "points": 2,
-            "goalsDiff": -4,
-            "group": "Serie A",
-            "form": "DLDL",
-            "status": "same",
-            "description": "Relegation - Serie B",
-            "all": {
               "played": 4,
-              "win": 0,
-              "draw": 2,
+              "win": 1,
+              "draw": 1,
               "lose": 2,
               "goals": {
                 "for": 3,
-                "against": 7
-              }
-            },
-            "home": {
-              "played": 1,
-              "win": 0,
-              "draw": 1,
-              "lose": 0,
-              "goals": {
-                "for": 2,
-                "against": 2
+                "against": 4
               }
             },
             "away": {
               "played": 3,
               "win": 0,
-              "draw": 1,
-              "lose": 2,
-              "goals": {
-                "for": 1,
-                "against": 5
-              }
-            },
-            "update": "2024-09-22T00:00:00+00:00"
-          },
-          {
-            "rank": 20,
-            "team": {
-              "id": 490,
-              "name": "Cagliari",
-              "logo": "https://media.api-sports.io/football/teams/490.png"
-            },
-            "points": 2,
-            "goalsDiff": -7,
-            "group": "Serie A",
-            "form": "LLLDD",
-            "status": "same",
-            "description": "Relegation - Serie B",
-            "all": {
-              "played": 5,
-              "win": 0,
-              "draw": 2,
+              "draw": 0,
               "lose": 3,
               "goals": {
                 "for": 1,
-                "against": 8
-              }
-            },
-            "home": {
-              "played": 4,
-              "win": 0,
-              "draw": 2,
-              "lose": 2,
-              "goals": {
-                "for": 1,
-                "against": 7
-              }
-            },
-            "away": {
-              "played": 1,
-              "win": 0,
-              "draw": 0,
-              "lose": 1,
-              "goals": {
-                "for": 0,
-                "against": 1
+                "against": 5
               }
             },
             "update": "2024-09-22T00:00:00+00:00"

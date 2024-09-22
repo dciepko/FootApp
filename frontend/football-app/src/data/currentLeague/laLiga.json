@@ -1,31 +1,31 @@
 [
   {
     "league": {
-      "id": 61,
-      "name": "Ligue 1",
-      "country": "France",
-      "logo": "https://media.api-sports.io/football/leagues/61.png",
-      "flag": "https://media.api-sports.io/flags/fr.svg",
+      "id": 140,
+      "name": "La Liga",
+      "country": "Spain",
+      "logo": "https://media.api-sports.io/football/leagues/140.png",
+      "flag": "https://media.api-sports.io/flags/es.svg",
       "season": 2024,
       "standings": [
         [
           {
             "rank": 1,
             "team": {
-              "id": 85,
-              "name": "Paris Saint Germain",
-              "logo": "https://media.api-sports.io/football/teams/85.png"
+              "id": 529,
+              "name": "Barcelona",
+              "logo": "https://media.api-sports.io/football/teams/529.png"
             },
-            "points": 13,
+            "points": 15,
             "goalsDiff": 13,
-            "group": "Ligue 1",
-            "form": "DWWWW",
+            "group": "LaLiga",
+            "form": "WWWWW",
             "status": "same",
             "description": "Champions League",
             "all": {
               "played": 5,
-              "win": 4,
-              "draw": 1,
+              "win": 5,
+              "draw": 0,
               "lose": 0,
               "goals": {
                 "for": 17,
@@ -44,8 +44,8 @@
             },
             "away": {
               "played": 3,
-              "win": 2,
-              "draw": 1,
+              "win": 3,
+              "draw": 0,
               "lose": 0,
               "goals": {
                 "for": 8,
@@ -57,43 +57,43 @@
           {
             "rank": 2,
             "team": {
-              "id": 81,
-              "name": "Marseille",
-              "logo": "https://media.api-sports.io/football/teams/81.png"
+              "id": 541,
+              "name": "Real Madrid",
+              "logo": "https://media.api-sports.io/football/teams/541.png"
             },
-            "points": 10,
-            "goalsDiff": 8,
-            "group": "Ligue 1",
-            "form": "WWDW",
+            "points": 14,
+            "goalsDiff": 10,
+            "group": "LaLiga",
+            "form": "WWWDW",
             "status": "same",
             "description": "Champions League",
             "all": {
-              "played": 4,
-              "win": 3,
-              "draw": 1,
+              "played": 6,
+              "win": 4,
+              "draw": 2,
               "lose": 0,
               "goals": {
-                "for": 12,
-                "against": 4
+                "for": 13,
+                "against": 3
               }
             },
             "home": {
-              "played": 2,
-              "win": 1,
-              "draw": 1,
-              "lose": 0,
-              "goals": {
-                "for": 4,
-                "against": 2
-              }
-            },
-            "away": {
-              "played": 2,
-              "win": 2,
+              "played": 3,
+              "win": 3,
               "draw": 0,
               "lose": 0,
               "goals": {
-                "for": 8,
+                "for": 9,
+                "against": 1
+              }
+            },
+            "away": {
+              "played": 3,
+              "win": 1,
+              "draw": 2,
+              "lose": 0,
+              "goals": {
+                "for": 4,
                 "against": 2
               }
             },
@@ -102,44 +102,44 @@
           {
             "rank": 3,
             "team": {
-              "id": 91,
-              "name": "Monaco",
-              "logo": "https://media.api-sports.io/football/teams/91.png"
+              "id": 530,
+              "name": "Atletico Madrid",
+              "logo": "https://media.api-sports.io/football/teams/530.png"
             },
-            "points": 10,
-            "goalsDiff": 6,
-            "group": "Ligue 1",
-            "form": "WDWW",
+            "points": 11,
+            "goalsDiff": 7,
+            "group": "LaLiga",
+            "form": "WWDWD",
             "status": "same",
             "description": "Champions League",
             "all": {
-              "played": 4,
+              "played": 5,
               "win": 3,
-              "draw": 1,
+              "draw": 2,
               "lose": 0,
               "goals": {
-                "for": 7,
-                "against": 1
+                "for": 9,
+                "against": 2
               }
             },
             "home": {
+              "played": 3,
+              "win": 2,
+              "draw": 1,
+              "lose": 0,
+              "goals": {
+                "for": 6,
+                "against": 0
+              }
+            },
+            "away": {
               "played": 2,
               "win": 1,
               "draw": 1,
               "lose": 0,
               "goals": {
-                "for": 2,
-                "against": 1
-              }
-            },
-            "away": {
-              "played": 2,
-              "win": 2,
-              "draw": 0,
-              "lose": 0,
-              "goals": {
-                "for": 5,
-                "against": 0
+                "for": 3,
+                "against": 2
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -147,24 +147,24 @@
           {
             "rank": 4,
             "team": {
-              "id": 116,
-              "name": "Lens",
-              "logo": "https://media.api-sports.io/football/teams/116.png"
+              "id": 533,
+              "name": "Villarreal",
+              "logo": "https://media.api-sports.io/football/teams/533.png"
             },
-            "points": 9,
+            "points": 11,
             "goalsDiff": 3,
-            "group": "Ligue 1",
-            "form": "DDDWW",
+            "group": "LaLiga",
+            "form": "WDWWD",
             "status": "same",
-            "description": "Champions League Qualification",
+            "description": "Champions League",
             "all": {
               "played": 5,
-              "win": 2,
-              "draw": 3,
+              "win": 3,
+              "draw": 2,
               "lose": 0,
               "goals": {
-                "for": 5,
-                "against": 2
+                "for": 11,
+                "against": 8
               }
             },
             "home": {
@@ -173,18 +173,18 @@
               "draw": 1,
               "lose": 0,
               "goals": {
-                "for": 2,
-                "against": 0
+                "for": 6,
+                "against": 5
               }
             },
             "away": {
               "played": 3,
-              "win": 1,
-              "draw": 2,
+              "win": 2,
+              "draw": 1,
               "lose": 0,
               "goals": {
-                "for": 3,
-                "against": 2
+                "for": 5,
+                "against": 3
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -192,44 +192,44 @@
           {
             "rank": 5,
             "team": {
-              "id": 93,
-              "name": "Reims",
-              "logo": "https://media.api-sports.io/football/teams/93.png"
+              "id": 542,
+              "name": "Alaves",
+              "logo": "https://media.api-sports.io/football/teams/542.png"
             },
-            "points": 8,
-            "goalsDiff": 0,
-            "group": "Ligue 1",
-            "form": "DWWDL",
+            "points": 10,
+            "goalsDiff": 2,
+            "group": "LaLiga",
+            "form": "WLWWD",
             "status": "same",
             "description": "UEFA Europa League",
             "all": {
-              "played": 5,
-              "win": 2,
-              "draw": 2,
-              "lose": 1,
+              "played": 6,
+              "win": 3,
+              "draw": 1,
+              "lose": 2,
               "goals": {
-                "for": 7,
+                "for": 9,
                 "against": 7
               }
             },
             "home": {
               "played": 3,
-              "win": 1,
-              "draw": 1,
-              "lose": 1,
-              "goals": {
-                "for": 3,
-                "against": 4
-              }
-            },
-            "away": {
-              "played": 2,
-              "win": 1,
+              "win": 2,
               "draw": 1,
               "lose": 0,
               "goals": {
                 "for": 4,
-                "against": 3
+                "against": 1
+              }
+            },
+            "away": {
+              "played": 3,
+              "win": 1,
+              "draw": 0,
+              "lose": 2,
+              "goals": {
+                "for": 5,
+                "against": 6
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -237,44 +237,44 @@
           {
             "rank": 6,
             "team": {
-              "id": 84,
-              "name": "Nice",
-              "logo": "https://media.api-sports.io/football/teams/84.png"
+              "id": 531,
+              "name": "Athletic Club",
+              "logo": "https://media.api-sports.io/football/teams/531.png"
             },
-            "points": 7,
-            "goalsDiff": 8,
-            "group": "Ligue 1",
-            "form": "WLWDL",
+            "points": 10,
+            "goalsDiff": 2,
+            "group": "LaLiga",
+            "form": "WWLWL",
             "status": "same",
             "description": "Conference League Qualification",
             "all": {
-              "played": 5,
-              "win": 2,
+              "played": 6,
+              "win": 3,
               "draw": 1,
               "lose": 2,
               "goals": {
-                "for": 14,
+                "for": 8,
                 "against": 6
               }
             },
             "home": {
-              "played": 2,
+              "played": 3,
               "win": 1,
               "draw": 1,
-              "lose": 0,
+              "lose": 1,
               "goals": {
-                "for": 9,
-                "against": 1
+                "for": 2,
+                "against": 2
               }
             },
             "away": {
               "played": 3,
-              "win": 1,
+              "win": 2,
               "draw": 0,
-              "lose": 2,
+              "lose": 1,
               "goals": {
-                "for": 5,
-                "against": 5
+                "for": 6,
+                "against": 4
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -282,34 +282,34 @@
           {
             "rank": 7,
             "team": {
-              "id": 94,
-              "name": "Rennes",
-              "logo": "https://media.api-sports.io/football/teams/94.png"
+              "id": 727,
+              "name": "Osasuna",
+              "logo": "https://media.api-sports.io/football/teams/727.png"
             },
-            "points": 7,
-            "goalsDiff": 3,
-            "group": "Ligue 1",
-            "form": "DWLLW",
+            "points": 10,
+            "goalsDiff": -3,
+            "group": "LaLiga",
+            "form": "WLWLW",
             "status": "same",
             "description": null,
             "all": {
-              "played": 5,
-              "win": 2,
+              "played": 6,
+              "win": 3,
               "draw": 1,
               "lose": 2,
               "goals": {
-                "for": 9,
-                "against": 6
+                "for": 8,
+                "against": 11
               }
             },
             "home": {
-              "played": 3,
-              "win": 2,
+              "played": 4,
+              "win": 3,
               "draw": 1,
               "lose": 0,
               "goals": {
                 "for": 7,
-                "against": 1
+                "against": 4
               }
             },
             "away": {
@@ -318,8 +318,8 @@
               "draw": 0,
               "lose": 2,
               "goals": {
-                "for": 2,
-                "against": 5
+                "for": 1,
+                "against": 7
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -327,44 +327,44 @@
           {
             "rank": 8,
             "team": {
-              "id": 83,
-              "name": "Nantes",
-              "logo": "https://media.api-sports.io/football/teams/83.png"
+              "id": 538,
+              "name": "Celta Vigo",
+              "logo": "https://media.api-sports.io/football/teams/538.png"
             },
-            "points": 7,
+            "points": 9,
             "goalsDiff": 3,
-            "group": "Ligue 1",
-            "form": "LWWD",
+            "group": "LaLiga",
+            "form": "WLLWW",
             "status": "same",
             "description": null,
             "all": {
-              "played": 4,
-              "win": 2,
-              "draw": 1,
-              "lose": 1,
+              "played": 5,
+              "win": 3,
+              "draw": 0,
+              "lose": 2,
               "goals": {
-                "for": 6,
-                "against": 3
+                "for": 13,
+                "against": 10
               }
             },
             "home": {
-              "played": 2,
-              "win": 1,
+              "played": 3,
+              "win": 3,
               "draw": 0,
-              "lose": 1,
+              "lose": 0,
               "goals": {
-                "for": 3,
-                "against": 2
+                "for": 8,
+                "against": 3
               }
             },
             "away": {
               "played": 2,
-              "win": 1,
-              "draw": 1,
-              "lose": 0,
+              "win": 0,
+              "draw": 0,
+              "lose": 2,
               "goals": {
-                "for": 3,
-                "against": 1
+                "for": 5,
+                "against": 7
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -372,214 +372,34 @@
           {
             "rank": 9,
             "team": {
-              "id": 79,
-              "name": "Lille",
-              "logo": "https://media.api-sports.io/football/teams/79.png"
+              "id": 543,
+              "name": "Real Betis",
+              "logo": "https://media.api-sports.io/football/teams/543.png"
             },
-            "points": 7,
+            "points": 8,
             "goalsDiff": 1,
-            "group": "Ligue 1",
-            "form": "DLLWW",
+            "group": "LaLiga",
+            "form": "WWLDD",
             "status": "same",
             "description": null,
             "all": {
               "played": 5,
               "win": 2,
-              "draw": 1,
-              "lose": 2,
-              "goals": {
-                "for": 8,
-                "against": 7
-              }
-            },
-            "home": {
-              "played": 3,
-              "win": 1,
-              "draw": 1,
-              "lose": 1,
-              "goals": {
-                "for": 6,
-                "against": 6
-              }
-            },
-            "away": {
-              "played": 2,
-              "win": 1,
-              "draw": 0,
-              "lose": 1,
-              "goals": {
-                "for": 2,
-                "against": 1
-              }
-            },
-            "update": "2024-09-22T00:00:00+00:00"
-          },
-          {
-            "rank": 10,
-            "team": {
-              "id": 95,
-              "name": "Strasbourg",
-              "logo": "https://media.api-sports.io/football/teams/95.png"
-            },
-            "points": 6,
-            "goalsDiff": 1,
-            "group": "Ligue 1",
-            "form": "DDLWD",
-            "status": "same",
-            "description": null,
-            "all": {
-              "played": 5,
-              "win": 1,
-              "draw": 3,
-              "lose": 1,
-              "goals": {
-                "for": 11,
-                "against": 10
-              }
-            },
-            "home": {
-              "played": 2,
-              "win": 1,
-              "draw": 1,
-              "lose": 0,
-              "goals": {
-                "for": 4,
-                "against": 2
-              }
-            },
-            "away": {
-              "played": 3,
-              "win": 0,
               "draw": 2,
               "lose": 1,
               "goals": {
-                "for": 7,
-                "against": 8
-              }
-            },
-            "update": "2024-09-22T00:00:00+00:00"
-          },
-          {
-            "rank": 11,
-            "team": {
-              "id": 111,
-              "name": "LE Havre",
-              "logo": "https://media.api-sports.io/football/teams/111.png"
-            },
-            "points": 6,
-            "goalsDiff": -1,
-            "group": "Ligue 1",
-            "form": "LWWL",
-            "status": "same",
-            "description": null,
-            "all": {
-              "played": 4,
-              "win": 2,
-              "draw": 0,
-              "lose": 2,
-              "goals": {
-                "for": 6,
-                "against": 7
-              }
-            },
-            "home": {
-              "played": 2,
-              "win": 1,
-              "draw": 0,
-              "lose": 1,
-              "goals": {
-                "for": 4,
-                "against": 5
-              }
-            },
-            "away": {
-              "played": 2,
-              "win": 1,
-              "draw": 0,
-              "lose": 1,
-              "goals": {
-                "for": 2,
-                "against": 2
-              }
-            },
-            "update": "2024-09-22T00:00:00+00:00"
-          },
-          {
-            "rank": 12,
-            "team": {
-              "id": 96,
-              "name": "Toulouse",
-              "logo": "https://media.api-sports.io/football/teams/96.png"
-            },
-            "points": 5,
-            "goalsDiff": 0,
-            "group": "Ligue 1",
-            "form": "WLDD",
-            "status": "same",
-            "description": null,
-            "all": {
-              "played": 4,
-              "win": 1,
-              "draw": 2,
-              "lose": 1,
-              "goals": {
-                "for": 4,
+                "for": 5,
                 "against": 4
               }
             },
             "home": {
               "played": 3,
-              "win": 1,
-              "draw": 1,
-              "lose": 1,
-              "goals": {
-                "for": 3,
-                "against": 3
-              }
-            },
-            "away": {
-              "played": 1,
-              "win": 0,
+              "win": 2,
               "draw": 1,
               "lose": 0,
               "goals": {
-                "for": 1,
-                "against": 1
-              }
-            },
-            "update": "2024-09-22T00:00:00+00:00"
-          },
-          {
-            "rank": 13,
-            "team": {
-              "id": 80,
-              "name": "Lyon",
-              "logo": "https://media.api-sports.io/football/teams/80.png"
-            },
-            "points": 4,
-            "goalsDiff": -4,
-            "group": "Ligue 1",
-            "form": "DWLL",
-            "status": "same",
-            "description": null,
-            "all": {
-              "played": 4,
-              "win": 1,
-              "draw": 1,
-              "lose": 2,
-              "goals": {
-                "for": 4,
-                "against": 8
-              }
-            },
-            "home": {
-              "played": 2,
-              "win": 1,
-              "draw": 0,
-              "lose": 1,
-              "goals": {
-                "for": 4,
-                "against": 5
+                "for": 5,
+                "against": 2
               }
             },
             "away": {
@@ -589,31 +409,121 @@
               "lose": 1,
               "goals": {
                 "for": 0,
+                "against": 2
+              }
+            },
+            "update": "2024-09-22T00:00:00+00:00"
+          },
+          {
+            "rank": 10,
+            "team": {
+              "id": 798,
+              "name": "Mallorca",
+              "logo": "https://media.api-sports.io/football/teams/798.png"
+            },
+            "points": 8,
+            "goalsDiff": 0,
+            "group": "LaLiga",
+            "form": "WLWDL",
+            "status": "same",
+            "description": null,
+            "all": {
+              "played": 6,
+              "win": 2,
+              "draw": 2,
+              "lose": 2,
+              "goals": {
+                "for": 4,
+                "against": 4
+              }
+            },
+            "home": {
+              "played": 4,
+              "win": 1,
+              "draw": 2,
+              "lose": 1,
+              "goals": {
+                "for": 3,
+                "against": 3
+              }
+            },
+            "away": {
+              "played": 2,
+              "win": 1,
+              "draw": 0,
+              "lose": 1,
+              "goals": {
+                "for": 1,
+                "against": 1
+              }
+            },
+            "update": "2024-09-22T00:00:00+00:00"
+          },
+          {
+            "rank": 11,
+            "team": {
+              "id": 728,
+              "name": "Rayo Vallecano",
+              "logo": "https://media.api-sports.io/football/teams/728.png"
+            },
+            "points": 7,
+            "goalsDiff": 1,
+            "group": "LaLiga",
+            "form": "WLLDW",
+            "status": "same",
+            "description": null,
+            "all": {
+              "played": 5,
+              "win": 2,
+              "draw": 1,
+              "lose": 2,
+              "goals": {
+                "for": 7,
+                "against": 6
+              }
+            },
+            "home": {
+              "played": 2,
+              "win": 1,
+              "draw": 0,
+              "lose": 1,
+              "goals": {
+                "for": 4,
+                "against": 3
+              }
+            },
+            "away": {
+              "played": 3,
+              "win": 1,
+              "draw": 1,
+              "lose": 1,
+              "goals": {
+                "for": 3,
                 "against": 3
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
           },
           {
-            "rank": 14,
+            "rank": 12,
             "team": {
-              "id": 106,
-              "name": "Stade Brestois 29",
-              "logo": "https://media.api-sports.io/football/teams/106.png"
+              "id": 547,
+              "name": "Girona",
+              "logo": "https://media.api-sports.io/football/teams/547.png"
             },
-            "points": 3,
-            "goalsDiff": -4,
-            "group": "Ligue 1",
-            "form": "LWLL",
+            "points": 7,
+            "goalsDiff": -2,
+            "group": "LaLiga",
+            "form": "LLWWL",
             "status": "same",
             "description": null,
             "all": {
-              "played": 4,
-              "win": 1,
-              "draw": 0,
+              "played": 6,
+              "win": 2,
+              "draw": 1,
               "lose": 3,
               "goals": {
-                "for": 6,
+                "for": 8,
                 "against": 10
               }
             },
@@ -624,17 +534,107 @@
               "lose": 1,
               "goals": {
                 "for": 5,
-                "against": 5
+                "against": 4
               }
             },
             "away": {
-              "played": 2,
-              "win": 0,
+              "played": 4,
+              "win": 1,
+              "draw": 1,
+              "lose": 2,
+              "goals": {
+                "for": 3,
+                "against": 6
+              }
+            },
+            "update": "2024-09-22T00:00:00+00:00"
+          },
+          {
+            "rank": 13,
+            "team": {
+              "id": 540,
+              "name": "Espanyol",
+              "logo": "https://media.api-sports.io/football/teams/540.png"
+            },
+            "points": 7,
+            "goalsDiff": -3,
+            "group": "LaLiga",
+            "form": "LWWDL",
+            "status": "same",
+            "description": null,
+            "all": {
+              "played": 6,
+              "win": 2,
+              "draw": 1,
+              "lose": 3,
+              "goals": {
+                "for": 6,
+                "against": 9
+              }
+            },
+            "home": {
+              "played": 3,
+              "win": 2,
               "draw": 0,
+              "lose": 1,
+              "goals": {
+                "for": 5,
+                "against": 4
+              }
+            },
+            "away": {
+              "played": 3,
+              "win": 0,
+              "draw": 1,
               "lose": 2,
               "goals": {
                 "for": 1,
                 "against": 5
+              }
+            },
+            "update": "2024-09-22T00:00:00+00:00"
+          },
+          {
+            "rank": 14,
+            "team": {
+              "id": 536,
+              "name": "Sevilla",
+              "logo": "https://media.api-sports.io/football/teams/536.png"
+            },
+            "points": 5,
+            "goalsDiff": -3,
+            "group": "LaLiga",
+            "form": "LWLDL",
+            "status": "same",
+            "description": null,
+            "all": {
+              "played": 6,
+              "win": 1,
+              "draw": 2,
+              "lose": 3,
+              "goals": {
+                "for": 5,
+                "against": 8
+              }
+            },
+            "home": {
+              "played": 3,
+              "win": 1,
+              "draw": 0,
+              "lose": 2,
+              "goals": {
+                "for": 2,
+                "against": 4
+              }
+            },
+            "away": {
+              "played": 3,
+              "win": 0,
+              "draw": 2,
+              "lose": 1,
+              "goals": {
+                "for": 3,
+                "against": 4
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -642,130 +642,40 @@
           {
             "rank": 15,
             "team": {
-              "id": 108,
-              "name": "Auxerre",
-              "logo": "https://media.api-sports.io/football/teams/108.png"
+              "id": 537,
+              "name": "Leganes",
+              "logo": "https://media.api-sports.io/football/teams/537.png"
             },
-            "points": 3,
-            "goalsDiff": -6,
-            "group": "Ligue 1",
-            "form": "LLLW",
+            "points": 5,
+            "goalsDiff": -4,
+            "group": "LaLiga",
+            "form": "LLLDW",
             "status": "same",
             "description": null,
             "all": {
-              "played": 4,
+              "played": 6,
               "win": 1,
-              "draw": 0,
+              "draw": 2,
               "lose": 3,
               "goals": {
                 "for": 3,
-                "against": 9
+                "against": 7
               }
             },
             "home": {
-              "played": 2,
+              "played": 3,
               "win": 1,
               "draw": 0,
-              "lose": 1,
+              "lose": 2,
               "goals": {
                 "for": 2,
                 "against": 4
               }
             },
             "away": {
-              "played": 2,
-              "win": 0,
-              "draw": 0,
-              "lose": 2,
-              "goals": {
-                "for": 1,
-                "against": 5
-              }
-            },
-            "update": "2024-09-22T00:00:00+00:00"
-          },
-          {
-            "rank": 16,
-            "team": {
-              "id": 1063,
-              "name": "Saint Etienne",
-              "logo": "https://media.api-sports.io/football/teams/1063.png"
-            },
-            "points": 3,
-            "goalsDiff": -14,
-            "group": "Ligue 1",
-            "form": "LWLLL",
-            "status": "same",
-            "description": "Relegation Playoffs",
-            "all": {
-              "played": 5,
-              "win": 1,
-              "draw": 0,
-              "lose": 4,
-              "goals": {
-                "for": 1,
-                "against": 15
-              }
-            },
-            "home": {
-              "played": 2,
-              "win": 1,
-              "draw": 0,
-              "lose": 1,
-              "goals": {
-                "for": 1,
-                "against": 2
-              }
-            },
-            "away": {
               "played": 3,
               "win": 0,
-              "draw": 0,
-              "lose": 3,
-              "goals": {
-                "for": 0,
-                "against": 13
-              }
-            },
-            "update": "2024-09-22T00:00:00+00:00"
-          },
-          {
-            "rank": 17,
-            "team": {
-              "id": 77,
-              "name": "Angers",
-              "logo": "https://media.api-sports.io/football/teams/77.png"
-            },
-            "points": 1,
-            "goalsDiff": -6,
-            "group": "Ligue 1",
-            "form": "DLLL",
-            "status": "same",
-            "description": "Relegation",
-            "all": {
-              "played": 4,
-              "win": 0,
-              "draw": 1,
-              "lose": 3,
-              "goals": {
-                "for": 2,
-                "against": 8
-              }
-            },
-            "home": {
-              "played": 2,
-              "win": 0,
-              "draw": 0,
-              "lose": 2,
-              "goals": {
-                "for": 1,
-                "against": 5
-              }
-            },
-            "away": {
-              "played": 2,
-              "win": 0,
-              "draw": 1,
+              "draw": 2,
               "lose": 1,
               "goals": {
                 "for": 1,
@@ -775,22 +685,67 @@
             "update": "2024-09-22T00:00:00+00:00"
           },
           {
-            "rank": 18,
+            "rank": 16,
             "team": {
-              "id": 82,
-              "name": "Montpellier",
-              "logo": "https://media.api-sports.io/football/teams/82.png"
+              "id": 548,
+              "name": "Real Sociedad",
+              "logo": "https://media.api-sports.io/football/teams/548.png"
             },
-            "points": 1,
-            "goalsDiff": -11,
-            "group": "Ligue 1",
-            "form": "LLLD",
+            "points": 5,
+            "goalsDiff": -4,
+            "group": "LaLiga",
+            "form": "DLLDL",
             "status": "same",
-            "description": "Relegation",
+            "description": null,
             "all": {
-              "played": 4,
+              "played": 7,
+              "win": 1,
+              "draw": 2,
+              "lose": 4,
+              "goals": {
+                "for": 3,
+                "against": 7
+              }
+            },
+            "home": {
+              "played": 3,
               "win": 0,
-              "draw": 1,
+              "draw": 0,
+              "lose": 3,
+              "goals": {
+                "for": 2,
+                "against": 6
+              }
+            },
+            "away": {
+              "played": 4,
+              "win": 1,
+              "draw": 2,
+              "lose": 1,
+              "goals": {
+                "for": 1,
+                "against": 1
+              }
+            },
+            "update": "2024-09-22T00:00:00+00:00"
+          },
+          {
+            "rank": 17,
+            "team": {
+              "id": 720,
+              "name": "Valladolid",
+              "logo": "https://media.api-sports.io/football/teams/720.png"
+            },
+            "points": 5,
+            "goalsDiff": -11,
+            "group": "LaLiga",
+            "form": "DLLDL",
+            "status": "same",
+            "description": null,
+            "all": {
+              "played": 6,
+              "win": 1,
+              "draw": 2,
               "lose": 3,
               "goals": {
                 "for": 2,
@@ -798,23 +753,158 @@
               }
             },
             "home": {
-              "played": 2,
+              "played": 3,
+              "win": 1,
+              "draw": 2,
+              "lose": 0,
+              "goals": {
+                "for": 1,
+                "against": 0
+              }
+            },
+            "away": {
+              "played": 3,
               "win": 0,
+              "draw": 0,
+              "lose": 3,
+              "goals": {
+                "for": 1,
+                "against": 13
+              }
+            },
+            "update": "2024-09-22T00:00:00+00:00"
+          },
+          {
+            "rank": 18,
+            "team": {
+              "id": 532,
+              "name": "Valencia",
+              "logo": "https://media.api-sports.io/football/teams/532.png"
+            },
+            "points": 4,
+            "goalsDiff": -5,
+            "group": "LaLiga",
+            "form": "WLDLL",
+            "status": "same",
+            "description": "Relegation",
+            "all": {
+              "played": 6,
+              "win": 1,
+              "draw": 1,
+              "lose": 4,
+              "goals": {
+                "for": 5,
+                "against": 10
+              }
+            },
+            "home": {
+              "played": 3,
+              "win": 1,
               "draw": 1,
               "lose": 1,
+              "goals": {
+                "for": 4,
+                "against": 3
+              }
+            },
+            "away": {
+              "played": 3,
+              "win": 0,
+              "draw": 0,
+              "lose": 3,
+              "goals": {
+                "for": 1,
+                "against": 7
+              }
+            },
+            "update": "2024-09-22T00:00:00+00:00"
+          },
+          {
+            "rank": 19,
+            "team": {
+              "id": 546,
+              "name": "Getafe",
+              "logo": "https://media.api-sports.io/football/teams/546.png"
+            },
+            "points": 3,
+            "goalsDiff": -2,
+            "group": "LaLiga",
+            "form": "LLDDD",
+            "status": "same",
+            "description": "Relegation",
+            "all": {
+              "played": 5,
+              "win": 0,
+              "draw": 3,
+              "lose": 2,
               "goals": {
                 "for": 2,
                 "against": 4
               }
             },
-            "away": {
+            "home": {
               "played": 2,
               "win": 0,
-              "draw": 0,
-              "lose": 2,
+              "draw": 2,
+              "lose": 0,
               "goals": {
                 "for": 0,
-                "against": 9
+                "against": 0
+              }
+            },
+            "away": {
+              "played": 3,
+              "win": 0,
+              "draw": 1,
+              "lose": 2,
+              "goals": {
+                "for": 2,
+                "against": 4
+              }
+            },
+            "update": "2024-09-22T00:00:00+00:00"
+          },
+          {
+            "rank": 20,
+            "team": {
+              "id": 534,
+              "name": "Las Palmas",
+              "logo": "https://media.api-sports.io/football/teams/534.png"
+            },
+            "points": 2,
+            "goalsDiff": -5,
+            "group": "LaLiga",
+            "form": "LLLDL",
+            "status": "same",
+            "description": "Relegation",
+            "all": {
+              "played": 6,
+              "win": 0,
+              "draw": 2,
+              "lose": 4,
+              "goals": {
+                "for": 7,
+                "against": 12
+              }
+            },
+            "home": {
+              "played": 3,
+              "win": 0,
+              "draw": 2,
+              "lose": 1,
+              "goals": {
+                "for": 5,
+                "against": 6
+              }
+            },
+            "away": {
+              "played": 3,
+              "win": 0,
+              "draw": 0,
+              "lose": 3,
+              "goals": {
+                "for": 2,
+                "against": 6
               }
             },
             "update": "2024-09-22T00:00:00+00:00"

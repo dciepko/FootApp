@@ -1,54 +1,54 @@
 [
   {
     "league": {
-      "id": 78,
-      "name": "Bundesliga",
-      "country": "Germany",
-      "logo": "https://media.api-sports.io/football/leagues/78.png",
-      "flag": "https://media.api-sports.io/flags/de.svg",
+      "id": 61,
+      "name": "Ligue 1",
+      "country": "France",
+      "logo": "https://media.api-sports.io/football/leagues/61.png",
+      "flag": "https://media.api-sports.io/flags/fr.svg",
       "season": 2024,
       "standings": [
         [
           {
             "rank": 1,
             "team": {
-              "id": 157,
-              "name": "Bayern München",
-              "logo": "https://media.api-sports.io/football/teams/157.png"
+              "id": 85,
+              "name": "Paris Saint Germain",
+              "logo": "https://media.api-sports.io/football/teams/85.png"
             },
-            "points": 12,
+            "points": 13,
             "goalsDiff": 13,
-            "group": "Bundesliga",
-            "form": "WWWW",
+            "group": "Ligue 1",
+            "form": "DWWWW",
             "status": "same",
-            "description": "Promotion - Champions League (League phase: )",
+            "description": "Champions League",
             "all": {
-              "played": 4,
+              "played": 5,
               "win": 4,
-              "draw": 0,
+              "draw": 1,
               "lose": 0,
               "goals": {
-                "for": 16,
-                "against": 3
+                "for": 17,
+                "against": 4
               }
             },
             "home": {
-              "played": 1,
-              "win": 1,
+              "played": 2,
+              "win": 2,
               "draw": 0,
               "lose": 0,
               "goals": {
-                "for": 2,
-                "against": 0
+                "for": 9,
+                "against": 1
               }
             },
             "away": {
               "played": 3,
-              "win": 3,
-              "draw": 0,
+              "win": 2,
+              "draw": 1,
               "lose": 0,
               "goals": {
-                "for": 14,
+                "for": 8,
                 "against": 3
               }
             },
@@ -57,43 +57,43 @@
           {
             "rank": 2,
             "team": {
-              "id": 160,
-              "name": "SC Freiburg",
-              "logo": "https://media.api-sports.io/football/teams/160.png"
+              "id": 81,
+              "name": "Marseille",
+              "logo": "https://media.api-sports.io/football/teams/81.png"
             },
-            "points": 9,
-            "goalsDiff": 4,
-            "group": "Bundesliga",
-            "form": "WWLW",
+            "points": 10,
+            "goalsDiff": 8,
+            "group": "Ligue 1",
+            "form": "WWDW",
             "status": "same",
-            "description": "Promotion - Champions League (League phase: )",
+            "description": "Champions League",
             "all": {
               "played": 4,
               "win": 3,
-              "draw": 0,
-              "lose": 1,
+              "draw": 1,
+              "lose": 0,
               "goals": {
-                "for": 8,
+                "for": 12,
                 "against": 4
               }
             },
             "home": {
               "played": 2,
-              "win": 2,
-              "draw": 0,
+              "win": 1,
+              "draw": 1,
               "lose": 0,
               "goals": {
-                "for": 5,
+                "for": 4,
                 "against": 2
               }
             },
             "away": {
               "played": 2,
-              "win": 1,
+              "win": 2,
               "draw": 0,
-              "lose": 1,
+              "lose": 0,
               "goals": {
-                "for": 3,
+                "for": 8,
                 "against": 2
               }
             },
@@ -102,44 +102,44 @@
           {
             "rank": 3,
             "team": {
-              "id": 169,
-              "name": "Eintracht Frankfurt",
-              "logo": "https://media.api-sports.io/football/teams/169.png"
+              "id": 91,
+              "name": "Monaco",
+              "logo": "https://media.api-sports.io/football/teams/91.png"
             },
-            "points": 9,
-            "goalsDiff": 3,
-            "group": "Bundesliga",
-            "form": "WWWL",
+            "points": 10,
+            "goalsDiff": 6,
+            "group": "Ligue 1",
+            "form": "WDWW",
             "status": "same",
-            "description": "Promotion - Champions League (League phase: )",
+            "description": "Champions League",
             "all": {
               "played": 4,
               "win": 3,
-              "draw": 0,
-              "lose": 1,
+              "draw": 1,
+              "lose": 0,
               "goals": {
                 "for": 7,
-                "against": 4
+                "against": 1
               }
             },
             "home": {
+              "played": 2,
+              "win": 1,
+              "draw": 1,
+              "lose": 0,
+              "goals": {
+                "for": 2,
+                "against": 1
+              }
+            },
+            "away": {
               "played": 2,
               "win": 2,
               "draw": 0,
               "lose": 0,
               "goals": {
                 "for": 5,
-                "against": 1
-              }
-            },
-            "away": {
-              "played": 2,
-              "win": 1,
-              "draw": 0,
-              "lose": 1,
-              "goals": {
-                "for": 2,
-                "against": 3
+                "against": 0
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -147,44 +147,44 @@
           {
             "rank": 4,
             "team": {
-              "id": 182,
-              "name": "Union Berlin",
-              "logo": "https://media.api-sports.io/football/teams/182.png"
+              "id": 116,
+              "name": "Lens",
+              "logo": "https://media.api-sports.io/football/teams/116.png"
             },
-            "points": 8,
-            "goalsDiff": 2,
-            "group": "Bundesliga",
-            "form": "WDWD",
+            "points": 9,
+            "goalsDiff": 3,
+            "group": "Ligue 1",
+            "form": "DDDWW",
             "status": "same",
-            "description": "Promotion - Champions League (League phase: )",
+            "description": "Champions League Qualification",
             "all": {
-              "played": 4,
+              "played": 5,
               "win": 2,
-              "draw": 2,
+              "draw": 3,
               "lose": 0,
               "goals": {
-                "for": 4,
+                "for": 5,
                 "against": 2
               }
             },
             "home": {
               "played": 2,
-              "win": 2,
-              "draw": 0,
+              "win": 1,
+              "draw": 1,
               "lose": 0,
               "goals": {
-                "for": 3,
-                "against": 1
+                "for": 2,
+                "against": 0
               }
             },
             "away": {
-              "played": 2,
-              "win": 0,
+              "played": 3,
+              "win": 1,
               "draw": 2,
               "lose": 0,
               "goals": {
-                "for": 1,
-                "against": 1
+                "for": 3,
+                "against": 2
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -192,44 +192,44 @@
           {
             "rank": 5,
             "team": {
-              "id": 165,
-              "name": "Borussia Dortmund",
-              "logo": "https://media.api-sports.io/football/teams/165.png"
+              "id": 93,
+              "name": "Reims",
+              "logo": "https://media.api-sports.io/football/teams/93.png"
             },
-            "points": 7,
-            "goalsDiff": 4,
-            "group": "Bundesliga",
-            "form": "WDW",
+            "points": 8,
+            "goalsDiff": 0,
+            "group": "Ligue 1",
+            "form": "DWWDL",
             "status": "same",
-            "description": "Promotion - Europa League (League phase: )",
+            "description": "UEFA Europa League",
             "all": {
-              "played": 3,
+              "played": 5,
               "win": 2,
-              "draw": 1,
-              "lose": 0,
+              "draw": 2,
+              "lose": 1,
               "goals": {
-                "for": 6,
-                "against": 2
+                "for": 7,
+                "against": 7
               }
             },
             "home": {
-              "played": 2,
-              "win": 2,
-              "draw": 0,
-              "lose": 0,
+              "played": 3,
+              "win": 1,
+              "draw": 1,
+              "lose": 1,
               "goals": {
-                "for": 6,
-                "against": 2
+                "for": 3,
+                "against": 4
               }
             },
             "away": {
-              "played": 1,
-              "win": 0,
+              "played": 2,
+              "win": 1,
               "draw": 1,
               "lose": 0,
               "goals": {
-                "for": 0,
-                "against": 0
+                "for": 4,
+                "against": 3
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -237,24 +237,24 @@
           {
             "rank": 6,
             "team": {
-              "id": 173,
-              "name": "RB Leipzig",
-              "logo": "https://media.api-sports.io/football/teams/173.png"
+              "id": 84,
+              "name": "Nice",
+              "logo": "https://media.api-sports.io/football/teams/84.png"
             },
             "points": 7,
-            "goalsDiff": 2,
-            "group": "Bundesliga",
-            "form": "DWW",
+            "goalsDiff": 8,
+            "group": "Ligue 1",
+            "form": "WLWDL",
             "status": "same",
-            "description": "Promotion - Conference League (Qualification: )",
+            "description": "Conference League Qualification",
             "all": {
-              "played": 3,
+              "played": 5,
               "win": 2,
               "draw": 1,
-              "lose": 0,
+              "lose": 2,
               "goals": {
-                "for": 4,
-                "against": 2
+                "for": 14,
+                "against": 6
               }
             },
             "home": {
@@ -263,18 +263,18 @@
               "draw": 1,
               "lose": 0,
               "goals": {
-                "for": 1,
-                "against": 0
+                "for": 9,
+                "against": 1
               }
             },
             "away": {
-              "played": 1,
+              "played": 3,
               "win": 1,
               "draw": 0,
-              "lose": 0,
+              "lose": 2,
               "goals": {
-                "for": 3,
-                "against": 2
+                "for": 5,
+                "against": 5
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -282,44 +282,44 @@
           {
             "rank": 7,
             "team": {
-              "id": 168,
-              "name": "Bayer Leverkusen",
-              "logo": "https://media.api-sports.io/football/teams/168.png"
+              "id": 94,
+              "name": "Rennes",
+              "logo": "https://media.api-sports.io/football/teams/94.png"
             },
-            "points": 6,
+            "points": 7,
             "goalsDiff": 3,
-            "group": "Bundesliga",
-            "form": "WLW",
+            "group": "Ligue 1",
+            "form": "DWLLW",
             "status": "same",
             "description": null,
             "all": {
-              "played": 3,
+              "played": 5,
               "win": 2,
-              "draw": 0,
-              "lose": 1,
+              "draw": 1,
+              "lose": 2,
               "goals": {
                 "for": 9,
                 "against": 6
               }
             },
             "home": {
-              "played": 1,
-              "win": 0,
-              "draw": 0,
-              "lose": 1,
+              "played": 3,
+              "win": 2,
+              "draw": 1,
+              "lose": 0,
               "goals": {
-                "for": 2,
-                "against": 3
+                "for": 7,
+                "against": 1
               }
             },
             "away": {
               "played": 2,
-              "win": 2,
+              "win": 0,
               "draw": 0,
-              "lose": 0,
+              "lose": 2,
               "goals": {
-                "for": 7,
-                "against": 3
+                "for": 2,
+                "against": 5
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -327,14 +327,149 @@
           {
             "rank": 8,
             "team": {
-              "id": 180,
-              "name": "1. FC Heidenheim",
-              "logo": "https://media.api-sports.io/football/teams/180.png"
+              "id": 83,
+              "name": "Nantes",
+              "logo": "https://media.api-sports.io/football/teams/83.png"
+            },
+            "points": 7,
+            "goalsDiff": 3,
+            "group": "Ligue 1",
+            "form": "LWWD",
+            "status": "same",
+            "description": null,
+            "all": {
+              "played": 4,
+              "win": 2,
+              "draw": 1,
+              "lose": 1,
+              "goals": {
+                "for": 6,
+                "against": 3
+              }
+            },
+            "home": {
+              "played": 2,
+              "win": 1,
+              "draw": 0,
+              "lose": 1,
+              "goals": {
+                "for": 3,
+                "against": 2
+              }
+            },
+            "away": {
+              "played": 2,
+              "win": 1,
+              "draw": 1,
+              "lose": 0,
+              "goals": {
+                "for": 3,
+                "against": 1
+              }
+            },
+            "update": "2024-09-22T00:00:00+00:00"
+          },
+          {
+            "rank": 9,
+            "team": {
+              "id": 79,
+              "name": "Lille",
+              "logo": "https://media.api-sports.io/football/teams/79.png"
+            },
+            "points": 7,
+            "goalsDiff": 1,
+            "group": "Ligue 1",
+            "form": "DLLWW",
+            "status": "same",
+            "description": null,
+            "all": {
+              "played": 5,
+              "win": 2,
+              "draw": 1,
+              "lose": 2,
+              "goals": {
+                "for": 8,
+                "against": 7
+              }
+            },
+            "home": {
+              "played": 3,
+              "win": 1,
+              "draw": 1,
+              "lose": 1,
+              "goals": {
+                "for": 6,
+                "against": 6
+              }
+            },
+            "away": {
+              "played": 2,
+              "win": 1,
+              "draw": 0,
+              "lose": 1,
+              "goals": {
+                "for": 2,
+                "against": 1
+              }
+            },
+            "update": "2024-09-22T00:00:00+00:00"
+          },
+          {
+            "rank": 10,
+            "team": {
+              "id": 95,
+              "name": "Strasbourg",
+              "logo": "https://media.api-sports.io/football/teams/95.png"
             },
             "points": 6,
             "goalsDiff": 1,
-            "group": "Bundesliga",
-            "form": "LLWW",
+            "group": "Ligue 1",
+            "form": "DDLWD",
+            "status": "same",
+            "description": null,
+            "all": {
+              "played": 5,
+              "win": 1,
+              "draw": 3,
+              "lose": 1,
+              "goals": {
+                "for": 11,
+                "against": 10
+              }
+            },
+            "home": {
+              "played": 2,
+              "win": 1,
+              "draw": 1,
+              "lose": 0,
+              "goals": {
+                "for": 4,
+                "against": 2
+              }
+            },
+            "away": {
+              "played": 3,
+              "win": 0,
+              "draw": 2,
+              "lose": 1,
+              "goals": {
+                "for": 7,
+                "against": 8
+              }
+            },
+            "update": "2024-09-22T00:00:00+00:00"
+          },
+          {
+            "rank": 11,
+            "team": {
+              "id": 111,
+              "name": "LE Havre",
+              "logo": "https://media.api-sports.io/football/teams/111.png"
+            },
+            "points": 6,
+            "goalsDiff": -1,
+            "group": "Ligue 1",
+            "form": "LWWL",
             "status": "same",
             "description": null,
             "all": {
@@ -343,7 +478,7 @@
               "draw": 0,
               "lose": 2,
               "goals": {
-                "for": 8,
+                "for": 6,
                 "against": 7
               }
             },
@@ -354,7 +489,7 @@
               "lose": 1,
               "goals": {
                 "for": 4,
-                "against": 3
+                "against": 5
               }
             },
             "away": {
@@ -363,22 +498,22 @@
               "draw": 0,
               "lose": 1,
               "goals": {
-                "for": 4,
-                "against": 4
+                "for": 2,
+                "against": 2
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
           },
           {
-            "rank": 9,
+            "rank": 12,
             "team": {
-              "id": 164,
-              "name": "FSV Mainz 05",
-              "logo": "https://media.api-sports.io/football/teams/164.png"
+              "id": 96,
+              "name": "Toulouse",
+              "logo": "https://media.api-sports.io/football/teams/96.png"
             },
             "points": 5,
             "goalsDiff": 0,
-            "group": "Bundesliga",
+            "group": "Ligue 1",
             "form": "WLDD",
             "status": "same",
             "description": null,
@@ -388,163 +523,28 @@
               "draw": 2,
               "lose": 1,
               "goals": {
-                "for": 8,
-                "against": 8
+                "for": 4,
+                "against": 4
               }
             },
             "home": {
-              "played": 2,
-              "win": 0,
-              "draw": 1,
-              "lose": 1,
-              "goals": {
-                "for": 2,
-                "against": 3
-              }
-            },
-            "away": {
-              "played": 2,
-              "win": 1,
-              "draw": 1,
-              "lose": 0,
-              "goals": {
-                "for": 6,
-                "against": 5
-              }
-            },
-            "update": "2024-09-22T00:00:00+00:00"
-          },
-          {
-            "rank": 10,
-            "team": {
-              "id": 162,
-              "name": "Werder Bremen",
-              "logo": "https://media.api-sports.io/football/teams/162.png"
-            },
-            "points": 5,
-            "goalsDiff": -4,
-            "group": "Bundesliga",
-            "form": "LWDD",
-            "status": "same",
-            "description": null,
-            "all": {
-              "played": 4,
-              "win": 1,
-              "draw": 2,
-              "lose": 1,
-              "goals": {
-                "for": 4,
-                "against": 8
-              }
-            },
-            "home": {
-              "played": 2,
-              "win": 0,
-              "draw": 1,
-              "lose": 1,
-              "goals": {
-                "for": 0,
-                "against": 5
-              }
-            },
-            "away": {
-              "played": 2,
-              "win": 1,
-              "draw": 1,
-              "lose": 0,
-              "goals": {
-                "for": 4,
-                "against": 3
-              }
-            },
-            "update": "2024-09-22T00:00:00+00:00"
-          },
-          {
-            "rank": 11,
-            "team": {
-              "id": 172,
-              "name": "VfB Stuttgart",
-              "logo": "https://media.api-sports.io/football/teams/172.png"
-            },
-            "points": 4,
-            "goalsDiff": 0,
-            "group": "Bundesliga",
-            "form": "WDL",
-            "status": "same",
-            "description": null,
-            "all": {
               "played": 3,
               "win": 1,
               "draw": 1,
               "lose": 1,
-              "goals": {
-                "for": 7,
-                "against": 7
-              }
-            },
-            "home": {
-              "played": 1,
-              "win": 0,
-              "draw": 1,
-              "lose": 0,
               "goals": {
                 "for": 3,
                 "against": 3
               }
             },
             "away": {
-              "played": 2,
-              "win": 1,
-              "draw": 0,
-              "lose": 1,
-              "goals": {
-                "for": 4,
-                "against": 4
-              }
-            },
-            "update": "2024-09-22T00:00:00+00:00"
-          },
-          {
-            "rank": 12,
-            "team": {
-              "id": 170,
-              "name": "FC Augsburg",
-              "logo": "https://media.api-sports.io/football/teams/170.png"
-            },
-            "points": 4,
-            "goalsDiff": -3,
-            "group": "Bundesliga",
-            "form": "LWLD",
-            "status": "same",
-            "description": null,
-            "all": {
-              "played": 4,
-              "win": 1,
-              "draw": 1,
-              "lose": 2,
-              "goals": {
-                "for": 7,
-                "against": 10
-              }
-            },
-            "home": {
-              "played": 3,
-              "win": 1,
-              "draw": 1,
-              "lose": 1,
-              "goals": {
-                "for": 7,
-                "against": 6
-              }
-            },
-            "away": {
               "played": 1,
               "win": 0,
-              "draw": 0,
-              "lose": 1,
+              "draw": 1,
+              "lose": 0,
               "goals": {
-                "for": 0,
-                "against": 4
+                "for": 1,
+                "against": 1
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -552,44 +552,44 @@
           {
             "rank": 13,
             "team": {
-              "id": 161,
-              "name": "VfL Wolfsburg",
-              "logo": "https://media.api-sports.io/football/teams/161.png"
+              "id": 80,
+              "name": "Lyon",
+              "logo": "https://media.api-sports.io/football/teams/80.png"
             },
-            "points": 3,
-            "goalsDiff": 0,
-            "group": "Bundesliga",
-            "form": "LWL",
+            "points": 4,
+            "goalsDiff": -4,
+            "group": "Ligue 1",
+            "form": "DWLL",
             "status": "same",
             "description": null,
             "all": {
-              "played": 3,
+              "played": 4,
               "win": 1,
-              "draw": 0,
+              "draw": 1,
               "lose": 2,
               "goals": {
-                "for": 5,
-                "against": 5
+                "for": 4,
+                "against": 8
               }
             },
             "home": {
               "played": 2,
-              "win": 0,
+              "win": 1,
               "draw": 0,
-              "lose": 2,
+              "lose": 1,
               "goals": {
-                "for": 3,
+                "for": 4,
                 "against": 5
               }
             },
             "away": {
-              "played": 1,
-              "win": 1,
-              "draw": 0,
-              "lose": 0,
+              "played": 2,
+              "win": 0,
+              "draw": 1,
+              "lose": 1,
               "goals": {
-                "for": 2,
-                "against": 0
+                "for": 0,
+                "against": 3
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -597,14 +597,14 @@
           {
             "rank": 14,
             "team": {
-              "id": 163,
-              "name": "Borussia Mönchengladbach",
-              "logo": "https://media.api-sports.io/football/teams/163.png"
+              "id": 106,
+              "name": "Stade Brestois 29",
+              "logo": "https://media.api-sports.io/football/teams/106.png"
             },
             "points": 3,
-            "goalsDiff": -3,
-            "group": "Bundesliga",
-            "form": "LLWL",
+            "goalsDiff": -4,
+            "group": "Ligue 1",
+            "form": "LWLL",
             "status": "same",
             "description": null,
             "all": {
@@ -613,28 +613,28 @@
               "draw": 0,
               "lose": 3,
               "goals": {
-                "for": 5,
-                "against": 8
+                "for": 6,
+                "against": 10
               }
             },
             "home": {
-              "played": 2,
-              "win": 0,
-              "draw": 0,
-              "lose": 2,
-              "goals": {
-                "for": 3,
-                "against": 6
-              }
-            },
-            "away": {
               "played": 2,
               "win": 1,
               "draw": 0,
               "lose": 1,
               "goals": {
-                "for": 2,
-                "against": 2
+                "for": 5,
+                "against": 5
+              }
+            },
+            "away": {
+              "played": 2,
+              "win": 0,
+              "draw": 0,
+              "lose": 2,
+              "goals": {
+                "for": 1,
+                "against": 5
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
@@ -642,13 +642,13 @@
           {
             "rank": 15,
             "team": {
-              "id": 167,
-              "name": "1899 Hoffenheim",
-              "logo": "https://media.api-sports.io/football/teams/167.png"
+              "id": 108,
+              "name": "Auxerre",
+              "logo": "https://media.api-sports.io/football/teams/108.png"
             },
             "points": 3,
-            "goalsDiff": -5,
-            "group": "Bundesliga",
+            "goalsDiff": -6,
+            "group": "Ligue 1",
             "form": "LLLW",
             "status": "same",
             "description": null,
@@ -658,8 +658,8 @@
               "draw": 0,
               "lose": 3,
               "goals": {
-                "for": 6,
-                "against": 11
+                "for": 3,
+                "against": 9
               }
             },
             "home": {
@@ -668,8 +668,8 @@
               "draw": 0,
               "lose": 1,
               "goals": {
-                "for": 4,
-                "against": 6
+                "for": 2,
+                "against": 4
               }
             },
             "away": {
@@ -678,7 +678,7 @@
               "draw": 0,
               "lose": 2,
               "goals": {
-                "for": 2,
+                "for": 1,
                 "against": 5
               }
             },
@@ -687,24 +687,114 @@
           {
             "rank": 16,
             "team": {
-              "id": 176,
-              "name": "VfL Bochum",
-              "logo": "https://media.api-sports.io/football/teams/176.png"
+              "id": 1063,
+              "name": "Saint Etienne",
+              "logo": "https://media.api-sports.io/football/teams/1063.png"
+            },
+            "points": 3,
+            "goalsDiff": -14,
+            "group": "Ligue 1",
+            "form": "LWLLL",
+            "status": "same",
+            "description": "Relegation Playoffs",
+            "all": {
+              "played": 5,
+              "win": 1,
+              "draw": 0,
+              "lose": 4,
+              "goals": {
+                "for": 1,
+                "against": 15
+              }
+            },
+            "home": {
+              "played": 2,
+              "win": 1,
+              "draw": 0,
+              "lose": 1,
+              "goals": {
+                "for": 1,
+                "against": 2
+              }
+            },
+            "away": {
+              "played": 3,
+              "win": 0,
+              "draw": 0,
+              "lose": 3,
+              "goals": {
+                "for": 0,
+                "against": 13
+              }
+            },
+            "update": "2024-09-22T00:00:00+00:00"
+          },
+          {
+            "rank": 17,
+            "team": {
+              "id": 77,
+              "name": "Angers",
+              "logo": "https://media.api-sports.io/football/teams/77.png"
             },
             "points": 1,
-            "goalsDiff": -4,
-            "group": "Bundesliga",
+            "goalsDiff": -6,
+            "group": "Ligue 1",
             "form": "DLLL",
             "status": "same",
-            "description": "Bundesliga (Relegation)",
+            "description": "Relegation",
             "all": {
               "played": 4,
               "win": 0,
               "draw": 1,
               "lose": 3,
               "goals": {
-                "for": 3,
-                "against": 7
+                "for": 2,
+                "against": 8
+              }
+            },
+            "home": {
+              "played": 2,
+              "win": 0,
+              "draw": 0,
+              "lose": 2,
+              "goals": {
+                "for": 1,
+                "against": 5
+              }
+            },
+            "away": {
+              "played": 2,
+              "win": 0,
+              "draw": 1,
+              "lose": 1,
+              "goals": {
+                "for": 1,
+                "against": 3
+              }
+            },
+            "update": "2024-09-22T00:00:00+00:00"
+          },
+          {
+            "rank": 18,
+            "team": {
+              "id": 82,
+              "name": "Montpellier",
+              "logo": "https://media.api-sports.io/football/teams/82.png"
+            },
+            "points": 1,
+            "goalsDiff": -11,
+            "group": "Ligue 1",
+            "form": "LLLD",
+            "status": "same",
+            "description": "Relegation",
+            "all": {
+              "played": 4,
+              "win": 0,
+              "draw": 1,
+              "lose": 3,
+              "goals": {
+                "for": 2,
+                "against": 13
               }
             },
             "home": {
@@ -723,98 +813,8 @@
               "draw": 0,
               "lose": 2,
               "goals": {
-                "for": 1,
-                "against": 3
-              }
-            },
-            "update": "2024-09-22T00:00:00+00:00"
-          },
-          {
-            "rank": 17,
-            "team": {
-              "id": 191,
-              "name": "Holstein Kiel",
-              "logo": "https://media.api-sports.io/football/teams/191.png"
-            },
-            "points": 1,
-            "goalsDiff": -8,
-            "group": "Bundesliga",
-            "form": "DLLL",
-            "status": "same",
-            "description": "Relegation - 2. Bundesliga",
-            "all": {
-              "played": 4,
-              "win": 0,
-              "draw": 1,
-              "lose": 3,
-              "goals": {
-                "for": 5,
-                "against": 13
-              }
-            },
-            "home": {
-              "played": 2,
-              "win": 0,
-              "draw": 0,
-              "lose": 2,
-              "goals": {
-                "for": 1,
-                "against": 8
-              }
-            },
-            "away": {
-              "played": 2,
-              "win": 0,
-              "draw": 1,
-              "lose": 1,
-              "goals": {
-                "for": 4,
-                "against": 5
-              }
-            },
-            "update": "2024-09-22T00:00:00+00:00"
-          },
-          {
-            "rank": 18,
-            "team": {
-              "id": 186,
-              "name": "FC St. Pauli",
-              "logo": "https://media.api-sports.io/football/teams/186.png"
-            },
-            "points": 0,
-            "goalsDiff": -5,
-            "group": "Bundesliga",
-            "form": "LLL",
-            "status": "same",
-            "description": "Relegation - 2. Bundesliga",
-            "all": {
-              "played": 3,
-              "win": 0,
-              "draw": 0,
-              "lose": 3,
-              "goals": {
-                "for": 1,
-                "against": 6
-              }
-            },
-            "home": {
-              "played": 1,
-              "win": 0,
-              "draw": 0,
-              "lose": 1,
-              "goals": {
                 "for": 0,
-                "against": 2
-              }
-            },
-            "away": {
-              "played": 2,
-              "win": 0,
-              "draw": 0,
-              "lose": 2,
-              "goals": {
-                "for": 1,
-                "against": 4
+                "against": 9
               }
             },
             "update": "2024-09-22T00:00:00+00:00"
