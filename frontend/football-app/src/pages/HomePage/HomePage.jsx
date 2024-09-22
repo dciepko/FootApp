@@ -1,6 +1,7 @@
 import classes from "./HomePage.module.css";
 import ResultContainer from "../../components/MainPage/ResultContainer/ResultContainer";
 import LeaguesContainer from "../../components/MainPage/LeaguesContainer/LeaguesContainer";
+import AdditionalContainer from "../../components/MainPage/AdditionalContainer/AdditionalContainer";
 
 export default function HomePage() {
   return (
@@ -50,7 +51,7 @@ export default function HomePage() {
         </div>
         <div className={classes.additionalContainer}>
           <div className={classes.additionalShape}>
-            <div className={classes.additionalContent}></div>
+            <AdditionalContainer />
           </div>
         </div>
       </section>

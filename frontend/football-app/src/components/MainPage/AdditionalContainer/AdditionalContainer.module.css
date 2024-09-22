@@ -1,0 +1,19 @@
+.additionalContent {
+  height: 78%;
+  width: 80%;
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+}
+
+.star {
+  height: 3rem;
+  width: 3rem;
+}
+
+.announceText {
+  font-family: "Chakra Petch", sans-serif;
+  padding-left: 0.8rem;
+  font-size: 1.8rem;
+}
