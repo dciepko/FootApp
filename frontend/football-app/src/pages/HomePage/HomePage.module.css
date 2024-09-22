@@ -110,8 +110,10 @@ main {
 
 .currentResultsList {
   height: 78%;
-  width: 80%;
-  overflow: auto;
+  max-width: 80%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
   position: absolute;
   z-index: 5;
 }

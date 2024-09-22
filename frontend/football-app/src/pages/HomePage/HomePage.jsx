@@ -70,8 +70,15 @@ export default function HomePage() {
           <div className={classes.currentResultsShape}>
             <div className={classes.currentResultsList}>
               {fixturesData &&
-                fixturesData.map((fixture) => {
-                  return <ResultBar fixture={fixture} />;
+                fixturesData.map((fixture, index) => {
+                  const className = index % 2 === 0 ? "even" : "odd";
+                  return (
+                    <ResultBar
+                      key={fixture.fixture.id}
+                      fixture={fixture}
+                      className={className}
+                    />
+                  );
                 })}
             </div>
           </div>

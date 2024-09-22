@@ -1,8 +1,13 @@
 import classes from "./ResultBar.module.css";
 
-export default function ResultBar({ fixture }) {
+export default function ResultBar({ fixture, className }) {
+  const backgroundColor = className === "odd" ? "transparent" : "#e6292c";
+
   return (
-    <li className={classes.barItem}>
+    <li
+      className={classes.barItem}
+      style={{ backgroundColor: backgroundColor }}
+    >
       <button className={classes.barObject}>
         <span className={classes.homePart}>
           <div className={classes.logoContainer}>
@@ -12,13 +17,22 @@ export default function ResultBar({ fixture }) {
               alt="Team logo"
             />
           </div>
-          <div>{fixture.teams.home.name}</div>
+          <div className={classes.nameContainer}>{fixture.teams.home.name}</div>
           <div>{fixture.goals.home}</div>
         </span>
-        -
+        <span
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%",
+          }}
+        >
+          -
+        </span>
         <span className={classes.awayPart}>
           <div>{fixture.goals.away}</div>
-          <div>{fixture.teams.away.name}</div>
+          <div className={classes.nameContainer}>{fixture.teams.away.name}</div>
           <div className={classes.logoContainer}>
             <img
               className={classes.logoImg}
