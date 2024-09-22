@@ -1,6 +1,7 @@
 import "./App.css";
 import Header from "./components/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
+import { useQuery } from "@tanstack/react-query";
 
 const App = () => {
   return (
