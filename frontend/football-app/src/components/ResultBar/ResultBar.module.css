@@ -1,7 +1,7 @@
 .barItem {
   width: 100%;
   list-style: none;
-  max-height: 4rem;
+  max-height: 6rem;
   padding: 0.5rem 0.8rem 0.5rem 0.5rem;
   box-sizing: border-box;
 }
@@ -10,6 +10,7 @@
   border: none;
   background-color: transparent;
   font-size: 1.1rem;
+  color: inherit;
   font-family: "Chakra Petch", sans-serif;
   display: grid;
   grid-template-columns: 1fr 1rem 1fr;

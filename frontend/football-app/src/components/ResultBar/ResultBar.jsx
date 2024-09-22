@@ -2,11 +2,12 @@ import classes from "./ResultBar.module.css";
 
 export default function ResultBar({ fixture, className }) {
   const backgroundColor = className === "odd" ? "transparent" : "#e6292c";
+  const fontColor = className === "odd" ? "black" : "white";
 
   return (
     <li
       className={classes.barItem}
-      style={{ backgroundColor: backgroundColor }}
+      style={{ backgroundColor: backgroundColor, color: fontColor }}
     >
       <button className={classes.barObject}>
         <span className={classes.homePart}>
