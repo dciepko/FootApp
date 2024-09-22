@@ -1,5 +1,6 @@
 import classes from "./HomePage.module.css";
-import ResultContainer from "../../components/ResultContainer/ResultContainer";
+import ResultContainer from "../../components/MainPage/ResultContainer/ResultContainer";
+import LeaguesContainer from "../../components/MainPage/LeaguesContainer/LeaguesContainer";
 
 export default function HomePage() {
   return (
@@ -44,7 +45,7 @@ export default function HomePage() {
         </div>
         <div className={classes.leaguesContainer}>
           <div className={classes.leaguesShape}>
-            <div className={classes.leaguesList}></div>
+            <LeaguesContainer />
           </div>
         </div>
         <div className={classes.additionalContainer}>

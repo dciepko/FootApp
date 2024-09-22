@@ -131,13 +131,6 @@ main {
   box-sizing: border-box;
 }
 
-.leaguesList {
-  height: 78%;
-  width: 80%;
-  position: absolute;
-  z-index: 5;
-}
-
 .additionalShape {
   height: 100%;
   width: 100%;

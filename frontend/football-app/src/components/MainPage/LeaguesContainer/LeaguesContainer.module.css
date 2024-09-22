@@ -1,0 +1,27 @@
+.leaguesList {
+  height: 78%;
+  width: 80%;
+  position: absolute;
+  z-index: 5;
+}
+
+.leagueChoosePanel {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.leagueButton {
+  max-width: 3.5rem;
+  max-height: 3.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 0.2rem gray solid;
+}
+
+.leagueImage {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}

@@ -1,7 +1,7 @@
 import classes from "./ResultContainer.module.css";
 import { useQuery } from "@tanstack/react-query";
-import fixturesData from "../../data/fixtures.json";
-import ResultBar from "../../components/ResultBar/ResultBar";
+import fixturesData from "../../../data/fixtures.json";
+import ResultBar from "../ResultBar/ResultBar";
 
 const fetchFixtures = async () => {
   const url = "https://api-football-v1.p.rapidapi.com/v3/fixtures?live=all";
