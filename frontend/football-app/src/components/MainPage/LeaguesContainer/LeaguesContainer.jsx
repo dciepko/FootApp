@@ -1,5 +1,6 @@
 import classes from "./LeaguesContainer.module.css";
 import leagues from "../../../data/leagues.json";
+import { useState } from "react";
 
 export default function LeaguesContainer() {
   const premierLeague = leagues.find((obj) => obj.league.id === 39);
@@ -8,6 +9,8 @@ export default function LeaguesContainer() {
   const serieA = leagues.find((obj) => obj.league.id === 135);
   const ligueUn = leagues.find((obj) => obj.league.id === 61);
   const ekstraklasa = leagues.find((obj) => obj.league.id === 106);
+
+  const [currentLeague, useCurrentLeague] = useState(premierLeague);
 
   return (
     <div className={classes.leaguesList}>
