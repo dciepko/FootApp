@@ -21,10 +21,28 @@
   border: 0.2rem gray solid;
   cursor: pointer;
   position: relative;
+  overflow: hidden;
+  transition: color 0.4s ease;
+  z-index: 1;
+  background-color: transparent;
 }
 
-.leagueButton:hover {
+.leagueButton::after {
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  left: 0;
+  position: absolute;
+  content: "";
   background-color: gray;
+  transition: top 0.15s ease;
+  z-index: 0;
+}
+
+.leagueButton:hover::after {
+  top: 0;
+
+  /* background-color: gray; */
 }
 
 .leagueImage {
@@ -32,6 +50,8 @@
   max-height: 100%;
   width: auto;
   height: auto;
+  z-index: 2;
+  position: relative;
 }
 
 .leagueContainer {
