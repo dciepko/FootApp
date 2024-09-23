@@ -41,8 +41,6 @@
 
 .leagueButton:hover::after {
   top: 0;
-
-  /* background-color: gray; */
 }
 
 .leagueImage {
