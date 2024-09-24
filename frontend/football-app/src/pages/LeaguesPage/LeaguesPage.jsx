@@ -24,7 +24,7 @@ export default function LeaguesPage() {
               }}
               className={classes.optionButton}
             >
-              Kraj
+              <span>Kraj</span>
             </button>
             {countryShowdown && (
               <ul className={classes.optionMenu}>
@@ -41,7 +41,7 @@ export default function LeaguesPage() {
               }}
               className={classes.optionButton}
             >
-              Sezon
+              <span>Sezon</span>
             </button>
             {seasonShowdown && (
               <ul className={classes.optionMenu}>
@@ -58,7 +58,7 @@ export default function LeaguesPage() {
               }}
               className={classes.optionButton}
             >
-              Typ Rozgrywek
+              <span>Typ Rozgrywek</span>
             </button>
             {typeShowdown && (
               <ul className={classes.optionMenu}>
