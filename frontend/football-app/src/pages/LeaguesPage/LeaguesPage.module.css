@@ -96,7 +96,8 @@ main {
 }
 
 .leaguesContainer {
-  max-height: 92%;
+  max-height: 80%;
+  height: 80%;
   flex-grow: 1;
   overflow-y: auto;
   overflow-x: hidden;
@@ -143,4 +144,31 @@ main {
   display: flex;
   align-items: center;
   color: gray;
+}
+
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  height: 12%;
+  align-items: center;
+}
+
+.paginationButton {
+  margin: 0 5px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 1rem;
+}
+
+.activePage {
+  background-color: #007bff;
+  color: white;
+}
+
+.paginationButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
