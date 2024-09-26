@@ -157,3 +157,36 @@ main {
   align-items: center;
   color: gray;
 }
+
+.appliedFilters {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.filterTag {
+  background-color: #e6292c;
+  color: white;
+  padding: 0.3rem 0.4rem;
+  margin: 0.5rem;
+  display: flex;
+  align-items: center;
+  clip-path: polygon(90% 0, 100% 20%, 100% 100%, 10% 100%, 0% 80%, 0 0);
+}
+
+.clearButton {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-left: 0.8rem;
+  font-size: 1rem;
+}
+
+.clearButton:hover {
+  color: #ff4d4d;
+}
+
+.optionContainer {
+  position: relative;
+}
