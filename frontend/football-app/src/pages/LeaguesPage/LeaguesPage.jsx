@@ -2,6 +2,7 @@ import NavMenu from "../../components/NavMenu/NavMenu";
 import classes from "./LeaguesPage.module.css";
 import leagues from "../../data/leagues.json";
 import { useState } from "react";
+import Pagination from "../../components/Pagination/Pagination"; // Import nowego komponentu
 
 export default function LeaguesPage() {
   const [countryShowdown, setCountryShowdown] = useState(false);
@@ -25,84 +26,6 @@ export default function LeaguesPage() {
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
-  };
-
-  const renderPaginationButtons = () => {
-    const paginationButtons = [];
-
-    for (let i = 1; i <= Math.min(3, totalPages); i++) {
-      paginationButtons.push(
-        <button
-          key={i}
-          onClick={() => handlePageChange(i)}
-          className={`${classes.paginationButton} ${
-            currentPage === i ? classes.activePage : ""
-          }`}
-        >
-          <span>{i}</span>
-        </button>
-      );
-    }
-
-    if (currentPage > 4) {
-      paginationButtons.push(<span key="dots-prev">...</span>);
-    }
-
-    if (currentPage > 3 && currentPage < totalPages - 2) {
-      if (currentPage - 1 > 3) {
-        paginationButtons.push(
-          <button
-            key={currentPage - 1}
-            onClick={() => handlePageChange(currentPage - 1)}
-            className={`${classes.paginationButton}`}
-          >
-            <span>{currentPage - 1}</span>
-          </button>
-        );
-      }
-
-      paginationButtons.push(
-        <button
-          key={currentPage}
-          onClick={() => handlePageChange(currentPage)}
-          className={`${classes.paginationButton} ${classes.activePage}`}
-        >
-          <span>{currentPage}</span>
-        </button>
-      );
-
-      if (currentPage + 1 < totalPages - 2) {
-        paginationButtons.push(
-          <button
-            key={currentPage + 1}
-            onClick={() => handlePageChange(currentPage + 1)}
-            className={`${classes.paginationButton}`}
-          >
-            <span>{currentPage + 1}</span>
-          </button>
-        );
-      }
-    }
-
-    if (currentPage < totalPages - 3) {
-      paginationButtons.push(<span key="dots-next">...</span>);
-    }
-
-    for (let i = Math.max(totalPages - 2, 4); i <= totalPages; i++) {
-      paginationButtons.push(
-        <button
-          key={i}
-          onClick={() => handlePageChange(i)}
-          className={`${classes.paginationButton} ${
-            currentPage === i ? classes.activePage : ""
-          }`}
-        >
-          <span>{i}</span>
-        </button>
-      );
-    }
-
-    return paginationButtons;
   };
 
   return (
@@ -194,25 +117,13 @@ export default function LeaguesPage() {
           })}
         </div>
 
-        <div className={classes.paginationContainer}>
-          <button
-            disabled={currentPage === 1}
-            onClick={() => handlePageChange(currentPage - 1)}
-            className={classes.paginationButton}
-          >
-            <span>&lt; Poprzednia</span>
-          </button>
-
-          {renderPaginationButtons()}
-
-          <button
-            disabled={currentPage === totalPages}
-            onClick={() => handlePageChange(currentPage + 1)}
-            className={classes.paginationButton}
-          >
-            <span>Następna &gt;</span>
-          </button>
-        </div>
+        {/* Wstawienie komponentu Pagination */}
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+          itemsPerPage={itemsPerPage}
+        />
       </section>
     </main>
   );
