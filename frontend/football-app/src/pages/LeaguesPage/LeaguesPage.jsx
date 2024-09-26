@@ -8,8 +8,8 @@ export default function LeaguesPage() {
   const [seasonShowdown, setSeasonShowdown] = useState(false);
   const [typeShowdown, setTypeShowdown] = useState(false);
 
-  const [currentPage, setCurrentPage] = useState(1); // Aktualna strona
-  const itemsPerPage = 100; // Elementy na stronę
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 100;
 
   const countrySet = [...new Set(leagues.map((league) => league.country.name))];
   const seasonSet = [...new Set(leagues.map((league) => league.seasons.year))];
@@ -39,12 +39,11 @@ export default function LeaguesPage() {
             currentPage === i ? classes.activePage : ""
           }`}
         >
-          {i}
+          <span>{i}</span>
         </button>
       );
     }
 
-    // Elipsy przed bieżącą stroną (jeśli jest dalej niż na 4. stronie)
     if (currentPage > 4) {
       paginationButtons.push(<span key="dots-prev">...</span>);
     }
@@ -57,7 +56,7 @@ export default function LeaguesPage() {
             onClick={() => handlePageChange(currentPage - 1)}
             className={`${classes.paginationButton}`}
           >
-            {currentPage - 1}
+            <span>{currentPage - 1}</span>
           </button>
         );
       }
@@ -68,7 +67,7 @@ export default function LeaguesPage() {
           onClick={() => handlePageChange(currentPage)}
           className={`${classes.paginationButton} ${classes.activePage}`}
         >
-          {currentPage}
+          <span>{currentPage}</span>
         </button>
       );
 
@@ -79,7 +78,7 @@ export default function LeaguesPage() {
             onClick={() => handlePageChange(currentPage + 1)}
             className={`${classes.paginationButton}`}
           >
-            {currentPage + 1}
+            <span>{currentPage + 1}</span>
           </button>
         );
       }
@@ -98,7 +97,7 @@ export default function LeaguesPage() {
             currentPage === i ? classes.activePage : ""
           }`}
         >
-          {i}
+          <span>{i}</span>
         </button>
       );
     }
@@ -111,7 +110,6 @@ export default function LeaguesPage() {
       <NavMenu />
       <section className={classes.mainSection}>
         <div className={classes.optionsContainer}>
-          {/* Filtry */}
           <div className={classes.optionContainer}>
             <button
               onClick={() => {
@@ -202,7 +200,7 @@ export default function LeaguesPage() {
             onClick={() => handlePageChange(currentPage - 1)}
             className={classes.paginationButton}
           >
-            &lt; Poprzednia
+            <span>&lt; Poprzednia</span>
           </button>
 
           {renderPaginationButtons()}
@@ -212,7 +210,7 @@ export default function LeaguesPage() {
             onClick={() => handlePageChange(currentPage + 1)}
             className={classes.paginationButton}
           >
-            Następna &gt;
+            <span>Następna &gt;</span>
           </button>
         </div>
       </section>

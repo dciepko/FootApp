@@ -95,6 +95,14 @@ main {
   padding: 0;
 }
 
+.optionMenu li {
+  cursor: pointer;
+}
+
+.optionMenu li:hover {
+  background-color: lightgrey;
+}
+
 .leaguesContainer {
   max-height: 80%;
   height: 80%;
@@ -111,6 +119,10 @@ main {
   grid-template-columns: 15% 55% 20% 20%;
   height: 3rem;
   cursor: pointer;
+}
+
+.leagueBar:hover {
+  background-color: lightgray;
 }
 
 .logoContainer,
@@ -161,14 +173,40 @@ main {
   cursor: pointer;
   font-family: "Chakra Petch", sans-serif;
   font-size: 1rem;
+  clip-path: polygon(80% 0, 100% 20%, 100% 100%, 20% 100%, 0% 80%, 0 0);
+  position: relative;
+}
+
+.paginationButton::before {
+  width: 200%;
+  height: 200%;
+  top: -100%;
+  left: -100%;
+  content: "";
+  position: absolute;
+  background-color: lightgray;
+  transition: transform 0.2s ease;
+  transform: translate(-100%, -100%);
+  z-index: 0;
+}
+
+.paginationButton span {
+  z-index: 5;
+  position: relative;
+}
+
+.paginationButton:hover::before {
+  transform: translate(0, 0);
 }
 
 .activePage {
-  background-color: #007bff;
+  background-color: #e6292c;
   color: white;
+  pointer-events: none;
 }
 
 .paginationButton:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+  pointer-events: none;
 }
