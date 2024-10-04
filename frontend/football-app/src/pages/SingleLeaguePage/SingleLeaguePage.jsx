@@ -41,6 +41,8 @@ export default function SingleLeaguePage({ chosenLeagueId = 39 }) {
     seasonsData[seasonsData.length - 1].year.toString()
   );
   const [seasonShowdown, setSeasonShowdown] = useState(false);
+  const [currentContent, setCurrentContent] = useState("standings");
+  console.log(currentContent);
 
   return (
     <main>
@@ -98,12 +100,38 @@ export default function SingleLeaguePage({ chosenLeagueId = 39 }) {
             </div>
           </div>
         </div>
-        <div className={classes.contentContainer}>
-          <div className={classes.mainPart}>
-            <StandingsPage />
+
+        {currentContent === "standings" ? (
+          <div className={classes.contentContainerStandings}>
+            <div className={classes.mainPart}>
+              <StandingsPage />
+            </div>
+            <div className={classes.arrowPart}>
+              <button
+                className={classes.arrowButton}
+                onClick={() => {
+                  setCurrentContent("statistics");
+                }}
+              >
+                -&gt;
+              </button>
+            </div>
           </div>
-          <div className={classes.arrowPart}>-&gt;</div>
-        </div>
+        ) : (
+          <div className={classes.contentContainerStatistics}>
+            <div className={classes.arrowPart}>
+              <button
+                className={classes.arrowButton}
+                onClick={() => {
+                  setCurrentContent("standings");
+                }}
+              >
+                &lt;-
+              </button>
+            </div>
+            <div className={classes.mainPart}></div>
+          </div>
+        )}
       </div>
     </main>
   );

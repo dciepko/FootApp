@@ -154,12 +154,31 @@ main {
   align-items: center;
 }
 
-.contentContainer {
+.contentContainerStandings {
   max-height: 85%;
   display: grid;
   grid-template-columns: 93% 7%;
 }
 
-.contentContainer .mainPart {
+.contentContainerStandings .mainPart {
   overflow: auto;
+}
+
+.arrowPart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrowButton {
+  background-color: #e6292c;
+  font-size: 1.5rem;
+  border-radius: 2rem;
+}
+
+.contentContainerStatistics {
+  max-height: 85%;
+  height: 85%;
+  display: grid;
+  grid-template-columns: 7% 93%;
 }
