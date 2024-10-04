@@ -159,3 +159,7 @@ main {
   display: grid;
   grid-template-columns: 93% 7%;
 }
+
+.contentContainer .mainPart {
+  overflow: auto;
+}

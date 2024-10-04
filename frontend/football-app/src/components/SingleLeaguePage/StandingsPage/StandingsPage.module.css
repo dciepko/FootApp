@@ -2,3 +2,11 @@
   display: grid;
   grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
 }
+
+.singleStanding {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  font-size: 1.2rem;
+  border-bottom: 1px gray solid;
+  padding: 0.5rem 0;
+}

@@ -1,5 +1,6 @@
 import classes from "./StandingsPage.module.css";
 import premierLeagueData from "../../../data/currentLeague/premierLeague.json";
+import Standings from "../Standing/Standings";
 
 export default function StandingsPage() {
   const premierLeague = premierLeagueData[0];
@@ -18,6 +19,15 @@ export default function StandingsPage() {
         <span>Draw</span>
         <span>Lose</span>
         <span>Points</span>
+      </div>
+      <div className={classes.actualStandings}>
+        {premierLeague.league.standings[0].map((place) => {
+          return (
+            <div className={classes.singleStanding}>
+              <Standings team={place} />{" "}
+            </div>
+          );
+        })}
       </div>
     </>
   );
