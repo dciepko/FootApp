@@ -153,3 +153,9 @@ main {
   display: flex;
   align-items: center;
 }
+
+.contentContainer {
+  max-height: 85%;
+  display: grid;
+  grid-template-columns: 93% 7%;
+}

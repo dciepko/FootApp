@@ -4,6 +4,7 @@ import leagues from "../../data/leagues.json";
 import { useQuery } from "@tanstack/react-query";
 import plSingle from "../../data/PLSingle.json";
 import { useState } from "react";
+import StandingsPage from "../../components/SingleLeaguePage/StandingsPage/StandingsPage";
 
 const fetchLeagueData = async ({ queryKey }) => {
   const [_key, chosenLeagueId] = queryKey;
@@ -96,6 +97,12 @@ export default function SingleLeaguePage({ chosenLeagueId = 39 }) {
               )}
             </div>
           </div>
+        </div>
+        <div className={classes.contentContainer}>
+          <div className={classes.mainPart}>
+            <StandingsPage />
+          </div>
+          <div className={classes.arrowPart}>-&gt;</div>
         </div>
       </div>
     </main>

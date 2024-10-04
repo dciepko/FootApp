@@ -26,8 +26,6 @@ export default function LeaguesContainer() {
 
   const [currentLeague, setCurrentLeague] = useState(premierLeague);
 
-  console.log(currentLeague);
-
   return (
     <div className={classes.leaguesList}>
       <div className={classes.leagueChoosePanel}>
