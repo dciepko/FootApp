@@ -57,7 +57,8 @@ export default function SingleLeaguePage({ chosenLeagueId = 39 }) {
           <div className={classes.names}>
             <div className={classes.leagueName}>{data.league.name}</div>
             <div className={classes.secondary}>
-              <div className={classes.countryName}>{data.country.name}</div>|
+              <div className={classes.countryName}>{data.country.name}</div>
+              &nbsp;|&nbsp;
               <div className={classes.typeName}>{data.league.type}</div>
             </div>
           </div>

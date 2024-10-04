@@ -19,20 +19,20 @@ main {
 .informationContainer {
   width: 100%;
   max-height: 15%;
-  background-color: blue;
+  background-color: rgb(238, 235, 235);
   display: grid;
   grid-template-columns: 20% 50% 30%;
 }
 
 .images {
   display: flex;
-  align-items: center;
+  justify-content: space-around;
 }
 
 .logoContainer,
 .flagContainer {
-  width: 50%;
-  height: 50%;
+  width: 45%;
+  height: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,6 +49,7 @@ main {
 .names {
   display: flex;
   flex-direction: column;
+  margin-left: 0.7rem;
 }
 
 .leagueName {
@@ -58,6 +59,7 @@ main {
 
 .secondary {
   display: flex;
+  color: gray;
 }
 
 .optionsContainer {
@@ -115,9 +117,9 @@ main {
 }
 
 .optionContainer {
-  height: 80%;
+  height: 50%;
   position: relative;
-  width: 20%;
+  width: 40%;
   margin-right: 2rem;
 }
 
@@ -145,4 +147,9 @@ main {
 
 .optionMenu li:hover {
   background-color: lightgrey;
+}
+
+.seasonsContainer {
+  display: flex;
+  align-items: center;
 }
