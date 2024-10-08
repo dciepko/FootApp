@@ -1,0 +1,25 @@
+.infoContainer {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  max-height: 100%;
+  height: 100%;
+}
+
+.imagesPart {
+  max-height: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.faceImageContainer {
+  max-height: 50%;
+}
+
+.clubImageContainer {
+  max-height: 25%;
+}
+
+.countryImageContainer {
+  max-height: 25%;
+}

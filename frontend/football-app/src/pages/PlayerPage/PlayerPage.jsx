@@ -13,7 +13,9 @@ export default function PlayerPage() {
       case "info":
         return (
           <div className={classes.basicInformationSection}>
-            <div className={classes.mainPart}></div>
+            <div className={classes.mainPart}>
+              <PlayerInfoPage />
+            </div>
             <div className={classes.arrowPart}>
               <button
                 className={classes.arrowButton}
