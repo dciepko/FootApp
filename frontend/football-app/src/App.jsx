@@ -4,13 +4,14 @@ import HomePage from "./pages/HomePage/HomePage";
 import { useQuery } from "@tanstack/react-query";
 import LeaguesPage from "./pages/LeaguesPage/LeaguesPage";
 import SingleLeaguePage from "./pages/SingleLeaguePage/SingleLeaguePage";
+import PlayerPage from "./pages/PlayerPage/PlayerPage";
 
 const App = () => {
   return (
     <div className="container">
       <div className="app">
         <Header />
-        <SingleLeaguePage />
+        <PlayerPage />
       </div>
     </div>
   );
