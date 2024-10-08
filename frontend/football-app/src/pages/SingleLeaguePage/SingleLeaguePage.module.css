@@ -181,6 +181,16 @@ main {
   height: 85%;
   display: grid;
   grid-template-columns: 7% 86% 7%;
+  grid-template-rows: 1fr;
+  overflow: hidden;
+}
+
+.contentContainerStatistics .mainPart {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  overflow-y: auto;
+  max-height: 100%;
 }
 
 .contentContainerMatches {
