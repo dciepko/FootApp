@@ -5,6 +5,8 @@ import { useQuery } from "@tanstack/react-query";
 import plSingle from "../../data/PLSingle.json";
 import { useState } from "react";
 import StandingsPage from "../../components/SingleLeaguePage/StandingsPage/StandingsPage";
+import MatchesPage from "../../components/SingleLeaguePage/MatchesPage/MatchesPage";
+import StatisticsPage from "../../components/SingleLeaguePage/StatisticsPage/StatisticsPage";
 
 const fetchLeagueData = async ({ queryKey }) => {
   const [_key, chosenLeagueId] = queryKey;
@@ -42,7 +44,72 @@ export default function SingleLeaguePage({ chosenLeagueId = 39 }) {
   );
   const [seasonShowdown, setSeasonShowdown] = useState(false);
   const [currentContent, setCurrentContent] = useState("standings");
-  console.log(currentContent);
+
+  const renderContent = () => {
+    switch (currentContent) {
+      case "standings":
+        return (
+          <div className={classes.contentContainerStandings}>
+            <div className={classes.mainPart}>
+              <StandingsPage />
+            </div>
+            <div className={classes.arrowPart}>
+              <button
+                className={classes.arrowButton}
+                onClick={() => setCurrentContent("statistics")}
+              >
+                -&gt;
+              </button>
+            </div>
+          </div>
+        );
+
+      case "statistics":
+        return (
+          <div className={classes.contentContainerStatistics}>
+            <div className={classes.arrowPart}>
+              <button
+                className={classes.arrowButton}
+                onClick={() => setCurrentContent("standings")}
+              >
+                &lt;-
+              </button>
+            </div>
+            <div className={classes.mainPart}>
+              <StatisticsPage />
+            </div>
+            <div className={classes.arrowPart}>
+              <button
+                className={classes.arrowButton}
+                onClick={() => setCurrentContent("matches")}
+              >
+                -&gt;
+              </button>
+            </div>
+          </div>
+        );
+
+      case "matches":
+        return (
+          <div className={classes.contentContainerMatches}>
+            <div className={classes.arrowPart}>
+              <button
+                className={classes.arrowButton}
+                onClick={() => setCurrentContent("statistics")}
+              >
+                &lt;-
+              </button>
+            </div>
+            <div className={classes.mainPart}>
+              <MatchesPage />
+            </div>
+          </div>
+        );
+
+      default:
+        return null; // lub jakakolwiek domyślna treść
+    }
+  };
 
   return (
     <main>
@@ -101,37 +168,7 @@ export default function SingleLeaguePage({ chosenLeagueId = 39 }) {
           </div>
         </div>
 
-        {currentContent === "standings" ? (
-          <div className={classes.contentContainerStandings}>
-            <div className={classes.mainPart}>
-              <StandingsPage />
-            </div>
-            <div className={classes.arrowPart}>
-              <button
-                className={classes.arrowButton}
-                onClick={() => {
-                  setCurrentContent("statistics");
-                }}
-              >
-                -&gt;
-              </button>
-            </div>
-          </div>
-        ) : (
-          <div className={classes.contentContainerStatistics}>
-            <div className={classes.arrowPart}>
-              <button
-                className={classes.arrowButton}
-                onClick={() => {
-                  setCurrentContent("standings");
-                }}
-              >
-                &lt;-
-              </button>
-            </div>
-            <div className={classes.mainPart}></div>
-          </div>
-        )}
+        {renderContent()}
       </div>
     </main>
   );

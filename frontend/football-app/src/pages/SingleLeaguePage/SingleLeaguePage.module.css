@@ -25,14 +25,14 @@ main {
 }
 
 .images {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .logoContainer,
 .flagContainer {
-  width: 45%;
-  height: 90%;
+  padding: 0.5rem;
+  height: 3.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -179,6 +179,14 @@ main {
 .contentContainerStatistics {
   max-height: 85%;
   height: 85%;
+  display: grid;
+  grid-template-columns: 7% 86% 7%;
+}
+
+.contentContainerMatches {
+  max-height: 85%;
+  height: 85%;
+
   display: grid;
   grid-template-columns: 7% 93%;
 }
