@@ -11,6 +11,11 @@
   padding: 0.5rem 0;
 }
 
+.singleMatch:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}
+
 .singleMatch span {
   display: flex;
   justify-content: center;

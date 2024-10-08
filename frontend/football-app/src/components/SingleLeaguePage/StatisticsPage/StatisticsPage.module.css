@@ -51,3 +51,8 @@
   display: grid;
   grid-template-columns: 10% 80% 20%;
 }
+
+.tableContainer li:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}

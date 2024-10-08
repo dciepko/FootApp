@@ -10,3 +10,8 @@
   border-bottom: 1px gray solid;
   padding: 0.5rem 0;
 }
+
+.singleStanding:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}

@@ -178,6 +178,10 @@ main {
   width: 60%;
 }
 
+.arrowButton:hover {
+  background-color: #8d2829;
+}
+
 .contentContainerStatistics {
   max-height: 85%;
   height: 85%;
