@@ -156,6 +156,7 @@ main {
 
 .contentContainerStandings {
   max-height: 85%;
+  height: 85%;
   display: grid;
   grid-template-columns: 93% 7%;
 }
