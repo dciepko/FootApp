@@ -1,4 +1,7 @@
 import NavMenu from "../../components/NavMenu/NavMenu";
+import PlayerAdditionalInfoPage from "../../components/PlayerPage/PlayerAdditionalInfoPage/PlayerAdditionalInfoPage";
+import PlayerStatisticsPage from "../../components/PlayerPage/PlayerStatisticsPage/PlayerStatisticsPage";
+import PlayerInfoPage from "../../components/PlayerPage/PlayerInfoPage/PlayerInfoPage";
 import classes from "./PlayerPage.module.css";
 import { useState } from "react";
 
@@ -33,7 +36,9 @@ export default function PlayerPage() {
                 &lt;-
               </button>
             </div>
-            <div className={classes.mainPart}></div>
+            <div className={classes.mainPart}>
+              <PlayerStatisticsPage />
+            </div>
             <div className={classes.arrowPart}>
               <button
                 className={classes.arrowButton}
@@ -56,7 +61,9 @@ export default function PlayerPage() {
                 &lt;-
               </button>
             </div>
-            <div className={classes.mainPart}></div>
+            <div className={classes.mainPart}>
+              <PlayerAdditionalInfoPage />
+            </div>
           </div>
         );
 
