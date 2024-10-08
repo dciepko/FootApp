@@ -1,0 +1,24 @@
+.helpBar {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+}
+
+.singleMatch {
+  display: grid;
+  grid-template-columns: 41% 5% 2% 5% 47%;
+  font-size: 1.2rem;
+  border-bottom: 1px gray solid;
+  padding: 0.5rem 0;
+}
+
+.singleMatch span {
+  display: flex;
+  justify-content: center;
+}
+
+.dateHeader {
+  width: 100%;
+  background-color: #e6292c;
+  padding-left: 0.5rem;
+  color: white;
+}

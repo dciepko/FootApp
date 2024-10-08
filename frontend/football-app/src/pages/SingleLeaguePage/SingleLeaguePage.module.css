@@ -173,7 +173,9 @@ main {
 .arrowButton {
   background-color: #e6292c;
   font-size: 1.5rem;
-  border-radius: 2rem;
+  clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0% 75%, 0 0);
+  border: none;
+  width: 60%;
 }
 
 .contentContainerStatistics {
@@ -195,8 +197,11 @@ main {
 
 .contentContainerMatches {
   max-height: 85%;
-  height: 85%;
-
   display: grid;
   grid-template-columns: 7% 93%;
+}
+
+.contentContainerMatches .mainPart {
+  overflow-y: scroll;
+  overflow-x: hidden;
 }

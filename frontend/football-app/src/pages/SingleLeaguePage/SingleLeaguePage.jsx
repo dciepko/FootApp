@@ -107,7 +107,7 @@ export default function SingleLeaguePage({ chosenLeagueId = 39 }) {
         );
 
       default:
-        return null; // lub jakakolwiek domyślna treść
+        return null;
     }
   };
 
