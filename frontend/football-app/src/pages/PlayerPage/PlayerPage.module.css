@@ -64,6 +64,8 @@ main {
 }
 
 .additionalInfoSection .mainPart {
-  overflow-y: scroll;
   overflow-x: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 0.5rem;
 }

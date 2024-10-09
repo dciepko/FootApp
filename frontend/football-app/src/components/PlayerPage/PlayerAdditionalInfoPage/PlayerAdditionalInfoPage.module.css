@@ -1,0 +1,53 @@
+h2 {
+  font-size: 2rem;
+}
+
+.transfersContainer {
+  padding-right: 0.25rem;
+}
+
+.trophyContainer {
+  padding-left: 0.25rem;
+}
+
+.helpBarTrophies,
+.helpBarTransfers {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: #e6292c;
+  color: white;
+}
+
+.helpBarTransfers {
+  grid-template-columns: 1fr 2fr 0.4fr 2fr 1fr;
+}
+
+.helpBarTrophies span,
+.helpBarTransfers span {
+  border: 2px black solid;
+  padding: 0.2rem;
+}
+
+.transferList,
+.trophiesList {
+  background-color: lightgray;
+  max-height: 80%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.singleTransfer {
+  display: grid;
+  grid-template-columns: 1fr 2fr 0.4fr 2fr 1fr;
+}
+
+.singleTrophy {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.singleTransfer span,
+.singleTrophy span {
+  border: 1px gray solid;
+  padding: 0.2rem;
+}
