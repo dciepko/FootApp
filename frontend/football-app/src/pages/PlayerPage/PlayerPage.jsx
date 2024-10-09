@@ -21,7 +21,7 @@ export default function PlayerPage() {
                 className={classes.arrowButton}
                 onClick={() => setCurrentContent("statistics")}
               >
-                -&gt;
+                &#129130;
               </button>
             </div>
           </div>
@@ -35,7 +35,7 @@ export default function PlayerPage() {
                 className={classes.arrowButton}
                 onClick={() => setCurrentContent("info")}
               >
-                &lt;-
+                &#129128;
               </button>
             </div>
             <div className={classes.mainPart}>
@@ -46,7 +46,7 @@ export default function PlayerPage() {
                 className={classes.arrowButton}
                 onClick={() => setCurrentContent("additional")}
               >
-                -&gt;
+                &#129130;
               </button>
             </div>
           </div>
@@ -60,7 +60,7 @@ export default function PlayerPage() {
                 className={classes.arrowButton}
                 onClick={() => setCurrentContent("statistics")}
               >
-                &lt;-
+                &#129128;
               </button>
             </div>
             <div className={classes.mainPart}>
