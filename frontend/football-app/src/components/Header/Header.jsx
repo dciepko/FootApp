@@ -5,14 +5,14 @@ export default function Header() {
     <header className={classes.container}>
       <div className={classes.logoContainer}>
         <div className={classes.logoPicture} />
-        <h1 className={classes.logoSign}>FootVision</h1>
+        <h1 className={classes.logoSign}>GoalVision</h1>
       </div>
       <div className={classes.buttonContainer}>
         <a className={classes.headerButton} href="#">
-          <span>Zaloguj się</span>
+          <span>Login</span>
         </a>
         <a className={classes.headerButton} href="#">
-          <span>Zarejestruj się</span>
+          <span>Register</span>
         </a>
       </div>
     </header>

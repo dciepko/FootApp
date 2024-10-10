@@ -1,0 +1,49 @@
+.loginPage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginHeader {
+  width: 40vw;
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoContainer {
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.logoPicture {
+  width: 6rem;
+  height: 6rem;
+  background-image: url("../../assets/logoprz2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.name {
+  font-size: 4rem;
+  padding: 0.7rem 0;
+  margin: 0;
+}
+
+.loginContainer {
+  background-color: #e6292c;
+  max-width: 50vw;
+  max-height: 50vh;
+  width: 50vw;
+  height: 50vh;
+  clip-path: polygon(85% 0, 100% 7%, 100% 100%, 15% 100%, 0% 93%, 0 0);
+  color: white;
+}
