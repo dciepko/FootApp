@@ -1,9 +1,26 @@
 import classes from "./LoginPage.module.css";
 import logo from "../../assets/logoprz2.jpg";
 import { useState } from "react";
+import LoginInput from "../../components/LoginInput/LoginInput";
+import { useInput } from "../../hooks/useInput";
+import { hasMinLength, isNotEmpty } from "../../utils/validationFunctions";
 
 export default function LoginPage() {
   const [isNotAccurate, setIsNotAccurate] = useState(false);
+
+  const {
+    value: nicknameValue,
+    handleInputChange: handleNickChange,
+    handleInputBlur: handleNickBlur,
+    hasError: nickHasError,
+  } = useInput("", (value) => isNotEmpty(value));
+
+  const {
+    value: passwordValue,
+    handleInputChange: handlePasswordChange,
+    handleInputBlur: handlePasswordBlur,
+    hasError: passwordHasError,
+  } = useInput("", (value) => isNotEmpty(value) && hasMinLength(value, 6));
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -60,41 +77,43 @@ export default function LoginPage() {
       </header>
       <div className={classes.loginContainer}>
         <form onSubmit={handleSubmit} className={classes.form}>
-          <h2 className={classes.h2}>Zaloguj się</h2>
+          <h2 className={classes.h2}>Login</h2>
           {isNotAccurate && (
             <p className={classes.incorrectInputsContainer}>
-              Niepoprawny nick lub hasło!
+              Incorrect login or password!
             </p>
           )}
           <div className={classes.inputsContainer}>
-            {/* <Input
-              label="Nick"
+            <LoginInput
+              label="Login"
               id="nickname"
               type="text"
               name="nickname"
               onBlur={handleNickBlur}
               onChange={handleNickChange}
               value={nicknameValue}
-              error={nickHasError && "Wprowadź poprawny nick"}
-              placeholder="Wprowadź swój nick"
+              error={nickHasError && "Please enter the correct format"}
+              placeholder="Please enter your login"
             />
-            <Input
-              label="Hasło"
+            <LoginInput
+              label="Password"
               id="password"
               type="password"
               name="password"
               onBlur={handlePasswordBlur}
               onChange={handlePasswordChange}
               value={passwordValue}
-              error={passwordHasError && "Wprowadź poprawne hasło"}
-              placeholder="Wprowadź swoje hasło"
-            /> */}
+              error={passwordHasError && "Please enter the correct format"}
+              placeholder="Please enter your password"
+            />
 
             <div className={classes.buttonsContainer}>
               <button className={classes.loginButton}>Login</button>
             </div>
             <div className={classes.buttonWithText}>
-              <span className={classes.textBesideButton}>Nie masz konta?</span>
+              <span className={classes.textBesideButton}>
+                You don't have the account?
+              </span>
               {/* <Link to="/register" className={classes.registerButton}>
                 Zarejestruj się!
               </Link> */}
