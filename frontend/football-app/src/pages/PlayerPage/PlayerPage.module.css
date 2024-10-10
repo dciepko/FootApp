@@ -50,9 +50,9 @@ main {
 
 .statisticsSection .mainPart {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 5fr;
   overflow-y: auto;
+  overflow-x: hidden;
   max-height: 100%;
 }
 

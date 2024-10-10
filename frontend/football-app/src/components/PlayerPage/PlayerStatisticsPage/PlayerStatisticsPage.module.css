@@ -1,0 +1,23 @@
+.chooseSection {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 100%;
+  width: 100%;
+}
+
+.seasonChoosePart,
+.competitionChoosePart {
+  width: 40%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+}
+
+.statisticsSection {
+  height: 100%;
+}
+
+.statisticDetails {
+  height: 70%;
+}
