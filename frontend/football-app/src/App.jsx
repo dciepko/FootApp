@@ -6,12 +6,14 @@ import LeaguesPage from "./pages/LeaguesPage/LeaguesPage";
 import SingleLeaguePage from "./pages/SingleLeaguePage/SingleLeaguePage";
 import PlayerPage from "./pages/PlayerPage/PlayerPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import NavMenu from "./components/NavMenu/NavMenu";
+import RegisterPage from "./pages/RegisterPage/RegisterPage";
 
 const App = () => {
   return (
     <div className="container">
       <div className="app">
-        <LoginPage />
+        <RegisterPage />
       </div>
     </div>
   );

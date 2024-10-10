@@ -1,0 +1,93 @@
+.loginPage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginHeader {
+  width: 30vw;
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoContainer {
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.logoPicture {
+  width: 6rem;
+  height: 6rem;
+  background-image: url("../../assets/logoprz2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.name {
+  font-size: 4rem;
+  padding: 0.7rem 0;
+  margin: 0;
+}
+
+.loginContainer {
+  background-color: #e6292c;
+  max-width: 60vw;
+  max-height: 60vh;
+  width: 60vw;
+  height: 60vh;
+  clip-path: polygon(85% 0, 100% 7%, 100% 100%, 15% 100%, 0% 93%, 0 0);
+  color: white;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.form {
+  width: 80%;
+  max-width: 80%;
+}
+
+.inputsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.buttonsContainer {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.loginButton {
+  font-size: 1.8rem;
+  clip-path: polygon(85% 0, 100% 15%, 100% 100%, 15% 100%, 0% 85%, 0 0);
+  font-family: "Chakra Petch", sans-serif;
+  padding: 0.2rem 2rem;
+  border: none;
+  font-weight: bold;
+}
+
+.registerButton {
+  font-size: 1.8rem;
+  clip-path: polygon(85% 0, 100% 15%, 100% 100%, 15% 100%, 0% 85%, 0 0);
+  font-family: "Chakra Petch", sans-serif;
+  padding: 0.2rem 2rem;
+  border: none;
+  font-weight: bold;
+}
+
+.buttonsContainer {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
