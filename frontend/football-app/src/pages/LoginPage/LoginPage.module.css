@@ -7,7 +7,7 @@
 }
 
 .loginHeader {
-  width: 40vw;
+  width: 30vw;
   height: 25vh;
   display: flex;
   flex-direction: column;
@@ -40,9 +40,9 @@
 
 .loginContainer {
   background-color: #e6292c;
-  max-width: 50vw;
+  max-width: 40vw;
   max-height: 50vh;
-  width: 50vw;
+  width: 40vw;
   height: 50vh;
   clip-path: polygon(85% 0, 100% 7%, 100% 100%, 15% 100%, 0% 93%, 0 0);
   color: white;
@@ -52,10 +52,26 @@
 
 .form {
   width: 80%;
+  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 .inputsContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.buttonsContainer {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.loginButton {
+  font-size: 1.8rem;
+  clip-path: polygon(85% 0, 100% 15%, 100% 100%, 15% 100%, 0% 85%, 0 0);
+  font-family: "Chakra Petch", sans-serif;
+  padding: 0.2rem 2rem;
+  border: none;
+  font-weight: bold;
 }
