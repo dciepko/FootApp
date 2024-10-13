@@ -1,14 +1,47 @@
+import { useState } from "react";
 import NavMenu from "../../components/NavMenu/NavMenu";
+import TeamFixturesPage from "../../components/TeamPage/TeamFixturesPage/TeamFixturesPage";
+import TeamInfoPage from "../../components/TeamPage/TeamInfoPage/TeamInfoPage";
+import TeamSquadPage from "../../components/TeamPage/TeamSquadPage/TeamSquadPage";
+import TeamStandingsPage from "../../components/TeamPage/TeamStandingsPage/TeamStandingsPage";
+import TeamStatisticsPage from "../../components/TeamPage/TeamStatisticsPage/TeamStatisticsPage";
 import classes from "./TeamPage.module.css";
 
 export default function TeamPage() {
+  const [currentContent, setCurrentContent] = useState("info");
+
   const renderContent = () => {
     switch (currentContent) {
       case "info":
         return (
           <div className={classes.basicInformationSection}>
             <div className={classes.mainPart}>
-              <PlayerInfoPage />
+              <TeamInfoPage />
+            </div>
+            <div className={classes.arrowPart}>
+              <button
+                className={classes.arrowButton}
+                onClick={() => setCurrentContent("squad")}
+              >
+                &#129130;
+              </button>
+            </div>
+          </div>
+        );
+
+      case "squad":
+        return (
+          <div className={classes.statisticsSection}>
+            <div className={classes.arrowPart}>
+              <button
+                className={classes.arrowButton}
+                onClick={() => setCurrentContent("info")}
+              >
+                &#129128;
+              </button>
+            </div>
+            <div className={classes.mainPart}>
+              <TeamSquadPage />
             </div>
             <div className={classes.arrowPart}>
               <button
@@ -27,18 +60,18 @@ export default function TeamPage() {
             <div className={classes.arrowPart}>
               <button
                 className={classes.arrowButton}
-                onClick={() => setCurrentContent("info")}
+                onClick={() => setCurrentContent("squad")}
               >
                 &#129128;
               </button>
             </div>
             <div className={classes.mainPart}>
-              <PlayerStatisticsPage />
+              <TeamStatisticsPage />
             </div>
             <div className={classes.arrowPart}>
               <button
                 className={classes.arrowButton}
-                onClick={() => setCurrentContent("additional")}
+                onClick={() => setCurrentContent("standings")}
               >
                 &#129130;
               </button>
@@ -46,9 +79,9 @@ export default function TeamPage() {
           </div>
         );
 
-      case "additional":
+      case "standings":
         return (
-          <div className={classes.additionalInfoSection}>
+          <div className={classes.statisticsSection}>
             <div className={classes.arrowPart}>
               <button
                 className={classes.arrowButton}
@@ -58,7 +91,32 @@ export default function TeamPage() {
               </button>
             </div>
             <div className={classes.mainPart}>
-              <PlayerAdditionalInfoPage />
+              <TeamStandingsPage />
+            </div>
+            <div className={classes.arrowPart}>
+              <button
+                className={classes.arrowButton}
+                onClick={() => setCurrentContent("fixtures")}
+              >
+                &#129130;
+              </button>
+            </div>
+          </div>
+        );
+
+      case "fixtures":
+        return (
+          <div className={classes.additionalInfoSection}>
+            <div className={classes.arrowPart}>
+              <button
+                className={classes.arrowButton}
+                onClick={() => setCurrentContent("standings")}
+              >
+                &#129128;
+              </button>
+            </div>
+            <div className={classes.mainPart}>
+              <TeamFixturesPage />
             </div>
           </div>
         );
@@ -70,6 +128,7 @@ export default function TeamPage() {
   return (
     <main>
       <NavMenu />
+      <div className={classes.mainSection}>{renderContent()}</div>
     </main>
   );
 }
