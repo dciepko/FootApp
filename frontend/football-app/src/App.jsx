@@ -8,12 +8,14 @@ import PlayerPage from "./pages/PlayerPage/PlayerPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import NavMenu from "./components/NavMenu/NavMenu";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import TeamPage from "./pages/TeamPage/TeamPage";
 
 const App = () => {
   return (
     <div className="container">
       <div className="app">
-        <RegisterPage />
+        <Header />
+        <TeamPage />
       </div>
     </div>
   );
