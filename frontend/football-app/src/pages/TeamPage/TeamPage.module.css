@@ -44,7 +44,21 @@ main {
   background-color: #8d2829;
 }
 
-.contentContainerStatistics {
+.firstPage .mainPart,
+.inBetweenPage .mainPart,
+.lastPage .mainPart {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.firstPage {
+  max-height: 85%;
+  height: 85%;
+  display: grid;
+  grid-template-columns: 93% 7%;
+}
+
+.inBetweenPage {
   max-height: 85%;
   height: 85%;
   display: grid;
@@ -53,21 +67,10 @@ main {
   overflow: hidden;
 }
 
-.contentContainerStatistics .mainPart {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  overflow-y: auto;
-  max-height: 100%;
-}
-
-.contentContainerMatches {
+.lastPage {
   max-height: 85%;
+  height: 85%;
+
   display: grid;
   grid-template-columns: 7% 93%;
-}
-
-.contentContainerMatches .mainPart {
-  overflow-y: scroll;
-  overflow-x: hidden;
 }

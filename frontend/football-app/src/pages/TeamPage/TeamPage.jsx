@@ -6,6 +6,7 @@ import TeamSquadPage from "../../components/TeamPage/TeamSquadPage/TeamSquadPage
 import TeamStandingsPage from "../../components/TeamPage/TeamStandingsPage/TeamStandingsPage";
 import TeamStatisticsPage from "../../components/TeamPage/TeamStatisticsPage/TeamStatisticsPage";
 import classes from "./TeamPage.module.css";
+import TeamTransferPage from "../../components/TeamPage/TeamTransferPage/TeamTransferPage";
 
 export default function TeamPage() {
   const [currentContent, setCurrentContent] = useState("info");
@@ -14,7 +15,7 @@ export default function TeamPage() {
     switch (currentContent) {
       case "info":
         return (
-          <div className={classes.basicInformationSection}>
+          <div className={classes.firstPage}>
             <div className={classes.mainPart}>
               <TeamInfoPage />
             </div>
@@ -31,7 +32,7 @@ export default function TeamPage() {
 
       case "squad":
         return (
-          <div className={classes.statisticsSection}>
+          <div className={classes.inBetweenPage}>
             <div className={classes.arrowPart}>
               <button
                 className={classes.arrowButton}
@@ -56,7 +57,7 @@ export default function TeamPage() {
 
       case "statistics":
         return (
-          <div className={classes.statisticsSection}>
+          <div className={classes.inBetweenPage}>
             <div className={classes.arrowPart}>
               <button
                 className={classes.arrowButton}
@@ -81,7 +82,7 @@ export default function TeamPage() {
 
       case "standings":
         return (
-          <div className={classes.statisticsSection}>
+          <div className={classes.inBetweenPage}>
             <div className={classes.arrowPart}>
               <button
                 className={classes.arrowButton}
@@ -106,7 +107,7 @@ export default function TeamPage() {
 
       case "fixtures":
         return (
-          <div className={classes.additionalInfoSection}>
+          <div className={classes.inBetweenPage}>
             <div className={classes.arrowPart}>
               <button
                 className={classes.arrowButton}
@@ -117,6 +118,31 @@ export default function TeamPage() {
             </div>
             <div className={classes.mainPart}>
               <TeamFixturesPage />
+            </div>
+            <div className={classes.arrowPart}>
+              <button
+                className={classes.arrowButton}
+                onClick={() => setCurrentContent("transfers")}
+              >
+                &#129130;
+              </button>
+            </div>
+          </div>
+        );
+
+      case "transfers":
+        return (
+          <div className={classes.lastPage}>
+            <div className={classes.arrowPart}>
+              <button
+                className={classes.arrowButton}
+                onClick={() => setCurrentContent("fixtures")}
+              >
+                &#129128;
+              </button>
+            </div>
+            <div className={classes.mainPart}>
+              <TeamTransferPage />
             </div>
           </div>
         );
