@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import NavMenu from "./components/NavMenu/NavMenu";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import TeamPage from "./pages/TeamPage/TeamPage";
+import MatchPage from "./pages/MatchPage/MatchPage";
 
 const fetchFixtures = async () => {
   const url = "https://api-football-v1.p.rapidapi.com/v3/fixtures?id=157201";
@@ -63,7 +64,7 @@ const App = () => {
     <div className="container">
       <div className="app">
         <Header />
-        <TeamPage />
+        <MatchPage />
       </div>
     </div>
   );
