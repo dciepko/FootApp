@@ -11,8 +11,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import TeamPage from "./pages/TeamPage/TeamPage";
 
 const fetchFixtures = async () => {
-  const url =
-    "https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2020&team=33";
+  const url = "https://api-football-v1.p.rapidapi.com/v3/fixtures?id=157201";
   const options = {
     method: "GET",
     headers: {
@@ -50,7 +49,7 @@ const App = () => {
     // Tworzenie ukrytego elementu <a> do pobrania
     const link = document.createElement("a");
     link.href = url;
-    link.download = "MUFixtures.json"; // Nazwa pliku
+    link.download = "fixture.json"; // Nazwa pliku
     document.body.appendChild(link);
     link.click();
 
