@@ -6,7 +6,6 @@ export default function MatchInfoPage() {
 
   return (
     <div className={classes.matchInfo}>
-      {/* Informacje o lidze */}
       <div className={classes.leagueInfo}>
         <span>{matchData.league.name}</span>&nbsp;&nbsp;|&nbsp;&nbsp;
         <span>
@@ -21,7 +20,6 @@ export default function MatchInfoPage() {
         <span>{new Date(matchData.fixture.date).toLocaleString()}</span>
       </div>
 
-      {/* Drużyny i wynik */}
       <div className={classes.teams}>
         <div className={classes.team}>
           <div className={classes.imageContainer}>
@@ -52,11 +50,9 @@ export default function MatchInfoPage() {
         </div>
       </div>
 
-      {/* Wydarzenia meczu */}
       <div className={classes.events}>
         {matchData.events.map((event, index) => (
           <div key={index} className={classes.eventRow}>
-            {/* Jeśli wydarzenie należy do drużyny gospodarzy, wyświetlamy eventHome, a eventAway pozostaje pusty */}
             {event.team.id === matchData.teams.home.id ? (
               <>
                 <div className={classes.eventHome}>
@@ -82,7 +78,6 @@ export default function MatchInfoPage() {
         ))}
       </div>
 
-      {/* Szczegóły meczu */}
       <div className={classes.details}>
         <span>
           <p>Referee:</p>

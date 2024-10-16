@@ -12,11 +12,7 @@ export default function NavMenu() {
             Rozgrywki
           </a>
         </li>
-        <li>
-          <a href="#" className={classes.navMenuOption}>
-            Zawodnicy
-          </a>
-        </li>
+
         <li>
           <a href="#" className={classes.navMenuOption}>
             Porównaj

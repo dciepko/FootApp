@@ -1,0 +1,38 @@
+.matchStats {
+  height: 200%;
+  display: grid;
+  grid-template-rows: 1.5fr repeat(16, 1fr);
+}
+
+.matchStats > * {
+  display: grid;
+}
+
+.nameContainer {
+  grid-template-columns: 1fr 1fr;
+}
+
+.nameContainer span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.evenStatContainer,
+.statContainer {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.evenStatContainer span,
+.statContainer span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.evenStatContainer {
+  background-color: #e6292c;
+  color: white;
+}

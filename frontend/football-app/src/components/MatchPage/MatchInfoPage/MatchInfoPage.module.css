@@ -57,10 +57,8 @@
   font-weight: bold;
 }
 
-/* Stylizacja wydarzeń */
 .events {
   display: grid;
-  gap: 1rem;
   background-color: lightgray;
 }
 
@@ -79,7 +77,7 @@
 }
 
 .emptyEvent {
-  height: 2rem; /* Zachowujemy wysokość, aby wyrównać przestrzeń */
+  height: 2rem;
 }
 
 .details {
