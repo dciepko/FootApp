@@ -38,3 +38,8 @@ html {
   flex-direction: column;
   box-sizing: border-box;
 }
+
+.disablingLinks {
+  text-decoration: none;
+  color: initial;
+}

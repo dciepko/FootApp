@@ -8,6 +8,7 @@ import serieAData from "../../../data/currentLeague/serieA.json";
 import ligueUnData from "../../../data/currentLeague/ligueUn.json";
 import ekstraklasaData from "../../../data/currentLeague/ekstraklasa.json";
 import LeaguesContainerPlaceBar from "../LeaguesContainerPlaceBar/LeaguesContainerPlaceBar";
+import { Link } from "react-router-dom";
 
 export default function LeaguesContainer() {
   //   const premierLeague = leagues.find((obj) => obj.league.id === 39);
@@ -111,7 +112,11 @@ export default function LeaguesContainer() {
         </div>
         {currentLeague &&
           currentLeague.league.standings[0].map((place) => {
-            return <LeaguesContainerPlaceBar place={place} />;
+            return (
+              <Link className="disablingLinks" to={"/team"}>
+                <LeaguesContainerPlaceBar place={place} />
+              </Link>
+            );
           })}
       </div>
     </div>

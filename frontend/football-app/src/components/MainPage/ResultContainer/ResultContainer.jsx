@@ -2,6 +2,7 @@ import classes from "./ResultContainer.module.css";
 import { useQuery } from "@tanstack/react-query";
 import fixturesData from "../../../data/fixtures.json";
 import ResultBar from "../ResultBar/ResultBar";
+import { Link } from "react-router-dom";
 
 const fetchFixtures = async () => {
   const url = "https://api-football-v1.p.rapidapi.com/v3/fixtures?live=all";
@@ -35,11 +36,14 @@ export default function ResultContainer() {
         fixturesData.map((fixture, index) => {
           const className = index % 2 === 0 ? "even" : "odd";
           return (
-            <ResultBar
-              key={fixture.fixture.id}
-              fixture={fixture}
-              className={className}
-            />
+            <Link className="disablingLinks" to={"/match"}>
+              {" "}
+              <ResultBar
+                key={fixture.fixture.id}
+                fixture={fixture}
+                className={className}
+              />
+            </Link>
           );
         })}
     </div>
