@@ -3,8 +3,10 @@ import fixtureData from "../../../data/fixture.json";
 
 export default function MatchInfoPage() {
   const matchData = fixtureData[0];
+
   return (
     <div className={classes.matchInfo}>
+      {/* Informacje o lidze */}
       <div className={classes.leagueInfo}>
         <span>{matchData.league.name}</span>&nbsp;&nbsp;|&nbsp;&nbsp;
         <span>
@@ -19,43 +21,81 @@ export default function MatchInfoPage() {
         <span>{new Date(matchData.fixture.date).toLocaleString()}</span>
       </div>
 
+      {/* Drużyny i wynik */}
       <div className={classes.teams}>
         <div className={classes.team}>
-          <img
-            src={matchData.teams.home.logo}
-            alt={matchData.teams.home.name}
-          />
-          <p>{matchData.teams.home.name}</p>
+          <div className={classes.imageContainer}>
+            <img
+              src={matchData.teams.home.logo}
+              alt={matchData.teams.home.name}
+            />
+          </div>
+          <h3>{matchData.teams.home.name}</h3>
         </div>
         <div className={classes.score}>
-          <p>
-            <strong>Minutes Elapsed:</strong> {matchData.fixture.status.elapsed}{" "}
-            minutes
-          </p>
-          <p>
-            <strong>Status:</strong> {matchData.fixture.status.long}
-          </p>
-          <p>
+          <div className={classes.status}>
+            <p>{matchData.fixture.status.elapsed}'</p>&nbsp;&nbsp;
+            <p>{matchData.fixture.status.short}</p>
+          </div>
+          <div className={classes.actualScore}>
             {matchData.goals.home} - {matchData.goals.away}
-          </p>
+          </div>
         </div>
         <div className={classes.team}>
-          <img
-            src={matchData.teams.away.logo}
-            alt={matchData.teams.away.name}
-          />
-          <p>{matchData.teams.away.name}</p>
+          <h3>{matchData.teams.away.name}</h3>
+          <div className={classes.imageContainer}>
+            <img
+              src={matchData.teams.away.logo}
+              alt={matchData.teams.away.name}
+            />
+          </div>
         </div>
       </div>
 
+      {/* Wydarzenia meczu */}
+      <div className={classes.events}>
+        {matchData.events.map((event, index) => (
+          <div key={index} className={classes.eventRow}>
+            {/* Jeśli wydarzenie należy do drużyny gospodarzy, wyświetlamy eventHome, a eventAway pozostaje pusty */}
+            {event.team.id === matchData.teams.home.id ? (
+              <>
+                <div className={classes.eventHome}>
+                  <p>
+                    <strong>{event.time.elapsed}'</strong> - {event.player.name}{" "}
+                    ({event.detail})
+                  </p>
+                </div>
+                <div className={classes.emptyEvent}></div>
+              </>
+            ) : (
+              <>
+                <div className={classes.emptyEvent}></div>
+                <div className={classes.eventAway}>
+                  <p>
+                    <strong>{event.time.elapsed}'</strong> - {event.player.name}{" "}
+                    ({event.detail})
+                  </p>
+                </div>
+              </>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Szczegóły meczu */}
       <div className={classes.details}>
-        <p>
-          <strong>Venue:</strong> {matchData.fixture.venue.name},
-          {matchData.fixture.venue.city}
-        </p>
-        <p>
-          <strong>Referee:</strong> {matchData.fixture.referee}
-        </p>
+        <span>
+          <p>Referee:</p>
+          <p>{matchData.fixture.referee},</p>
+        </span>
+        <span>
+          <p>Venue:</p>
+          <p>{matchData.fixture.venue.name}</p>
+        </span>
+        <span>
+          <p>City:</p>
+          <p>{matchData.fixture.venue.city}</p>
+        </span>
       </div>
     </div>
   );

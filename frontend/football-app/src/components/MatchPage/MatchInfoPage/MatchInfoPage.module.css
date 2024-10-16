@@ -8,3 +8,87 @@
   color: white;
   font-size: 1.2rem;
 }
+
+.teams {
+  display: grid;
+  grid-template-columns: 1fr 0.4fr 1fr;
+}
+
+.imageContainer {
+  max-height: 80%;
+  height: 80%;
+}
+
+.imageContainer img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+.team {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.team h3 {
+  font-size: 1.4rem;
+}
+
+.score {
+  display: grid;
+  grid-template-rows: 25% 50% 25%;
+}
+
+.status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+}
+
+.actualScore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+
+/* Stylizacja wydarzeń */
+.events {
+  display: grid;
+  gap: 1rem;
+  background-color: lightgray;
+}
+
+.eventRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+.eventHome,
+.eventAway {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+  height: 2rem;
+}
+
+.emptyEvent {
+  height: 2rem; /* Zachowujemy wysokość, aby wyrównać przestrzeń */
+}
+
+.details {
+  height: 7rem;
+}
+
+.details span {
+  display: flex;
+  height: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+}
