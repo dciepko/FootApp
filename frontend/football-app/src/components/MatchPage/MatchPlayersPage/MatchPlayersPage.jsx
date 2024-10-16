@@ -1,3 +1,5 @@
 import classes from "./MatchPlayersPage.module.css";
 
-export default function MatchPlayersPage() {}
+export default function MatchPlayersPage() {
+  return;
+}

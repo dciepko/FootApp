@@ -1,6 +1,9 @@
 import { useState } from "react";
 import NavMenu from "../../components/NavMenu/NavMenu";
 import classes from "./MatchPage.module.css";
+import MatchInfoPage from "../../components/MatchPage/MatchInfoPage/MatchInfoPage";
+import MatchStatisticsPage from "../../components/MatchPage/MatchStatisticsPage/MatchStatisticsPage";
+import MatchPlayersPage from "../../components/MatchPage/MatchPlayersPage/MatchPlayersPage";
 
 export default function MatchPage() {
   const [currentContent, setCurrentContent] = useState("info");
@@ -10,7 +13,9 @@ export default function MatchPage() {
       case "info":
         return (
           <div className={classes.infoSection}>
-            <div className={classes.mainPart}></div>
+            <div className={classes.mainPart}>
+              <MatchInfoPage />
+            </div>
             <div className={classes.arrowPart}>
               <button
                 className={classes.arrowButton}
@@ -33,7 +38,9 @@ export default function MatchPage() {
                 &#129128;
               </button>
             </div>
-            <div className={classes.mainPart}></div>
+            <div className={classes.mainPart}>
+              <MatchStatisticsPage />
+            </div>
             <div className={classes.arrowPart}>
               <button
                 className={classes.arrowButton}
@@ -56,7 +63,9 @@ export default function MatchPage() {
                 &#129128;
               </button>
             </div>
-            <div className={classes.mainPart}></div>
+            <div className={classes.mainPart}>
+              <MatchPlayersPage />
+            </div>
           </div>
         );
 
