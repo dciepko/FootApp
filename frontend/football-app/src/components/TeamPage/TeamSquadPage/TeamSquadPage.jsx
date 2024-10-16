@@ -1,5 +1,6 @@
 import classes from "./TeamSquadPage.module.css";
 import teamSquadData from "../../../data/team/MUSquads.json";
+import { Link } from "react-router-dom";
 
 export default function TeamSquadPage() {
   const teamSquad = teamSquadData[0].players;
@@ -74,14 +75,16 @@ export default function TeamSquadPage() {
           <h2>Attackers</h2>
         </div>
         {attackers.map((player) => (
-          <div key={player.id} className={classes.singlePlayer}>
-            <span>{player.number}</span>
-            <div className={classes.imageContainer}>
-              <img src={player.photo} alt={player.name} />
-            </div>{" "}
-            <span>{player.name}</span>
-            <span>{player.age}&nbsp;Yrs</span>
-          </div>
+          <Link className="disablingLinks" to={"/player"}>
+            <div key={player.id} className={classes.singlePlayer}>
+              <span>{player.number}</span>
+              <div className={classes.imageContainer}>
+                <img src={player.photo} alt={player.name} />
+              </div>{" "}
+              <span>{player.name}</span>
+              <span>{player.age}&nbsp;Yrs</span>
+            </div>
+          </Link>
         ))}
       </div>
     </div>

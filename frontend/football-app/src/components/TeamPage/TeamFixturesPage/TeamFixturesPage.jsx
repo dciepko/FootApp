@@ -3,6 +3,7 @@ import classes from "./TeamFixturesPage.module.css";
 import fixturesData from "../../../data/team/MUFixtures.json"; // przykładowa ścieżka do danych
 import seasonsData from "../../../data/team/MUSeasons.json";
 import DropdownOption from "../../DropdownOption/DropdownOption";
+import { Link } from "react-router-dom";
 
 export default function TeamFixturesPage() {
   const availableLeagues = Array.from(
@@ -68,13 +69,15 @@ export default function TeamFixturesPage() {
                     {fixture.fixture.venue.name}, {fixture.fixture.venue.city}
                   </span>
                 </div>
-                <div key={fixture.fixture.id} className={classes.singleMatch}>
-                  <span>{fixture.teams.home.name}</span>
-                  <span>{fixture.goals.home}</span>
-                  <span> &nbsp;:&nbsp;</span>
-                  <span>{fixture.goals.away}</span>
-                  <span>{fixture.teams.away.name}</span>
-                </div>
+                <Link className="disablingLinks" to={"/match"}>
+                  <div key={fixture.fixture.id} className={classes.singleMatch}>
+                    <span>{fixture.teams.home.name}</span>
+                    <span>{fixture.goals.home}</span>
+                    <span> &nbsp;:&nbsp;</span>
+                    <span>{fixture.goals.away}</span>
+                    <span>{fixture.teams.away.name}</span>
+                  </div>
+                </Link>
               </div>
             ))}
           </div>

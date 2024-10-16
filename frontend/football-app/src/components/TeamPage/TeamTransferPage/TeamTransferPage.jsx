@@ -3,6 +3,7 @@ import classes from "./TeamTransferPage.module.css";
 import seasonsData from "../../../data/team/MUSeasons.json";
 import transfersData from "../../../data/team/MUTransfers.json";
 import DropdownOption from "../../DropdownOption/DropdownOption";
+import { Link } from "react-router-dom";
 
 export default function TeamTransferPage() {
   const availableSeasons = seasonsData;
@@ -50,11 +51,23 @@ export default function TeamTransferPage() {
                   .map((t, index) => (
                     <div key={index} className={classes.transferDetails}>
                       <span style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
-                        {transfer.player.name}
+                        <Link className="disablingLinks" to={"/player"}>
+                          {transfer.player.name}
+                        </Link>
                       </span>
-                      <span>{t.teams.out.name}</span>
+                      <span>
+                        {" "}
+                        <Link className="disablingLinks" to={"/team"}>
+                          {t.teams.out.name}
+                        </Link>
+                      </span>
                       <span>&#129130;</span>
-                      <span>{t.teams.in.name}</span>
+                      <span>
+                        {" "}
+                        <Link className="disablingLinks" to={"/team"}>
+                          {t.teams.in.name}
+                        </Link>
+                      </span>
                       <span className={classes.transferType}>{t.type}</span>
                       <span className={classes.transferDate}>
                         {new Date(t.date).toLocaleDateString()}
