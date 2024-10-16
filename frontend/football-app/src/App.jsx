@@ -10,61 +10,46 @@ import NavMenu from "./components/NavMenu/NavMenu";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import TeamPage from "./pages/TeamPage/TeamPage";
 import MatchPage from "./pages/MatchPage/MatchPage";
-
-const fetchFixtures = async () => {
-  const url = "https://api-football-v1.p.rapidapi.com/v3/fixtures?id=157201";
-  const options = {
-    method: "GET",
-    headers: {
-      "x-rapidapi-key": "ca33205c25msh1c3782cdb879e0ap1b6970jsnf69950db386a",
-      "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-    },
-  };
-
-  const response = await fetch(url, options);
-
-  if (!response.ok) {
-    throw new Error("Error fetching the fixtures");
-  }
-
-  const result = await response.json();
-  return result.response;
-};
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const App = () => {
-  const { data, error, isLoading } = useQuery({
-    queryFn: fetchFixtures,
-    queryKey: ["fixtures"],
-  });
-
-  const handleDownloadJSON = () => {
-    if (!data) return;
-
-    // Tworzenie Blob z danymi JSON
-    const jsonData = JSON.stringify(data, null, 2); // Formatowanie JSON
-    const blob = new Blob([jsonData], { type: "application/json" });
-
-    // Tworzenie URL dla pliku
-    const url = URL.createObjectURL(blob);
-
-    // Tworzenie ukrytego elementu <a> do pobrania
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "fixture.json"; // Nazwa pliku
-    document.body.appendChild(link);
-    link.click();
-
-    // Usuwanie tymczasowego linku
-    link.remove();
-  };
-
-  //handleDownloadJSON();
+  const router = createBrowserRouter([
+    { path: "/login", element: <LoginPage /> },
+    { path: "/register", element: <RegisterPage /> },
+    {
+      path: "/",
+      element: <Header />,
+      id: "root",
+      children: [
+        { path: "/", element: <HomePage /> },
+        {
+          path: "/leagues",
+          element: <LeaguesPage />,
+        },
+        {
+          path: "/league",
+          element: <SingleLeaguePage />,
+        },
+        {
+          path: "/team",
+          element: <TeamPage />,
+        },
+        {
+          path: "/player",
+          element: <PlayerPage />,
+        },
+        {
+          path: "/match",
+          element: <MatchPage />,
+        },
+      ],
+    },
+  ]);
 
   return (
     <div className="container">
       <div className="app">
-        <Header />
-        <MatchPage />
+        <RouterProvider router={router} />
       </div>
     </div>
   );
