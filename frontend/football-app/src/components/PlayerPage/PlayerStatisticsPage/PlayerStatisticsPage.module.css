@@ -21,3 +21,9 @@
 .statisticDetails {
   height: 70%;
 }
+
+.statisticDetailsList {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  height: 100%;
+}
