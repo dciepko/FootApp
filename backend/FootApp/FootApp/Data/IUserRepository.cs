@@ -1,4 +1,5 @@
 ﻿using FootApp.Models;
+using FootApp.Dtos;
 
 namespace FootApp.Data
 {
@@ -7,7 +8,7 @@ namespace FootApp.Data
         IEnumerable<User> GetAllUsers();
         User GetUserById(int userId);
         bool UpdateUser(User user);
-        bool AddUser(User user);
+        bool AddUser(UserToAddDto user);
         bool DeleteUser(int userId);
     }
 }

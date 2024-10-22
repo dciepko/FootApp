@@ -3,7 +3,7 @@ using FootApp.Dtos;
 
 namespace FootApp.Data
 {
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly DataContext _dbContext;
 
