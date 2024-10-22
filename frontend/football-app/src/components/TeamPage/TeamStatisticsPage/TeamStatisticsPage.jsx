@@ -5,6 +5,7 @@ import statisticsData from "../../../data/team/MUStatistics.json";
 import DropdownOption from "../../DropdownOption/DropdownOption";
 import Pagination from "../../../components/Pagination/Pagination";
 import SimplePieChart from "../../Charts/SimplePieChart";
+import SimpleBarChart from "../../Charts/SimpleBarChart";
 
 export default function TeamStatisticsPage() {
   const availableSeasons = Array.from(
@@ -61,22 +62,66 @@ export default function TeamStatisticsPage() {
       statName: "Goals",
       scored: teamStatsData.goals?.for?.total?.total,
       conceded: teamStatsData.goals?.against?.total?.total,
+      chart: (
+        <SimplePieChart
+          data={[
+            { name: "Scored", value: teamStatsData.goals?.for?.total?.total },
+            {
+              name: "Conceded",
+              value: teamStatsData.goals?.against?.total?.total,
+            },
+          ]}
+        />
+      ),
     },
     {
       statName: "Average Goals",
       averageFor: teamStatsData.goals?.for?.average?.total,
       averageAgainst: teamStatsData.goals?.against?.average?.total,
+      chart: (
+        <SimpleBarChart
+          data={[
+            { name: "For", value: teamStatsData.goals?.for?.average?.total },
+            {
+              name: "Against",
+              value: teamStatsData.goals?.against?.average?.total,
+            },
+          ]}
+        />
+      ),
     },
     {
       statName: "Clean Sheets",
       home: teamStatsData.clean_sheet?.home,
       away: teamStatsData.clean_sheet?.away,
       total: teamStatsData.clean_sheet?.total,
+      chart: (
+        <SimplePieChart
+          data={[
+            { name: "Home", value: teamStatsData.clean_sheet?.home },
+            {
+              name: "Away",
+              value: teamStatsData.clean_sheet?.away,
+            },
+          ]}
+        />
+      ),
     },
     {
       statName: "Penalties",
       scored: teamStatsData.penalty?.scored?.total,
       missed: teamStatsData.penalty?.missed?.total,
+      chart: (
+        <SimplePieChart
+          data={[
+            { name: "Scored", value: teamStatsData.penalty?.scored?.total },
+            {
+              name: "Missed",
+              value: teamStatsData.penalty?.missed?.total,
+            },
+          ]}
+        />
+      ),
     },
     {
       statName: "Lineups",
