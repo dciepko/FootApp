@@ -1,4 +1,5 @@
 ﻿using FootApp.Models;
+using FootApp.Dtos;
 
 namespace FootApp.Data
 {
@@ -19,7 +20,7 @@ namespace FootApp.Data
                     [LastName],
                     [Email],
                     [Active] 
-                FROM GoalVisionDB.Users";
+                FROM TutorialAppSchema.Users";
 
             return _dbContext.LoadData<User>(sql);
         }
@@ -32,7 +33,7 @@ namespace FootApp.Data
                     [LastName],
                     [Email],
                     [Active] 
-                FROM GoalVisionDB.Users
+                FROM TutorialAppSchema.Users
                 WHERE UserId = @UserId";
 
             return _dbContext.LoadDataSingle<User>(sql);
@@ -41,29 +42,40 @@ namespace FootApp.Data
         public bool UpdateUser(User user)
         {
             string sql = @"
-                UPDATE GoalVisionDB.Users
+                UPDATE TutorialAppSchema.Users
                 SET FirstName = @FirstName, 
                     LastName = @LastName,
                     Email = @Email, 
+                    Gender = @Gender, 
                     Active = @Active
                 WHERE UserId = @UserId";
 
             return _dbContext.ExecuteSql(sql);
         }
 
-        public bool AddUser(User user)
+        public bool AddUser(UserToAddDto userDto)
         {
+            var parameters = new
+            {
+                FirstName = userDto.FirstName,
+                LastName = userDto.LastName,
+                Email = userDto.Email,
+                Gender = userDto.Gender,
+                Active = userDto.Active
+            };
+
             string sql = @"
-                INSERT INTO GoalVisionDB.Users 
+                INSERT INTO TutorialAppSchema.Users 
                 (FirstName, LastName, Email, Active) 
                 VALUES (@FirstName, @LastName, @Email, @Active)";
 
+     
             return _dbContext.ExecuteSql(sql);
         }
 
         public bool DeleteUser(int userId)
         {
-            string sql = "DELETE FROM GoalVisionDB.Users WHERE UserId = @UserId";
+            string sql = "DELETE FROM TutorialAppSchema.Users WHERE UserId = @UserId";
             return _dbContext.ExecuteSql(sql);
         }
     }
