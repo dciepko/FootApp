@@ -6,30 +6,32 @@ export default function NavMenu() {
     <nav className={classes.navMenu}>
       <ul>
         <li style={{ borderLeft: 0 }}>
-          <button className={classes.navMenuOption}>Szukaj</button>
+          <button className={classes.navMenuOption}>Search</button>
         </li>
         <Link className="disablingLinks" to={"/leagues"}>
-          {" "}
           <li>
             <a href="#" className={classes.navMenuOption}>
-              Rozgrywki
+              Leagues
             </a>
           </li>
         </Link>
 
         <li>
           <a href="#" className={classes.navMenuOption}>
-            Porównaj
+            Compare
           </a>
         </li>
-        <li>
-          <a href="#" className={classes.navMenuOption}>
-            Kursy
-          </a>
-        </li>
+        <Link className="disablingLinks" to={"/bets"}>
+          <li>
+            <a href="#" className={classes.navMenuOption}>
+              Bets
+            </a>
+          </li>
+        </Link>
+
         <li style={{ borderRight: 0 }}>
           <a href="#" className={classes.navMenuOption}>
-            Symulacje
+            Simulations
           </a>
         </li>
       </ul>
