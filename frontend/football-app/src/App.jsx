@@ -12,6 +12,8 @@ import TeamPage from "./pages/TeamPage/TeamPage";
 import MatchPage from "./pages/MatchPage/MatchPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import BetsPage from "./pages/BetsPage/BetsPage";
+import ComparePage from "./pages/ComparePage/ComparePage";
+import SimulationsPage from "./pages/SimulationsPage/SimulationsPage";
 
 const fetchFixtures = async () => {
   const url = "https://api-football-v1.p.rapidapi.com/v3/odds/live";
@@ -94,6 +96,14 @@ const App = () => {
         {
           path: "/bets",
           element: <BetsPage />,
+        },
+        {
+          path: "/compare",
+          element: <ComparePage />,
+        },
+        {
+          path: "/simulations",
+          element: <SimulationsPage />,
         },
       ],
     },
