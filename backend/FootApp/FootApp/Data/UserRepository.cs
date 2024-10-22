@@ -1,5 +1,7 @@
 ﻿using FootApp.Models;
 using FootApp.Dtos;
+using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace FootApp.Data
 {
@@ -7,9 +9,9 @@ namespace FootApp.Data
     {
         private readonly DataContext _dbContext;
 
-        public UserRepository(DataContext dbContext)
+        public UserRepository(IConfiguration config)
         {
-            _dbContext = dbContext;
+            _dbContext = new DataContext(config);
         }
 
         public IEnumerable<User> GetAllUsers()
@@ -20,62 +22,60 @@ namespace FootApp.Data
                     [LastName],
                     [Email],
                     [Active] 
-                FROM TutorialAppSchema.Users";
+                FROM GoalVisionSchema.Users";
 
             return _dbContext.LoadData<User>(sql);
         }
 
         public User GetUserById(int userId)
         {
-            string sql = @"
+            string sql = $@"
                 SELECT [UserId],
                     [FirstName],
                     [LastName],
                     [Email],
                     [Active] 
-                FROM TutorialAppSchema.Users
-                WHERE UserId = @UserId";
+                FROM GoalVisionSchema.Users
+                WHERE UserId = {userId}";
 
             return _dbContext.LoadDataSingle<User>(sql);
         }
 
         public bool UpdateUser(User user)
         {
-            string sql = @"
-                UPDATE TutorialAppSchema.Users
-                SET FirstName = @FirstName, 
-                    LastName = @LastName,
-                    Email = @Email, 
-                    Gender = @Gender, 
-                    Active = @Active
-                WHERE UserId = @UserId";
+            string sql = $@"
+                UPDATE GoalVisionSchema.Users
+                SET FirstName = '{user.FirstName}', 
+                    LastName = '{user.LastName}',
+                    Email = '{user.Email}', 
+                    Active = {user.Active}
+                WHERE UserId = {user.UserId}";
 
             return _dbContext.ExecuteSql(sql);
         }
 
         public bool AddUser(UserToAddDto userDto)
         {
-            var parameters = new
-            {
-                FirstName = userDto.FirstName,
-                LastName = userDto.LastName,
-                Email = userDto.Email,
-                Gender = userDto.Gender,
-                Active = userDto.Active
-            };
+      
 
             string sql = @"
-                INSERT INTO TutorialAppSchema.Users 
+                INSERT INTO GoalVisionSchema.Users 
                 (FirstName, LastName, Email, Active) 
                 VALUES (@FirstName, @LastName, @Email, @Active)";
+            var parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@FirstName", SqlDbType.NVarChar) { Value = userDto.FirstName },
+                new SqlParameter("@LastName", SqlDbType.NVarChar) { Value = userDto.LastName },
+                new SqlParameter("@Email", SqlDbType.NVarChar) { Value = userDto.Email },
+                new SqlParameter("@Active", SqlDbType.Bit) { Value = userDto.Active }
+            };
 
-     
-            return _dbContext.ExecuteSql(sql);
+            return _dbContext.ExecuteSqlWithParameters(sql, parameters);
         }
 
         public bool DeleteUser(int userId)
         {
-            string sql = "DELETE FROM TutorialAppSchema.Users WHERE UserId = @UserId";
+            string sql = $"DELETE FROM GoalVisionSchema.Users WHERE UserId = {userId}";
             return _dbContext.ExecuteSql(sql);
         }
     }

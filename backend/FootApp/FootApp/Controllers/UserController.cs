@@ -11,16 +11,11 @@ public class UserController : ControllerBase
 {
     private readonly UserRepository _userRepository;
 
-    public UserController(UserRepository userRepository)
+    public UserController(IConfiguration config)
     {
-        _userRepository = userRepository;
+        _userRepository = new UserRepository(config);
     }
 
-    [HttpGet("TestConnection")]
-    public DateTime TestConnection()
-    {
-        return DateTime.Now;
-    }
 
     [HttpGet("GetUsers")]
     public IActionResult GetUsers()

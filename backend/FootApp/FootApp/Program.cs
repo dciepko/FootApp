@@ -1,5 +1,6 @@
 using System.Text;
 using FootApp.Data;
+using FootApp.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
@@ -9,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
 builder.Services.AddCors((options) =>
 {
     options.AddPolicy("DevCors", (corsBuilder) =>
@@ -20,14 +23,19 @@ builder.Services.AddCors((options) =>
     });
     options.AddPolicy("ProdCors", (corsBuilder) =>
     {
-        corsBuilder.WithOrigins("https://myProductionSite.com")
+        corsBuilder.WithOrigins("https://GoalVision.com")
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials();
     });
 });
 
+builder.Services.AddScoped<DataContext>();
+
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+builder.Services.AddScoped<AuthHelper>();
+
 
 string? tokenKeyString = builder.Configuration.GetSection("AppSettings:TokenKey").Value;
 

@@ -28,7 +28,7 @@ namespace FootApp.Data
             byte[] passwordHash = _authHelper.GetPasswordHash(userForRegistration.Password, passwordSalt);
 
             string sqlAddAuth = @"
-            INSERT INTO TutorialAppSchema.Auth  ([Email],
+            INSERT INTO GoalVisionSchema.Auth  ([Email],
             [PasswordHash],
             [PasswordSalt]) VALUES ('" + userForRegistration.Email +
                 "', @PasswordHash, @PasswordSalt)";
@@ -42,7 +42,7 @@ namespace FootApp.Data
             if (_dbContext.ExecuteSqlWithParameters(sqlAddAuth, sqlParameters))
             {
                 string sqlAddUser = @"
-                INSERT INTO TutorialAppSchema.Users(
+                INSERT INTO GoalVisionSchema.Users(
                     [FirstName],
                     [LastName],
                     [Email],
@@ -59,20 +59,20 @@ namespace FootApp.Data
 
         public bool CheckIfUserExists(string email)
         {
-            string sqlCheckUserExists = "SELECT Email FROM TutorialAppSchema.Auth WHERE Email = '" + email + "'";
+            string sqlCheckUserExists = "SELECT Email FROM GoalVisionSchema.Auth WHERE Email = '" + email + "'";
             IEnumerable<string> existingUsers = _dbContext.LoadData<string>(sqlCheckUserExists);
             return existingUsers.Any();
         }
 
         public UserForLoginConfirmationDto GetUserHashAndSalt(string email)
         {
-            string sqlForHashAndSalt = @"SELECT [PasswordHash], [PasswordSalt] FROM TutorialAppSchema.Auth WHERE Email = '" + email + "'";
+            string sqlForHashAndSalt = @"SELECT [PasswordHash], [PasswordSalt] FROM GoalVisionSchema.Auth WHERE Email = '" + email + "'";
             return _dbContext.LoadDataSingle<UserForLoginConfirmationDto>(sqlForHashAndSalt);
         }
 
         public int GetUserIdByEmail(string email)
         {
-            string sql = @"SELECT UserId FROM TutorialAppSchema.Users WHERE Email = '" + email + "'";
+            string sql = @"SELECT UserId FROM GoalVisionSchema.Users WHERE Email = '" + email + "'";
             return _dbContext.LoadDataSingle<int>(sql);
         }
     }
