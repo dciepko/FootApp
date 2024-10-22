@@ -41,6 +41,18 @@ export default function TeamStatisticsPage() {
   // const teamStatsData = selectedSeasonData?.statistics || {};
   const teamStatsData = statisticsData;
 
+  const totalYellow = Object.values(teamStatsData.cards.yellow).reduce(
+    (acc, card) => {
+      return acc + (card.total || 0);
+    },
+    0
+  );
+  const totalRed = Object.values(teamStatsData.cards.red).reduce(
+    (acc, card) => {
+      return acc + (card.total || 0);
+    },
+    0
+  );
   const statProperties = [
     {
       statName: "Fixtures",
@@ -130,8 +142,19 @@ export default function TeamStatisticsPage() {
     },
     {
       statName: "Cards",
-      yellow: teamStatsData.cards?.yellow?.total,
-      red: teamStatsData.cards?.red?.total || 0,
+      yellow: totalYellow,
+      red: totalRed,
+      chart: (
+        <SimpleBarChart
+          data={[
+            { name: "Yellow", value: totalYellow },
+            {
+              name: "Red",
+              value: totalRed,
+            },
+          ]}
+        />
+      ),
     },
   ];
 
