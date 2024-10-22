@@ -281,7 +281,7 @@ export default function PlayerStatisticsPage() {
             <div className={classes.statisticDetailsList}>
               <div className={classes.valuesContainer}>
                 {Object.entries(currentStat).map(([key, value]) => {
-                  if (key !== "statName") {
+                  if (key !== "statName" && key !== "chart") {
                     return (
                       <div key={key} className={classes.statisticItem}>
                         <strong>{key.toUpperCase()}:</strong>{" "}

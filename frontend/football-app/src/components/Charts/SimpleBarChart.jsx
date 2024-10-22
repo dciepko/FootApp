@@ -19,7 +19,6 @@ const SimpleBarChart = ({ data }) => {
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-          <Legend />
           <Bar dataKey="value" fill="#8884d8">
             {data.map((entry, index) => (
               <Cell
