@@ -4,6 +4,7 @@ import leaguesData from "../../../data/team/MULeagues.json"; // Zaktualizowane Å
 import statisticsData from "../../../data/team/MUStatistics.json";
 import DropdownOption from "../../DropdownOption/DropdownOption";
 import Pagination from "../../../components/Pagination/Pagination";
+import SimplePieChart from "../../Charts/SimplePieChart";
 
 export default function TeamStatisticsPage() {
   const availableSeasons = Array.from(
@@ -46,6 +47,15 @@ export default function TeamStatisticsPage() {
       wins: teamStatsData.fixtures?.wins?.total,
       draws: teamStatsData.fixtures?.draws?.total,
       loses: teamStatsData.fixtures?.loses?.total,
+      chart: (
+        <SimplePieChart
+          data={[
+            { name: "Wins", value: teamStatsData.fixtures?.wins?.total },
+            { name: "Draws", value: teamStatsData.fixtures?.draws?.total },
+            { name: "Loses", value: teamStatsData.fixtures?.loses?.total },
+          ]}
+        />
+      ),
     },
     {
       statName: "Goals",
@@ -124,17 +134,20 @@ export default function TeamStatisticsPage() {
           <div className={classes.statisticDetails}>
             <h3>{currentStat.statName}</h3>
             <div className={classes.statisticDetailsList}>
-              {Object.entries(currentStat).map(([key, value]) => {
-                if (key !== "statName") {
-                  return (
-                    <div key={key} className={classes.statisticItem}>
-                      <strong>{key.toUpperCase()}:</strong>{" "}
-                      {value !== null ? value : "N/A"}
-                    </div>
-                  );
-                }
-                return null;
-              })}
+              <div className={classes.valuesContainer}>
+                {Object.entries(currentStat).map(([key, value]) => {
+                  if (key !== "statName" && key !== "chart") {
+                    return (
+                      <div key={key} className={classes.statisticItem}>
+                        <strong>{key.toUpperCase()}:</strong>{" "}
+                        {value !== null ? value : "N/A"}
+                      </div>
+                    );
+                  }
+                  return null;
+                })}
+              </div>
+              <div className={classes.chartContainer}>{currentStat.chart}</div>
             </div>
           </div>
         ) : (

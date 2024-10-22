@@ -20,5 +20,15 @@
 }
 
 .statisticsSection {
-  height: 60%;
+  height: 70%;
+}
+
+.statisticDetails {
+  height: 100%;
+}
+
+.statisticDetailsList {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  height: 100%;
 }
