@@ -15,6 +15,7 @@ import BetsPage from "./pages/BetsPage/BetsPage";
 import ComparePage from "./pages/ComparePage/ComparePage";
 import SimulationsPage from "./pages/SimulationsPage/SimulationsPage";
 import LIVEPage from "./pages/LIVEPage/LIVEPage";
+import SearchPage from "./pages/SearchPage/SearchPage";
 
 const fetchFixtures = async () => {
   const url = "https://api-football-v1.p.rapidapi.com/v3/odds/live";
@@ -109,6 +110,10 @@ const App = () => {
         {
           path: "/live",
           element: <LIVEPage />,
+        },
+        {
+          path: "/search",
+          element: <SearchPage />,
         },
       ],
     },

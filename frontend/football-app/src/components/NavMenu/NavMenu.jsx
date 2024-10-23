@@ -5,9 +5,11 @@ export default function NavMenu() {
   return (
     <nav className={classes.navMenu}>
       <ul>
-        <li style={{ borderLeft: 0 }}>
-          <button className={classes.navMenuOption}>Search</button>
-        </li>
+        <Link className="disablingLinks" to={"/search"}>
+          <li style={{ borderLeft: 0 }}>
+            <a className={classes.navMenuOption}>Search</a>
+          </li>
+        </Link>
 
         <Link className="disablingLinks" to={"/live"}>
           <li>
