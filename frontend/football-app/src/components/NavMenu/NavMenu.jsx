@@ -9,6 +9,14 @@ export default function NavMenu() {
           <button className={classes.navMenuOption}>Search</button>
         </li>
 
+        <Link className="disablingLinks" to={"/live"}>
+          <li>
+            <a href="#" className={classes.navMenuOption}>
+              LIVE
+            </a>
+          </li>
+        </Link>
+
         <Link className="disablingLinks" to={"/leagues"}>
           <li>
             <a href="#" className={classes.navMenuOption}>
