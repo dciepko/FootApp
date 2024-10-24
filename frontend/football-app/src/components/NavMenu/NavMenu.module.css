@@ -51,3 +51,24 @@
   transition: color 0.4s ease;
   text-decoration: none;
 }
+
+.liveDot {
+  width: 1rem;
+  height: 1rem;
+  background-color: red;
+  border-radius: 50%;
+  /* animation: blink 1.3s infinite; */
+  display: inline-block;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

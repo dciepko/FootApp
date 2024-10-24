@@ -14,7 +14,7 @@ export default function NavMenu() {
         <Link className="disablingLinks" to={"/live"}>
           <li>
             <a href="#" className={classes.navMenuOption}>
-              LIVE
+              LIVE&nbsp; <div className={classes.liveDot}></div>
             </a>
           </li>
         </Link>
