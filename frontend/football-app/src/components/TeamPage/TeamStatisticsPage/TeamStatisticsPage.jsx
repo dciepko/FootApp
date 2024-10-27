@@ -6,6 +6,7 @@ import DropdownOption from "../../DropdownOption/DropdownOption";
 import Pagination from "../../../components/Pagination/Pagination";
 import SimplePieChart from "../../Charts/SimplePieChart";
 import SimpleBarChart from "../../Charts/SimpleBarChart";
+import noFormationField from "../../../assets/field-no-formation.svg";
 
 export default function TeamStatisticsPage() {
   const availableSeasons = Array.from(
@@ -139,6 +140,7 @@ export default function TeamStatisticsPage() {
       statName: "Lineups",
       mostUsedFormation: teamStatsData.lineups?.[0]?.formation,
       gamesPlayed: teamStatsData.lineups?.[0]?.played,
+      formationField: "",
     },
     {
       statName: "Cards",
@@ -204,7 +206,11 @@ export default function TeamStatisticsPage() {
             <div className={classes.statisticDetailsList}>
               <div className={classes.valuesContainer}>
                 {Object.entries(currentStat).map(([key, value]) => {
-                  if (key !== "statName" && key !== "chart") {
+                  if (
+                    key !== "statName" &&
+                    key !== "chart" &&
+                    key !== "formationField"
+                  ) {
                     return (
                       <div key={key} className={classes.statisticItem}>
                         <strong>{key.toUpperCase()}:</strong>{" "}
@@ -215,7 +221,15 @@ export default function TeamStatisticsPage() {
                   return null;
                 })}
               </div>
-              <div className={classes.chartContainer}>{currentStat.chart}</div>
+              {currentStat.statName !== "Lineups" ? (
+                <div className={classes.chartContainer}>
+                  {currentStat.chart}
+                </div>
+              ) : currentStat.formationField ? null : (
+                <div className={classes.chartContainer}>
+                  <img src={noFormationField} alt="No Formation Available" />
+                </div>
+              )}
             </div>
           </div>
         ) : (

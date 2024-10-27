@@ -180,6 +180,7 @@ main {
   border: none;
   width: 60%;
   cursor: pointer;
+  color: white;
 }
 
 .arrowButton:hover {

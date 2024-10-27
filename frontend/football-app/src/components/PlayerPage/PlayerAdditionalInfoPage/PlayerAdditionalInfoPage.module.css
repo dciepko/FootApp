@@ -30,7 +30,7 @@ h2 {
 
 .transferList,
 .trophiesList {
-  background-color: lightgray;
+  background-color: #e6edf1;
   max-height: 80%;
   overflow-x: hidden;
   overflow-y: auto;

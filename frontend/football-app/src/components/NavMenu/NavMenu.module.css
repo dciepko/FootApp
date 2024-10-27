@@ -1,5 +1,6 @@
 .navMenu {
-  height: 8%;
+  max-height: 8%;
+  min-height: 8%;
 }
 
 .navMenu ul {

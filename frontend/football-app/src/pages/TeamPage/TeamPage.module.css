@@ -38,6 +38,8 @@ main {
   clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0% 75%, 0 0);
   border: none;
   width: 60%;
+  cursor: pointer;
+  color: white;
 }
 
 .arrowButton:hover {
