@@ -84,7 +84,7 @@ export default function LeaguesPage() {
         <div className={classes.appliedFilters}>
           {selectedCountries.map((country) => (
             <div key={country} className={classes.filterTag}>
-              {country}{" "}
+              {country}
               <button
                 onClick={() => clearFilter("country", country)}
                 className={classes.clearButton}

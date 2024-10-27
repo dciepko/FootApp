@@ -10,8 +10,8 @@ main {
 }
 
 .mainSection {
-  max-height: 89%;
-  height: 89%;
+  max-height: 92%;
+  height: 92%;
   display: flex;
   flex-direction: column;
   overflow-y: auto;

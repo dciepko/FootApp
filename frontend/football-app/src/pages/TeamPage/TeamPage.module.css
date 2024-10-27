@@ -10,8 +10,8 @@ main {
 }
 
 .mainSection {
-  max-height: 89%;
-  height: 89%;
+  max-height: 92%;
+  height: 92%;
   display: flex;
   flex-direction: column;
 }
@@ -52,15 +52,15 @@ main {
 }
 
 .firstPage {
-  max-height: 85%;
-  height: 85%;
+  max-height: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: 93% 7%;
 }
 
 .inBetweenPage {
-  max-height: 85%;
-  height: 85%;
+  max-height: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: 7% 86% 7%;
   grid-template-rows: 1fr;
@@ -68,9 +68,8 @@ main {
 }
 
 .lastPage {
-  max-height: 85%;
-  height: 85%;
-
+  max-height: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: 7% 93%;
 }

@@ -15,8 +15,9 @@
   background-color: rgb(236, 234, 234);
   border: none;
   margin: 1%;
-  padding-left: 1rem;
+  padding-left: 2rem;
   clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 20%, 5% 0);
+  font-family: "Chakra Petch", sans-serif;
 }
 
 .searchInput:focus {

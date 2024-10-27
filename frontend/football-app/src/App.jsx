@@ -17,55 +17,7 @@ import SimulationsPage from "./pages/SimulationsPage/SimulationsPage";
 import LIVEPage from "./pages/LIVEPage/LIVEPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
 
-const fetchFixtures = async () => {
-  const url = "https://api-football-v1.p.rapidapi.com/v3/odds/live";
-  const options = {
-    method: "GET",
-    headers: {
-      "x-rapidapi-key": "ca33205c25msh1c3782cdb879e0ap1b6970jsnf69950db386a",
-      "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-    },
-  };
-
-  const response = await fetch(url, options);
-
-  if (!response.ok) {
-    throw new Error("Error fetching the fixtures");
-  }
-
-  const result = await response.json();
-  return result.response;
-};
-
 const App = () => {
-  const { data, error, isLoading } = useQuery({
-    queryFn: fetchFixtures,
-    queryKey: ["fixtures"],
-  });
-
-  const handleDownloadJSON = () => {
-    if (!data) return;
-
-    // Tworzenie Blob z danymi JSON
-    const jsonData = JSON.stringify(data, null, 2); // Formatowanie JSON
-    const blob = new Blob([jsonData], { type: "application/json" });
-
-    // Tworzenie URL dla pliku
-    const url = URL.createObjectURL(blob);
-
-    // Tworzenie ukrytego elementu <a> do pobrania
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "odds.json"; // Nazwa pliku
-    document.body.appendChild(link);
-    link.click();
-
-    // Usuwanie tymczasowego linku
-    link.remove();
-  };
-
-  //handleDownloadJSON();
-
   const router = createBrowserRouter([
     { path: "/login", element: <LoginPage /> },
     { path: "/register", element: <RegisterPage /> },
@@ -76,9 +28,30 @@ const App = () => {
       children: [
         { path: "/", element: <HomePage /> },
         {
+          path: "/search",
+          element: <SearchPage />,
+        },
+        {
+          path: "/live",
+          element: <LIVEPage />,
+        },
+        {
           path: "/leagues",
           element: <LeaguesPage />,
         },
+        {
+          path: "/compare",
+          element: <ComparePage />,
+        },
+        {
+          path: "/bets",
+          element: <BetsPage />,
+        },
+        {
+          path: "/simulations",
+          element: <SimulationsPage />,
+        },
+
         {
           path: "/league",
           element: <SingleLeaguePage />,
@@ -94,26 +67,6 @@ const App = () => {
         {
           path: "/match",
           element: <MatchPage />,
-        },
-        {
-          path: "/bets",
-          element: <BetsPage />,
-        },
-        {
-          path: "/compare",
-          element: <ComparePage />,
-        },
-        {
-          path: "/simulations",
-          element: <SimulationsPage />,
-        },
-        {
-          path: "/live",
-          element: <LIVEPage />,
-        },
-        {
-          path: "/search",
-          element: <SearchPage />,
         },
       ],
     },
