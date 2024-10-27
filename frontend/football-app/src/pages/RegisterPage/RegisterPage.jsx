@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import LoginInput from "../../components/LoginInput/LoginInput";
 import { useInput } from "../../hooks/useInput";
 import {
@@ -6,6 +7,7 @@ import {
   isNotEmpty,
 } from "../../utils/validationFunctions";
 import classes from "./RegisterPage.module.css";
+import logo from "../../assets/goalvision-high-resolution-logo-transparent.png";
 
 export default function RegisterPage() {
   const {
@@ -27,12 +29,7 @@ export default function RegisterPage() {
     handleInputBlur: handleEmailBlur,
     hasError: emailHasError,
   } = useInput("", (value) => isEmail(value) && isNotEmpty(value));
-  const {
-    value: nickValue,
-    handleInputChange: handleNickChange,
-    handleInputBlur: handleNickBlur,
-    hasError: nickHasError,
-  } = useInput("", (value) => isNotEmpty(value));
+
   const {
     value: passwordValue,
     handleInputChange: handlePasswordChange,
@@ -108,12 +105,14 @@ export default function RegisterPage() {
 
   return (
     <div className={classes.loginPage}>
-      <header className={classes.loginHeader}>
-        <div className={classes.logoContainer}>
-          <div className={classes.logoPicture} />
-        </div>
-        <h1 className={classes.name}>GoalVision</h1>
-      </header>
+      <Link to="/" className="disablingLinks">
+        <header className={classes.loginHeader}>
+          <div className={classes.logoContainer}>
+            <img src={logo} className={classes.logoPicture} />
+          </div>
+          <h1 className={classes.name}>GoalVision</h1>
+        </header>
+      </Link>
       <div className={classes.loginContainer}>
         <form onSubmit={handleSubmit} className={classes.form}>
           <h2 className={classes.h2}>Register</h2>
@@ -151,17 +150,7 @@ export default function RegisterPage() {
               error={emailHasError && "Please enter the correct format"}
               placeholder="Enter your email"
             />
-            <LoginInput
-              label="Nickname"
-              id="nick"
-              type="text"
-              name="nick"
-              onBlur={handleNickBlur}
-              onChange={handleNickChange}
-              value={nickValue}
-              error={nickHasError && "Please enter the correct format"}
-              placeholder="Enter your nickname"
-            />
+
             <LoginInput
               label="Password"
               id="password"
@@ -187,11 +176,14 @@ export default function RegisterPage() {
               placeholder="Repeat your password"
             />
             <div className={classes.buttonsContainer}>
-              <button className={classes.registerButton}>Register</button>
-              {/* <Link to="/login" className={classes.cancelButton}>
-                Anuluj
-              </Link> */}
-              <button className={classes.registerButton}>Cancel</button>
+              <button className={classes.registerButton}>
+                <span>Register</span>
+              </button>
+              <Link to="/" className="disablingLinks">
+                <button className={classes.cancelButton}>
+                  <span>Cancel</span>
+                </button>
+              </Link>
             </div>
           </div>
         </form>

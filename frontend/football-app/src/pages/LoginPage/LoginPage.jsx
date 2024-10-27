@@ -1,9 +1,10 @@
 import classes from "./LoginPage.module.css";
-import logo from "../../assets/logoprz2.jpg";
+import logo from "../../assets/goalvision-high-resolution-logo-transparent.png";
 import { useState } from "react";
 import LoginInput from "../../components/LoginInput/LoginInput";
 import { useInput } from "../../hooks/useInput";
 import { hasMinLength, isNotEmpty } from "../../utils/validationFunctions";
+import { Link } from "react-router-dom";
 
 export default function LoginPage() {
   const [isNotAccurate, setIsNotAccurate] = useState(false);
@@ -69,12 +70,14 @@ export default function LoginPage() {
 
   return (
     <div className={classes.loginPage}>
-      <header className={classes.loginHeader}>
-        <div className={classes.logoContainer}>
-          <div className={classes.logoPicture} />
-        </div>
-        <h1 className={classes.name}>GoalVision</h1>
-      </header>
+      <Link to="/" className="disablingLinks">
+        <header className={classes.loginHeader}>
+          <div className={classes.logoContainer}>
+            <img src={logo} className={classes.logoPicture} />
+          </div>
+          <h1 className={classes.name}>GoalVision</h1>
+        </header>
+      </Link>
       <div className={classes.loginContainer}>
         <form onSubmit={handleSubmit} className={classes.form}>
           <h2 className={classes.h2}>Login</h2>
@@ -108,16 +111,21 @@ export default function LoginPage() {
             />
 
             <div className={classes.buttonsContainer}>
-              <button className={classes.loginButton}>Login</button>
+              <button className={classes.loginButton}>
+                <span>Login</span>
+              </button>
+              <Link to="/" className="disablingLinks">
+                <button className={classes.cancelButton}>
+                  <span>Cancel</span>
+                </button>
+              </Link>
             </div>
             <div className={classes.buttonWithText}>
               <span className={classes.textBesideButton}>
                 You don't have the account?
               </span>
-              {/* <Link to="/register" className={classes.registerButton}>
-                Zarejestruj się!
-              </Link> */}
-              <a href="#">Register</a>
+              &nbsp;
+              <Link to="/register">Register</Link>
             </div>
           </div>
         </form>
