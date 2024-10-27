@@ -10,13 +10,15 @@
 
 .nameContainer {
   grid-template-columns: 1fr 1fr;
+  background-color: #e6edf1;
 }
 
 .nameContainer span {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 500;
 }
 
 .evenStatContainer,
@@ -35,4 +37,8 @@
 .evenStatContainer {
   background-color: #e6292c;
   color: white;
+}
+
+.statContainer {
+  background-color: #e6edf1;
 }

@@ -90,9 +90,9 @@ export default function Pagination({
       <button
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}
-        className={classes.paginationButton}
+        className={classes.sideButton}
       >
-        <span>&lt; Poprzednia</span>
+        <span>&lt; Previous</span>
       </button>
 
       {renderPaginationButtons()}
@@ -100,9 +100,9 @@ export default function Pagination({
       <button
         disabled={currentPage === totalPages}
         onClick={() => onPageChange(currentPage + 1)}
-        className={classes.paginationButton}
+        className={classes.sideButton}
       >
-        <span>Następna &gt;</span>
+        <span>Next &gt;</span>
       </button>
     </div>
   );

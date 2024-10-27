@@ -4,6 +4,7 @@
   max-height: 6rem;
   padding: 0.5rem 0.8rem 0.5rem 0.5rem;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .barObject {
@@ -15,6 +16,7 @@
   display: grid;
   grid-template-columns: 1fr 1rem 1fr;
   width: 100%;
+  cursor: pointer;
 }
 
 .homePart {
@@ -30,6 +32,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 1.4rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .logoContainer {
@@ -49,4 +55,24 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.odd {
+  background-color: transparent;
+  color: black;
+}
+
+.odd:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.even {
+  background-color: #e6292c;
+  color: white;
+}
+
+.even:hover {
+  background-color: #8d2829;
+  cursor: pointer;
 }

@@ -6,8 +6,8 @@
 }
 
 .paginationButton {
-  margin: 0 5px;
-  padding: 10px 15px;
+  margin: 0 0.4rem;
+  padding: 0.8rem 1.2rem;
   border: none;
   background-color: #f0f0f0;
   cursor: pointer;
@@ -49,4 +49,39 @@
   background-color: #ccc;
   cursor: not-allowed;
   pointer-events: none;
+}
+
+.sideButton {
+  width: 10rem;
+  margin: 0 0.4rem;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 1rem;
+  clip-path: polygon(80% 0, 100% 20%, 100% 100%, 20% 100%, 0% 80%, 0 0);
+  position: relative;
+}
+
+.sideButton::before {
+  width: 200%;
+  height: 200%;
+  top: -100%;
+  left: -100%;
+  content: "";
+  position: absolute;
+  background-color: lightgray;
+  transition: transform 0.2s ease;
+  transform: translate(-100%, -100%);
+  z-index: 0;
+}
+
+.sideButton:hover::before {
+  transform: translate(0, 0);
+}
+
+.sideButton span {
+  z-index: 5;
+  position: relative;
 }

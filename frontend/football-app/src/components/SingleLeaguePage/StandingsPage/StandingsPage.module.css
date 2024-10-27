@@ -1,6 +1,8 @@
 .helpBar {
   display: grid;
   grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  background-color: #e6292c;
+  color: white;
 }
 
 .singleStanding {

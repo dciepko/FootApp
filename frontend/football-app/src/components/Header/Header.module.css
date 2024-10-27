@@ -42,22 +42,11 @@
   justify-content: center;
   position: relative;
   text-decoration: none;
-  background-color: black;
+  background-color: #e6292c;
   color: white;
   font-family: "Chakra Petch", sans-serif;
   font-size: 1.6rem;
   clip-path: polygon(85% 0, 100% 25%, 100% 100%, 15% 100%, 0% 75%, 0 0);
-}
-
-.headerButton::after {
-  width: calc(100% - 0.3rem);
-  height: calc(100% - 0.3rem);
-  content: "";
-  position: absolute;
-  background-color: #e6292c;
-  z-index: -1;
-  clip-path: inherit;
-  box-sizing: border-box;
 }
 
 .headerButton::before {

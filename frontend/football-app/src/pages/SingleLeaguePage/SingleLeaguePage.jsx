@@ -58,7 +58,7 @@ export default function SingleLeaguePage({ chosenLeagueId = 39 }) {
                 className={classes.arrowButton}
                 onClick={() => setCurrentContent("statistics")}
               >
-                -&gt;
+                &#129130;
               </button>
             </div>
           </div>
@@ -72,7 +72,7 @@ export default function SingleLeaguePage({ chosenLeagueId = 39 }) {
                 className={classes.arrowButton}
                 onClick={() => setCurrentContent("standings")}
               >
-                &lt;-
+                &#129128;
               </button>
             </div>
             <div className={classes.mainPart}>
@@ -83,7 +83,7 @@ export default function SingleLeaguePage({ chosenLeagueId = 39 }) {
                 className={classes.arrowButton}
                 onClick={() => setCurrentContent("matches")}
               >
-                -&gt;
+                &#129130;
               </button>
             </div>
           </div>
@@ -97,7 +97,7 @@ export default function SingleLeaguePage({ chosenLeagueId = 39 }) {
                 className={classes.arrowButton}
                 onClick={() => setCurrentContent("statistics")}
               >
-                &lt;-
+                &#129128;
               </button>
             </div>
             <div className={classes.mainPart}>

@@ -80,15 +80,15 @@ export default function MatchInfoPage() {
 
       <div className={classes.details}>
         <span>
-          <p>Referee:</p>
+          <p className={classes.detailName}>Referee:</p>
           <p>{matchData.fixture.referee},</p>
         </span>
         <span>
-          <p>Venue:</p>
+          <p className={classes.detailName}>Venue:</p>
           <p>{matchData.fixture.venue.name}</p>
         </span>
         <span>
-          <p>City:</p>
+          <p className={classes.detailName}>City:</p>
           <p>{matchData.fixture.venue.city}</p>
         </span>
       </div>

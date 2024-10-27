@@ -105,10 +105,10 @@ export default function LeaguesContainer() {
       </div>
       <div className={classes.leagueContainer}>
         <div className={classes.helpBar}>
-          <span>Poz.</span>
-          <span>Drużyna</span>
+          <span>Pos.</span>
+          <span>Team</span>
           <span>+/-</span>
-          <span>Pkt.</span>
+          <span>Pts.</span>
         </div>
         {currentLeague &&
           currentLeague.league.standings[0].map((place) => {

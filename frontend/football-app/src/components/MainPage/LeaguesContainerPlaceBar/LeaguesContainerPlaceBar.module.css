@@ -7,3 +7,7 @@
   grid-template-columns: 10% 60% 15% 15%;
   padding: 0.2rem 0 0 0.2rem;
 }
+
+.placeBarItem:hover {
+  background-color: lightgray;
+}

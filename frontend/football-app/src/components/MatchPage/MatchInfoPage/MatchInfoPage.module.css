@@ -34,7 +34,7 @@
 }
 
 .team h3 {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 
 .score {
@@ -47,19 +47,21 @@
   justify-content: center;
   align-items: center;
   color: gray;
+  font-size: 1.2rem;
 }
 
 .actualScore {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   font-weight: bold;
 }
 
 .events {
   display: grid;
-  background-color: lightgray;
+  background-color: #e6edf1;
+  padding: 1.5rem 0;
 }
 
 .eventRow {
@@ -71,7 +73,7 @@
 .eventHome,
 .eventAway {
   margin-bottom: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   text-align: center;
   height: 2rem;
 }
@@ -82,6 +84,7 @@
 
 .details {
   height: 7rem;
+  margin-bottom: 1rem;
 }
 
 .details span {
@@ -89,4 +92,10 @@
   height: 2rem;
   display: grid;
   grid-template-columns: 1fr 8fr;
+  font-size: 1.2rem;
+}
+
+.detailName {
+  font-weight: bold;
+  padding-left: 1rem;
 }

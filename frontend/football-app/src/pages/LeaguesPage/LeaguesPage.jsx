@@ -3,6 +3,7 @@ import classes from "./LeaguesPage.module.css";
 import leagues from "../../data/leagues.json";
 import { useState } from "react";
 import Pagination from "../../components/Pagination/Pagination";
+import { Link } from "react-router-dom";
 
 export default function LeaguesPage() {
   const [countryShowdown, setCountryShowdown] = useState(false);
@@ -10,7 +11,7 @@ export default function LeaguesPage() {
   const [typeShowdown, setTypeShowdown] = useState(false);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 100;
+  const itemsPerPage = 50;
 
   const [selectedCountries, setSelectedCountries] = useState([]);
   const [selectedSeasons, setSelectedSeasons] = useState([]);
@@ -50,18 +51,14 @@ export default function LeaguesPage() {
           ? prev.filter((country) => country !== value)
           : [...prev, value]
       );
-    } else if (type === "season") {
-      setSelectedSeasons((prev) =>
-        prev.includes(value)
-          ? prev.filter((season) => season !== value)
-          : [...prev, value]
-      );
+      setCountryShowdown(false);
     } else if (type === "type") {
       setSelectedTypes((prev) =>
         prev.includes(value)
           ? prev.filter((type) => type !== value)
           : [...prev, value]
       );
+      setTypeShowdown(false);
     }
   };
 
@@ -70,8 +67,6 @@ export default function LeaguesPage() {
       setSelectedCountries((prev) =>
         prev.filter((country) => country !== value)
       );
-    } else if (type === "season") {
-      setSelectedSeasons((prev) => prev.filter((season) => season !== value));
     } else if (type === "type") {
       setSelectedTypes((prev) => prev.filter((type) => type !== value));
     }
@@ -93,17 +88,7 @@ export default function LeaguesPage() {
               </button>
             </div>
           ))}
-          {selectedSeasons.map((season) => (
-            <div key={season} className={classes.filterTag}>
-              {season}{" "}
-              <button
-                onClick={() => clearFilter("season", season)}
-                className={classes.clearButton}
-              >
-                X
-              </button>
-            </div>
-          ))}
+
           {selectedTypes.map((type) => (
             <div key={type} className={classes.filterTag}>
               {type}{" "}
@@ -125,7 +110,7 @@ export default function LeaguesPage() {
               }}
               className={classes.optionButton}
             >
-              <span>Kraj</span>
+              <span>Country</span>
             </button>
             {countryShowdown && (
               <ul className={classes.optionMenu}>
@@ -146,36 +131,11 @@ export default function LeaguesPage() {
           <div className={classes.optionContainer}>
             <button
               onClick={() => {
-                setSeasonShowdown(!seasonShowdown);
-              }}
-              className={classes.optionButton}
-            >
-              <span>Sezon</span>
-            </button>
-            {seasonShowdown && (
-              <ul className={classes.optionMenu}>
-                {seasonSet.map((season) => {
-                  return (
-                    <li
-                      key={season}
-                      onClick={() => toggleFilter("season", season)}
-                    >
-                      {season}
-                    </li>
-                  );
-                })}
-              </ul>
-            )}
-          </div>
-
-          <div className={classes.optionContainer}>
-            <button
-              onClick={() => {
                 setTypeShowdown(!typeShowdown);
               }}
               className={classes.optionButton}
             >
-              <span>Typ Rozgrywek</span>
+              <span>Type</span>
             </button>
             {typeShowdown && (
               <ul className={classes.optionMenu}>
@@ -194,28 +154,30 @@ export default function LeaguesPage() {
         <div className={classes.leaguesContainer}>
           {currentLeaguesElements.map((league) => {
             return (
-              <li key={league.league.id} className={classes.leagueBar}>
-                <span className={classes.logoContainer}>
-                  <img
-                    className={classes.leagueLogoImage}
-                    src={league.league.logo}
-                    alt={league.league.name}
-                  />
-                </span>
-                <span className={classes.nameContainer}>
-                  {league.league.name}
-                </span>
-                <span className={classes.typeContainer}>
-                  {league.league.type}
-                </span>
-                <span className={classes.flagContainer}>
-                  <img
-                    className={classes.leagueFlagImage}
-                    src={league.country.flag}
-                    alt={league.country.name}
-                  />
-                </span>
-              </li>
+              <Link to="/league" className="disablingLinks">
+                <li key={league.league.id} className={classes.leagueBar}>
+                  <span className={classes.logoContainer}>
+                    <img
+                      className={classes.leagueLogoImage}
+                      src={league.league.logo}
+                      alt={league.league.name}
+                    />
+                  </span>
+                  <span className={classes.nameContainer}>
+                    {league.league.name}
+                  </span>
+                  <span className={classes.typeContainer}>
+                    {league.league.type}
+                  </span>
+                  <span className={classes.flagContainer}>
+                    <img
+                      className={classes.leagueFlagImage}
+                      src={league.country.flag}
+                      alt={league.country.name}
+                    />
+                  </span>
+                </li>
+              </Link>
             );
           })}
         </div>

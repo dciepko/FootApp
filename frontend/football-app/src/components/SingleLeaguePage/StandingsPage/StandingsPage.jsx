@@ -8,7 +8,7 @@ export default function StandingsPage() {
   return (
     <>
       <div className={classes.helpBar}>
-        <span>Pos.</span>
+        <span style={{ paddingLeft: "1.4rem" }}>Pos.</span>
         <span>Team</span>
         <span>GF</span>
         <span>GA</span>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import classes from "./ResultBar.module.css";
 
 export default function ResultBar({ fixture, className }) {
@@ -5,11 +6,10 @@ export default function ResultBar({ fixture, className }) {
   const fontColor = className === "odd" ? "black" : "white";
   const hooverColor = className === "odd" ? "#8d2829" : "lightgray";
 
+  const dynamicClass = className === "odd" ? classes.odd : classes.even;
+
   return (
-    <li
-      className={classes.barItem}
-      style={{ backgroundColor: backgroundColor, color: fontColor }}
-    >
+    <li className={`${classes.barItem} ${dynamicClass}`}>
       <button className={classes.barObject}>
         <span className={classes.homePart}>
           <div className={classes.logoContainer}>
@@ -20,7 +20,7 @@ export default function ResultBar({ fixture, className }) {
             />
           </div>
           <div className={classes.nameContainer}>{fixture.teams.home.name}</div>
-          <div>{fixture.goals.home}</div>
+          <div style={{ marginLeft: ".5rem" }}>{fixture.goals.home}</div>
         </span>
         <span
           style={{
@@ -33,7 +33,7 @@ export default function ResultBar({ fixture, className }) {
           -
         </span>
         <span className={classes.awayPart}>
-          <div>{fixture.goals.away}</div>
+          <div style={{ marginRight: ".5rem" }}>{fixture.goals.away}</div>
           <div className={classes.nameContainer}>{fixture.teams.away.name}</div>
           <div className={classes.logoContainer}>
             <img

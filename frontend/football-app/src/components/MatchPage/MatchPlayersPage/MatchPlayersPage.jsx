@@ -9,16 +9,16 @@ export default function MatchPlayersPage() {
     return (
       <div className={classes.teamPlayers}>
         <h2>{teamLineup.team.name}</h2>
-        <p>Formation:&nbsp;{teamLineup.formation}</p>
-        <p>Starting XI:</p>
+        <p className={classes.toBold}>Formation:&nbsp;{teamLineup.formation}</p>
+        <p className={classes.toBold}>Starting XI:</p>
         {teamLineup.startXI.map((player) => {
           return <li>{player.player.name}</li>;
         })}
-        <p>Substitutes:&nbsp;</p>
+        <p className={classes.toBold}>Substitutes:&nbsp;</p>
         {teamLineup.substitutes.map((player) => {
           return <li>{player.player.name}</li>;
         })}
-        <p>Coach:&nbsp;</p>
+        <p className={classes.toBold}>Coach:&nbsp;</p>
         {teamLineup.coach.name}
       </div>
     );

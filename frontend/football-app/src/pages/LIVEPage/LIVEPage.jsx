@@ -48,12 +48,14 @@ export default function LIVEPage() {
           ? prev.filter((league) => league !== value)
           : [...prev, value]
       );
+      setLeagueShowdown(false);
     } else if (type === "country") {
       setSelectedCountries((prev) =>
         prev.includes(value)
           ? prev.filter((country) => country !== value)
           : [...prev, value]
       );
+      setCountryShowdown(false);
     }
   };
 
@@ -74,7 +76,7 @@ export default function LIVEPage() {
         <div className={classes.appliedFilters}>
           {selectedLeagues.map((league) => (
             <div key={league} className={classes.filterTag}>
-              {league}{" "}
+              {league}
               <button
                 onClick={() => clearFilter("league", league)}
                 className={classes.clearButton}
@@ -85,7 +87,7 @@ export default function LIVEPage() {
           ))}
           {selectedCountries.map((country) => (
             <div key={country} className={classes.filterTag}>
-              {country}{" "}
+              {country}
               <button
                 onClick={() => clearFilter("country", country)}
                 className={classes.clearButton}
@@ -102,7 +104,7 @@ export default function LIVEPage() {
               onClick={() => setLeagueShowdown(!leagueShowdown)}
               className={classes.optionButton}
             >
-              <span>Wybierz Ligę</span>
+              <span>League</span>
             </button>
             {leagueShowdown && (
               <ul className={classes.optionMenu}>
@@ -123,7 +125,7 @@ export default function LIVEPage() {
               onClick={() => setCountryShowdown(!countryShowdown)}
               className={classes.optionButton}
             >
-              <span>Wybierz Kraj</span>
+              <span>Country</span>
             </button>
             {countryShowdown && (
               <ul className={classes.optionMenu}>
@@ -143,7 +145,6 @@ export default function LIVEPage() {
         <div className={classes.fixturesContainer}>
           {currentFixtures.map((fixture) => (
             <Link className="disablingLinks" to="/match">
-              {" "}
               <li key={fixture.fixture.id} className={classes.fixtureBar}>
                 <span className={classes.logoContainer}>
                   <img
@@ -155,9 +156,15 @@ export default function LIVEPage() {
                 <span className={classes.nameContainer}>
                   {fixture.teams.home.name}
                 </span>
-                <span className={classes.resultContainer}>
-                  {fixture.goals.home}&nbsp;-&nbsp;{fixture.goals.away}
+                <span className={classes.statusContainer}>
+                  <span className={classes.timeContainer}>
+                    {fixture.fixture.status.elapsed}'
+                  </span>
+                  <span className={classes.resultContainer}>
+                    {fixture.goals.home}&nbsp;-&nbsp;{fixture.goals.away}
+                  </span>
                 </span>
+
                 <span className={classes.nameContainer}>
                   {fixture.teams.away.name}
                 </span>
