@@ -4,10 +4,12 @@ h2 {
 
 .transfersContainer {
   padding-right: 0.25rem;
+  padding-bottom: 0.5rem;
 }
 
 .trophyContainer {
   padding-left: 0.25rem;
+  padding-bottom: 0.5rem;
 }
 
 .helpBarTrophies,
@@ -26,6 +28,7 @@ h2 {
 .helpBarTransfers span {
   border: 2px black solid;
   padding: 0.2rem;
+  text-align: center;
 }
 
 .transferList,
@@ -50,4 +53,5 @@ h2 {
 .singleTrophy span {
   border: 1px gray solid;
   padding: 0.2rem;
+  text-align: center;
 }

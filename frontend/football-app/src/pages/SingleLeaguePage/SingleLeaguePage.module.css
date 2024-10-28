@@ -10,20 +10,21 @@ main {
 }
 
 .mainSection {
-  max-height: 92%;
-  height: 92%;
+  max-height: 90%;
+  height: 90%;
   display: flex;
   flex-direction: column;
 }
 
 .informationContainer {
   width: 100%;
-  max-height: 12%;
-  height: 12%;
+  max-height: 15%;
+  height: 15%;
   background-color: rgb(238, 235, 235);
   display: grid;
   grid-template-columns: 20% 50% 30%;
-  padding-top: 0.4rem;
+  padding-top: 0rem;
+  box-sizing: border-box;
 }
 
 .images {
@@ -157,8 +158,8 @@ main {
 }
 
 .contentContainerStandings {
-  max-height: 88%;
-  height: 88%;
+  max-height: 85%;
+  height: 85%;
   display: grid;
   grid-template-columns: 93% 7%;
 }
@@ -188,8 +189,8 @@ main {
 }
 
 .contentContainerStatistics {
-  max-height: 88%;
-  height: 88%;
+  max-height: 85%;
+  height: 85%;
   display: grid;
   grid-template-columns: 7% 86% 7%;
   grid-template-rows: 1fr;
@@ -205,8 +206,8 @@ main {
 }
 
 .contentContainerMatches {
-  max-height: 88%;
-  height: 88%;
+  max-height: 85%;
+  height: 85%;
   display: grid;
   grid-template-columns: 7% 93%;
 }

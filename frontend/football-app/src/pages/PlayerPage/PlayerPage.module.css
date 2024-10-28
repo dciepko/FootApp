@@ -29,8 +29,8 @@ main {
 }
 
 .basicInformationSection {
-  max-height: 92%;
-  height: 92%;
+  max-height: 90%;
+  height: 90%;
   display: grid;
   grid-template-columns: 93% 7%;
 }
@@ -40,8 +40,8 @@ main {
 }
 
 .statisticsSection {
-  max-height: 92%;
-  height: 92%;
+  max-height: 90%;
+  height: 90%;
   display: grid;
   grid-template-columns: 7% 86% 7%;
   grid-template-rows: 1fr;
@@ -57,8 +57,8 @@ main {
 }
 
 .additionalInfoSection {
-  max-height: 92%;
-  height: 92%;
+  max-height: 90%;
+  height: 90%;
   display: grid;
   grid-template-columns: 7% 93%;
 }

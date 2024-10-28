@@ -27,3 +27,71 @@
   grid-template-columns: 1fr 2fr;
   height: 100%;
 }
+
+.statisticsPage {
+  height: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.choosePart {
+  height: 12%;
+  max-height: 12%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.chooseSection {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  background-color: rgb(241, 241, 241);
+}
+
+.statisticsSection {
+  height: 76%;
+}
+
+.statisticDetails {
+  height: 100%;
+}
+
+.statisticDetails h3 {
+  margin: 0;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  max-height: 10%;
+  height: 10%;
+}
+
+.statisticDetailsList {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  height: 90%;
+  max-height: 90%;
+}
+
+.statisticItem {
+  font-size: 1.5rem;
+}
+
+.valuesContainer {
+  margin-top: 2rem;
+}
+
+.chartContainer {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  overflow-y: auto;
+}
+
+.chartContainer img {
+  max-height: 80%;
+  max-width: 50%;
+  object-fit: contain;
+  overflow: hidden;
+}

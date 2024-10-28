@@ -298,14 +298,14 @@ export default function PlayerStatisticsPage() {
         ) : (
           <p>No statistics available for this page.</p>
         )}
-
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={handlePageChange}
-          itemsPerPage={itemsPerPage}
-        />
       </div>
+
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+        itemsPerPage={itemsPerPage}
+      />
     </>
   );
 }

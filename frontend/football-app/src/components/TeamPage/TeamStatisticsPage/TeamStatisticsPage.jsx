@@ -179,6 +179,10 @@ export default function TeamStatisticsPage() {
     );
   };
 
+  const formatStatName = (name) => {
+    return name.replace(/([A-Z])/g, " $1").trim();
+  };
+
   return (
     <div className={classes.statisticsPage}>
       <div className={classes.choosePart}>
@@ -213,7 +217,7 @@ export default function TeamStatisticsPage() {
                   ) {
                     return (
                       <div key={key} className={classes.statisticItem}>
-                        <strong>{key.toUpperCase()}:</strong>{" "}
+                        <strong>{formatStatName(key)}:</strong>{" "}
                         {value !== null ? value : "N/A"}
                       </div>
                     );

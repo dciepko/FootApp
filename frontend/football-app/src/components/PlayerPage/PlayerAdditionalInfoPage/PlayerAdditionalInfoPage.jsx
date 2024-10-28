@@ -24,7 +24,7 @@ export default function PlayerAdditionalInfoPage() {
                 <li className={classes.singleTransfer}>
                   <span>{transfer.date}</span>
                   <span>{transfer.teams.out.name}</span>
-                  <span></span>
+                  <span>&#129130;</span>
                   <span>{transfer.teams.in.name}</span>
                   <span>{transfer.type}</span>
                 </li>

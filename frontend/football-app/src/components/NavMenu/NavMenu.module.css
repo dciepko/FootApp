@@ -1,19 +1,23 @@
 .navMenu {
-  max-height: 8%;
-  min-height: 8%;
+  max-height: 10%;
+  min-height: 10%;
+  height: 10%;
 }
 
 .navMenu ul {
+  height: 100%;
   margin: 0;
   padding: 0;
   display: grid;
   grid-template-columns: auto auto auto auto auto auto;
   list-style: none;
+  position: relative;
 }
 
 .navMenu ul li {
-  padding: 0.8rem 0;
+  height: 100%;
   position: relative;
+  margin-bottom: 0.2rem;
   border: 0.15rem gray solid;
   border-top: 0.2rem gray solid;
   border-bottom: 0.2rem gray solid;
@@ -22,6 +26,14 @@
   text-align: center;
   overflow: hidden;
   transition: color 0.4s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.navMenu ul li span {
+  z-index: 5;
 }
 
 .navMenu ul li::before {
@@ -34,6 +46,7 @@
   background-color: #e6292c;
   transition: top 0.25s ease;
   z-index: 0;
+  box-sizing: border-box;
 }
 
 .navMenu ul li:hover::before {
