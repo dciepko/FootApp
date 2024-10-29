@@ -1,7 +1,6 @@
-// Player.js
 import React from "react";
 import styles from "./Player.module.css";
-import shirtImage from "../../assets/shirtRed.png";
+import shirtImage from "../../assets/shirtRed.svg";
 
 function Player({ name, number }) {
   return (
@@ -10,7 +9,7 @@ function Player({ name, number }) {
       style={{ backgroundImage: `url(${shirtImage})` }}
     >
       <div className={styles.playerInfo}>
-        <span>{name}</span>
+        <span>{name}</span>&nbsp;
         <span>#{number}</span>
       </div>
     </div>
