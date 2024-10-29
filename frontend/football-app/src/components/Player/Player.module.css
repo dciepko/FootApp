@@ -1,0 +1,16 @@
+/* Player.module.css */
+.player {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.8em;
+  background-size: cover;
+  text-align: center;
+}
+
+.playerInfo {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 4px;
+  border-radius: 4px;
+}

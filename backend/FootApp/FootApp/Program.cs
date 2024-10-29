@@ -3,15 +3,15 @@ using FootApp.Data;
 using FootApp.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
-
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
+// Konfiguracja CORS
 builder.Services.AddCors((options) =>
 {
     options.AddPolicy("DevCors", (corsBuilder) =>
@@ -30,13 +30,20 @@ builder.Services.AddCors((options) =>
     });
 });
 
+// Dodaj DataContext i repozytoria
 builder.Services.AddScoped<DataContext>();
-
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<AuthHelper>();
 
+// Konfiguracja Redis
+var redisConfig = builder.Configuration.GetConnectionString("RedisConnection");
+builder.Services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect(redisConfig));
 
+// Rejestracja serwisu FootballApiService z HttpClient
+builder.Services.AddHttpClient<FootballApiService>();
+
+// Konfiguracja autoryzacji
 string? tokenKeyString = builder.Configuration.GetSection("AppSettings:TokenKey").Value;
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -60,7 +67,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 else
 {
     app.UseCors("ProdCors");
@@ -68,9 +74,7 @@ else
 }
 
 app.UseAuthentication();
-
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
