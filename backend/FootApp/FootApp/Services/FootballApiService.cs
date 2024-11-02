@@ -1,40 +1,44 @@
 ﻿using StackExchange.Redis;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Text.Json;
 
 public class FootballApiService
 {
-    private readonly IConnectionMultiplexer _redis;
-    private readonly HttpClient _httpClient;
+/*    private readonly IConnectionMultiplexer _redis;
+*/    private readonly HttpClient _httpClient;
 
-    public FootballApiService(IConnectionMultiplexer redis, HttpClient httpClient)
+    public FootballApiService(/*IConnectionMultiplexer redis,*/ HttpClient httpClient)
     {
-        _redis = redis;
-        _httpClient = httpClient;
+/*        _redis = redis;
+*/        _httpClient = httpClient;
 
-        // Dodaj klucz API-Football w nagłówku
-        _httpClient.DefaultRequestHeaders.Add("x-apisports-key", "YOUR_API_KEY");
+        // Dodaj wymagane nagłówki
+        _httpClient.DefaultRequestHeaders.Add("x-apisports-key", "1dbba86a73423a8de3681073c6828d47");
+        _httpClient.DefaultRequestHeaders.Add("x-rapidapi-host", "v3.football.api-sports.io");  // Dodano hosta
     }
 
     public async Task<string> GetFootballDataAsync(string endpoint)
     {
-        var db = _redis.GetDatabase();
-        var cacheKey = $"football_data:{endpoint}";
+        /* var db = _redis.GetDatabase();
+         var cacheKey = $"football_data:{endpoint}";
 
-        // 1. Sprawdź, czy dane są już w Redis
-        var cachedData = await db.StringGetAsync(cacheKey);
-        if (!cachedData.IsNullOrEmpty)
+         // Próba pobrania danych z cache
+         var cachedData = await db.StringGetAsync(cacheKey);
+         if (!cachedData.IsNullOrEmpty)
+         {
+             return cachedData;
+         }*/
+
+        // Pobranie danych z API, jeśli nie ma ich w cache
+        Console.WriteLine(endpoint);
+        try
         {
-            return cachedData;
+            var response = await _httpClient.GetStringAsync($"https://v3.football.api-sports.io/{endpoint}");
+/*            await db.StringSetAsync(cacheKey, response, TimeSpan.FromMinutes(10)); // Cache na 10 minut
+*/            return response;
         }
-
-        // 2. Jeśli nie, pobierz dane z API-Football
-        var response = await _httpClient.GetStringAsync($"https://v3.football.api-sports.io/{endpoint}");
-
-        // 3. Zapisz dane w Redis z czasem życia 10 minut
-        await db.StringSetAsync(cacheKey, response, TimeSpan.FromMinutes(10));
-
-        return response;
+        catch (HttpRequestException ex)
+        {
+            // Obsługa błędów (np. logowanie lub zwrócenie wartości domyślnej)
+            throw new Exception("Błąd podczas pobierania danych z API-Football", ex);
+        }
     }
 }

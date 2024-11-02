@@ -1,37 +1,44 @@
+import React, { useState, useEffect } from "react";
 import classes from "./ResultContainer.module.css";
-import { useQuery } from "@tanstack/react-query";
-import fixturesData from "../../../data/fixtures.json";
-import ResultBar from "../ResultBar/ResultBar";
 import { Link } from "react-router-dom";
+import ResultBar from "../ResultBar/ResultBar";
+import { useFixturesLiveData } from "../../../hooks/useFixturesLiveData";
 
-// Funkcja pomocnicza do losowego wyboru 20 elementów z tablicy
 const getRandomFixtures = (fixtures, count) => {
-  // Kopia tablicy
   let shuffled = [...fixtures];
-  // Algorytm Fisher-Yates do mieszania tablicy
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
-  // Zwracamy tylko 'count' pierwszych elementów
   return shuffled.slice(0, count);
 };
 
 export default function ResultContainer() {
-  // const { data, error, isLoading } = useQuery({
-  //   queryFn: fetchFixtures,
-  //   queryKey: ["fixtures"],
-  // });
+  const { data: fixturesData, isLoading, error } = useFixturesLiveData();
+  const [displayedFixtures, setDisplayedFixtures] = useState([]);
 
-  // Sprawdzenie długości danych i wybór odpowiedniej ilości meczów
-  const fixturesToDisplay =
-    fixturesData.length <= 20
-      ? fixturesData
-      : getRandomFixtures(fixturesData, 20);
+  console.log("Wyświetlane mecze:" + displayedFixtures);
+
+  useEffect(() => {
+    if (
+      fixturesData &&
+      fixturesData.response &&
+      Array.isArray(fixturesData.response)
+    ) {
+      const limitedFixtures =
+        fixturesData.response.length > 20
+          ? getRandomFixtures(fixturesData.response, 20)
+          : fixturesData.response;
+      setDisplayedFixtures(limitedFixtures);
+    }
+  }, [fixturesData]);
+
+  if (isLoading) return <div>Ładowanie wyników...</div>;
+  if (error) return <div>Błąd: {error.message}</div>;
 
   return (
     <div className={classes.currentResultsList}>
-      {fixturesToDisplay.map((fixture, index) => {
+      {displayedFixtures.map((fixture, index) => {
         const className = index % 2 === 0 ? "even" : "odd";
         return (
           <Link

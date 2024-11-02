@@ -1,107 +1,65 @@
+import React, { useState, useEffect } from "react";
 import classes from "./LeaguesContainer.module.css";
-import leagues from "../../../data/leagues.json";
-import { useState } from "react";
-import premierLeagueData from "../../../data/currentLeague/premierLeague.json";
-import laLigaData from "../../../data/currentLeague/laLiga.json";
-import bundesligaData from "../../../data/currentLeague/bundesliga.json";
-import serieAData from "../../../data/currentLeague/serieA.json";
-import ligueUnData from "../../../data/currentLeague/ligueUn.json";
-import ekstraklasaData from "../../../data/currentLeague/ekstraklasa.json";
 import LeaguesContainerPlaceBar from "../LeaguesContainerPlaceBar/LeaguesContainerPlaceBar";
 import { Link } from "react-router-dom";
+import { useLeagueStandingsData } from "../../../hooks/useLeagueStandingsData";
+import { fetchFootballData } from "../../../utils/fetchFootballData";
+
+const leagueIds = [39, 140, 78, 135, 61, 106];
 
 export default function LeaguesContainer() {
-  //   const premierLeague = leagues.find((obj) => obj.league.id === 39);
-  //   const laLiga = leagues.find((obj) => obj.league.id === 140);
-  //   const bundesliga = leagues.find((obj) => obj.league.id === 78);
-  //   const serieA = leagues.find((obj) => obj.league.id === 135);
-  //   const ligueUn = leagues.find((obj) => obj.league.id === 61);
-  //   const ekstraklasa = leagues.find((obj) => obj.league.id === 106);
+  const [leagues, setLeagues] = useState([]);
+  const [currentLeagueId, setCurrentLeagueId] = useState(null);
 
-  const premierLeague = premierLeagueData[0];
-  const laLiga = laLigaData[0];
-  const bundesliga = bundesligaData[0];
-  const serieA = serieAData[0];
-  const ligueUn = ligueUnData[0];
-  const ekstraklasa = ekstraklasaData[0];
+  useEffect(() => {
+    const endpoint = "leagues";
+    const fetchLeagues = async () => {
+      try {
+        const data = await fetchFootballData(endpoint);
+        const filteredLeagues = data.response
+          .filter((league) => leagueIds.includes(league.league.id))
+          .sort(
+            (a, b) =>
+              leagueIds.indexOf(a.league.id) - leagueIds.indexOf(b.league.id)
+          );
 
-  const [currentLeague, setCurrentLeague] = useState(premierLeague);
+        setLeagues(filteredLeagues);
+        if (filteredLeagues.length > 0) {
+          setCurrentLeagueId(filteredLeagues[0].league.id);
+        }
+      } catch (error) {
+        console.error("Błąd podczas pobierania lig:", error);
+      }
+    };
+
+    fetchLeagues();
+  }, []);
+
+  const {
+    data: leagueData,
+    isLoading,
+    error,
+  } = useLeagueStandingsData(currentLeagueId);
+
+  if (isLoading) return <div>Ładowanie lig...</div>;
+  if (error) return <div>Błąd: {error.message}</div>;
 
   return (
     <div className={classes.leaguesList}>
       <div className={classes.leagueChoosePanel}>
-        <button
-          className={classes.leagueButton}
-          onClick={() => {
-            setCurrentLeague(premierLeague);
-          }}
-        >
-          <img
-            className={classes.leagueImage}
-            src={premierLeague.league.logo}
-            alt="Premier League"
-          />
-        </button>
-        <button
-          className={classes.leagueButton}
-          onClick={() => {
-            setCurrentLeague(laLiga);
-          }}
-        >
-          <img
-            className={classes.leagueImage}
-            src={laLiga.league.logo}
-            alt="La Liga"
-          />
-        </button>
-        <button
-          className={classes.leagueButton}
-          onClick={() => {
-            setCurrentLeague(bundesliga);
-          }}
-        >
-          <img
-            className={classes.leagueImage}
-            src={bundesliga.league.logo}
-            alt="Bundesliga"
-          />
-        </button>
-        <button
-          className={classes.leagueButton}
-          onClick={() => {
-            setCurrentLeague(serieA);
-          }}
-        >
-          <img
-            className={classes.leagueImage}
-            src={serieA.league.logo}
-            alt="Serie A"
-          />
-        </button>
-        <button
-          className={classes.leagueButton}
-          onClick={() => {
-            setCurrentLeague(ligueUn);
-          }}
-        >
-          <img
-            className={classes.leagueImage}
-            src={ligueUn.league.logo}
-            alt="Ligue 1"
-          />
-        </button>
-        <button
-          className={classes.leagueButton}
-          onClick={() => {
-            setCurrentLeague(ekstraklasa);
-          }}
-        >
-          <img
-            className={classes.leagueImage}
-            src={ekstraklasa.league.logo}
-            alt="Ekstraklasa"
-          />
-        </button>
+        {leagues.map((league) => (
+          <button
+            key={league.league.id}
+            className={classes.leagueButton}
+            onClick={() => setCurrentLeagueId(league.league.id)}
+          >
+            <img
+              className={classes.leagueImage}
+              src={league.league.logo}
+              alt={`League ${league.league.name}`}
+            />
+          </button>
+        ))}
       </div>
       <div className={classes.leagueContainer}>
         <div className={classes.helpBar}>
@@ -110,14 +68,11 @@ export default function LeaguesContainer() {
           <span>+/-</span>
           <span>Pts.</span>
         </div>
-        {currentLeague &&
-          currentLeague.league.standings[0].map((place) => {
-            return (
-              <Link className="disablingLinks" to={"/team"}>
-                <LeaguesContainerPlaceBar place={place} />
-              </Link>
-            );
-          })}
+        {leagueData?.response[0]?.league?.standings[0].map((place) => (
+          <Link className="disablingLinks" to={"/team"} key={place.team.id}>
+            <LeaguesContainerPlaceBar place={place} />
+          </Link>
+        ))}
       </div>
     </div>
   );

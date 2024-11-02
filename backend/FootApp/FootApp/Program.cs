@@ -16,7 +16,7 @@ builder.Services.AddCors((options) =>
 {
     options.AddPolicy("DevCors", (corsBuilder) =>
     {
-        corsBuilder.WithOrigins("http://localhost:4200", "http://localhost:3000", "http://localhost:8000")
+        corsBuilder.WithOrigins("http://localhost:5173")
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials();
@@ -37,9 +37,9 @@ builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<AuthHelper>();
 
 // Konfiguracja Redis
-var redisConfig = builder.Configuration.GetConnectionString("RedisConnection");
+/*var redisConfig = builder.Configuration.GetConnectionString("RedisConnection");
 builder.Services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect(redisConfig));
-
+*/
 // Rejestracja serwisu FootballApiService z HttpClient
 builder.Services.AddHttpClient<FootballApiService>();
 
@@ -60,6 +60,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 var app = builder.Build();
+
+app.UseMiddleware<LoggingMiddleware>();
+
 
 if (app.Environment.IsDevelopment())
 {
