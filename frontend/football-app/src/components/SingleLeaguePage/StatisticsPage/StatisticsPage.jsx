@@ -4,7 +4,7 @@ import assistsData from "../../../data/PLTopPlayers/PLAssists.json";
 import yellowCardsData from "../../../data/PLTopPlayers/PLYellowCards.json";
 import redCardsData from "../../../data/PLTopPlayers/PLRedCards.json";
 
-export default function StatisticsPage() {
+export default function StatisticsPage({ id, season }) {
   const goalScorers = goalScorersData;
   const assists = assistsData;
   const yellowCards = yellowCardsData;

@@ -23,6 +23,7 @@ export async function fetchFootballData(endpoint) {
 
     const data = await response.json();
     console.log("Fetched data:", data);
+
     return data;
   } catch (error) {
     console.error("Fetch error:", error);

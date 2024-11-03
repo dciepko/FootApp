@@ -4,9 +4,11 @@ import classes from "./MatchPage.module.css";
 import MatchInfoPage from "../../components/MatchPage/MatchInfoPage/MatchInfoPage";
 import MatchStatisticsPage from "../../components/MatchPage/MatchStatisticsPage/MatchStatisticsPage";
 import MatchPlayersPage from "../../components/MatchPage/MatchPlayersPage/MatchPlayersPage";
+import { useParams } from "react-router-dom";
 
 export default function MatchPage() {
   const [currentContent, setCurrentContent] = useState("info");
+  const { matchId } = useParams();
 
   const renderContent = () => {
     switch (currentContent) {
@@ -14,7 +16,7 @@ export default function MatchPage() {
         return (
           <div className={classes.infoSection}>
             <div className={classes.mainPart}>
-              <MatchInfoPage />
+              <MatchInfoPage id={matchId} />
             </div>
             <div className={classes.arrowPart}>
               <button
@@ -39,7 +41,7 @@ export default function MatchPage() {
               </button>
             </div>
             <div className={classes.mainPart}>
-              <MatchStatisticsPage />
+              <MatchStatisticsPage id={matchId} />
             </div>
             <div className={classes.arrowPart}>
               <button
@@ -64,7 +66,7 @@ export default function MatchPage() {
               </button>
             </div>
             <div className={classes.mainPart}>
-              <MatchPlayersPage />
+              <MatchPlayersPage id={matchId} />
             </div>
           </div>
         );

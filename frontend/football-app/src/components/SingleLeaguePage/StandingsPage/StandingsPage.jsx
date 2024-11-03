@@ -2,7 +2,7 @@ import classes from "./StandingsPage.module.css";
 import premierLeagueData from "../../../data/currentLeague/premierLeague.json";
 import Standings from "../Standing/Standings";
 
-export default function StandingsPage() {
+export default function StandingsPage({ id, season }) {
   const premierLeague = premierLeagueData[0];
 
   return (

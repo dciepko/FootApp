@@ -53,19 +53,19 @@ const App = () => {
         },
 
         {
-          path: "/league",
+          path: "/league/:leagueId",
           element: <SingleLeaguePage />,
         },
         {
-          path: "/team",
+          path: "/team/:teamId",
           element: <TeamPage />,
         },
         {
-          path: "/player",
+          path: "/player/:playerId",
           element: <PlayerPage />,
         },
         {
-          path: "/match",
+          path: "/match/:matchId",
           element: <MatchPage />,
         },
       ],

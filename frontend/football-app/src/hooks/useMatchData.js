@@ -5,7 +5,7 @@ import { fetchFootballData } from "../utils/fetchFootballData";
 export function useMatchData(matchId) {
   return useQuery({
     queryKey: ["matchData", matchId],
-    queryFn: () => fetchFootballData(`match/${matchId}`),
+    queryFn: () => fetchFootballData(`fixtures/${matchId}`),
     staleTime: 10 * 60 * 1000,
   });
 }

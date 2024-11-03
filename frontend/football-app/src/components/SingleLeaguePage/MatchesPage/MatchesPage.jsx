@@ -7,7 +7,7 @@ const formatDate = (dateString) => {
   return new Date(dateString).toLocaleDateString("en-US", options);
 };
 
-export default function StandingsPage() {
+export default function StandingsPage({ id, season }) {
   const [showFinished, setShowFinished] = useState(true);
 
   const finishedMatches = matchesData

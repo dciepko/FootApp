@@ -1,28 +1,40 @@
+import React, { useState, useEffect } from "react";
 import NavMenu from "../../components/NavMenu/NavMenu";
 import classes from "./LIVEPage.module.css";
-import fixturesData from "../../data/fixtures.json";
-import { useState } from "react";
 import Pagination from "../../components/Pagination/Pagination";
 import { Link } from "react-router-dom";
+import { useFixturesLiveData } from "../../hooks/useFixturesLiveData";
+
+// import fixturesData from "../../data/fixtures.json";
 
 export default function LIVEPage() {
+  const { data: fixturesData, isLoading, error } = useFixturesLiveData();
+  const [displayedFixtures, setDisplayedFixtures] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
 
   const [selectedLeagues, setSelectedLeagues] = useState([]);
   const [selectedCountries, setSelectedCountries] = useState([]);
-
   const [leagueShowdown, setLeagueShowdown] = useState(false);
   const [countryShowdown, setCountryShowdown] = useState(false);
 
+  useEffect(() => {
+    if (fixturesData && Array.isArray(fixturesData.response)) {
+      setDisplayedFixtures(fixturesData.response);
+    }
+  }, [fixturesData]);
+
+  if (isLoading) return <div>Ładowanie meczów...</div>;
+  if (error) return <div>Błąd: {error.message}</div>;
+
   const leagueSet = [
-    ...new Set(fixturesData.map((fixture) => fixture.league.name)),
+    ...new Set(displayedFixtures.map((fixture) => fixture.league.name)),
   ];
   const countrySet = [
-    ...new Set(fixturesData.map((fixture) => fixture.league.country)),
+    ...new Set(displayedFixtures.map((fixture) => fixture.league.country)),
   ];
 
-  const filteredFixtures = fixturesData.filter((fixture) => {
+  const filteredFixtures = displayedFixtures.filter((fixture) => {
     const matchesLeague =
       selectedLeagues.length === 0 ||
       selectedLeagues.includes(fixture.league.name);
@@ -37,10 +49,7 @@ export default function LIVEPage() {
   const endIndex = startIndex + itemsPerPage;
   const currentFixtures = filteredFixtures.slice(startIndex, endIndex);
 
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
+  const handlePageChange = (pageNumber) => setCurrentPage(pageNumber);
   const toggleFilter = (type, value) => {
     if (type === "league") {
       setSelectedLeagues((prev) =>
@@ -58,7 +67,6 @@ export default function LIVEPage() {
       setCountryShowdown(false);
     }
   };
-
   const clearFilter = (type, value) => {
     if (type === "league") {
       setSelectedLeagues((prev) => prev.filter((league) => league !== value));
@@ -119,7 +127,6 @@ export default function LIVEPage() {
               </ul>
             )}
           </div>
-
           <div className={classes.optionContainer}>
             <button
               onClick={() => setCountryShowdown(!countryShowdown)}
@@ -144,8 +151,12 @@ export default function LIVEPage() {
 
         <div className={classes.fixturesContainer}>
           {currentFixtures.map((fixture) => (
-            <Link className="disablingLinks" to="/match">
-              <li key={fixture.fixture.id} className={classes.fixtureBar}>
+            <Link
+              className="disablingLinks"
+              to={`/match/${fixture.fixture.id}`}
+              key={fixture.fixture.id}
+            >
+              <li className={classes.fixtureBar}>
                 <span className={classes.logoContainer}>
                   <img
                     className={classes.teamLogoImage}
@@ -164,7 +175,6 @@ export default function LIVEPage() {
                     {fixture.goals.home}&nbsp;-&nbsp;{fixture.goals.away}
                   </span>
                 </span>
-
                 <span className={classes.nameContainer}>
                   {fixture.teams.away.name}
                 </span>
@@ -190,3 +200,17 @@ export default function LIVEPage() {
     </main>
   );
 }
+
+// Zakomentowana wersja bez API, pobierająca dane z JSON:
+
+/*
+import fixturesData from "../../data/fixtures.json"; // Bezpośrednie załadowanie danych
+// Ustawienie danych przy inicjalizacji komponentu
+const [displayedFixtures, setDisplayedFixtures] = useState(fixturesData);
+
+// Wersja bez API będzie miała leagueSet, countrySet, filteredFixtures i currentFixtures oparte na załadowanym JSON:
+const leagueSet = [...new Set(fixturesData.map((fixture) => fixture.league.name))];
+const countrySet = [...new Set(fixturesData.map((fixture) => fixture.league.country))];
+// ...
+// Reszta kodu pozostaje bez zmian, korzysta z lokalnych danych `fixturesData`.
+*/

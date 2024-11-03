@@ -17,9 +17,9 @@ export default function ResultContainer() {
   const { data: fixturesData, isLoading, error } = useFixturesLiveData();
   const [displayedFixtures, setDisplayedFixtures] = useState([]);
 
-  console.log("Wyświetlane mecze:" + displayedFixtures);
-
   useEffect(() => {
+    console.log(fixturesData); // Sprawdź strukturę danych
+
     if (
       fixturesData &&
       fixturesData.response &&
