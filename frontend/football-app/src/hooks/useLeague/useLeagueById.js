@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchFootballData } from "../../utils/fetchFootballData";
 
-// Funkcja hooka dla meczu
 export function useLeagueById(leagueId) {
   return useQuery({
     queryKey: ["singleLeagueData", leagueId],

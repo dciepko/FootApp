@@ -2,6 +2,7 @@ export async function fetchFootballData(endpoint) {
   console.log(`Fetching data from endpoint: ${endpoint}`);
   const baseUrl = "http://localhost:5156";
   const url = `${baseUrl}/api/APIFootball`;
+  console.log(endpoint);
 
   try {
     const response = await fetch(url, {

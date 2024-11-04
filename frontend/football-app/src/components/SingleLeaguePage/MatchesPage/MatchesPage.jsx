@@ -1,21 +1,44 @@
 import { useState } from "react";
 import classes from "./MatchesPage.module.css";
-import matchesData from "../../../data/PLMatches.json";
+import { useLeagueFixturesData } from "../../../hooks/useLeague/useLeagueFixturesData";
+import { Link } from "react-router-dom";
 
 const formatDate = (dateString) => {
   const options = { year: "numeric", month: "long", day: "numeric" };
   return new Date(dateString).toLocaleDateString("en-US", options);
 };
 
-export default function StandingsPage({ id, season }) {
+export default function MatchesPage({ id, season }) {
   const [showFinished, setShowFinished] = useState(true);
 
-  const finishedMatches = matchesData
+  const {
+    data: fixturesData,
+    isLoading,
+    error,
+  } = useLeagueFixturesData(id, season);
+
+  if (isLoading) return <div>Ładowanie danych meczów...</div>;
+  if (error) return <div>Błąd wczytywania danych: {error.message}</div>;
+
+  if (
+    !fixturesData ||
+    !fixturesData.response ||
+    fixturesData.response.length === 0
+  ) {
+    return <div>Brak danych o meczach.</div>;
+  }
+
+  const finishedMatches = fixturesData.response
     .filter((match) => match.fixture.status.short === "FT")
     .sort((a, b) => new Date(b.fixture.date) - new Date(a.fixture.date));
 
-  const upcomingMatches = matchesData
-    .filter((match) => match.fixture.status.short !== "FT")
+  // Filtruj nadchodzące mecze, aby uwzględnić tylko te, których data jest w przyszłości
+  const upcomingMatches = fixturesData.response
+    .filter(
+      (match) =>
+        match.fixture.status.short !== "FT" &&
+        new Date(match.fixture.date) > new Date()
+    )
     .sort((a, b) => new Date(a.fixture.date) - new Date(b.fixture.date));
 
   const matchesToDisplay = showFinished ? finishedMatches : upcomingMatches;
@@ -55,13 +78,22 @@ export default function StandingsPage({ id, season }) {
             <div key={date}>
               <div className={classes.dateHeader}>{date}</div>
               {groupedMatches[date].map((match) => (
-                <div key={match.fixture.id} className={classes.singleMatch}>
-                  <span>{match.teams.home.name}</span>
-                  <span>{match.goals.home ? match.goals.home : "-"}</span>
-                  <span> &nbsp;:&nbsp;</span>
-                  <span>{match.goals.away ? match.goals.away : "-"}</span>
-                  <span>{match.teams.away.name}</span>
-                </div>
+                <Link
+                  className="disablingLinks"
+                  to={`/match/${match.fixture.id}`}
+                >
+                  <div key={match.fixture.id} className={classes.singleMatch}>
+                    <span>{match.teams.home.name}</span>
+                    <span>
+                      {match.goals.home !== null ? match.goals.home : "-"}
+                    </span>
+                    <span> &nbsp;:&nbsp;</span>
+                    <span>
+                      {match.goals.away !== null ? match.goals.away : "-"}
+                    </span>
+                    <span>{match.teams.away.name}</span>
+                  </div>
+                </Link>
               ))}
             </div>
           ))

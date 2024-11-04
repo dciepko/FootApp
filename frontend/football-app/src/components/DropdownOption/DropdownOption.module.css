@@ -79,6 +79,8 @@
 
 .optionMenu li {
   cursor: pointer;
+  padding: 0.3rem 0;
+  padding-left: 1rem;
 }
 
 .optionMenu li:hover {

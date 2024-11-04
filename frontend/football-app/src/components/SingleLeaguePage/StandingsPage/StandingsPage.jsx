@@ -1,9 +1,12 @@
 import classes from "./StandingsPage.module.css";
 import premierLeagueData from "../../../data/currentLeague/premierLeague.json";
 import Standings from "../Standing/Standings";
+import { Link } from "react-router-dom";
 
-export default function StandingsPage({ id, season }) {
-  const premierLeague = premierLeagueData[0];
+export default function StandingsPage({ data }) {
+  // const premierLeague = premierLeagueData[0];
+  const premierLeague = data.response[0];
+  console.log(data);
 
   return (
     <>
@@ -24,7 +27,9 @@ export default function StandingsPage({ id, season }) {
         {premierLeague.league.standings[0].map((place) => {
           return (
             <div className={classes.singleStanding}>
-              <Standings team={place} />{" "}
+              <Link className="disablingLinks" to={`/team/${place.team.id}`}>
+                <Standings key={place.team.id} team={place} />{" "}
+              </Link>
             </div>
           );
         })}

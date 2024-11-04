@@ -1,14 +1,25 @@
 import classes from "./StatisticsPage.module.css";
-import goalScorersData from "../../../data/PLTopPlayers/PLGoals.json";
-import assistsData from "../../../data/PLTopPlayers/PLAssists.json";
-import yellowCardsData from "../../../data/PLTopPlayers/PLYellowCards.json";
-import redCardsData from "../../../data/PLTopPlayers/PLRedCards.json";
+import { useLeaguesTopPlayersData } from "../../../hooks/useLeague/useLeaguesTopPlayersData";
+import { Link } from "react-router-dom";
 
 export default function StatisticsPage({ id, season }) {
-  const goalScorers = goalScorersData;
-  const assists = assistsData;
-  const yellowCards = yellowCardsData;
-  const redCards = redCardsData;
+  const {
+    data: topPlayersData,
+    isLoading,
+    error,
+  } = useLeaguesTopPlayersData(id, season);
+
+  if (isLoading) return <div>Ładowanie danych graczy...</div>;
+  if (error) return <div>Błąd wczytywania danych: {error.message}</div>;
+
+  if (!topPlayersData || topPlayersData.length < 4) {
+    return <div>Brak danych o graczach.</div>;
+  }
+
+  const goalScorers = topPlayersData[0]?.response || [];
+  const assists = topPlayersData[1]?.response || [];
+  const redCards = topPlayersData[2]?.response || [];
+  const yellowCards = topPlayersData[3]?.response || [];
 
   return (
     <>
@@ -17,14 +28,18 @@ export default function StatisticsPage({ id, season }) {
           <div className={classes.contentSection}>
             <div className={classes.containerName}>Goals</div>
             <div className={classes.tableContainer}>
-              {goalScorers.map((player, index) => {
-                return (
-                  <li key={player.player.id}>
+              {goalScorers.map((player, index) => (
+                <Link
+                  className="disablingLinks"
+                  to={`/player/${player.player.id}`}
+                  key={player.player.id}
+                >
+                  <li>
                     <span>{index + 1}.</span> <span>{player.player.name}</span>{" "}
                     <span>{player.statistics[0].goals.total}</span>
                   </li>
-                );
-              })}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
@@ -34,14 +49,18 @@ export default function StatisticsPage({ id, season }) {
           <div className={classes.contentSection}>
             <div className={classes.containerName}>Assists</div>
             <div className={classes.tableContainer}>
-              {assists.map((player, index) => {
-                return (
-                  <li key={player.player.id}>
+              {assists.map((player, index) => (
+                <Link
+                  className="disablingLinks"
+                  to={`/player/${player.player.id}`}
+                  key={player.player.id}
+                >
+                  <li>
                     <span>{index + 1}.</span> <span>{player.player.name}</span>{" "}
                     <span>{player.statistics[0].goals.assists}</span>
                   </li>
-                );
-              })}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
@@ -51,14 +70,18 @@ export default function StatisticsPage({ id, season }) {
           <div className={classes.contentSection}>
             <div className={classes.containerName}>Yellow Cards</div>
             <div className={classes.tableContainer}>
-              {yellowCards.map((player, index) => {
-                return (
-                  <li key={player.player.id}>
+              {yellowCards.map((player, index) => (
+                <Link
+                  className="disablingLinks"
+                  to={`/player/${player.player.id}`}
+                  key={player.player.id}
+                >
+                  <li>
                     <span>{index + 1}.</span> <span>{player.player.name}</span>{" "}
                     <span>{player.statistics[0].cards.yellow}</span>
                   </li>
-                );
-              })}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
@@ -68,14 +91,18 @@ export default function StatisticsPage({ id, season }) {
           <div className={classes.contentSection}>
             <div className={classes.containerName}>Red Cards</div>
             <div className={classes.tableContainer}>
-              {redCards.map((player, index) => {
-                return (
-                  <li key={player.player.id}>
+              {redCards.map((player, index) => (
+                <Link
+                  className="disablingLinks"
+                  to={`/player/${player.player.id}`}
+                  key={player.player.id}
+                >
+                  <li>
                     <span>{index + 1}.</span> <span>{player.player.name}</span>{" "}
                     <span>{player.statistics[0].cards.red}</span>
                   </li>
-                );
-              })}
+                </Link>
+              ))}
             </div>
           </div>
         </div>

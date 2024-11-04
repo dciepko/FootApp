@@ -6,22 +6,51 @@ import MatchesPage from "../../components/SingleLeaguePage/MatchesPage/MatchesPa
 import StatisticsPage from "../../components/SingleLeaguePage/StatisticsPage/StatisticsPage";
 import { useParams } from "react-router-dom";
 import { useLeagueById } from "../../hooks/useLeague/useLeagueById";
+import DropdownOption from "../../components/DropdownOption/DropdownOption";
+import { useLeagueStandingsData } from "../../hooks/useLeagueStandingsData";
+import { fetchFootballData } from "../../utils/fetchFootballData";
 
 export default function SingleLeaguePage() {
   const { leagueId } = useParams();
   const { data: leagueData, isLoading, error } = useLeagueById(leagueId);
-  const [chosenSeason, setChosenSeason] = useState(null);
-  const [seasonShowdown, setSeasonShowdown] = useState(false);
-  const [currentContent, setCurrentContent] = useState("standings");
 
-  // Ustawienie ostatniego sezonu po załadowaniu danych
+  const [chosenSeason, setChosenSeason] = useState(null);
+  const [availableSeasons, setAvailableSeasons] = useState([]);
+  const [currentContent, setCurrentContent] = useState("standings");
+  const [leagueStandingsData, setLeagueStandingsData] = useState(null);
+  const [leagueTopPlayersData, setLeagueTopPlayersData] = useState(null);
+
   useEffect(() => {
-    if (leagueData && leagueData.results && leagueData.results.length > 0) {
+    if (leagueData && leagueData.response && leagueData.response.length > 0) {
       const latestSeason =
-        leagueData.results[0].seasons[leagueData[0].seasons.length - 1].year;
+        leagueData.response[0].seasons[
+          leagueData.response[0].seasons.length - 1
+        ].year;
+
       setChosenSeason(latestSeason.toString());
+      const seasons = leagueData.response[0].seasons
+        .map((season) => season.year)
+        .reverse();
+      setAvailableSeasons(seasons);
     }
   }, [leagueData]);
+
+  useEffect(() => {
+    if (chosenSeason) {
+      const fetchStandingsData = async () => {
+        if (chosenSeason) {
+          try {
+            const data = await fetchFootballData(
+              `standings?league=${leagueId}&season=${chosenSeason}`
+            );
+            setLeagueStandingsData(data);
+          } catch (err) {}
+        }
+      };
+
+      fetchStandingsData();
+    }
+  }, [chosenSeason]);
 
   if (isLoading) return <div>Ładowanie danych ligi...</div>;
   if (error) return <div>Błąd: {error.message}</div>;
@@ -31,31 +60,61 @@ export default function SingleLeaguePage() {
       case "standings":
         return (
           <div className={classes.contentContainerStandings}>
-            <StandingsPage leagueId={leagueId} season={chosenSeason} />
-            <button onClick={() => setCurrentContent("statistics")}>
-              &#129130;
-            </button>
+            <div className={classes.mainPart}>
+              {leagueStandingsData && (
+                <StandingsPage data={leagueStandingsData} />
+              )}
+            </div>
+            <div className={classes.arrowPart}>
+              <button
+                onClick={() => setCurrentContent("statistics")}
+                className={classes.arrowButton}
+              >
+                &#129130;
+              </button>
+            </div>
           </div>
         );
       case "statistics":
         return (
           <div className={classes.contentContainerStatistics}>
-            <button onClick={() => setCurrentContent("standings")}>
-              &#129128;
-            </button>
-            <StatisticsPage leagueId={leagueId} season={chosenSeason} />
-            <button onClick={() => setCurrentContent("matches")}>
-              &#129130;
-            </button>
+            <div className={classes.arrowPart}>
+              <button
+                onClick={() => setCurrentContent("standings")}
+                className={classes.arrowButton}
+              >
+                &#129128;
+              </button>
+            </div>
+
+            <div className={classes.mainPart}>
+              <StatisticsPage id={leagueId} season={chosenSeason} />
+            </div>
+            <div className={classes.arrowPart}>
+              <button
+                onClick={() => setCurrentContent("matches")}
+                className={classes.arrowButton}
+              >
+                &#129130;
+              </button>
+            </div>
           </div>
         );
       case "matches":
         return (
           <div className={classes.contentContainerMatches}>
-            <button onClick={() => setCurrentContent("statistics")}>
-              &#129128;
-            </button>
-            <MatchesPage leagueId={leagueId} season={chosenSeason} />
+            <div className={classes.arrowPart}>
+              <button
+                onClick={() => setCurrentContent("statistics")}
+                className={classes.arrowButton}
+              >
+                &#129128;
+              </button>
+            </div>
+
+            <div className={classes.mainPart}>
+              <MatchesPage id={leagueId} season={chosenSeason} />
+            </div>
           </div>
         );
       default:
@@ -63,49 +122,62 @@ export default function SingleLeaguePage() {
     }
   };
 
+  const formatSeasonLabel = (season) => {
+    return (
+      season.toString().slice(2) +
+      " / " +
+      (Number(season.toString().slice(2)) + 1).toString()
+    );
+  };
+
   return (
     <main>
       <NavMenu />
       <div className={classes.mainSection}>
-        <div className={classes.informationContainer}>
-          <div className={classes.images}>
-            <img src={leagueData[0].league.logo} alt="League logo" />
-            <img src={leagueData[0].country.flag} alt="Country flag" />
-          </div>
-          <div className={classes.names}>
-            <div className={classes.leagueName}>
-              {leagueData[0].league.name}
-            </div>
-            <div className={classes.secondary}>
-              <div className={classes.countryName}>
-                {leagueData[0].country.name}
+        {leagueData && leagueData.response && leagueData.response.length > 0 ? (
+          <div className={classes.informationContainer}>
+            <div className={classes.images}>
+              <div className={classes.logoContainer}>
+                <img
+                  src={leagueData.response[0].league.logo}
+                  alt="League logo"
+                />
               </div>
-              <div className={classes.typeName}>
-                {leagueData[0].league.type}
+              <div className={classes.flagContainer}>
+                <img
+                  src={leagueData.response[0].country.flag}
+                  alt="Country flag"
+                />
               </div>
             </div>
+            <div className={classes.names}>
+              <div className={classes.leagueName}>
+                {leagueData.response[0].league.name}
+              </div>
+              <div className={classes.secondary}>
+                <div className={classes.countryName}>
+                  {leagueData.response[0].country.name}
+                </div>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <div className={classes.typeName}>
+                  {leagueData.response[0].league.type}
+                </div>
+              </div>
+            </div>
+            <div className={classes.seasonsContainer}>
+              {chosenSeason && (
+                <DropdownOption
+                  options={availableSeasons}
+                  chosenOption={chosenSeason}
+                  setChosenOption={setChosenSeason}
+                  labelFormatter={formatSeasonLabel}
+                />
+              )}
+            </div>
           </div>
-          <div className={classes.seasonsContainer}>
-            <button onClick={() => setSeasonShowdown(!seasonShowdown)}>
-              {chosenSeason}
-            </button>
-            {seasonShowdown && (
-              <ul className={classes.optionMenu}>
-                {leagueData[0].seasons.map((season) => (
-                  <li
-                    key={season.year}
-                    onClick={() => {
-                      setChosenSeason(season.year.toString());
-                      setSeasonShowdown(false);
-                    }}
-                  >
-                    {`${season.year}/${season.year + 1}`}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        </div>
+        ) : (
+          <div>Brak danych o lidze.</div>
+        )}
         {renderContent()}
       </div>
     </main>
