@@ -1,8 +1,48 @@
 import classes from "./PlayerInfoPage.module.css";
 import infoData from "../../../data/player/haaland.json";
+import { usePlayerSeasonsData } from "../../../hooks/usePlayer/usePlayerSeasons";
+import { usePlayerStatisticsAndInfoData } from "../../../hooks/usePlayer/usePlayerStatisticsAndInfo";
 
-export default function PlayerInfoPage() {
-  const playerInfo = infoData[0];
+export default function PlayerInfoPage({ id, newestSeason }) {
+  const {
+    data: playerStatisticsAndInfoData,
+    isLoading,
+    error,
+  } = usePlayerStatisticsAndInfoData(id, newestSeason);
+
+  if (isLoading) {
+    return <div className={classes.loading}>Loading player info...</div>;
+  }
+
+  if (error) {
+    return (
+      <div className={classes.error}>
+        An error occurred while loading player data: {error.message}
+      </div>
+    );
+  }
+
+  if (
+    !playerStatisticsAndInfoData ||
+    playerStatisticsAndInfoData.response.length === 0 ||
+    !playerStatisticsAndInfoData.response[0]
+  ) {
+    return (
+      <div className={classes.error}>
+        Player data is not available or is incomplete.
+      </div>
+    );
+  }
+
+  const playerInfo = playerStatisticsAndInfoData.response[0];
+
+  const clubInfo = playerInfo.statistics.find(
+    (stat) => stat.team.name !== playerInfo.player.nationality
+  );
+
+  const clubName = clubInfo ? clubInfo.team.name : "No club";
+  const clubLogo = clubInfo ? clubInfo.team.logo : null;
+
   return (
     <div className={classes.infoContainer}>
       <div className={classes.imagesPart}>
@@ -10,9 +50,12 @@ export default function PlayerInfoPage() {
           <img src={playerInfo.player.photo} alt="Player face" />
         </div>
         <div className={classes.clubAndCountryImage}>
-          {" "}
           <div className={classes.clubImageContainer}>
-            <img src={playerInfo.statistics[0].team.logo} alt="Club Logo" />
+            {clubLogo ? (
+              <img src={clubLogo} alt="Club Logo" />
+            ) : (
+              <span>No Club Logo Available</span>
+            )}
           </div>
           <div className={classes.countryImageContainer}>
             <img
@@ -20,7 +63,7 @@ export default function PlayerInfoPage() {
                 playerInfo.statistics[playerInfo.statistics.length - 1].team
                   .logo
               }
-              alt="Club Logo"
+              alt="Country Logo"
             />
           </div>
         </div>
@@ -39,7 +82,7 @@ export default function PlayerInfoPage() {
           </div>
           <div>
             <span>Club:&nbsp;</span>
-            <span>{playerInfo.statistics[0].team.name}</span>
+            <span>{clubName}</span>
           </div>
           <div>
             <span>Birth date:&nbsp;</span>

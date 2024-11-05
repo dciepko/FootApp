@@ -1,10 +1,24 @@
 import classes from "./PlayerAdditionalInfoPage.module.css";
 import trophiesData from "../../../data/player/haalandTrophies.json";
 import transfersData from "../../../data/player/haalandTransfers.json";
+import { usePlayerTransfersData } from "../../../hooks/usePlayer/usePlayerTransfersData";
+import { usePlayerTrophiesData } from "../../../hooks/usePlayer/usePlayerTrophiesData";
 
-export default function PlayerAdditionalInfoPage() {
-  const trophies = trophiesData;
-  const transfers = transfersData[0];
+export default function PlayerAdditionalInfoPage({ id }) {
+  const {
+    data: playerTransferData,
+    isLoading: transferIsLoading,
+    error: transferError,
+  } = usePlayerTransfersData(id);
+
+  const {
+    data: playerTrophiesData,
+    isLoading: trophiesIsLoading,
+    error: trophiesError,
+  } = usePlayerTrophiesData(id);
+
+  const trophies = playerTrophiesData.response;
+  const transfers = playerTransferData.response[0];
 
   return (
     <>
