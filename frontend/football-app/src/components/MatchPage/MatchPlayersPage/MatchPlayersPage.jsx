@@ -1,9 +1,10 @@
 import classes from "./MatchPlayersPage.module.css";
 import fixturesData from "../../../data/fixture.json";
 import Field from "../../Field/Field";
+import { Link } from "react-router-dom";
 
-export default function MatchPlayersPage() {
-  const matchData = fixturesData[0];
+export default function MatchPlayersPage({ data }) {
+  const matchData = data;
   const playersData = matchData.lineups;
 
   const renderContent = (teamLineup) => {
@@ -17,11 +18,25 @@ export default function MatchPlayersPage() {
           </p>
           <p className={classes.toBold}>Starting XI:</p>
           {teamLineup.startXI.map((player) => {
-            return <li>{player.player.name}</li>;
+            return (
+              <Link
+                className="disablingLinks"
+                to={`/player/${player.player.id}`}
+              >
+                <li>{player.player.name}</li>
+              </Link>
+            );
           })}
           <p className={classes.toBold}>Substitutes:&nbsp;</p>
           {teamLineup.substitutes.map((player) => {
-            return <li>{player.player.name}</li>;
+            return (
+              <Link
+                className="disablingLinks"
+                to={`/player/${player.player.id}`}
+              >
+                <li>{player.player.name}</li>
+              </Link>
+            );
           })}
           <p className={classes.toBold}>Coach:&nbsp;</p>
           {teamLineup.coach.name}
@@ -32,8 +47,14 @@ export default function MatchPlayersPage() {
 
   return (
     <div className={classes.playersPage}>
-      {renderContent(playersData[0])}
-      {renderContent(playersData[1])}
+      {playersData && playersData.length > 0 ? (
+        <>
+          {renderContent(playersData[0])}
+          {renderContent(playersData[1])}
+        </>
+      ) : (
+        <div>Brak danych</div>
+      )}
     </div>
   );
 }

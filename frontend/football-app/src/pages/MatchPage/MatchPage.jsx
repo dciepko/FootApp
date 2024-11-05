@@ -5,10 +5,16 @@ import MatchInfoPage from "../../components/MatchPage/MatchInfoPage/MatchInfoPag
 import MatchStatisticsPage from "../../components/MatchPage/MatchStatisticsPage/MatchStatisticsPage";
 import MatchPlayersPage from "../../components/MatchPage/MatchPlayersPage/MatchPlayersPage";
 import { useParams } from "react-router-dom";
+import { useMatchData } from "../../hooks/useMatchData";
 
 export default function MatchPage() {
   const [currentContent, setCurrentContent] = useState("info");
   const { matchId } = useParams();
+  const { data: matchData, isLoading, error } = useMatchData(matchId);
+
+  if (isLoading) return <div>Ładowanie danych meczu...</div>;
+  if (error) return <div>Błąd: {error.message}</div>;
+  if (!matchData) return <div>Brak danych do wyświetlenia.</div>;
 
   const renderContent = () => {
     switch (currentContent) {
@@ -16,7 +22,7 @@ export default function MatchPage() {
         return (
           <div className={classes.infoSection}>
             <div className={classes.mainPart}>
-              <MatchInfoPage id={matchId} />
+              <MatchInfoPage data={matchData.response[0]} />
             </div>
             <div className={classes.arrowPart}>
               <button
@@ -41,7 +47,7 @@ export default function MatchPage() {
               </button>
             </div>
             <div className={classes.mainPart}>
-              <MatchStatisticsPage id={matchId} />
+              <MatchStatisticsPage data={matchData.response[0]} />
             </div>
             <div className={classes.arrowPart}>
               <button
@@ -66,7 +72,7 @@ export default function MatchPage() {
               </button>
             </div>
             <div className={classes.mainPart}>
-              <MatchPlayersPage id={matchId} />
+              <MatchPlayersPage data={matchData.response[0]} />
             </div>
           </div>
         );

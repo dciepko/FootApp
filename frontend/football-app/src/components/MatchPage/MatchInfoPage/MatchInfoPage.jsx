@@ -1,15 +1,11 @@
 import React from "react";
 import classes from "./MatchInfoPage.module.css";
 import { useMatchData } from "../../../hooks/useMatchData"; // Importowanie hooka
+import { Link } from "react-router-dom";
 
-export default function MatchInfoPage({ id }) {
+export default function MatchInfoPage({ data }) {
   // Użycie hooka do pobrania danych o meczu
-  const { data: matchData, isLoading, error } = useMatchData(id);
-  console.log(matchData);
-
-  if (isLoading) return <div>Ładowanie danych meczu...</div>;
-  if (error) return <div>Błąd: {error.message}</div>;
-  if (!matchData) return <div>Brak danych do wyświetlenia.</div>;
+  const matchData = data;
 
   return (
     <div className={classes.matchInfo}>
@@ -30,12 +26,22 @@ export default function MatchInfoPage({ id }) {
       <div className={classes.teams}>
         <div className={classes.team}>
           <div className={classes.imageContainer}>
-            <img
-              src={matchData.teams.home.logo}
-              alt={matchData.teams.home.name}
-            />
+            <Link
+              className="disablingLinks"
+              to={`/team/${matchData.teams.home.id}`}
+            >
+              <img
+                src={matchData.teams.home.logo}
+                alt={matchData.teams.home.name}
+              />
+            </Link>
           </div>
-          <h3>{matchData.teams.home.name}</h3>
+          <Link
+            className="disablingLinks"
+            to={`/team/${matchData.teams.home.id}`}
+          >
+            <h3>{matchData.teams.home.name}</h3>{" "}
+          </Link>
         </div>
         <div className={classes.score}>
           <div className={classes.status}>
@@ -47,12 +53,23 @@ export default function MatchInfoPage({ id }) {
           </div>
         </div>
         <div className={classes.team}>
-          <h3>{matchData.teams.away.name}</h3>
+          <Link
+            className="disablingLinks"
+            to={`/team/${matchData.teams.home.id}`}
+          >
+            <h3>{matchData.teams.away.name}</h3>{" "}
+          </Link>
+
           <div className={classes.imageContainer}>
-            <img
-              src={matchData.teams.away.logo}
-              alt={matchData.teams.away.name}
-            />
+            <Link
+              className="disablingLinks"
+              to={`/team/${matchData.teams.home.id}`}
+            >
+              <img
+                src={matchData.teams.away.logo}
+                alt={matchData.teams.away.name}
+              />{" "}
+            </Link>
           </div>
         </div>
       </div>

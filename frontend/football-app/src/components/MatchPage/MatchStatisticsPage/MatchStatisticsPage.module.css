@@ -13,7 +13,7 @@
   background-color: #e6edf1;
 }
 
-.nameContainer span {
+.nameContainer a {
   display: flex;
   align-items: center;
   justify-content: center;

@@ -2,6 +2,7 @@ import React from "react";
 import Player from "../Player/Player";
 import { groupPlayersByRow } from "../../utils/groupPlayersByRow";
 import styles from "./Field.module.css";
+import { Link } from "react-router-dom";
 
 function Field({ team }) {
   const playersByRow = groupPlayersByRow(team.startXI);
@@ -23,7 +24,13 @@ function Field({ team }) {
               }}
             >
               {playersInRow.map((player, index) => (
-                <Player key={index} name={player.name} number={player.number} />
+                <Link className="disablingLinks" to={`/player/${player.id}`}>
+                  <Player
+                    key={index}
+                    name={player.name}
+                    number={player.number}
+                  />
+                </Link>
               ))}
             </div>
           );

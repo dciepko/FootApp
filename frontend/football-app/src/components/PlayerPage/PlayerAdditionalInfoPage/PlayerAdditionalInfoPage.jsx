@@ -1,6 +1,6 @@
 import classes from "./PlayerAdditionalInfoPage.module.css";
-import trophiesData from "../../../data/player/haalandTrophies.json";
-import transfersData from "../../../data/player/haalandTransfers.json";
+import trophiesData from "../../../data/player/haalandTrophies.json"; // Przykład danych, możesz usunąć, jeśli nieużywane
+import transfersData from "../../../data/player/haalandTransfers.json"; // Przykład danych, możesz usunąć, jeśli nieużywane
 import { usePlayerTransfersData } from "../../../hooks/usePlayer/usePlayerTransfersData";
 import { usePlayerTrophiesData } from "../../../hooks/usePlayer/usePlayerTrophiesData";
 
@@ -17,8 +17,23 @@ export default function PlayerAdditionalInfoPage({ id }) {
     error: trophiesError,
   } = usePlayerTrophiesData(id);
 
-  const trophies = playerTrophiesData.response;
-  const transfers = playerTransferData.response[0];
+  // Zabezpieczenie dla ładowania transferów
+  if (transferIsLoading || trophiesIsLoading) {
+    return <div>Loading additional player information...</div>;
+  }
+
+  // Zabezpieczenie dla błędów transferów
+  if (transferError) {
+    return <div>Error loading transfers: {transferError.message}</div>;
+  }
+
+  // Zabezpieczenie dla błędów trofeów
+  if (trophiesError) {
+    return <div>Error loading trophies: {trophiesError.message}</div>;
+  }
+
+  const trophies = playerTrophiesData?.response || [];
+  const transfers = playerTransferData?.response[0] || { transfers: [] };
 
   return (
     <>
@@ -33,20 +48,23 @@ export default function PlayerAdditionalInfoPage({ id }) {
             <span>Price</span>
           </div>
           <div className={classes.transfersList}>
-            {transfers.transfers.map((transfer) => {
-              return (
-                <li className={classes.singleTransfer}>
+            {transfers.transfers.length > 0 ? (
+              transfers.transfers.map((transfer, index) => (
+                <li key={index} className={classes.singleTransfer}>
                   <span>{transfer.date}</span>
                   <span>{transfer.teams.out.name}</span>
                   <span>&#129130;</span>
                   <span>{transfer.teams.in.name}</span>
                   <span>{transfer.type}</span>
                 </li>
-              );
-            })}
+              ))
+            ) : (
+              <li>No transfers available.</li>
+            )}
           </div>
         </div>
       </div>
+
       <div className={classes.trophyContainer}>
         <h2>Trophies:</h2>
         <div className={classes.trophyList}>
@@ -57,16 +75,18 @@ export default function PlayerAdditionalInfoPage({ id }) {
             <span>Place</span>
           </div>
           <div className={classes.trophiesList}>
-            {trophies.map((trophy) => {
-              return (
-                <li className={classes.singleTrophy}>
+            {trophies.length > 0 ? (
+              trophies.map((trophy, index) => (
+                <li key={index} className={classes.singleTrophy}>
                   <span>{trophy.league}</span>
                   <span>{trophy.country}</span>
                   <span>{trophy.season}</span>
                   <span>{trophy.place}</span>
                 </li>
-              );
-            })}
+              ))
+            ) : (
+              <li>No trophies available.</li>
+            )}
           </div>
         </div>
       </div>
