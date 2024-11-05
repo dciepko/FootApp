@@ -1,8 +1,8 @@
 import classes from "./TeamInfoPage.module.css";
 import teamInfoData from "../../../data/team/MUInfo.json";
 
-export default function TeamInfoPage() {
-  const teamInfo = teamInfoData[0];
+export default function TeamInfoPage({ data }) {
+  const teamInfo = data[0].response[0];
 
   return (
     <div className={classes.infoContainer}>

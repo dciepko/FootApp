@@ -7,17 +7,29 @@ import TeamStandingsPage from "../../components/TeamPage/TeamStandingsPage/TeamS
 import TeamStatisticsPage from "../../components/TeamPage/TeamStatisticsPage/TeamStatisticsPage";
 import classes from "./TeamPage.module.css";
 import TeamTransferPage from "../../components/TeamPage/TeamTransferPage/TeamTransferPage";
+import { useParams } from "react-router-dom";
+import { useTeamStarterData } from "../../hooks/useTeam/useTeamStarterData";
 
 export default function TeamPage() {
+  const { teamId } = useParams();
+  const { data: teamData, isLoading, error } = useTeamStarterData(teamId);
   const [currentContent, setCurrentContent] = useState("info");
 
   const renderContent = () => {
+    if (isLoading) {
+      return <div>Ładowanie danych zespołu...</div>;
+    }
+
+    if (error) {
+      return <div>Błąd wczytywania danych: {error.message}</div>;
+    }
+
     switch (currentContent) {
       case "info":
         return (
           <div className={classes.firstPage}>
             <div className={classes.mainPart}>
-              <TeamInfoPage />
+              <TeamInfoPage data={teamData} />
             </div>
             <div className={classes.arrowPart}>
               <button
@@ -42,7 +54,7 @@ export default function TeamPage() {
               </button>
             </div>
             <div className={classes.mainPart}>
-              <TeamSquadPage />
+              <TeamSquadPage id={teamId} />
             </div>
             <div className={classes.arrowPart}>
               <button
@@ -67,7 +79,7 @@ export default function TeamPage() {
               </button>
             </div>
             <div className={classes.mainPart}>
-              <TeamStatisticsPage />
+              <TeamStatisticsPage data={teamData} />
             </div>
             <div className={classes.arrowPart}>
               <button
@@ -92,7 +104,7 @@ export default function TeamPage() {
               </button>
             </div>
             <div className={classes.mainPart}>
-              <TeamStandingsPage />
+              <TeamStandingsPage data={teamData} />
             </div>
             <div className={classes.arrowPart}>
               <button
@@ -117,7 +129,7 @@ export default function TeamPage() {
               </button>
             </div>
             <div className={classes.mainPart}>
-              <TeamFixturesPage />
+              <TeamFixturesPage data={teamData} />
             </div>
             <div className={classes.arrowPart}>
               <button
@@ -142,7 +154,7 @@ export default function TeamPage() {
               </button>
             </div>
             <div className={classes.mainPart}>
-              <TeamTransferPage />
+              <TeamTransferPage data={teamData} id={teamId} />
             </div>
           </div>
         );
@@ -151,6 +163,7 @@ export default function TeamPage() {
         return null;
     }
   };
+
   return (
     <main>
       <NavMenu />

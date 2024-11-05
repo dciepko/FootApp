@@ -1,27 +1,80 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./TeamFixturesPage.module.css";
-import fixturesData from "../../../data/team/MUFixtures.json"; // przykładowa ścieżka do danych
-import seasonsData from "../../../data/team/MUSeasons.json";
 import DropdownOption from "../../DropdownOption/DropdownOption";
 import { Link } from "react-router-dom";
+import { useTeamFixturesData } from "../../../hooks/useTeam/useTeamFixturesData";
 
-export default function TeamFixturesPage() {
-  const availableLeagues = Array.from(
-    new Set(fixturesData.map((fixture) => fixture.league.name))
+const formatDate = (dateString) => {
+  const options = { year: "numeric", month: "long", day: "numeric" };
+  return new Date(dateString).toLocaleDateString("en-US", options);
+};
+
+export default function TeamFixturesPage({ data }) {
+  const leaguesData = data[1]?.response || [];
+  const availableSeasons = Array.from(
+    new Set(
+      leaguesData.flatMap((league) =>
+        league.seasons.map((season) => season.year)
+      )
+    )
+  ).sort((a, b) => b - a);
+
+  const [chosenSeason, setChosenSeason] = useState(availableSeasons[0]);
+  const [chosenLeague, setChosenLeague] = useState(null);
+  const [showFinished, setShowFinished] = useState(true);
+
+  const leaguesForChosenSeason = leaguesData.filter((league) =>
+    league.seasons.some((season) => season.year === chosenSeason)
   );
 
-  const availableSeasons = seasonsData;
+  useEffect(() => {
+    if (!chosenLeague && leaguesForChosenSeason.length > 0) {
+      setChosenLeague(leaguesForChosenSeason[0].league);
+    }
+  }, [chosenLeague, leaguesForChosenSeason]);
 
-  const [chosenLeague, setChosenLeague] = useState(availableLeagues[0]);
-  const [chosenSeason, setChosenSeason] = useState(
-    availableSeasons[availableSeasons.length - 1]
-  );
+  const {
+    data: fixturesData,
+    isLoading,
+    error,
+  } = useTeamFixturesData(chosenSeason, data[0]?.response[0]?.team.id);
 
-  const selectedFixtures = fixturesData.filter(
-    (fixture) =>
-      fixture.league.name === chosenLeague &&
-      fixture.league.season === chosenSeason
-  );
+  if (isLoading) {
+    return <div className={classes.loading}>Ładowanie...</div>;
+  }
+
+  if (error) {
+    return <div className={classes.error}>Błąd: {error.message}</div>;
+  }
+
+  const allFixtures = fixturesData?.response || [];
+  const finishedMatches = allFixtures
+    .filter(
+      (fixture) =>
+        fixture.league.id === chosenLeague?.id &&
+        fixture.fixture.status.short === "FT"
+    )
+    .sort((a, b) => new Date(b.fixture.date) - new Date(a.fixture.date));
+
+  const upcomingMatches = allFixtures
+    .filter(
+      (fixture) =>
+        fixture.league.id === chosenLeague?.id &&
+        fixture.fixture.status.short !== "FT" &&
+        new Date(fixture.fixture.date) > new Date()
+    )
+    .sort((a, b) => new Date(a.fixture.date) - new Date(b.fixture.date));
+
+  const matchesToDisplay = showFinished ? finishedMatches : upcomingMatches;
+
+  const groupedMatches = matchesToDisplay.reduce((groups, match) => {
+    const matchDate = formatDate(match.fixture.date);
+    if (!groups[matchDate]) {
+      groups[matchDate] = [];
+    }
+    groups[matchDate].push(match);
+    return groups;
+  }, {});
 
   const formatSeasonLabel = (season) => {
     return (
@@ -35,56 +88,72 @@ export default function TeamFixturesPage() {
     <div className={classes.fixturesPage}>
       <div className={classes.choosePart}>
         <div className={classes.chooseSection}>
-          {/* Dropdown do wyboru ligi */}
-          <DropdownOption
-            options={availableLeagues}
-            chosenOption={chosenLeague}
-            setChosenOption={setChosenLeague}
-          />
-
-          {/* Dropdown do wyboru sezonu */}
           <DropdownOption
             options={availableSeasons}
             chosenOption={chosenSeason}
             setChosenOption={setChosenSeason}
             labelFormatter={formatSeasonLabel}
           />
+
+          <DropdownOption
+            options={leaguesForChosenSeason.map((league) => league.league.name)}
+            chosenOption={chosenLeague ? chosenLeague.name : ""}
+            setChosenOption={(selectedLeagueName) => {
+              const selectedLeague = leaguesForChosenSeason.find(
+                (league) => league.league.name === selectedLeagueName
+              );
+              setChosenLeague(selectedLeague ? selectedLeague.league : null);
+            }}
+          />
         </div>
       </div>
 
-      {selectedFixtures.length > 0 ? (
-        <div className={classes.fixturesSection}>
-          <div className={classes.fixturesList}>
-            {selectedFixtures.map((fixture) => (
-              <div className={classes.fixture} key={fixture.fixture.id}>
-                <div className={classes.dateHeader}>
-                  <span className={classes.round}>{fixture.league.round}</span>
-                  &nbsp; &nbsp;|&nbsp; &nbsp;
-                  <span className={classes.date}>
-                    {new Date(fixture.fixture.date).toLocaleDateString()} -{" "}
-                    {new Date(fixture.fixture.date).toLocaleTimeString()}
-                  </span>
-                  &nbsp; &nbsp;|&nbsp; &nbsp;
-                  <span className={classes.venue}>
-                    {fixture.fixture.venue.name}, {fixture.fixture.venue.city}
-                  </span>
-                </div>
-                <Link className="disablingLinks" to={"/match"}>
-                  <div key={fixture.fixture.id} className={classes.singleMatch}>
-                    <span>{fixture.teams.home.name}</span>
-                    <span>{fixture.goals.home}</span>
+      <div className={classes.toggleContainer}>
+        <button
+          className={showFinished ? classes.activeButton : classes.button}
+          onClick={() => setShowFinished(true)}
+        >
+          <span>Finished matches</span>
+        </button>
+        <button
+          className={!showFinished ? classes.activeButton : classes.button}
+          onClick={() => setShowFinished(false)}
+          disabled={upcomingMatches.length === 0}
+        >
+          <span>Upcoming matches</span>
+        </button>
+      </div>
+
+      <div className={classes.fixturesSection}>
+        {Object.keys(groupedMatches).length === 0 ? (
+          <div className={classes.noMatches}>No matches to show.</div>
+        ) : (
+          Object.keys(groupedMatches).map((date) => (
+            <div key={date}>
+              <div className={classes.dateHeader}>{date}</div>
+              {groupedMatches[date].map((match) => (
+                <Link
+                  key={match.fixture.id}
+                  className="disablingLinks"
+                  to={`/match/${match.fixture.id}`}
+                >
+                  <div className={classes.singleMatch}>
+                    <span>{match.teams.home.name}</span>
+                    <span>
+                      {match.goals.home !== null ? match.goals.home : "-"}
+                    </span>
                     <span> &nbsp;:&nbsp;</span>
-                    <span>{fixture.goals.away}</span>
-                    <span>{fixture.teams.away.name}</span>
+                    <span>
+                      {match.goals.away !== null ? match.goals.away : "-"}
+                    </span>
+                    <span>{match.teams.away.name}</span>
                   </div>
                 </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      ) : (
-        <p>No fixtures available for this season and league.</p>
-      )}
+              ))}
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 }

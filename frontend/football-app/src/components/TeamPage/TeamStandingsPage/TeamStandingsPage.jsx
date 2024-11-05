@@ -1,32 +1,49 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import classes from "./TeamStandingsPage.module.css";
-import standingsData from "../../../data/team/MUStandings.json"; // przykładowa ścieżka do danych standings
-import seasonsData from "../../../data/team/MUSeasons.json";
 import DropdownOption from "../../DropdownOption/DropdownOption";
+import { useTeamStandingsData } from "../../../hooks/useTeam/useTeamStandingsData";
 
-export default function TeamStandingsPage() {
-  const availableSeasons = seasonsData;
-  // Początkowy wybór ligi i sezonu
-  const [chosenLeague, setChosenLeague] = useState(standingsData[0].league.id);
-  const [chosenSeason, setChosenSeason] = useState(
-    standingsData[0].league.season
+export default function TeamStandingsPage({ data }) {
+  const leaguesData = data[1].response;
+  const availableSeasons = Array.from(
+    new Set(
+      leaguesData.flatMap((league) =>
+        league.seasons.map((season) => season.year)
+      )
+    )
+  ).sort((a, b) => b - a);
+
+  const [chosenSeason, setChosenSeason] = useState(availableSeasons[0]);
+  const [chosenLeague, setChosenLeague] = useState(null);
+
+  const leaguesForChosenSeason = leaguesData.filter((league) =>
+    league.seasons.some((season) => season.year === chosenSeason)
   );
 
-  // Wyciągnięcie dostępnych lig
-  const leagues = standingsData.map((data) => ({
-    id: data.league.id,
-    name: data.league.name,
-  }));
+  useEffect(() => {
+    if (!chosenLeague && leaguesForChosenSeason.length > 0) {
+      setChosenLeague(leaguesForChosenSeason[0].league);
+    }
+  }, [chosenLeague, leaguesForChosenSeason]);
 
-  // Wyciągnięcie dostępnych sezonów dla wybranej ligi
+  const {
+    data: standingsData,
+    isLoading,
+    error,
+  } = useTeamStandingsData(chosenSeason, data[0].response[0].team.id);
 
-  // Wybranie danych dla wybranej ligi i sezonu
-  const selectedStandings = standingsData.find(
-    (data) =>
-      data.league.id === chosenLeague && data.league.season === chosenSeason
+  if (isLoading) {
+    return <div className={classes.loading}>Ładowanie...</div>;
+  }
+
+  if (error) {
+    return <div className={classes.error}>Błąd: {error.message}</div>;
+  }
+
+  const selectedStandings = standingsData?.response.find(
+    (league) => league.league.id === chosenLeague?.id
   );
 
-  // Formatowanie etykiety sezonu np. "20 / 21"
   const formatSeasonLabel = (season) => {
     return (
       season.toString().slice(2) +
@@ -48,17 +65,19 @@ export default function TeamStandingsPage() {
         </div>
         <div className={classes.chooseSection}>
           <DropdownOption
-            options={leagues.map((league) => league.id)}
-            chosenOption={chosenLeague}
-            setChosenOption={setChosenLeague}
-            labelFormatter={(leagueId) =>
-              leagues.find((league) => league.id === leagueId).name
-            }
+            options={leaguesForChosenSeason.map((league) => league.league.name)}
+            chosenOption={chosenLeague ? chosenLeague.name : ""}
+            setChosenOption={(selectedLeagueName) => {
+              const selectedLeague = leaguesForChosenSeason.find(
+                (league) => league.league.name === selectedLeagueName
+              );
+              setChosenLeague(selectedLeague ? selectedLeague.league : null);
+            }}
           />
         </div>
       </div>
 
-      {selectedStandings ? (
+      {selectedStandings && selectedStandings.league.standings ? (
         <div className={classes.standingsSection}>
           <h2>
             {selectedStandings.league.name} - {chosenSeason}
@@ -66,18 +85,17 @@ export default function TeamStandingsPage() {
           <div className={classes.standingsTable}>
             <div className={classes.helpBar}>
               <span>Pos.</span>
-              <span>Team</span>
+              <span>Drużyna</span>
               <span>GF</span>
               <span>GA</span>
               <span>+/-</span>
-              <span>Form</span>
-              <span>Played</span>
-              <span>Win</span>
-              <span>Draw</span>
-              <span>Lose</span>
-              <span>Points</span>
+              <span>Forma</span>
+              <span>Rozgrywki</span>
+              <span>Zwycięstwa</span>
+              <span>Remisy</span>
+              <span>Przegrane</span>
+              <span>Punkty</span>
             </div>
-
             {selectedStandings.league.standings[0].map((teamStanding) => (
               <div className={classes.standing} key={teamStanding.team.id}>
                 <span>{teamStanding.rank}</span>
@@ -96,7 +114,7 @@ export default function TeamStandingsPage() {
           </div>
         </div>
       ) : (
-        <p>No standings available for this season and league.</p>
+        <p>Brak danych o klasyfikacji dla tego sezonu i ligi.</p>
       )}
     </div>
   );

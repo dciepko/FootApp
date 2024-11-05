@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import classes from "./TeamStatisticsPage.module.css";
-import leaguesData from "../../../data/team/MULeagues.json"; // Zaktualizowane źródło
 import statisticsData from "../../../data/team/MUStatistics.json";
 import DropdownOption from "../../DropdownOption/DropdownOption";
 import Pagination from "../../../components/Pagination/Pagination";
 import SimplePieChart from "../../Charts/SimplePieChart";
 import SimpleBarChart from "../../Charts/SimpleBarChart";
 import noFormationField from "../../../assets/field-no-formation.svg";
+import { useTeamStatisticsData } from "../../../hooks/useTeam/useTeamStatisticsData";
 
-export default function TeamStatisticsPage() {
+export default function TeamStatisticsPage({ data }) {
+  const leaguesData = data[1].response;
   const availableSeasons = Array.from(
     new Set(
       leaguesData.flatMap((league) =>
@@ -26,62 +27,86 @@ export default function TeamStatisticsPage() {
     league.seasons.some((season) => season.year === chosenSeason)
   );
 
-  if (!chosenLeague && leaguesForChosenSeason.length > 0) {
-    setChosenLeague(leaguesForChosenSeason[0].league.name);
+  useEffect(() => {
+    if (!chosenLeague && leaguesForChosenSeason.length > 0) {
+      setChosenLeague(leaguesForChosenSeason[0].league);
+    }
+  }, [chosenLeague, leaguesForChosenSeason]);
+  console.log(leaguesForChosenSeason);
+
+  const {
+    data: teamStatsData,
+    isLoading,
+    error,
+  } = useTeamStatisticsData(
+    chosenLeague ? chosenLeague.id : null,
+    chosenSeason,
+    data[0].response[0].team.id
+  );
+
+  const teamStatitsticsData = teamStatsData?.response || {};
+
+  if (isLoading) {
+    return <div className={classes.loading}>Loading...</div>;
   }
 
-  // // Pobieramy dane statystyczne dla wybranej ligi i sezonu
-  // const selectedLeagueData = statisticsData.find(
-  //   (league) => league.league.name === chosenLeague
-  // );
+  if (error) {
+    return <div className={classes.error}>Error: {error.message}</div>;
+  }
 
-  // const selectedSeasonData = selectedLeagueData?.seasons.find(
-  //   (season) => season.year === chosenSeason
-  // );
+  if (!teamStatitsticsData) {
+    return <div className={classes.error}>No statistics available.</div>;
+  }
 
-  // const teamStatsData = selectedSeasonData?.statistics || {};
-  const teamStatsData = statisticsData;
+  const totalYellow = Object.values(
+    teamStatitsticsData.cards?.yellow || {}
+  ).reduce((acc, card) => acc + (card.total || 0), 0);
 
-  const totalYellow = Object.values(teamStatsData.cards.yellow).reduce(
-    (acc, card) => {
-      return acc + (card.total || 0);
-    },
+  const totalRed = Object.values(teamStatitsticsData.cards?.red || {}).reduce(
+    (acc, card) => acc + (card.total || 0),
     0
   );
-  const totalRed = Object.values(teamStatsData.cards.red).reduce(
-    (acc, card) => {
-      return acc + (card.total || 0);
-    },
-    0
-  );
+
   const statProperties = [
     {
       statName: "Fixtures",
-      played: teamStatsData.fixtures?.played?.total,
-      wins: teamStatsData.fixtures?.wins?.total,
-      draws: teamStatsData.fixtures?.draws?.total,
-      loses: teamStatsData.fixtures?.loses?.total,
+      played: teamStatitsticsData.fixtures?.played?.total,
+      wins: teamStatitsticsData.fixtures?.wins?.total,
+      draws: teamStatitsticsData.fixtures?.draws?.total,
+      loses: teamStatitsticsData.fixtures?.loses?.total,
       chart: (
         <SimplePieChart
           data={[
-            { name: "Wins", value: teamStatsData.fixtures?.wins?.total },
-            { name: "Draws", value: teamStatsData.fixtures?.draws?.total },
-            { name: "Loses", value: teamStatsData.fixtures?.loses?.total },
+            {
+              name: "Wins",
+              value: teamStatitsticsData.fixtures?.wins?.total || 0,
+            },
+            {
+              name: "Draws",
+              value: teamStatitsticsData.fixtures?.draws?.total || 0,
+            },
+            {
+              name: "Loses",
+              value: teamStatitsticsData.fixtures?.loses?.total || 0,
+            },
           ]}
         />
       ),
     },
     {
       statName: "Goals",
-      scored: teamStatsData.goals?.for?.total?.total,
-      conceded: teamStatsData.goals?.against?.total?.total,
+      scored: teamStatitsticsData.goals?.for?.total?.total || 0,
+      conceded: teamStatitsticsData.goals?.against?.total?.total || 0,
       chart: (
         <SimplePieChart
           data={[
-            { name: "Scored", value: teamStatsData.goals?.for?.total?.total },
+            {
+              name: "Scored",
+              value: teamStatitsticsData.goals?.for?.total?.total || 0,
+            },
             {
               name: "Conceded",
-              value: teamStatsData.goals?.against?.total?.total,
+              value: teamStatitsticsData.goals?.against?.total?.total || 0,
             },
           ]}
         />
@@ -89,15 +114,18 @@ export default function TeamStatisticsPage() {
     },
     {
       statName: "Average Goals",
-      averageFor: teamStatsData.goals?.for?.average?.total,
-      averageAgainst: teamStatsData.goals?.against?.average?.total,
+      averageFor: teamStatitsticsData.goals?.for?.average?.total || 0,
+      averageAgainst: teamStatitsticsData.goals?.against?.average?.total || 0,
       chart: (
         <SimpleBarChart
           data={[
-            { name: "For", value: teamStatsData.goals?.for?.average?.total },
+            {
+              name: "For",
+              value: teamStatitsticsData.goals?.for?.average?.total || 0,
+            },
             {
               name: "Against",
-              value: teamStatsData.goals?.against?.average?.total,
+              value: teamStatitsticsData.goals?.against?.average?.total || 0,
             },
           ]}
         />
@@ -105,32 +133,32 @@ export default function TeamStatisticsPage() {
     },
     {
       statName: "Clean Sheets",
-      home: teamStatsData.clean_sheet?.home,
-      away: teamStatsData.clean_sheet?.away,
-      total: teamStatsData.clean_sheet?.total,
+      home: teamStatitsticsData.clean_sheet?.home || 0,
+      away: teamStatitsticsData.clean_sheet?.away || 0,
+      total: teamStatitsticsData.clean_sheet?.total || 0,
       chart: (
         <SimplePieChart
           data={[
-            { name: "Home", value: teamStatsData.clean_sheet?.home },
-            {
-              name: "Away",
-              value: teamStatsData.clean_sheet?.away,
-            },
+            { name: "Home", value: teamStatitsticsData.clean_sheet?.home || 0 },
+            { name: "Away", value: teamStatitsticsData.clean_sheet?.away || 0 },
           ]}
         />
       ),
     },
     {
       statName: "Penalties",
-      scored: teamStatsData.penalty?.scored?.total,
-      missed: teamStatsData.penalty?.missed?.total,
+      scored: teamStatitsticsData.penalty?.scored?.total || 0,
+      missed: teamStatitsticsData.penalty?.missed?.total || 0,
       chart: (
         <SimplePieChart
           data={[
-            { name: "Scored", value: teamStatsData.penalty?.scored?.total },
+            {
+              name: "Scored",
+              value: teamStatitsticsData.penalty?.scored?.total || 0,
+            },
             {
               name: "Missed",
-              value: teamStatsData.penalty?.missed?.total,
+              value: teamStatitsticsData.penalty?.missed?.total || 0,
             },
           ]}
         />
@@ -138,8 +166,8 @@ export default function TeamStatisticsPage() {
     },
     {
       statName: "Lineups",
-      mostUsedFormation: teamStatsData.lineups?.[0]?.formation,
-      gamesPlayed: teamStatsData.lineups?.[0]?.played,
+      mostUsedFormation: teamStatitsticsData.lineups?.[0]?.formation || "",
+      gamesPlayed: teamStatitsticsData.lineups?.[0]?.played || 0,
       formationField: "",
     },
     {
@@ -150,10 +178,7 @@ export default function TeamStatisticsPage() {
         <SimpleBarChart
           data={[
             { name: "Yellow", value: totalYellow },
-            {
-              name: "Red",
-              value: totalRed,
-            },
+            { name: "Red", value: totalRed },
           ]}
         />
       ),
@@ -197,14 +222,19 @@ export default function TeamStatisticsPage() {
         <div className={classes.chooseSection}>
           <DropdownOption
             options={leaguesForChosenSeason.map((league) => league.league.name)}
-            chosenOption={chosenLeague}
-            setChosenOption={setChosenLeague}
+            chosenOption={chosenLeague ? chosenLeague.name : ""}
+            setChosenOption={(selectedLeagueName) => {
+              const selectedLeague = leaguesForChosenSeason.find(
+                (league) => league.league.name === selectedLeagueName
+              );
+              setChosenLeague(selectedLeague ? selectedLeague.league : null);
+            }}
           />
         </div>
       </div>
 
       <div className={classes.statisticsSection}>
-        {currentStat ? (
+        {chosenLeague && teamStatitsticsData ? (
           <div className={classes.statisticDetails}>
             <h3>{currentStat.statName}</h3>
             <div className={classes.statisticDetailsList}>
@@ -237,7 +267,7 @@ export default function TeamStatisticsPage() {
             </div>
           </div>
         ) : (
-          <p>No statistics available for this page.</p>
+          <p>Wybierz ligę, aby zobaczyć statystyki.</p>
         )}
       </div>
       <Pagination
