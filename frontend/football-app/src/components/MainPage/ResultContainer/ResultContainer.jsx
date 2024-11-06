@@ -43,7 +43,7 @@ export default function ResultContainer() {
         return (
           <Link
             className="disablingLinks"
-            to={"/match"}
+            to={`/match/${fixture.fixture.id}`}
             key={fixture.fixture.id}
           >
             <ResultBar fixture={fixture} className={className} />

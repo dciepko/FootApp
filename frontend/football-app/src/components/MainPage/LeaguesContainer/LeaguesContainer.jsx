@@ -72,7 +72,11 @@ export default function LeaguesContainer() {
           <span>Pts.</span>
         </div>
         {leagueData?.response[0]?.league?.standings[0].map((place) => (
-          <Link className="disablingLinks" to={"/team"} key={place.team.id}>
+          <Link
+            className="disablingLinks"
+            to={`/team/${place.team.id}`}
+            key={place.team.id}
+          >
             <LeaguesContainerPlaceBar place={place} />
           </Link>
         ))}

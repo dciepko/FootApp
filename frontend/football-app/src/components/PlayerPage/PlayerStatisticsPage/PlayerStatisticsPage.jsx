@@ -6,9 +6,14 @@ import SimplePieChart from "../../Charts/SimplePieChart";
 import SimpleBarChart from "../../Charts/SimpleBarChart";
 import { usePlayerStatisticsAndInfoData } from "../../../hooks/usePlayer/usePlayerStatisticsAndInfo";
 
-export default function PlayerStatisticsPage({ id, seasons, newestSeason }) {
+export default function PlayerStatisticsPage({
+  id,
+  seasons,
+  newestSeason,
+  firstCompetition,
+}) {
   const [chosenSeason, setChosenSeason] = useState(newestSeason);
-  const [chosenCompetition, setChosenCompetition] = useState(null);
+  const [chosenCompetition, setChosenCompetition] = useState(firstCompetition);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 1;
 
@@ -18,36 +23,32 @@ export default function PlayerStatisticsPage({ id, seasons, newestSeason }) {
     error,
   } = usePlayerStatisticsAndInfoData(id, chosenSeason);
 
-  // Logowanie danych
   if (isLoading) return <div>Ładowanie statystyk...</div>;
   if (error) return <div>Błąd ładowania danych: {error.message}</div>;
 
   const competitionsData = playerStatisticsData
-    ? [
-        ...new Set(
+    ? Array.from(
+        new Set(
           playerStatisticsData.response[0].statistics.map(
             (stat) => stat.league.name
           )
-        ),
-      ]
+        )
+      )
     : [];
-
-  useEffect(() => {
-    console.log("useEffect uruchomiony");
-    // console.log("chosenCompetition:", chosenCompetition);
-    // console.log("competitionsData:", competitionsData);
-
-    // if (!chosenCompetition && competitionsData.length > 0) {
-    //   console.log("Ustawienie chosenCompetition na:", competitionsData[0]);
-    //   setChosenCompetition(competitionsData[0]); // Ustaw na pierwszą konkurencję
-    // }
-  }, []); // Obserwuj tylko competitionsData
 
   const currentCompetitionStats = playerStatisticsData
     ? playerStatisticsData.response[0].statistics.find(
         (stat) => stat.league.name === chosenCompetition
       )
     : null;
+
+  const formatSeasonLabel = (season) => {
+    return (
+      season.toString().slice(2) +
+      " / " +
+      (Number(season.toString().slice(2)) + 1).toString()
+    );
+  };
 
   const statProperties = [
     {
@@ -266,7 +267,6 @@ export default function PlayerStatisticsPage({ id, seasons, newestSeason }) {
     setCurrentPage(pageNumber);
   };
 
-  // Handle loading and error states
   if (isLoading) return <div>Loading statistics...</div>;
   if (error) return <div>Error loading data: {error.message}</div>;
 

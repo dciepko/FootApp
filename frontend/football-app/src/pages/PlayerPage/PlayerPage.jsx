@@ -3,7 +3,7 @@ import PlayerAdditionalInfoPage from "../../components/PlayerPage/PlayerAddition
 import PlayerStatisticsPage from "../../components/PlayerPage/PlayerStatisticsPage/PlayerStatisticsPage";
 import PlayerInfoPage from "../../components/PlayerPage/PlayerInfoPage/PlayerInfoPage";
 import classes from "./PlayerPage.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { usePlayerSeasonsData } from "../../hooks/usePlayer/usePlayerSeasons";
 import { usePlayerStatisticsAndInfoData } from "../../hooks/usePlayer/usePlayerStatisticsAndInfo";
@@ -22,20 +22,29 @@ export default function PlayerPage() {
 
   const {
     data: playerSeasonsData,
-    isLoading,
-    error,
+    isLoading: seasonsLoading,
+    error: seasonsError,
   } = usePlayerSeasonsData(playerId);
 
   const currentSeasonStartYear = getCurrentSeasonStartYear() + 1;
 
   const validSeasons =
-    playerSeasonsData?.response?.filter((season) => {
-      const seasonYear = season;
-      return seasonYear <= currentSeasonStartYear;
-    }) || [];
+    playerSeasonsData?.response?.filter(
+      (season) => season <= currentSeasonStartYear
+    ) || [];
 
   const newestSeason =
     validSeasons.length > 0 ? validSeasons[validSeasons.length - 1] : null;
+
+  const {
+    data: playerStatisticsData,
+    isLoading: statisticsLoading,
+    error: statisticsError,
+  } = usePlayerStatisticsAndInfoData(playerId, newestSeason);
+
+  const firstCompetition =
+    playerStatisticsData?.response?.[0]?.statistics?.[0]?.league?.name || null;
+  console.log(firstCompetition);
 
   const renderContent = () => {
     switch (currentContent) {
@@ -68,11 +77,12 @@ export default function PlayerPage() {
               </button>
             </div>
             <div className={classes.mainPart}>
-              {/* <PlayerStatisticsPage
+              <PlayerStatisticsPage
                 id={playerId}
                 seasons={validSeasons}
                 newestSeason={newestSeason}
-              /> */}
+                firstCompetition={firstCompetition}
+              />
             </div>
             <div className={classes.arrowPart}>
               <button
@@ -107,8 +117,8 @@ export default function PlayerPage() {
     }
   };
 
-  // Handle loading and error states
-  if (isLoading) {
+  // Render loading states if data is still being fetched
+  if (seasonsLoading || statisticsLoading) {
     return (
       <main className={classes.loadingContainer}>
         <NavMenu />
@@ -117,19 +127,32 @@ export default function PlayerPage() {
     );
   }
 
-  if (error) {
+  // Render error states if any error occurs during data fetching
+  if (seasonsError || statisticsError) {
     return (
       <main className={classes.errorContainer}>
         <NavMenu />
         <div className={classes.error}>
-          An error occurred while loading player data: {error.message}
+          {seasonsError && (
+            <div>Error loading player seasons: {seasonsError.message}</div>
+          )}
+          {statisticsError && (
+            <div>
+              Error loading player statistics: {statisticsError.message}
+            </div>
+          )}
         </div>
       </main>
     );
   }
 
   // Check for empty or missing data before rendering content
-  if (!playerSeasonsData || validSeasons.length === 0 || !newestSeason) {
+  if (
+    !playerSeasonsData ||
+    validSeasons.length === 0 ||
+    !newestSeason ||
+    !playerStatisticsData
+  ) {
     return (
       <main className={classes.errorContainer}>
         <NavMenu />
