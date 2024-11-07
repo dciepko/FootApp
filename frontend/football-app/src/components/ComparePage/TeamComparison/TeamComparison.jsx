@@ -14,8 +14,8 @@ export default function TeamComparison() {
   const [teamStatistics, setTeamStatistics] = useState({});
   const [selectedTeamId, setSelectedTeamId] = useState(null);
   const [selectedLeagueId, setSelectedLeagueId] = useState(null);
-  const [expandedMinutes, setExpandedMinutes] = useState(false); // stan do rozwijania minut
-  const [isModalOpen, setIsModalOpen] = useState(false); // stan modala
+  const [expandedMinutes, setExpandedMinutes] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -102,7 +102,6 @@ export default function TeamComparison() {
     setIsModalOpen(false);
   };
 
-  // Sprawdzenie, czy wybrane są co najmniej dwie drużyny
   const isModalEnabled =
     containers.filter((container) => container.team).length >= 2;
 
@@ -135,7 +134,7 @@ export default function TeamComparison() {
         if (typeof value === "object" && value !== null) {
           return (
             <div key={key}>
-              <h5>{key}</h5>
+              <h5>{formatStatName(key)}</h5>
               {renderNestedCategory(value)}
             </div>
           );
@@ -171,11 +170,10 @@ export default function TeamComparison() {
         categoryData &&
         typeof categoryData === "object"
       ) {
-        // Rozwijanie tylko dla minut
         statElements.push(
           <div key={category}>
             <h4 onClick={() => setExpandedMinutes(!expandedMinutes)}>
-              {formatStatName(category)} {expandedMinutes ? "▲" : "▼"}
+              {formatStatName(category)} {expandedMinutes ? "D" : "Z"}
             </h4>
             {expandedMinutes && <div>{renderNestedCategory(categoryData)}</div>}
           </div>
@@ -272,10 +270,7 @@ export default function TeamComparison() {
                 ) : teamStatistics[container.team.id].isErrorStats ? (
                   <div className={classes.error}>Error loading statistics.</div>
                 ) : teamStatistics[container.team.id].data ? (
-                  <>
-                    <h3>Statistics for {container.team.name}:</h3>
-                    {renderStats(teamStatistics[container.team.id].data)}{" "}
-                  </>
+                  <>{renderStats(teamStatistics[container.team.id].data)} </>
                 ) : (
                   <div className={classes.noResults}>
                     No statistics available.
@@ -306,7 +301,7 @@ export default function TeamComparison() {
       {isModalEnabled && (
         <div className={classes.openModalButtonContainer}>
           <button onClick={handleOpenModal} className={classes.openModalButton}>
-            Zobacz wykresy
+            Display charts
           </button>
         </div>
       )}

@@ -69,9 +69,9 @@ main {
 }
 
 .disabledButton {
-  background-color: #ccc; /* Szary kolor dla zablokowanego przycisku */
-  color: #666; /* Szary kolor tekstu */
-  cursor: not-allowed; /* Kursor zablokowany */
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
 }
 
 .addButton {
@@ -100,4 +100,9 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.activeButton {
+  color: white;
+  background-color: #8d2829 !important;
 }
