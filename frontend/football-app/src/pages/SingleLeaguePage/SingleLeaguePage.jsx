@@ -9,6 +9,7 @@ import { useLeagueById } from "../../hooks/useLeague/useLeagueById";
 import DropdownOption from "../../components/DropdownOption/DropdownOption";
 import { useLeagueStandingsData } from "../../hooks/useLeagueStandingsData";
 import { fetchFootballData } from "../../utils/fetchFootballData";
+import SearchPlayerPage from "../../components/SingleLeaguePage/SearchPlayerPage/SearchPlayerPage";
 
 export default function SingleLeaguePage() {
   const { leagueId } = useParams();
@@ -67,6 +68,32 @@ export default function SingleLeaguePage() {
             </div>
             <div className={classes.arrowPart}>
               <button
+                onClick={() => setCurrentContent("search")}
+                className={classes.arrowButton}
+              >
+                &#129130;
+              </button>
+            </div>
+          </div>
+        );
+
+      case "search":
+        return (
+          <div className={classes.contentContainerStatistics}>
+            <div className={classes.arrowPart}>
+              <button
+                onClick={() => setCurrentContent("standings")}
+                className={classes.arrowButton}
+              >
+                &#129128;
+              </button>
+            </div>
+
+            <div>
+              <SearchPlayerPage id={leagueId} />
+            </div>
+            <div className={classes.arrowPart}>
+              <button
                 onClick={() => setCurrentContent("statistics")}
                 className={classes.arrowButton}
               >
@@ -80,7 +107,7 @@ export default function SingleLeaguePage() {
           <div className={classes.contentContainerStatistics}>
             <div className={classes.arrowPart}>
               <button
-                onClick={() => setCurrentContent("standings")}
+                onClick={() => setCurrentContent("search")}
                 className={classes.arrowButton}
               >
                 &#129128;
