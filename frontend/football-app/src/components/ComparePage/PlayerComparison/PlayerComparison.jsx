@@ -15,6 +15,8 @@ export default function PlayerComparison() {
   const [selectedPlayer, setSelectedPlayer] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  console.log(containers);
+
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedInput(searchInput);
@@ -90,6 +92,19 @@ export default function PlayerComparison() {
     );
     setContainers(updatedContainers);
     setPlayerSearchInputs(updatedPlayerSearchInputs);
+  };
+
+  const handleClearPlayer = (index) => {
+    const updatedContainers = containers.map((container, i) =>
+      i === index ? { ...container, player: null } : container
+    );
+    setContainers(updatedContainers);
+
+    setPlayerSearchInputs((prev) =>
+      prev.map((input, i) => (i === index ? "" : input))
+    );
+
+    setSelectedIndex(index);
   };
 
   const handleOpenModal = () => {
@@ -222,6 +237,7 @@ export default function PlayerComparison() {
         {containers.map((container, index) => (
           <div key={index} className={classes.comparisonContainer}>
             <div className={classes.containerHeader}>
+              {/* Wyświetlanie wybranej encji lub zawodnika */}
               {container.entity ? (
                 <div className={classes.selectedEntity}>
                   {container.entity.team
@@ -240,7 +256,7 @@ export default function PlayerComparison() {
                 <input
                   className={classes.searchInput}
                   type="search"
-                  placeholder="Szukaj drużyny, ligi lub kraju"
+                  placeholder="Search for a team, league or country"
                   value={selectedIndex === index ? searchInput : ""}
                   onChange={(e) => {
                     setSearchInput(e.target.value);
@@ -248,6 +264,8 @@ export default function PlayerComparison() {
                   }}
                 />
               )}
+
+              {/* Przycisk usuwania kontenera */}
               {containers.length > 2 && (
                 <button
                   className={`${classes.removeButton} ${
@@ -261,8 +279,8 @@ export default function PlayerComparison() {
               )}
             </div>
 
-            {/* Showdown tylko dla aktywnego kontenera */}
-            {selectedIndex === index && searchInput && (
+            {/* Showdown dla encji */}
+            {selectedIndex === index && searchInput && !container.player && (
               <div className={classes.showdownContainer}>
                 {isLoadingSearch ? (
                   <div className={classes.loading}>Ładowanie...</div>
@@ -298,46 +316,61 @@ export default function PlayerComparison() {
               </div>
             )}
 
-            {/* Wyszukiwanie zawodników */}
-            {container.entity && selectedEntityId && (
-              <div className={classes.playerSearchContainer}>
-                <input
-                  type="search"
-                  placeholder="Szukaj zawodnika"
-                  value={playerSearchInputs[index]}
-                  onChange={(e) =>
-                    updatePlayerSearchInput(e.target.value, index)
-                  }
-                  className={classes.searchInput}
-                />
-                {isLoadingPlayers ? (
-                  <div className={classes.loading}>Ładowanie...</div>
-                ) : isErrorPlayers ? (
-                  <div className={classes.error}>
-                    Błąd ładowania zawodników.
-                  </div>
-                ) : playerResults && playerResults.length > 0 ? (
-                  <div className={classes.showdownContainer}>
-                    <ul className={classes.resultsList}>
-                      {playerResults.map((player) => (
-                        <li
-                          key={player.id}
-                          className={classes.resultItem}
-                          onClick={() => handleSelectPlayer(player, index)}
-                        >
-                          {player.player.name}
-                        </li>
-                      ))}
-                    </ul>
+            {/* Wyświetlanie inputu wyszukiwania zawodnika i wyników */}
+            {container.entity && (
+              <div className={classes.containerHeader}>
+                {container.player ? (
+                  <div className={classes.selectedEntity}>
+                    {container.player.player.name}
+                    <button
+                      className={classes.clearButton}
+                      onClick={() => handleClearPlayer(index)}
+                    >
+                      X
+                    </button>
                   </div>
                 ) : (
-                  // Jeśli brak zawodników w wynikach, sprawdź, czy wyniki są puste
-                  <div className={classes.noResults}>
-                    {playerSearchInputs[index] && "Brak zawodników"}
-                  </div>
+                  <input
+                    type="search"
+                    placeholder="Search for a player"
+                    value={playerSearchInputs[index]}
+                    onChange={(e) =>
+                      updatePlayerSearchInput(e.target.value, index)
+                    }
+                    className={classes.searchInput}
+                  />
                 )}
               </div>
             )}
+
+            {/*Wyświetlanie showdowna dla zawodnika */}
+            {container.entity &&
+              playerSearchInputs &&
+              selectedIndex === index &&
+              playerSearchInputs[index] && (
+                <div className={classes.showdownContainer}>
+                  {isLoadingSearch ? (
+                    <div className={classes.loading}>Ładowanie...</div>
+                  ) : isErrorSearch ? (
+                    <div className={classes.error}>Błąd ładowania danych.</div>
+                  ) : searchResults && searchResults.length > 0 ? (
+                    <ul className={classes.resultsList}>
+                      {playerResults &&
+                        playerResults.map((player) => (
+                          <li
+                            key={player.id}
+                            className={classes.resultItem}
+                            onClick={() => handleSelectPlayer(player, index)}
+                          >
+                            {player.player.name}
+                          </li>
+                        ))}
+                    </ul>
+                  ) : (
+                    <div className={classes.noResults}>Brak wyników</div>
+                  )}
+                </div>
+              )}
 
             {/* Wyświetlanie statystyk zawodnika */}
             {container.player && (
@@ -348,6 +381,7 @@ export default function PlayerComparison() {
           </div>
         ))}
 
+        {/* Modal dla wykresów */}
         {isModalOpen && (
           <PlayerStatsModal
             isOpen={isModalOpen}
@@ -356,6 +390,7 @@ export default function PlayerComparison() {
           />
         )}
 
+        {/* Przycisk dodawania kontenera */}
         {containers.length < 4 && (
           <div className={classes.addButtonContainer}>
             <button className={classes.addButton} onClick={addContainer}>
@@ -365,10 +400,11 @@ export default function PlayerComparison() {
         )}
       </div>
 
+      {/* Przycisk otwierający modal */}
       {isModalEnabled && (
         <div className={classes.openModalButtonContainer}>
           <button onClick={handleOpenModal} className={classes.openModalButton}>
-            Wyświetl wykresy
+            Display charts
           </button>
         </div>
       )}
