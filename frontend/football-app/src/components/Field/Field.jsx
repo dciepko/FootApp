@@ -14,6 +14,7 @@ function Field({ team }) {
         .map((rowKey) => {
           const playersInRow = playersByRow[rowKey];
           const numCols = playersInRow.length;
+          console.log(playersInRow);
 
           return (
             <div
@@ -29,6 +30,7 @@ function Field({ team }) {
                     key={index}
                     name={player.name}
                     number={player.number}
+                    position={player.pos}
                   />
                 </Link>
               ))}

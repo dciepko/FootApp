@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 export default function MatchStatisticsPage({ data }) {
   const matchData = data;
-  console.log(matchData);
 
   return (
     <div className={classes.matchStats}>

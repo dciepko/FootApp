@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./Pagination.module.css"; // stwórz lub przenieś odpowiednie style
+import classes from "./Pagination.module.css";
 
 export default function Pagination({
   currentPage,

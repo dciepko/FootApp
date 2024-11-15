@@ -32,7 +32,6 @@ export default function MatchesPage({ id, season }) {
     .filter((match) => match.fixture.status.short === "FT")
     .sort((a, b) => new Date(b.fixture.date) - new Date(a.fixture.date));
 
-  // Filtruj nadchodzące mecze, aby uwzględnić tylko te, których data jest w przyszłości
   const upcomingMatches = fixturesData.response
     .filter(
       (match) =>

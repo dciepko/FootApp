@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import classes from "./PlayerStatsModal.module.css";
-import TeamBarChart from "../Charts/TeamBarChart";
 import PlayerBarChart from "../Charts/PlayerBarChart";
 
 const PlayerStatsModal = ({ isOpen, onClose, containers }) => {

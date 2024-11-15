@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import classes from "./PlayerStatisticsPage.module.css";
 import DropdownOption from "../../DropdownOption/DropdownOption";
 import Pagination from "../../../components/Pagination/Pagination";

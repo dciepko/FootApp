@@ -18,8 +18,6 @@ export default function ResultContainer() {
   const [displayedFixtures, setDisplayedFixtures] = useState([]);
 
   useEffect(() => {
-    console.log(fixturesData); // Sprawdź strukturę danych
-
     if (
       fixturesData &&
       fixturesData.response &&

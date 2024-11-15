@@ -1,5 +1,4 @@
 import classes from "./TeamInfoPage.module.css";
-import teamInfoData from "../../../data/team/MUInfo.json";
 
 export default function TeamInfoPage({ data }) {
   const teamInfo = data[0].response[0];

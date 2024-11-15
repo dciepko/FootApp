@@ -16,7 +16,6 @@ export function useLeaguesTopPlayersData(leagueId, season = "2024") {
         `players/topyellowcards?league=${leagueId}&season=${season}`,
       ];
 
-      // Sekwencyjnie wykonujemy zapytania i zbieramy wyniki w tablicy `results`
       const results = [];
       for (const endpoint of endpoints) {
         try {
@@ -25,7 +24,7 @@ export function useLeaguesTopPlayersData(leagueId, season = "2024") {
           results.push(result);
         } catch (error) {
           console.error(`Error fetching ${endpoint}:`, error);
-          results.push(null); // Można również użyć innej obsługi błędów
+          results.push(null);
         }
       }
 

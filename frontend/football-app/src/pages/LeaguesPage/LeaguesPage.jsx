@@ -26,7 +26,6 @@ export default function LeaguesPage() {
   if (isLoading) return <div>Ładowanie lig...</div>;
   if (error) return <div>Błąd: {error.message}</div>;
 
-  // Zbiory do filtrowania
   const countrySet = [
     ...new Set(displayedLeagues.map((league) => league.country.name)),
   ];
@@ -34,7 +33,6 @@ export default function LeaguesPage() {
     ...new Set(displayedLeagues.map((league) => league.league.type)),
   ];
 
-  // Filtracja lig
   const filteredLeagues = displayedLeagues.filter((league) => {
     const matchesCountry =
       selectedCountries.length === 0 ||
@@ -44,13 +42,11 @@ export default function LeaguesPage() {
     return matchesCountry && matchesType;
   });
 
-  // Stronicowanie
   const totalPages = Math.ceil(filteredLeagues.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentLeaguesElements = filteredLeagues.slice(startIndex, endIndex);
 
-  // Funkcje pomocnicze
   const handlePageChange = (pageNumber) => setCurrentPage(pageNumber);
   const toggleFilter = (type, value) => {
     if (type === "country") {
@@ -83,7 +79,6 @@ export default function LeaguesPage() {
     <main>
       <NavMenu />
       <section className={classes.mainSection}>
-        {/* Zastosowane filtry */}
         <div className={classes.appliedFilters}>
           {selectedCountries.map((country) => (
             <div key={country} className={classes.filterTag}>
@@ -109,7 +104,6 @@ export default function LeaguesPage() {
           ))}
         </div>
 
-        {/* Filtry */}
         <div className={classes.optionsContainer}>
           <div className={classes.optionContainer}>
             <button
@@ -150,7 +144,6 @@ export default function LeaguesPage() {
           </div>
         </div>
 
-        {/* Lista lig */}
         <div className={classes.leaguesContainer}>
           {currentLeaguesElements.map((league) => (
             <Link
@@ -184,7 +177,6 @@ export default function LeaguesPage() {
           ))}
         </div>
 
-        {/* Paginacja */}
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}

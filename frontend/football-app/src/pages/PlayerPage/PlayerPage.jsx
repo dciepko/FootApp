@@ -8,7 +8,6 @@ import { useParams } from "react-router-dom";
 import { usePlayerSeasonsData } from "../../hooks/usePlayer/usePlayerSeasons";
 import { usePlayerStatisticsAndInfoData } from "../../hooks/usePlayer/usePlayerStatisticsAndInfo";
 
-// Helper function to determine the starting year of the current season based on today's date
 const getCurrentSeasonStartYear = () => {
   const today = new Date();
   const year = today.getFullYear();
@@ -44,7 +43,6 @@ export default function PlayerPage() {
 
   const firstCompetition =
     playerStatisticsData?.response?.[0]?.statistics?.[0]?.league?.name || null;
-  console.log(firstCompetition);
 
   const renderContent = () => {
     switch (currentContent) {
@@ -117,7 +115,6 @@ export default function PlayerPage() {
     }
   };
 
-  // Render loading states if data is still being fetched
   if (seasonsLoading || statisticsLoading) {
     return (
       <main className={classes.loadingContainer}>
@@ -127,7 +124,6 @@ export default function PlayerPage() {
     );
   }
 
-  // Render error states if any error occurs during data fetching
   if (seasonsError || statisticsError) {
     return (
       <main className={classes.errorContainer}>
@@ -146,7 +142,6 @@ export default function PlayerPage() {
     );
   }
 
-  // Check for empty or missing data before rendering content
   if (
     !playerSeasonsData ||
     validSeasons.length === 0 ||

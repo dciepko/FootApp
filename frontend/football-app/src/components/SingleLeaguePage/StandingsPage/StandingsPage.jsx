@@ -1,10 +1,8 @@
 import classes from "./StandingsPage.module.css";
-import premierLeagueData from "../../../data/currentLeague/premierLeague.json";
 import Standings from "../Standing/Standings";
 import { Link } from "react-router-dom";
 
 export default function StandingsPage({ data }) {
-  // const premierLeague = premierLeagueData[0];
   const premierLeague = data.response[0];
   console.log(data);
 

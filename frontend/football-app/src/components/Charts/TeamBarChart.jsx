@@ -45,7 +45,7 @@ const TeamBarChart = ({ data }) => {
             key={team}
             dataKey={team}
             name={team}
-            fill={data.find((entry) => entry.team === team).color} // Przypisanie koloru drużyny
+            fill={data.find((entry) => entry.team === team).color}
           />
         ))}
       </BarChart>

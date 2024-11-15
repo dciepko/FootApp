@@ -1,7 +1,5 @@
 import { useState } from "react";
 import classes from "./TeamTransferPage.module.css";
-import seasonsData from "../../../data/team/MUSeasons.json";
-import transfersData from "../../../data/team/MUTransfers.json";
 import DropdownOption from "../../DropdownOption/DropdownOption";
 import { Link } from "react-router-dom";
 import { useTeamTransfersData } from "../../../hooks/useTeam/useTeamTransfersData";

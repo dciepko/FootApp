@@ -7,7 +7,6 @@ import StatisticsPage from "../../components/SingleLeaguePage/StatisticsPage/Sta
 import { useParams } from "react-router-dom";
 import { useLeagueById } from "../../hooks/useLeague/useLeagueById";
 import DropdownOption from "../../components/DropdownOption/DropdownOption";
-import { useLeagueStandingsData } from "../../hooks/useLeagueStandingsData";
 import { fetchFootballData } from "../../utils/fetchFootballData";
 import SearchPlayerPage from "../../components/SingleLeaguePage/SearchPlayerPage/SearchPlayerPage";
 
@@ -19,7 +18,6 @@ export default function SingleLeaguePage() {
   const [availableSeasons, setAvailableSeasons] = useState([]);
   const [currentContent, setCurrentContent] = useState("standings");
   const [leagueStandingsData, setLeagueStandingsData] = useState(null);
-  const [leagueTopPlayersData, setLeagueTopPlayersData] = useState(null);
 
   useEffect(() => {
     if (leagueData && leagueData.response && leagueData.response.length > 0) {

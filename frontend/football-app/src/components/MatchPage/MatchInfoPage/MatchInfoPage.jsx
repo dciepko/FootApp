@@ -1,10 +1,8 @@
 import React from "react";
 import classes from "./MatchInfoPage.module.css";
-import { useMatchData } from "../../../hooks/useMatchData"; // Importowanie hooka
 import { Link } from "react-router-dom";
 
 export default function MatchInfoPage({ data }) {
-  // Użycie hooka do pobrania danych o meczu
   const matchData = data;
 
   return (
@@ -119,9 +117,3 @@ export default function MatchInfoPage({ data }) {
     </div>
   );
 }
-
-// Zakomentowana wersja bez API, pobierająca dane z JSON:
-/*
-import fixtureData from "../../../data/fixture.json"; // Bezpośrednie załadowanie danych
-const matchData = fixtureData[0]; // Użycie lokalnych danych
-*/

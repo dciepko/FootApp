@@ -94,7 +94,6 @@ export default function TeamComparison() {
   };
 
   const handleOpenModal = () => {
-    console.log("Dane statystyk: ", teamStatistics);
     setIsModalOpen(true);
   };
 

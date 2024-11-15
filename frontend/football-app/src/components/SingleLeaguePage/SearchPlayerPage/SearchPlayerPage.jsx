@@ -21,10 +21,7 @@ export default function SearchPlayerPage({ id }) {
     debouncedInput
   );
 
-  console.log(searchResults);
   const hasResults = searchResults;
-  // &&
-  // searchResults.some((result) => result && result.length > 0);
 
   return (
     <div className={classes.mainSection}>

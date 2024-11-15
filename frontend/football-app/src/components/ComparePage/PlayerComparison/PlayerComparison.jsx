@@ -15,8 +15,6 @@ export default function PlayerComparison() {
   const [selectedPlayer, setSelectedPlayer] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  console.log(containers);
-
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedInput(searchInput);
@@ -135,7 +133,7 @@ export default function PlayerComparison() {
       prev.map((input, i) => (i === index ? "" : input))
     );
     setSelectedPlayer(player);
-    setSelectedIndex(null); // Reset selectedIndex to close showdown
+    setSelectedIndex(null);
   };
 
   const calculateCardTotals = (cards) => {
@@ -381,7 +379,6 @@ export default function PlayerComparison() {
           </div>
         ))}
 
-        {/* Modal dla wykresów */}
         {isModalOpen && (
           <PlayerStatsModal
             isOpen={isModalOpen}
@@ -390,7 +387,6 @@ export default function PlayerComparison() {
           />
         )}
 
-        {/* Przycisk dodawania kontenera */}
         {containers.length < 4 && (
           <div className={classes.addButtonContainer}>
             <button className={classes.addButton} onClick={addContainer}>
@@ -400,7 +396,6 @@ export default function PlayerComparison() {
         )}
       </div>
 
-      {/* Przycisk otwierający modal */}
       {isModalEnabled && (
         <div className={classes.openModalButtonContainer}>
           <button onClick={handleOpenModal} className={classes.openModalButton}>

@@ -5,29 +5,27 @@ import { Link } from "react-router-dom";
 import { useLeagueStandingsData } from "../../../hooks/useLeagueStandingsData";
 import { fetchFootballData } from "../../../utils/fetchFootballData";
 
-const leagueIds = [39, 140, 78, 135, 61, 106]; // Identyfikatory lig
+const leagueIds = [39, 140, 78, 135, 61, 106];
 
 export default function LeaguesContainer() {
-  const [leagues, setLeagues] = useState([]); // Stan do przechowywania danych lig
-  const [currentLeagueId, setCurrentLeagueId] = useState(null); // Domyślna liga
+  const [leagues, setLeagues] = useState([]);
+  const [currentLeagueId, setCurrentLeagueId] = useState(null);
 
-  // Hook do pobierania danych lig
   useEffect(() => {
-    const endpoint = "leagues"; // Przykład, dostosuj do swojego API
+    const endpoint = "leagues";
     const fetchLeagues = async () => {
       try {
         const data = await fetchFootballData(endpoint);
-        // Filtrowanie i sortowanie lig na podstawie leagueIds
         const filteredLeagues = data.response
-          .filter((league) => leagueIds.includes(league.league.id)) // Filtrowanie lig
+          .filter((league) => leagueIds.includes(league.league.id))
           .sort(
             (a, b) =>
               leagueIds.indexOf(a.league.id) - leagueIds.indexOf(b.league.id)
-          ); // Sortowanie w kolejności z leagueIds
+          );
 
-        setLeagues(filteredLeagues); // Ustawienie przefiltrowanych i posortowanych lig
+        setLeagues(filteredLeagues);
         if (filteredLeagues.length > 0) {
-          setCurrentLeagueId(filteredLeagues[0].league.id); // Ustaw pierwszą ligę jako aktualną
+          setCurrentLeagueId(filteredLeagues[0].league.id);
         }
       } catch (error) {
         console.error("Błąd podczas pobierania lig:", error);
@@ -37,7 +35,6 @@ export default function LeaguesContainer() {
     fetchLeagues();
   }, []);
 
-  // Użycie useLeagueData dla aktualnie wybranej ligi
   const {
     data: leagueData,
     isLoading,
@@ -54,12 +51,12 @@ export default function LeaguesContainer() {
           <button
             key={league.league.id}
             className={classes.leagueButton}
-            onClick={() => setCurrentLeagueId(league.league.id)} // Zmiana aktualnej ligi
+            onClick={() => setCurrentLeagueId(league.league.id)}
           >
             <img
               className={classes.leagueImage}
-              src={league.league.logo} // Logo ligi
-              alt={`League ${league.league.name}`} // Poprawiony alt
+              src={league.league.logo}
+              alt={`League ${league.league.name}`}
             />
           </button>
         ))}

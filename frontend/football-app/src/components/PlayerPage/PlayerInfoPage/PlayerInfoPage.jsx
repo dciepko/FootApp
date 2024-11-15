@@ -1,6 +1,4 @@
 import classes from "./PlayerInfoPage.module.css";
-import infoData from "../../../data/player/haaland.json";
-import { usePlayerSeasonsData } from "../../../hooks/usePlayer/usePlayerSeasons";
 import { usePlayerStatisticsAndInfoData } from "../../../hooks/usePlayer/usePlayerStatisticsAndInfo";
 
 export default function PlayerInfoPage({ id, newestSeason }) {

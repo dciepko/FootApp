@@ -5,17 +5,14 @@ import { useTeamSquadData } from "../../../hooks/useTeam/useTeamSquadData";
 export default function TeamSquadPage({ id }) {
   const { data: teamData, isLoading, error } = useTeamSquadData(id);
 
-  // Obsługa ładowania
   if (isLoading) {
     return <div>Ładowanie danych składu zespołu...</div>;
   }
 
-  // Obsługa błędów
   if (error) {
     return <div>Błąd wczytywania danych składu: {error.message}</div>;
   }
 
-  // Sprawdzenie, czy dane zespołu są dostępne
   if (!teamData || !teamData.response || teamData.response.length === 0) {
     return <div>Brak danych o składzie zespołu.</div>;
   }

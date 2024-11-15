@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import classes from "./TeamStatisticsPage.module.css";
-import statisticsData from "../../../data/team/MUStatistics.json";
 import DropdownOption from "../../DropdownOption/DropdownOption";
 import Pagination from "../../../components/Pagination/Pagination";
 import SimplePieChart from "../../Charts/SimplePieChart";
@@ -32,7 +31,6 @@ export default function TeamStatisticsPage({ data }) {
       setChosenLeague(leaguesForChosenSeason[0].league);
     }
   }, [chosenLeague, leaguesForChosenSeason]);
-  console.log(leaguesForChosenSeason);
 
   const {
     data: teamStatsData,

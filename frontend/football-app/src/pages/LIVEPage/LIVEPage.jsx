@@ -5,8 +5,6 @@ import Pagination from "../../components/Pagination/Pagination";
 import { Link } from "react-router-dom";
 import { useFixturesLiveData } from "../../hooks/useFixturesLiveData";
 
-// import fixturesData from "../../data/fixtures.json";
-
 export default function LIVEPage() {
   const { data: fixturesData, isLoading, error } = useFixturesLiveData();
   const [displayedFixtures, setDisplayedFixtures] = useState([]);
@@ -200,17 +198,3 @@ export default function LIVEPage() {
     </main>
   );
 }
-
-// Zakomentowana wersja bez API, pobierająca dane z JSON:
-
-/*
-import fixturesData from "../../data/fixtures.json"; // Bezpośrednie załadowanie danych
-// Ustawienie danych przy inicjalizacji komponentu
-const [displayedFixtures, setDisplayedFixtures] = useState(fixturesData);
-
-// Wersja bez API będzie miała leagueSet, countrySet, filteredFixtures i currentFixtures oparte na załadowanym JSON:
-const leagueSet = [...new Set(fixturesData.map((fixture) => fixture.league.name))];
-const countrySet = [...new Set(fixturesData.map((fixture) => fixture.league.country))];
-// ...
-// Reszta kodu pozostaje bez zmian, korzysta z lokalnych danych `fixturesData`.
-*/

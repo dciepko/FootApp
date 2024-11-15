@@ -1,6 +1,4 @@
 import classes from "./PlayerAdditionalInfoPage.module.css";
-import trophiesData from "../../../data/player/haalandTrophies.json"; // Przykład danych, możesz usunąć, jeśli nieużywane
-import transfersData from "../../../data/player/haalandTransfers.json"; // Przykład danych, możesz usunąć, jeśli nieużywane
 import { usePlayerTransfersData } from "../../../hooks/usePlayer/usePlayerTransfersData";
 import { usePlayerTrophiesData } from "../../../hooks/usePlayer/usePlayerTrophiesData";
 
@@ -17,17 +15,14 @@ export default function PlayerAdditionalInfoPage({ id }) {
     error: trophiesError,
   } = usePlayerTrophiesData(id);
 
-  // Zabezpieczenie dla ładowania transferów
   if (transferIsLoading || trophiesIsLoading) {
     return <div>Loading additional player information...</div>;
   }
 
-  // Zabezpieczenie dla błędów transferów
   if (transferError) {
     return <div>Error loading transfers: {transferError.message}</div>;
   }
 
-  // Zabezpieczenie dla błędów trofeów
   if (trophiesError) {
     return <div>Error loading trophies: {trophiesError.message}</div>;
   }
