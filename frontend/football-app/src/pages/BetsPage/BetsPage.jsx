@@ -3,6 +3,7 @@ import classes from "./BetsPage.module.css";
 import { useOddsData } from "../../hooks/useOddsData";
 import OddsFixture from "../../components/OddsFixture/OddsFixture";
 import Loader from "../../components/Loader/Loader";
+import { Link } from "react-router-dom";
 
 export default function BetsPage() {
   const { data: oddsLive, isLoading, error } = useOddsData();
@@ -23,11 +24,13 @@ export default function BetsPage() {
           const slicedOdds = shuffledOdds.slice(0, 5);
 
           return (
-            <OddsFixture
-              key={odd.fixture.id}
-              fixture={odd.fixture}
-              slicedOdds={slicedOdds}
-            />
+            <Link className="disablingLinks" to={`/match/${odd.fixture.id}`}>
+              <OddsFixture
+                key={odd.fixture.id}
+                fixture={odd.fixture}
+                slicedOdds={slicedOdds}
+              />
+            </Link>
           );
         })}
       </div>

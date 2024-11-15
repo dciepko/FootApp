@@ -4,12 +4,15 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  overflow: auto;
 }
 
 .optionsContainer {
   height: 8%;
   display: flex;
   align-items: center;
+  background-color: #e6edf1;
+  padding: 1rem 0;
 }
 
 .optionButton {
@@ -151,7 +154,7 @@
 .appliedFilters {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  background-color: #e6edf1;
 }
 
 .filterTag {

@@ -5,6 +5,7 @@ import Pagination from "../../components/Pagination/Pagination";
 import { Link } from "react-router-dom";
 import { useLeaguesData } from "../../hooks/useLeaguesData";
 import Loader from "../../components/Loader/Loader";
+import fifaFlagImg from "../../assets/FifaFlag.png";
 
 export default function LeaguesPage() {
   const { data: leaguesData, isLoading, error } = useLeaguesData();
@@ -169,7 +170,11 @@ export default function LeaguesPage() {
                 <span className={classes.flagContainer}>
                   <img
                     className={classes.leagueFlagImage}
-                    src={league.country.flag}
+                    src={
+                      league.country.name === "World"
+                        ? fifaFlagImg
+                        : league.country.flag
+                    }
                     alt={league.country.name}
                   />
                 </span>

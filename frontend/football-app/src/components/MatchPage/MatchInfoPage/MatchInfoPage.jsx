@@ -53,7 +53,7 @@ export default function MatchInfoPage({ data }) {
         <div className={classes.team}>
           <Link
             className="disablingLinks"
-            to={`/team/${matchData.teams.home.id}`}
+            to={`/team/${matchData.teams.away.id}`}
           >
             <h3>{matchData.teams.away.name}</h3>{" "}
           </Link>

@@ -17,13 +17,6 @@ export default function OddsFixture({ fixture, slicedOdds }) {
 
   return (
     <div className={classes.singleFixture}>
-      <p className={classes.fixtureName}>
-        {isMatchLoading && " (Ładowanie danych meczu...)"}
-        {error && (
-          <span className={classes.error}>Błąd ładowania danych meczu</span>
-        )}
-      </p>
-
       <li className={classes.fixtureBar}>
         <span className={classes.logoContainer}>
           <img
