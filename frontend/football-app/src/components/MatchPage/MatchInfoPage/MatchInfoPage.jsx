@@ -61,7 +61,7 @@ export default function MatchInfoPage({ data }) {
           <div className={classes.imageContainer}>
             <Link
               className="disablingLinks"
-              to={`/team/${matchData.teams.home.id}`}
+              to={`/team/${matchData.teams.away.id}`}
             >
               <img
                 src={matchData.teams.away.logo}

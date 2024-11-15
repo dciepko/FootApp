@@ -4,6 +4,7 @@ import classes from "./LeaguesPage.module.css";
 import Pagination from "../../components/Pagination/Pagination";
 import { Link } from "react-router-dom";
 import { useLeaguesData } from "../../hooks/useLeaguesData";
+import Loader from "../../components/Loader/Loader";
 
 export default function LeaguesPage() {
   const { data: leaguesData, isLoading, error } = useLeaguesData();
@@ -23,7 +24,7 @@ export default function LeaguesPage() {
     }
   }, [leaguesData]);
 
-  if (isLoading) return <div>Ładowanie lig...</div>;
+  if (isLoading) return <Loader />;
   if (error) return <div>Błąd: {error.message}</div>;
 
   const countrySet = [

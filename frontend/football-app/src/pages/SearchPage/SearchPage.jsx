@@ -4,6 +4,7 @@ import NavMenu from "../../components/NavMenu/NavMenu";
 import classes from "./SearchPage.module.css";
 import noResultsIcon from "../../assets/sad.png";
 import { Link } from "react-router-dom";
+import Loader from "../../components/Loader/Loader";
 
 export default function SearchPage() {
   const [input, setInput] = useState("");
@@ -33,7 +34,7 @@ export default function SearchPage() {
           <input
             className={classes.searchInput}
             type="search"
-            placeholder="Search..."
+            placeholder="Search for a league or a team..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
@@ -41,7 +42,7 @@ export default function SearchPage() {
 
         <div className={classes.resultsContent}>
           {isLoading ? (
-            <div>Loading...</div>
+            <Loader />
           ) : hasResults ? (
             <div>
               {searchResults.map((result, index) => (
@@ -60,7 +61,16 @@ export default function SearchPage() {
                           className={classes.searchResult}
                           key={index === 0 ? item.team.id : item.league.id}
                         >
-                          {index === 0 ? item.team.name : item.league.name}
+                          <span>
+                            {index === 0 ? item.team.name : item.league.name}
+                          </span>
+                          <span className={classes.searchResultInfo}>
+                            {index === 0 ? "Team" : "League"}
+                            &nbsp;&nbsp;|&nbsp;&nbsp;
+                            {index === 0
+                              ? item.team.country
+                              : item.country.name}
+                          </span>
                         </li>
                       </Link>
                     ))}

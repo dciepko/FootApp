@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import classes from "./LeaguesContainer.module.css";
 import LeaguesContainerPlaceBar from "../LeaguesContainerPlaceBar/LeaguesContainerPlaceBar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLeagueStandingsData } from "../../../hooks/useLeagueStandingsData";
 import { fetchFootballData } from "../../../utils/fetchFootballData";
+import Loader from "../../Loader/Loader";
 
 const leagueIds = [39, 140, 78, 135, 61, 106];
 
 export default function LeaguesContainer() {
+  const navigate = useNavigate();
   const [leagues, setLeagues] = useState([]);
   const [currentLeagueId, setCurrentLeagueId] = useState(null);
 
@@ -35,13 +37,22 @@ export default function LeaguesContainer() {
     fetchLeagues();
   }, []);
 
+  function handleDoubleClick(id) {
+    navigate(`/league/${id}`);
+  }
+
   const {
     data: leagueData,
     isLoading,
     error,
   } = useLeagueStandingsData(currentLeagueId);
 
-  if (isLoading) return <div>Ładowanie lig...</div>;
+  if (isLoading || currentLeagueId === null)
+    return (
+      <div className={classes.leaguesList}>
+        <Loader />
+      </div>
+    );
   if (error) return <div>Błąd: {error.message}</div>;
 
   return (
@@ -52,6 +63,9 @@ export default function LeaguesContainer() {
             key={league.league.id}
             className={classes.leagueButton}
             onClick={() => setCurrentLeagueId(league.league.id)}
+            onDoubleClick={() => {
+              handleDoubleClick(league.league.id);
+            }}
           >
             <img
               className={classes.leagueImage}

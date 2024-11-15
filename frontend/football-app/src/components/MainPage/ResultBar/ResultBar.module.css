@@ -36,6 +36,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  height: 100%;
 }
 
 .logoContainer {
@@ -63,7 +64,7 @@
 }
 
 .odd:hover {
-  background-color: lightgray;
+  background-color: #cccccc;
   cursor: pointer;
 }
 

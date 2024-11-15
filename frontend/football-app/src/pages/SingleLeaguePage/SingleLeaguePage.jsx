@@ -9,6 +9,7 @@ import { useLeagueById } from "../../hooks/useLeague/useLeagueById";
 import DropdownOption from "../../components/DropdownOption/DropdownOption";
 import { fetchFootballData } from "../../utils/fetchFootballData";
 import SearchPlayerPage from "../../components/SingleLeaguePage/SearchPlayerPage/SearchPlayerPage";
+import Loader from "../../components/Loader/Loader";
 
 export default function SingleLeaguePage() {
   const { leagueId } = useParams();
@@ -51,7 +52,7 @@ export default function SingleLeaguePage() {
     }
   }, [chosenSeason]);
 
-  if (isLoading) return <div>Ładowanie danych ligi...</div>;
+  if (isLoading) return <Loader />;
   if (error) return <div>Błąd: {error.message}</div>;
 
   const renderContent = () => {

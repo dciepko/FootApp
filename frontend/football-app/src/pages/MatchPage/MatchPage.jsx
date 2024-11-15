@@ -6,13 +6,14 @@ import MatchStatisticsPage from "../../components/MatchPage/MatchStatisticsPage/
 import MatchPlayersPage from "../../components/MatchPage/MatchPlayersPage/MatchPlayersPage";
 import { useParams } from "react-router-dom";
 import { useMatchData } from "../../hooks/useMatchData";
+import Loader from "../../components/Loader/Loader";
 
 export default function MatchPage() {
   const [currentContent, setCurrentContent] = useState("info");
   const { matchId } = useParams();
   const { data: matchData, isLoading, error } = useMatchData(matchId);
 
-  if (isLoading) return <div>Ładowanie danych meczu...</div>;
+  if (isLoading) return <Loader />;
   if (error) return <div>Błąd: {error.message}</div>;
   if (!matchData) return <div>Brak danych do wyświetlenia.</div>;
 

@@ -2,11 +2,12 @@ import NavMenu from "../../components/NavMenu/NavMenu";
 import classes from "./BetsPage.module.css";
 import { useOddsData } from "../../hooks/useOddsData";
 import OddsFixture from "../../components/OddsFixture/OddsFixture";
+import Loader from "../../components/Loader/Loader";
 
 export default function BetsPage() {
   const { data: oddsLive, isLoading, error } = useOddsData();
 
-  if (isLoading) return <p>Ładowanie...</p>;
+  if (isLoading) return <Loader />;
   if (error) return <p>Błąd podczas ładowania danych.</p>;
 
   const randomOdds = oddsLive.response

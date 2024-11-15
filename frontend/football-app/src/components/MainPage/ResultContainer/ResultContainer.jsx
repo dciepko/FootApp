@@ -3,6 +3,7 @@ import classes from "./ResultContainer.module.css";
 import { Link } from "react-router-dom";
 import ResultBar from "../ResultBar/ResultBar";
 import { useFixturesLiveData } from "../../../hooks/useFixturesLiveData";
+import Loader from "../../Loader/Loader";
 
 const getRandomFixtures = (fixtures, count) => {
   let shuffled = [...fixtures];
@@ -31,7 +32,12 @@ export default function ResultContainer() {
     }
   }, [fixturesData]);
 
-  if (isLoading) return <div>Ładowanie wyników...</div>;
+  if (isLoading)
+    return (
+      <div className={classes.currentResultsList}>
+        <Loader />
+      </div>
+    );
   if (error) return <div>Błąd: {error.message}</div>;
 
   return (

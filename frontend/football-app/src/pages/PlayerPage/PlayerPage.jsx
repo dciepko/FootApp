@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { usePlayerSeasonsData } from "../../hooks/usePlayer/usePlayerSeasons";
 import { usePlayerStatisticsAndInfoData } from "../../hooks/usePlayer/usePlayerStatisticsAndInfo";
+import Loader from "../../components/Loader/Loader";
 
 const getCurrentSeasonStartYear = () => {
   const today = new Date();
@@ -119,7 +120,7 @@ export default function PlayerPage() {
     return (
       <main className={classes.loadingContainer}>
         <NavMenu />
-        <div className={classes.loading}>Loading player data...</div>
+        <Loader />
       </main>
     );
   }

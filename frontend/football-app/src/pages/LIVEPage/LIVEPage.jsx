@@ -4,6 +4,7 @@ import classes from "./LIVEPage.module.css";
 import Pagination from "../../components/Pagination/Pagination";
 import { Link } from "react-router-dom";
 import { useFixturesLiveData } from "../../hooks/useFixturesLiveData";
+import Loader from "../../components/Loader/Loader";
 
 export default function LIVEPage() {
   const { data: fixturesData, isLoading, error } = useFixturesLiveData();
@@ -22,7 +23,7 @@ export default function LIVEPage() {
     }
   }, [fixturesData]);
 
-  if (isLoading) return <div>Ładowanie meczów...</div>;
+  if (isLoading) return <Loader />;
   if (error) return <div>Błąd: {error.message}</div>;
 
   const leagueSet = [
