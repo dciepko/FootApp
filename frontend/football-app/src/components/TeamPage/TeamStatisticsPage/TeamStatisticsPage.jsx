@@ -6,6 +6,7 @@ import SimplePieChart from "../../Charts/SimplePieChart";
 import SimpleBarChart from "../../Charts/SimpleBarChart";
 import noFormationField from "../../../assets/field-no-formation.svg";
 import { useTeamStatisticsData } from "../../../hooks/useTeam/useTeamStatisticsData";
+import Loader from "../../Loader/Loader";
 
 export default function TeamStatisticsPage({ data }) {
   const leaguesData = data[1].response;
@@ -45,7 +46,7 @@ export default function TeamStatisticsPage({ data }) {
   const teamStatitsticsData = teamStatsData?.response || {};
 
   if (isLoading) {
-    return <div className={classes.loading}>Loading...</div>;
+    return <Loader />;
   }
 
   if (error) {

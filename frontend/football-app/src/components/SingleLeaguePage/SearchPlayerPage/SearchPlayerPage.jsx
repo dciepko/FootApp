@@ -3,6 +3,7 @@ import classes from "./SearchPlayerPage.module.css";
 import noResultsIcon from "../../../assets/sad.png";
 import { useEffect, useState } from "react";
 import { useSearchPlayerData } from "../../../hooks/useSearch/useSearchPlayerData";
+import Loader from "../../Loader/Loader";
 
 export default function SearchPlayerPage({ id }) {
   const [input, setInput] = useState("");
@@ -37,7 +38,7 @@ export default function SearchPlayerPage({ id }) {
 
       <div className={classes.resultsContent}>
         {isLoading ? (
-          <div>Loading...</div>
+          <Loader />
         ) : hasResults ? (
           <div>
             {searchResults.map((result, index) => (

@@ -1,6 +1,7 @@
 import classes from "./StatisticsPage.module.css";
 import { useLeaguesTopPlayersData } from "../../../hooks/useLeague/useLeaguesTopPlayersData";
 import { Link } from "react-router-dom";
+import Loader from "../../Loader/Loader";
 
 export default function StatisticsPage({ id, season }) {
   const {
@@ -9,7 +10,7 @@ export default function StatisticsPage({ id, season }) {
     error,
   } = useLeaguesTopPlayersData(id, season);
 
-  if (isLoading) return <div>Ładowanie danych graczy...</div>;
+  if (isLoading) return <Loader />;
   if (error) return <div>Błąd wczytywania danych: {error.message}</div>;
 
   if (!topPlayersData || topPlayersData.length < 4) {

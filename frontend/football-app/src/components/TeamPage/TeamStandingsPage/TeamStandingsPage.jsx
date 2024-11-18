@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import classes from "./TeamStandingsPage.module.css";
 import DropdownOption from "../../DropdownOption/DropdownOption";
 import { useTeamStandingsData } from "../../../hooks/useTeam/useTeamStandingsData";
+import Loader from "../../Loader/Loader";
+import { RenderForm } from "../../RenderForm/RenderForm";
 
 export default function TeamStandingsPage({ data }) {
   const leaguesData = data[1].response;
@@ -33,7 +35,7 @@ export default function TeamStandingsPage({ data }) {
   } = useTeamStandingsData(chosenSeason, data[0].response[0].team.id);
 
   if (isLoading) {
-    return <div className={classes.loading}>Ładowanie...</div>;
+    return <Loader />;
   }
 
   if (error) {
@@ -85,16 +87,16 @@ export default function TeamStandingsPage({ data }) {
           <div className={classes.standingsTable}>
             <div className={classes.helpBar}>
               <span>Pos.</span>
-              <span>Drużyna</span>
+              <span>Team</span>
               <span>GF</span>
               <span>GA</span>
               <span>+/-</span>
-              <span>Forma</span>
-              <span>Rozgrywki</span>
-              <span>Zwycięstwa</span>
-              <span>Remisy</span>
-              <span>Przegrane</span>
-              <span>Punkty</span>
+              <span>Form</span>
+              <span>Played</span>
+              <span>Win</span>
+              <span>Draw</span>
+              <span>Lose</span>
+              <span>Points</span>
             </div>
             {selectedStandings.league.standings[0].map((teamStanding) => (
               <div className={classes.standing} key={teamStanding.team.id}>
@@ -103,7 +105,9 @@ export default function TeamStandingsPage({ data }) {
                 <span>{teamStanding.all.goals.for}</span>
                 <span>{teamStanding.all.goals.against}</span>
                 <span>{teamStanding.goalsDiff}</span>
-                <span>{teamStanding.form}</span>
+                <span>
+                  <RenderForm form={teamStanding.form} />
+                </span>
                 <span>{teamStanding.all.played}</span>
                 <span>{teamStanding.all.win}</span>
                 <span>{teamStanding.all.draw}</span>

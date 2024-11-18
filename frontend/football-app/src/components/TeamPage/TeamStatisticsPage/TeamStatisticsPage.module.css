@@ -10,7 +10,7 @@
   max-height: 12%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background-color: rgb(241, 241, 241);
+  background-color: #e6edf1;
 }
 
 .chooseSection {

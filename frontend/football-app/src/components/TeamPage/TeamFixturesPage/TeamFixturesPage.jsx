@@ -3,6 +3,7 @@ import classes from "./TeamFixturesPage.module.css";
 import DropdownOption from "../../DropdownOption/DropdownOption";
 import { Link } from "react-router-dom";
 import { useTeamFixturesData } from "../../../hooks/useTeam/useTeamFixturesData";
+import Loader from "../../Loader/Loader";
 
 const formatDate = (dateString) => {
   const options = { year: "numeric", month: "long", day: "numeric" };
@@ -40,7 +41,7 @@ export default function TeamFixturesPage({ data }) {
   } = useTeamFixturesData(chosenSeason, data[0]?.response[0]?.team.id);
 
   if (isLoading) {
-    return <div className={classes.loading}>Ładowanie...</div>;
+    return <Loader />;
   }
 
   if (error) {
@@ -94,7 +95,8 @@ export default function TeamFixturesPage({ data }) {
             setChosenOption={setChosenSeason}
             labelFormatter={formatSeasonLabel}
           />
-
+        </div>
+        <div className={classes.chooseSection}>
           <DropdownOption
             options={leaguesForChosenSeason.map((league) => league.league.name)}
             chosenOption={chosenLeague ? chosenLeague.name : ""}

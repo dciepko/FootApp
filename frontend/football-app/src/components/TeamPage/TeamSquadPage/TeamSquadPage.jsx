@@ -1,12 +1,13 @@
 import classes from "./TeamSquadPage.module.css";
 import { Link } from "react-router-dom";
 import { useTeamSquadData } from "../../../hooks/useTeam/useTeamSquadData";
+import Loader from "../../Loader/Loader";
 
 export default function TeamSquadPage({ id }) {
   const { data: teamData, isLoading, error } = useTeamSquadData(id);
 
   if (isLoading) {
-    return <div>Ładowanie danych składu zespołu...</div>;
+    return <Loader />;
   }
 
   if (error) {

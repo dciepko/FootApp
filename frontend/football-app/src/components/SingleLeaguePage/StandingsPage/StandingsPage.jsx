@@ -12,8 +12,6 @@ export default function StandingsPage({ data }) {
     leagueType = "noWorld";
   }
 
-  console.log(leagueType);
-
   return (
     <>
       {leagueType === "noWorld" ? (

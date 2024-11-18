@@ -3,6 +3,7 @@ import classes from "./TeamTransferPage.module.css";
 import DropdownOption from "../../DropdownOption/DropdownOption";
 import { Link } from "react-router-dom";
 import { useTeamTransfersData } from "../../../hooks/useTeam/useTeamTransfersData";
+import Loader from "../../Loader/Loader";
 
 export default function TeamTransferPage({ data, id }) {
   const leaguesData = data[1].response;
@@ -23,7 +24,7 @@ export default function TeamTransferPage({ data, id }) {
   } = useTeamTransfersData(data[0].response[0].team.id);
 
   if (isLoading) {
-    return <div className={classes.loading}>Loading...</div>;
+    return <Loader />;
   }
 
   if (error) {
@@ -49,7 +50,7 @@ export default function TeamTransferPage({ data, id }) {
   };
 
   return (
-    <div className={classes.transfersPage}>
+    <>
       <div className={classes.choosePart}>
         <div className={classes.chooseSection}>
           <DropdownOption
@@ -111,6 +112,6 @@ export default function TeamTransferPage({ data, id }) {
           <p>No transfers available for this season.</p>
         )}
       </div>
-    </div>
+    </>
   );
 }

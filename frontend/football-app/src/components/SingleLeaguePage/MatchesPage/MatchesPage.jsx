@@ -2,6 +2,7 @@ import { useState } from "react";
 import classes from "./MatchesPage.module.css";
 import { useLeagueFixturesData } from "../../../hooks/useLeague/useLeagueFixturesData";
 import { Link } from "react-router-dom";
+import Loader from "../../Loader/Loader";
 
 const formatDate = (dateString) => {
   const options = { year: "numeric", month: "long", day: "numeric" };
@@ -17,7 +18,7 @@ export default function MatchesPage({ id, season }) {
     error,
   } = useLeagueFixturesData(id, season);
 
-  if (isLoading) return <div>Ładowanie danych meczów...</div>;
+  if (isLoading) return <Loader />;
   if (error) return <div>Błąd wczytywania danych: {error.message}</div>;
 
   if (

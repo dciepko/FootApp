@@ -9,6 +9,7 @@ import classes from "./TeamPage.module.css";
 import TeamTransferPage from "../../components/TeamPage/TeamTransferPage/TeamTransferPage";
 import { useParams } from "react-router-dom";
 import { useTeamStarterData } from "../../hooks/useTeam/useTeamStarterData";
+import Loader from "../../components/Loader/Loader";
 
 export default function TeamPage() {
   const { teamId } = useParams();
@@ -17,7 +18,7 @@ export default function TeamPage() {
 
   const renderContent = () => {
     if (isLoading) {
-      return <div>Ładowanie danych zespołu...</div>;
+      return <Loader />;
     }
 
     if (error) {

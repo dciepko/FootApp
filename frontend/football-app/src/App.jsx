@@ -14,6 +14,9 @@ import ComparePage from "./pages/ComparePage/ComparePage";
 import SimulationsPage from "./pages/SimulationsPage/SimulationsPage";
 import LIVEPage from "./pages/LIVEPage/LIVEPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
+import ErrorBoundary from "./errors/ErrorBoundary";
+import PageNotFound from "./errors/PageNotFound/PageNotFound";
+import GlobalError from "./errors/GlobalError";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -23,6 +26,7 @@ const App = () => {
       path: "/",
       element: <Header />,
       id: "root",
+      errorElement: <GlobalError />,
       children: [
         { path: "/", element: <HomePage /> },
         {
@@ -68,12 +72,18 @@ const App = () => {
         },
       ],
     },
+    {
+      path: "*",
+      element: <PageNotFound />,
+    },
   ]);
 
   return (
     <div className="container">
       <div className="app">
-        <RouterProvider router={router} />
+        <ErrorBoundary>
+          <RouterProvider router={router} />
+        </ErrorBoundary>
       </div>
     </div>
   );
