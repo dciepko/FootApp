@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import { usePlayerSeasonsData } from "../../hooks/usePlayer/usePlayerSeasons";
 import { usePlayerStatisticsAndInfoData } from "../../hooks/usePlayer/usePlayerStatisticsAndInfo";
 import Loader from "../../components/Loader/Loader";
+import DotNavigation from "../../components/DotNavigation/DotNavigation";
 
 const getCurrentSeasonStartYear = () => {
   const today = new Date();
@@ -15,6 +16,8 @@ const getCurrentSeasonStartYear = () => {
   const isBeforeJuly = today.getMonth() < 6;
   return isBeforeJuly ? year - 1 : year;
 };
+
+const pages = ["info", "statistics", "additional"];
 
 export default function PlayerPage() {
   const { playerId } = useParams();
@@ -160,7 +163,14 @@ export default function PlayerPage() {
   return (
     <main>
       <NavMenu />
-      {renderContent()}
+      <span className={classes.containerToFitDots}>
+        <DotNavigation
+          pages={pages}
+          currentPage={currentContent}
+          onPageChange={(page) => setCurrentContent(pages[page])}
+        />
+        {renderContent()}
+      </span>
     </main>
   );
 }

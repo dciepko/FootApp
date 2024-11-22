@@ -24,7 +24,7 @@ const pages = [
 export default function TeamPage() {
   const { teamId } = useParams();
   const { data: teamData, isLoading, error } = useTeamStarterData(teamId);
-  const [currentContent, setCurrentContent] = useState("info");
+  const [currentContent, setCurrentContent] = useState(pages[0]);
 
   const renderContent = () => {
     if (isLoading) {

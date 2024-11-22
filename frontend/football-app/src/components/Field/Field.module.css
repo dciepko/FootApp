@@ -1,20 +1,26 @@
 .field {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 80vh;
+  align-items: center;
+  width: 100%;
+  max-width: 90vw;
+  height: 60vh;
+  margin: 1rem auto;
+  overflow: hidden;
   background-image: url("../../assets/field-no-formation.svg");
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  margin: 1rem;
 }
 
 .fieldRow {
   display: grid;
   gap: 1rem;
   justify-items: center;
-  flex-grow: 1;
-  grid-template-columns: repeat(auto-fill, minmax(5vw, 1fr));
-  height: 100%;
+  width: 60%;
+  max-width: 100%;
+  z-index: 2;
+  position: relative;
 }

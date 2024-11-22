@@ -7,6 +7,9 @@ import MatchPlayersPage from "../../components/MatchPage/MatchPlayersPage/MatchP
 import { useParams } from "react-router-dom";
 import { useMatchData } from "../../hooks/useMatchData";
 import Loader from "../../components/Loader/Loader";
+import DotNavigation from "../../components/DotNavigation/DotNavigation";
+
+const pages = ["info", "statistics", "players"];
 
 export default function MatchPage() {
   const [currentContent, setCurrentContent] = useState("info");
@@ -85,7 +88,14 @@ export default function MatchPage() {
   return (
     <main>
       <NavMenu />
-      {renderContent()}
+      <span className={classes.containerToFitDots}>
+        <DotNavigation
+          pages={pages}
+          currentPage={currentContent}
+          onPageChange={(page) => setCurrentContent(pages[page])}
+        />
+        {renderContent()}
+      </span>
     </main>
   );
 }

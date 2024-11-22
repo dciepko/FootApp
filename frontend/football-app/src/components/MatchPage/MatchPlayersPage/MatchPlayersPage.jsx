@@ -9,10 +9,11 @@ export default function MatchPlayersPage({ data }) {
 
   const renderContent = (teamLineup) => {
     return (
-      <div>
+      <div className={classes.oneTeamContainer}>
+        <h2>{teamLineup.team.name}</h2>
+
         <Field team={teamLineup} />
         <div className={classes.teamPlayers}>
-          <h2>{teamLineup.team.name}</h2>
           <p className={classes.toBold}>
             Formation:&nbsp;{teamLineup.formation}
           </p>
