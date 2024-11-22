@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSearchTeamData } from "../../../hooks/useSearch/useSearchTeamData";
 import { useTeamLeaguesData } from "../../../hooks/useTeam/useTeamLeagues";
 import { useTeamStatisticsData } from "../../../hooks/useTeam/useTeamStatisticsData";
 import TeamStatsModal from "../../TeamStatsModal/TeamStatsModal";
 import classes from "./TeamComparison.module.css";
+import { initializeExtremes } from "../../../utils/ComparePages/initializeExtremes";
+import { updateExtremes } from "../../../utils/ComparePages/updateExtremes";
+import { calculateCardTotals } from "../../../utils/ComparePages/calculateCardTotals";
+import { getNestedValue } from "../../../utils/ComparePages/getNestedValue";
 
 export default function TeamComparison() {
   const [containers, setContainers] = useState([{}, {}]);
@@ -14,8 +18,9 @@ export default function TeamComparison() {
   const [teamStatistics, setTeamStatistics] = useState({});
   const [selectedTeamId, setSelectedTeamId] = useState(null);
   const [selectedLeagueId, setSelectedLeagueId] = useState(null);
-  const [expandedMinutes, setExpandedMinutes] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const maxValues = useRef({});
+  const minValues = useRef({});
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -60,6 +65,23 @@ export default function TeamComparison() {
           isErrorStats,
         },
       }));
+      if (statisticsData) {
+        if (Object.keys(maxValues.current) === null) {
+          initializeExtremes(statisticsData.response, [
+            "team",
+            "lineups",
+            "league",
+            "form",
+          ]);
+        } else {
+          updateExtremes(statisticsData.response, maxValues, minValues, [
+            "team",
+            "lineups",
+            "league",
+            "form",
+          ]);
+        }
+      }
     }
   }, [statisticsData, selectedTeamId]);
 
@@ -104,20 +126,29 @@ export default function TeamComparison() {
   const isModalEnabled =
     containers.filter((container) => container.team).length >= 2;
 
-  const calculateCardTotals = (cards) => {
-    const redTotal = Object.values(cards.red).reduce(
-      (sum, period) => sum + (period.total || 0),
-      0
-    );
-    const yellowTotal = Object.values(cards.yellow).reduce(
-      (sum, period) => sum + (period.total || 0),
-      0
-    );
-    return { redTotal, yellowTotal };
-  };
-
   const formatStatName = (name) => {
     return name.toUpperCase().replace(/_/g, " ");
+  };
+
+  const renderStatWithHighlight = (path, value, key) => {
+    if (typeof value !== "number") return value;
+
+    const maxValue = getNestedValue(maxValues.current, path);
+    const minValue = getNestedValue(minValues.current, path);
+
+    const isMax = value === maxValue;
+    const isMin = value === minValue;
+
+    let className = "";
+    if (isMax) className = classes.highlightMax;
+    if (isMin) className = classes.highlightMin;
+    if (isMin && isMax) className = "";
+
+    return (
+      <p key={key} className={className}>
+        {key}:&nbsp;<span>{value}</span>
+      </p>
+    );
   };
 
   const renderStats = (stats) => {
@@ -128,28 +159,37 @@ export default function TeamComparison() {
     const excludedCategories = ["team", "lineups", "league", "form"];
     const statElements = [];
 
-    const renderNestedCategory = (categoryData) => {
-      return Object.entries(categoryData).map(([key, value]) => {
-        if (typeof value === "object" && value !== null) {
-          return (
-            <div key={key}>
-              <h5>{formatStatName(key)}</h5>
-              {renderNestedCategory(value)}
-            </div>
-          );
-        }
-        return (
-          <p key={key}>
-            {key}: {value !== null ? value : "N/A"}
-          </p>
-        );
-      });
-    };
-
     for (const category in stats) {
       if (excludedCategories.includes(category)) continue;
 
       const categoryData = stats[category];
+
+      const renderNestedCategory = (categoryData, path = []) => {
+        return Object.entries(categoryData).map(([key, value]) => {
+          const currentPath = [...path, key];
+
+          if (typeof value === "object" && value !== null) {
+            return (
+              <div key={key}>
+                <h5>{formatStatName(key)}</h5>
+                {renderNestedCategory(value, currentPath)}
+              </div>
+            );
+          }
+          return (
+            <>
+              {renderStatWithHighlight(
+                currentPath,
+                value,
+                key,
+                classes,
+                maxValues,
+                minValues
+              )}
+            </>
+          );
+        });
+      };
 
       if (
         category === "cards" &&
@@ -160,35 +200,28 @@ export default function TeamComparison() {
         statElements.push(
           <div key="cards">
             <h4>{formatStatName("cards")}</h4>
-            <p>Red Cards: {redTotal}</p>
-            <p>Yellow Cards: {yellowTotal}</p>
+            <p>
+              Red Cards:{" "}
+              {renderStatWithHighlight(["cards", "redTotal"], redTotal)}
+            </p>
+            <p>
+              Yellow Cards:{" "}
+              {renderStatWithHighlight(["cards", "yellowTotal"], yellowTotal)}
+            </p>
           </div>
         );
-      } else if (
-        category === "minutes" &&
-        categoryData &&
-        typeof categoryData === "object"
-      ) {
-        statElements.push(
-          <div key={category}>
-            <h4 onClick={() => setExpandedMinutes(!expandedMinutes)}>
-              {formatStatName(category)} {expandedMinutes ? "D" : "Z"}
-            </h4>
-            {expandedMinutes && <div>{renderNestedCategory(categoryData)}</div>}
-          </div>
-        );
-      } else if (categoryData && typeof categoryData === "object") {
+      } else if (typeof categoryData === "object" && categoryData !== null) {
         statElements.push(
           <div key={category}>
             <h4>{formatStatName(category)}</h4>
-            <div>{renderNestedCategory(categoryData)}</div>
+            {renderNestedCategory(categoryData, [category])}
           </div>
         );
       } else {
         statElements.push(
           <p key={category}>
             {formatStatName(category)}:{" "}
-            {categoryData !== null ? categoryData : "N/A"}
+            {renderStatWithHighlight([category], categoryData)}
           </p>
         );
       }

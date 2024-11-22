@@ -1,4 +1,3 @@
-/* Przycisk zamknięcia */
 .closeButton {
   position: absolute;
   top: 10px;
@@ -11,7 +10,6 @@
   transition: color 0.3s;
 }
 
-/* Nagłówki w modalu */
 .modalContent h3 {
   margin: 0 0 20px 0;
   font-size: 24px;
@@ -20,7 +18,6 @@
   text-align: center;
 }
 
-/* Sekcja z wykresami */
 .chartSection {
   display: flex;
   flex-direction: column;
@@ -33,27 +30,6 @@
   height: 30rem;
   margin-bottom: 20px;
 }
-
-/* Animacja dla modala */
-/* @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateY(-30px);
-  }
-  to {
-    transform: translateY(0);
-  }
-} */
-
-/* Responsywność */
 
 .modalOverlay {
   position: fixed;

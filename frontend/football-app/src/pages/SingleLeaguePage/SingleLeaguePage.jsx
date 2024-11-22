@@ -10,6 +10,7 @@ import DropdownOption from "../../components/DropdownOption/DropdownOption";
 import { fetchFootballData } from "../../utils/fetchFootballData";
 import SearchPlayerPage from "../../components/SingleLeaguePage/SearchPlayerPage/SearchPlayerPage";
 import Loader from "../../components/Loader/Loader";
+import DotNavigation from "../../components/DotNavigation/DotNavigation";
 
 export default function SingleLeaguePage() {
   const { leagueId } = useParams();
@@ -159,7 +160,13 @@ export default function SingleLeaguePage() {
   return (
     <main>
       <NavMenu />
+
       <div className={classes.mainSection}>
+        <DotNavigation
+          totalPages={4}
+          currentPage={currentContent}
+          onPageChange={(page) => setCurrentContent(page)}
+        />
         {leagueData && leagueData.response && leagueData.response.length > 0 ? (
           <div className={classes.informationContainer}>
             <div className={classes.images}>

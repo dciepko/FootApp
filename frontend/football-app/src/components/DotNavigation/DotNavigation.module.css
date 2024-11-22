@@ -1,0 +1,25 @@
+.dotNavigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  z-index: 1000;
+  padding: 1rem 0;
+  position: fixed;
+}
+
+.dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  margin: 0 0.4rem;
+  border-radius: 50%;
+  background-color: #ccc;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.dot.active {
+  background-color: #007bff;
+  transform: scale(1.5);
+}

@@ -3,6 +3,10 @@ import PlayerStatsModal from "../../PlayerStatsModal/PlayerStatsModal";
 import classes from "./PlayerComparison.module.css";
 import { useSearchTeamAndLeagueData } from "../../../hooks/useSearch/useSearchTeamLeagueCountryData";
 import { useSearchPlayerData } from "../../../hooks/useSearch/useSearchPlayerData";
+import { initializeExtremes } from "../../../utils/ComparePages/initializeExtremes";
+import { updateExtremes } from "../../../utils/ComparePages/updateExtremes";
+import { calculateCardTotals } from "../../../utils/ComparePages/calculateCardTotals";
+import { getNestedValue } from "../../../utils/ComparePages/getNestedValue";
 
 export default function PlayerComparison() {
   const [containers, setContainers] = useState([{}, {}]);
