@@ -20,6 +20,7 @@
 }
 
 .dot.active {
-  background-color: #007bff;
+  background-color: #e6292c;
+  background-color: #e6292c;
   transform: scale(1.5);
 }

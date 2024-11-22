@@ -11,6 +11,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   background-color: #e6edf1;
+  padding-top: 1.5rem;
 }
 
 .chooseSection {

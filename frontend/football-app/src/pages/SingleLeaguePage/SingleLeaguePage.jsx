@@ -12,13 +12,15 @@ import SearchPlayerPage from "../../components/SingleLeaguePage/SearchPlayerPage
 import Loader from "../../components/Loader/Loader";
 import DotNavigation from "../../components/DotNavigation/DotNavigation";
 
+const pages = ["standings", "search", "statistics", "matches"];
+
 export default function SingleLeaguePage() {
   const { leagueId } = useParams();
   const { data: leagueData, isLoading, error } = useLeagueById(leagueId);
 
   const [chosenSeason, setChosenSeason] = useState(null);
   const [availableSeasons, setAvailableSeasons] = useState([]);
-  const [currentContent, setCurrentContent] = useState("standings");
+  const [currentContent, setCurrentContent] = useState(pages[0]);
   const [leagueStandingsData, setLeagueStandingsData] = useState(null);
 
   useEffect(() => {
@@ -68,7 +70,7 @@ export default function SingleLeaguePage() {
             </div>
             <div className={classes.arrowPart}>
               <button
-                onClick={() => setCurrentContent("search")}
+                onClick={() => setCurrentContent(pages[1])}
                 className={classes.arrowButton}
               >
                 &#129130;
@@ -82,7 +84,7 @@ export default function SingleLeaguePage() {
           <div className={classes.contentContainerStatistics}>
             <div className={classes.arrowPart}>
               <button
-                onClick={() => setCurrentContent("standings")}
+                onClick={() => setCurrentContent(pages[0])}
                 className={classes.arrowButton}
               >
                 &#129128;
@@ -94,7 +96,7 @@ export default function SingleLeaguePage() {
             </div>
             <div className={classes.arrowPart}>
               <button
-                onClick={() => setCurrentContent("statistics")}
+                onClick={() => setCurrentContent(pages[2])}
                 className={classes.arrowButton}
               >
                 &#129130;
@@ -107,7 +109,7 @@ export default function SingleLeaguePage() {
           <div className={classes.contentContainerStatistics}>
             <div className={classes.arrowPart}>
               <button
-                onClick={() => setCurrentContent("search")}
+                onClick={() => setCurrentContent(pages[1])}
                 className={classes.arrowButton}
               >
                 &#129128;
@@ -119,7 +121,7 @@ export default function SingleLeaguePage() {
             </div>
             <div className={classes.arrowPart}>
               <button
-                onClick={() => setCurrentContent("matches")}
+                onClick={() => setCurrentContent(pages[3])}
                 className={classes.arrowButton}
               >
                 &#129130;
@@ -132,7 +134,7 @@ export default function SingleLeaguePage() {
           <div className={classes.contentContainerMatches}>
             <div className={classes.arrowPart}>
               <button
-                onClick={() => setCurrentContent("statistics")}
+                onClick={() => setCurrentContent(pages[2])}
                 className={classes.arrowButton}
               >
                 &#129128;
@@ -163,9 +165,9 @@ export default function SingleLeaguePage() {
 
       <div className={classes.mainSection}>
         <DotNavigation
-          totalPages={4}
+          pages={pages}
           currentPage={currentContent}
-          onPageChange={(page) => setCurrentContent(page)}
+          onPageChange={(page) => setCurrentContent(pages[page])}
         />
         {leagueData && leagueData.response && leagueData.response.length > 0 ? (
           <div className={classes.informationContainer}>

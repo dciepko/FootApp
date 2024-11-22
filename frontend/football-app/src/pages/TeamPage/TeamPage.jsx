@@ -10,6 +10,16 @@ import TeamTransferPage from "../../components/TeamPage/TeamTransferPage/TeamTra
 import { useParams } from "react-router-dom";
 import { useTeamStarterData } from "../../hooks/useTeam/useTeamStarterData";
 import Loader from "../../components/Loader/Loader";
+import DotNavigation from "../../components/DotNavigation/DotNavigation";
+
+const pages = [
+  "info",
+  "squad",
+  "statistics",
+  "standings",
+  "fixtures",
+  "transfers",
+];
 
 export default function TeamPage() {
   const { teamId } = useParams();
@@ -168,7 +178,15 @@ export default function TeamPage() {
   return (
     <main>
       <NavMenu />
-      <div className={classes.mainSection}>{renderContent()}</div>
+      <div className={classes.mainSection}>
+        {" "}
+        <DotNavigation
+          pages={pages}
+          currentPage={currentContent}
+          onPageChange={(page) => setCurrentContent(pages[page])}
+        />
+        {renderContent()}
+      </div>
     </main>
   );
 }
