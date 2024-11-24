@@ -6,12 +6,12 @@ export default function DotNavigation({ pages, currentPage, onPageChange }) {
     <div className={classes.dotNavigation}>
       {pages.map((page, index) => (
         <button
-          key={page} // Użyj unikalnego klucza, np. `id` z obiektu, jeśli dostępny
+          key={page}
           className={`${classes.dot} ${
             page === currentPage ? classes.active : ""
           }`}
           onClick={() => onPageChange(index)}
-          aria-label={`Go to page ${page || index + 1}`} // Dodaj etykietę opartą na właściwości strony
+          aria-label={`Go to page ${page || index + 1}`}
           title={`Go to page ${page || index + 1}`}
         />
       ))}

@@ -1,6 +1,7 @@
 ﻿using FootApp.Data;
 using FootApp.Dtos;
 using FootApp.Helpers;
+using FootApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,7 +37,10 @@ namespace FootApp.Controllers
 
             if (_authRepo.RegisterUser(userForRegistration))
             {
-                return Ok();
+                int userId = _authRepo.GetUserIdByEmail(userForRegistration.Email);
+                return Ok(new Dictionary<string, string> {
+                {"token", _authHelper.CreateToken(userId)}
+                });
             }
 
             throw new Exception("Failed to register user.");
@@ -61,7 +65,9 @@ namespace FootApp.Controllers
             int userId = _authRepo.GetUserIdByEmail(userForLogin.Email);
 
             return Ok(new Dictionary<string, string> {
-                {"token", _authHelper.CreateToken(userId)}
+                {"token", _authHelper.CreateToken(userId)},
+                {"firstName", _authRepo.GetUserFirstNameByUserId(userId) },
+                {"id",  userId.ToString()}
             });
         }
 

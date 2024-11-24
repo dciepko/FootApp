@@ -8,5 +8,6 @@ namespace FootApp.Data
         bool CheckIfUserExists(string email);
         UserForLoginConfirmationDto GetUserHashAndSalt(string email);
         int GetUserIdByEmail(string email);
+        public string GetUserFirstNameByUserId(int id);
     }
 }

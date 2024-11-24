@@ -17,6 +17,7 @@ import SearchPage from "./pages/SearchPage/SearchPage";
 import ErrorBoundary from "./errors/ErrorBoundary";
 import PageNotFound from "./errors/PageNotFound/PageNotFound";
 import GlobalError from "./errors/GlobalError";
+import { AuthProvider } from "./context/AuthContext";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -81,9 +82,11 @@ const App = () => {
   return (
     <div className="container">
       <div className="app">
-        <ErrorBoundary>
-          <RouterProvider router={router} />
-        </ErrorBoundary>
+        <AuthProvider>
+          <ErrorBoundary>
+            <RouterProvider router={router} />
+          </ErrorBoundary>
+        </AuthProvider>
       </div>
     </div>
   );

@@ -16,19 +16,14 @@ public class LoggingMiddleware
 
     public async Task InvokeAsync(HttpContext context)
     {
-        // Zaczynamy rejestrowanie
         var stopwatch = Stopwatch.StartNew();
 
-        // Zapisujemy informacje o żądaniu
         _logger.LogInformation("Handling request: {method} {url}", context.Request.Method, context.Request.Path);
 
-        // Wywołanie następnego middleware
         await _next(context);
 
-        // Zatrzymujemy zegar
         stopwatch.Stop();
 
-        // Zapisujemy informacje o odpowiedzi
         _logger.LogInformation("Finished handling request. Response Status Code: {statusCode}. Time taken: {time} ms",
             context.Response.StatusCode, stopwatch.ElapsedMilliseconds);
     }

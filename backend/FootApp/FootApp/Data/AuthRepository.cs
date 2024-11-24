@@ -75,5 +75,11 @@ namespace FootApp.Data
             string sql = @"SELECT UserId FROM GoalVisionSchema.Users WHERE Email = '" + email + "'";
             return _dbContext.LoadDataSingle<int>(sql);
         }
+
+        public string GetUserFirstNameByUserId(int id)
+        {
+            string sql = @"SELECT FirstName FROM GoalVisionSchema.Users WHERE UserId = '" + id + "'";
+            return _dbContext.LoadDataSingle<string>(sql);
+        }
     }
 }

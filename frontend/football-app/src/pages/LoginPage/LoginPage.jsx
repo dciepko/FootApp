@@ -4,16 +4,17 @@ import { useState } from "react";
 import LoginInput from "../../components/LoginInput/LoginInput";
 import { useInput } from "../../hooks/useInput";
 import { hasMinLength, isNotEmpty } from "../../utils/validationFunctions";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 export default function LoginPage() {
   const [isNotAccurate, setIsNotAccurate] = useState(false);
-
+  const navigate = useNavigate();
   const {
-    value: nicknameValue,
-    handleInputChange: handleNickChange,
-    handleInputBlur: handleNickBlur,
-    hasError: nickHasError,
+    value: emailValue,
+    handleInputChange: handleEmailChange,
+    handleInputBlur: handleEmailBlur,
+    hasError: emailHasError,
   } = useInput("", (value) => isNotEmpty(value));
 
   const {
@@ -23,49 +24,27 @@ export default function LoginPage() {
     hasError: passwordHasError,
   } = useInput("", (value) => isNotEmpty(value) && hasMinLength(value, 6));
 
+  const { login, loading } = useAuth();
+
   async function handleSubmit(event) {
     event.preventDefault();
 
-    // if (nickHasError || passwordHasError || !nicknameValue || !passwordValue) {
-    //   alert("Proszę wypełnić wszystkie pola poprawnie.");
-    //   return;
-    // }
+    if (emailHasError || passwordHasError || !emailValue || !passwordValue) {
+      alert("Please enter the correct data.");
+      return;
+    }
 
-    // const authData = {
-    //   userNickname: nicknameValue,
-    //   userPassword: passwordValue,
-    // };
+    const authData = {
+      email: emailValue,
+      password: passwordValue,
+    };
 
-    // const response = await fetch("http://localhost:8080/login", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(authData),
-    // });
-
-    // if (response.status === 422 || response.status === 401) {
-    //   return response;
-    // }
-
-    // if (!response.ok) {
-    //   setIsNotAccurate(true);
-    //   throw new Error("Could not authenticate user.");
-    // }
-
-    // if (response.ok) {
-    //   const resData = await response.json();
-    //   const token = resData.token;
-    //   const loggedUserId = resData.userID;
-    //   localStorage.setItem("token", token);
-    //   const expiration = new Date();
-    //   expiration.setHours(expiration.getHours() + 24);
-    //   localStorage.setItem("expiration", expiration.toISOString());
-
-    //   localStorage.setItem("currentUserID", loggedUserId);
-
-    //   navigate(`/${loggedUserId}/home`);
-    // }
+    try {
+      await login(authData);
+      navigate("/");
+    } catch (error) {
+      setIsNotAccurate(true);
+    }
   }
 
   return (
@@ -89,13 +68,13 @@ export default function LoginPage() {
           <div className={classes.inputsContainer}>
             <LoginInput
               label="Login"
-              id="nickname"
+              id="email"
               type="text"
-              name="nickname"
-              onBlur={handleNickBlur}
-              onChange={handleNickChange}
-              value={nicknameValue}
-              error={nickHasError && "Please enter the correct format"}
+              name="email"
+              onBlur={handleEmailBlur}
+              onChange={handleEmailChange}
+              value={emailValue}
+              error={emailHasError && "Please enter the correct format"}
               placeholder="Please enter your login"
             />
             <LoginInput

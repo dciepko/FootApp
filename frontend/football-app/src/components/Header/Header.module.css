@@ -47,6 +47,7 @@
   font-family: "Chakra Petch", sans-serif;
   font-size: 1.6rem;
   clip-path: polygon(85% 0, 100% 25%, 100% 100%, 15% 100%, 0% 75%, 0 0);
+  cursor: pointer;
 }
 
 .headerButton::before {
@@ -69,4 +70,11 @@
 .headerButton span {
   position: relative;
   z-index: 5;
+  color: white;
+}
+
+.welcomeSign {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
 }
