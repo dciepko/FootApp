@@ -5,6 +5,11 @@
   --mainGray: #e6edf1;
   --hoverGray: #cccccc;
   --hoverRed: #8d2829;
+
+  --mainRed: #e6292c;
+  --darkRed: #8d2829;
+  --lightRed: #f24d4d;
+  --centerColor: #ffffff; /* Kolor w środku */
 }
 
 body,
@@ -17,6 +22,7 @@ html {
 }
 
 .container {
+  position: relative;
   min-height: 100vh;
   max-height: 100vh;
   display: flex;
@@ -25,12 +31,12 @@ html {
       calc(2 * 24px) calc(2 * 24px),
     radial-gradient(50% 50%, #e6edf1 98%, #ffffff) 0 0/24px 24px;
   clip-path: polygon(
-    calc(0.075 * var(--width)) calc(0.025 * var(--height)),
-    calc(0.985 * var(--width)) calc(0.025 * var(--height)),
-    calc(0.985 * var(--width)) calc(0.925 * var(--height)),
-    calc(0.925 * var(--width)) calc(0.975 * var(--height)),
-    calc(0.015 * var(--width)) calc(0.975 * var(--height)),
-    calc(0.015 * var(--width)) calc(0.075 * var(--height))
+    7.5% 2.5%,
+    98.5% 2.5%,
+    98.5% 92.5%,
+    92.5% 97.5%,
+    1.5% 97.5%,
+    1.5% 7.5%
   );
 }
 

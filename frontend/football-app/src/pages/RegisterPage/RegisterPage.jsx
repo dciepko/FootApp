@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginInput from "../../components/LoginInput/LoginInput";
 import { useInput } from "../../hooks/useInput";
 import {
@@ -8,8 +8,12 @@ import {
 } from "../../utils/validationFunctions";
 import classes from "./RegisterPage.module.css";
 import logo from "../../assets/goalvision-high-resolution-logo-transparent.png";
+import { useAuth } from "../../context/AuthContext";
 
 export default function RegisterPage() {
+  const { register } = useAuth();
+  const navigate = useNavigate();
+
   const {
     value: firstNameValue,
     handleInputChange: handleFirstNameChange,
@@ -46,61 +50,34 @@ export default function RegisterPage() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    // if (
-    //   firstNameHasError ||
-    //   lastNameHasError ||
-    //   emailHasError ||
-    //   nickHasError ||
-    //   passwordHasError ||
-    //   passwordRepeatHasError ||
-    //   !firstNameValue ||
-    //   !lastNameValue ||
-    //   !emailValue ||
-    //   !nickValue ||
-    //   !passwordValue ||
-    //   !passwordRepeatValue ||
-    //   passwordValue !== passwordRepeatValue
-    // ) {
-    //   alert("Proszę wypełnić wszystkie pola poprawnie.");
-    //   return;
-    // }
+    if (
+      firstNameHasError ||
+      lastNameHasError ||
+      emailHasError ||
+      passwordHasError ||
+      passwordRepeatHasError ||
+      passwordValue !== passwordRepeatValue
+    ) {
+      alert(
+        "Please ensure all fields are correctly filled and passwords match."
+      );
+      return;
+    }
 
-    // const authData = {
-    //   userFirstName: firstNameValue,
-    //   userSurename: lastNameValue,
-    //   userEmail: emailValue,
-    //   userNickname: nickValue,
-    //   userPassword: passwordValue,
-    // };
+    const registrationData = {
+      email: emailValue,
+      password: passwordValue,
+      passwordConfirm: passwordRepeatValue,
+      firstName: firstNameValue,
+      lastName: lastNameValue,
+    };
 
-    // const response = await fetch("http://localhost:8080/register", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(authData),
-    // });
-
-    // if (response.status === 422 || response.status === 401) {
-    //   return response;
-    // }
-
-    // if (!response.ok) {
-    //   throw new Error("Could not authenticate user.");
-    // }
-    // if (response.ok) {
-    //   const resData = await response.json();
-    //   const token = resData.token;
-    //   const loggedUserId = resData.userID;
-    //   localStorage.setItem("token", token);
-    //   const expiration = new Date();
-    //   expiration.setHours(expiration.getHours() + 24);
-    //   localStorage.setItem("expiration", expiration.toISOString());
-
-    //   localStorage.setItem("currentUserID", loggedUserId);
-
-    //   navigate(`/${loggedUserId}/home`);
-    // }
+    try {
+      await register(registrationData);
+      navigate("/");
+    } catch (error) {
+      alert(`Registration failed: ${error.message}`);
+    }
   }
 
   return (

@@ -55,6 +55,33 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const register = async (registrationData) => {
+    console.log(JSON.stringify(registrationData));
+    try {
+      const response = await fetch("http://localhost:5156/Auth/Register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(registrationData),
+      });
+
+      if (response.ok) {
+        const resData = await response.json();
+
+        const loginData = {
+          email: registrationData.email,
+          password: registrationData.password,
+        };
+        await login(loginData);
+      } else {
+        const errorMessage = await response.text();
+        throw new Error(errorMessage || "Registration failed");
+      }
+    } catch (error) {
+      console.error("Error during registration:", error.message);
+      throw error;
+    }
+  };
+
   const login = async (credentials) => {
     const response = await fetch("http://localhost:5156/Auth/Login", {
       method: "POST",
@@ -94,6 +121,7 @@ export const AuthProvider = ({ children }) => {
   const value = {
     user,
     login,
+    register,
     logout,
     loading,
   };

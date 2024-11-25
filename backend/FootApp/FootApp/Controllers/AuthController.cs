@@ -25,6 +25,7 @@ namespace FootApp.Controllers
         [HttpPost("Register")]
         public IActionResult Register(UserForRegistrationDto userForRegistration)
         {
+
             if (userForRegistration.Password != userForRegistration.PasswordConfirm)
             {
                 return BadRequest("Passwords do not match!");
