@@ -52,5 +52,26 @@ namespace FootApp.Data
             var sql = $"SELECT * FROM GoalVisionSchema.FavouritePlayers WHERE UserId = {userId} AND PlayerId = {playerId}";
             return _dataContext.LoadDataSingle<FavouritePlayer>(sql);
         }
+
+        public bool RemoveClub(int userId, int clubId)
+        {
+            var sql = "DELETE FROM GoalVisionSchema.FavouriteClubs WHERE UserId = @UserId AND ClubId = @ClubId";
+            return _dataContext.ExecuteSqlWithParameters(sql, new List<SqlParameter>
+    {
+        new SqlParameter("@UserId", userId),
+        new SqlParameter("@ClubId", clubId),
+    });
+        }
+
+        public bool RemovePlayer(int userId, int playerId)
+        {
+            var sql = "DELETE FROM GoalVisionSchema.FavouritePlayers WHERE UserId = @UserId AND PlayerId = @PlayerId";
+            return _dataContext.ExecuteSqlWithParameters(sql, new List<SqlParameter>
+    {
+        new SqlParameter("@UserId", userId),
+        new SqlParameter("@PlayerId", playerId),
+    });
+        }
+
     }
 }

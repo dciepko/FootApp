@@ -77,5 +77,38 @@ namespace FootApp.Services
                 .OrderByDescending(f => f.ViewCounts) 
                 .ThenBy(_ => random.Next());       
         }
+
+        public bool IsClubFavourite(int userId, int clubId)
+        {
+            var existingFavouriteClub = _favouriteRepository.GetFavouriteClub(userId, clubId);
+            return existingFavouriteClub != null;
+        }
+
+        public bool IsPlayerFavourite(int userId, int playerId, int leagueId)
+        {
+            var existingFavouritePlayer = _favouriteRepository.GetFavouritePlayer(userId, playerId);
+            return existingFavouritePlayer != null && existingFavouritePlayer.LeagueId == leagueId;
+        }
+
+        public bool RemoveClubFromFavourites(int userId, int clubId)
+        {
+            var existingFavouriteClub = _favouriteRepository.GetFavouriteClub(userId, clubId);
+            if (existingFavouriteClub != null)
+            {
+                return _favouriteRepository.RemoveClub(userId, clubId);
+            }
+            return false;
+        }
+
+        public bool RemovePlayerFromFavourites(int userId, int playerId, int leagueId)
+        {
+            var existingFavouritePlayer = _favouriteRepository.GetFavouritePlayer(userId, playerId);
+            if (existingFavouritePlayer != null && existingFavouritePlayer.LeagueId == leagueId)
+            {
+                return _favouriteRepository.RemovePlayer(userId, playerId);
+            }
+            return false;
+        }
+
     }
 }

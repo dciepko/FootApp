@@ -6,7 +6,6 @@ import Loader from "../Loader/Loader";
 
 export default function Header() {
   const { user, logout, loading } = useAuth();
-  console.log(user);
 
   return (
     <>

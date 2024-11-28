@@ -1,5 +1,7 @@
 import classes from "./PlayerInfoPage.module.css";
 import { usePlayerStatisticsAndInfoData } from "../../../hooks/usePlayer/usePlayerStatisticsAndInfo";
+import { useAuth } from "../../../context/AuthContext";
+import FavouriteSign from "../../FavouriteSign/FavouriteSign";
 
 export default function PlayerInfoPage({ id, newestSeason }) {
   const {
@@ -7,6 +9,8 @@ export default function PlayerInfoPage({ id, newestSeason }) {
     isLoading,
     error,
   } = usePlayerStatisticsAndInfoData(id, newestSeason);
+
+  const { user } = useAuth();
 
   if (isLoading) {
     return <div className={classes.loading}>Loading player info...</div>;
@@ -41,9 +45,19 @@ export default function PlayerInfoPage({ id, newestSeason }) {
   const clubName = clubInfo ? clubInfo.team.name : "No club";
   const clubLogo = clubInfo ? clubInfo.team.logo : null;
 
+  console.log(playerInfo);
+
   return (
     <div className={classes.infoContainer}>
       <div className={classes.imagesPart}>
+        {user !== null && (
+          <FavouriteSign
+            type={"player"}
+            user={user.id}
+            entityId={playerInfo.player.id}
+            leagueId={playerInfo.statistics[0].league.id}
+          />
+        )}
         <div className={classes.faceImageContainer}>
           <img src={playerInfo.player.photo} alt="Player face" />
         </div>

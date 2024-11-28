@@ -17,6 +17,11 @@ namespace FootApp.Data
         public FavouriteClub GetFavouriteClub(int userId, int clubId);
 
         public FavouritePlayer GetFavouritePlayer(int userId, int playerId);
-        
+        public bool RemovePlayer(int userId, int playerId);
+        public bool RemoveClub(int userId, int clubId);
+
+
+
+
     }
 }

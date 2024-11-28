@@ -1,11 +1,21 @@
+import { useAuth } from "../../../context/AuthContext";
+import FavouriteSign from "../../FavouriteSign/FavouriteSign";
 import classes from "./TeamInfoPage.module.css";
 
 export default function TeamInfoPage({ data }) {
   const teamInfo = data[0].response[0];
+  const { user } = useAuth();
 
   return (
     <div className={classes.infoContainer}>
       <div className={classes.imagesPart}>
+        {user !== null && (
+          <FavouriteSign
+            type={"team"}
+            user={user.id}
+            entityId={teamInfo.team.id}
+          />
+        )}
         <div className={classes.logoImageContainer}>
           <img src={teamInfo.team.logo} alt="Team logo" />
         </div>
