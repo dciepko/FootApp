@@ -36,12 +36,6 @@ export default function NavMenu() {
             <span className={classes.navMenuOption}>Bets </span>
           </li>
         </Link>
-
-        <Link className="disablingLinks" to={"/simulations"}>
-          <li style={{ borderRight: 0 }}>
-            <span className={classes.navMenuOption}>Simulations </span>
-          </li>
-        </Link>
       </ul>
     </nav>
   );

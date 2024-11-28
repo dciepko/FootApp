@@ -1,6 +1,7 @@
 using System.Text;
 using FootApp.Data;
 using FootApp.Helpers;
+using FootApp.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using StackExchange.Redis;
@@ -11,7 +12,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Konfiguracja CORS
 builder.Services.AddCors((options) =>
 {
     options.AddPolicy("DevCors", (corsBuilder) =>
@@ -30,20 +30,19 @@ builder.Services.AddCors((options) =>
     });
 });
 
-// Dodaj DataContext i repozytoria
 builder.Services.AddScoped<DataContext>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+builder.Services.AddScoped<IFavouritesRepository, FavouritesRepository>();
+builder.Services.AddScoped<FavouriteService>();
 builder.Services.AddScoped<AuthHelper>();
 
-// Konfiguracja Redis
 /*var redisConfig = builder.Configuration.GetConnectionString("RedisConnection");
 builder.Services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect(redisConfig));
 */
-// Rejestracja serwisu FootballApiService z HttpClient
 builder.Services.AddHttpClient<FootballApiService>();
 
-// Konfiguracja autoryzacji
+
 string? tokenKeyString = builder.Configuration.GetSection("AppSettings:TokenKey").Value;
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

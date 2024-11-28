@@ -11,9 +11,9 @@ public class UserController : ControllerBase
 {
     private readonly UserRepository _userRepository;
 
-    public UserController(IConfiguration config)
+    public UserController(UserRepository repo)
     {
-        _userRepository = new UserRepository(config);
+        _userRepository =repo;
     }
 
 

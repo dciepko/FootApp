@@ -14,14 +14,16 @@ namespace FootApp.Data
 
         public IEnumerable<T> LoadData<T>(string sql)
         {
+            Console.WriteLine(sql);
             IDbConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
             return dbConnection.Query<T>(sql);
         }
 
         public T LoadDataSingle<T>(string sql)
         {
+            Console.WriteLine(sql);
             IDbConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
-            return dbConnection.QuerySingle<T>(sql);
+            return dbConnection.QuerySingleOrDefault<T>(sql);
         }
 
         public bool ExecuteSql(string sql)

@@ -9,9 +9,9 @@ namespace FootApp.Data
     {
         private readonly DataContext _dbContext;
 
-        public UserRepository(IConfiguration config)
+        public UserRepository(DataContext dbContext)
         {
-            _dbContext = new DataContext(config);
+            _dbContext = dbContext;
         }
 
         public IEnumerable<User> GetAllUsers()
