@@ -19,6 +19,8 @@ namespace FootApp.Data
         public FavouritePlayer GetFavouritePlayer(int userId, int playerId);
         public bool RemovePlayer(int userId, int playerId);
         public bool RemoveClub(int userId, int clubId);
+        public bool UpdateFavouriteClub(FavouriteClub club);
+        public bool UpdateFavouritePlayer(FavouritePlayer player);
 
 
 

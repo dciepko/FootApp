@@ -57,21 +57,44 @@ namespace FootApp.Data
         {
             var sql = "DELETE FROM GoalVisionSchema.FavouriteClubs WHERE UserId = @UserId AND ClubId = @ClubId";
             return _dataContext.ExecuteSqlWithParameters(sql, new List<SqlParameter>
-    {
-        new SqlParameter("@UserId", userId),
-        new SqlParameter("@ClubId", clubId),
-    });
+            {
+                new SqlParameter("@UserId", userId),
+                new SqlParameter("@ClubId", clubId),
+            });
         }
 
         public bool RemovePlayer(int userId, int playerId)
         {
             var sql = "DELETE FROM GoalVisionSchema.FavouritePlayers WHERE UserId = @UserId AND PlayerId = @PlayerId";
             return _dataContext.ExecuteSqlWithParameters(sql, new List<SqlParameter>
+            {   
+                new SqlParameter("@UserId", userId),
+                new SqlParameter("@PlayerId", playerId),
+            });
+        }
+
+        public bool UpdateFavouriteClub(FavouriteClub club)
+        {
+            var sql = "UPDATE GoalVisionSchema.FavouriteClubs SET ViewCount = @ViewCount WHERE UserId = @UserId AND ClubId = @ClubId";
+            return _dataContext.ExecuteSqlWithParameters(sql, new List<SqlParameter>
     {
-        new SqlParameter("@UserId", userId),
-        new SqlParameter("@PlayerId", playerId),
+        new SqlParameter("@ViewCount", club.ViewCount),
+        new SqlParameter("@UserId", club.UserId),
+        new SqlParameter("@ClubId", club.ClubId),
     });
         }
+
+        public bool UpdateFavouritePlayer(FavouritePlayer player)
+        {
+            var sql = "UPDATE GoalVisionSchema.FavouritePlayers SET ViewCount = @ViewCount WHERE UserId = @UserId AND PlayerId = @PlayerId";
+            return _dataContext.ExecuteSqlWithParameters(sql, new List<SqlParameter>
+    {
+        new SqlParameter("@ViewCount", player.ViewCount),
+        new SqlParameter("@UserId", player.UserId),
+        new SqlParameter("@PlayerId", player.PlayerId),
+    });
+        }
+
 
     }
 }

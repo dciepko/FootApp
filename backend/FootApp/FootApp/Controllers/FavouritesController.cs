@@ -49,8 +49,6 @@ namespace FootApp.Controllers
             return Ok(favouriteClubs);
         }
 
-
-
         [HttpGet("getFav/{userId}")]
         public IActionResult GetUserFavs(int userId)
         {
@@ -91,6 +89,27 @@ namespace FootApp.Controllers
             }
             return BadRequest("Could not remove player from favourites.");
         }
+
+        [HttpPost("incrementView/club/{userId}/{clubId}")]
+        public IActionResult IncrementClubViewCount(int userId, int clubId)
+        {
+            if (_favouriteService.IncrementClubViewCount(userId, clubId))
+            {
+                return Ok("Club ViewCount incremented.");
+            }
+            return NotFound("Club not found in favourites.");
+        }
+
+        [HttpPost("incrementView/player/{userId}/{playerId}")]
+        public IActionResult IncrementPlayerViewCount(int userId, int playerId)
+        {
+            if (_favouriteService.IncrementPlayerViewCount(userId, playerId))
+            {
+                return Ok("Player ViewCount incremented.");
+            }
+            return NotFound("Player not found in favourites.");
+        }
+
     }
 
     public class AddFavouriteRequest

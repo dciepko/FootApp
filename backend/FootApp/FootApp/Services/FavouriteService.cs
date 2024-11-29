@@ -110,5 +110,28 @@ namespace FootApp.Services
             return false;
         }
 
+        public bool IncrementClubViewCount(int userId, int clubId)
+        {
+            var favouriteClub = _favouriteRepository.GetFavouriteClub(userId, clubId);
+            if (favouriteClub != null)
+            {
+                favouriteClub.ViewCount++;
+                return _favouriteRepository.UpdateFavouriteClub(favouriteClub);
+            }
+            return false;
+        }
+
+        public bool IncrementPlayerViewCount(int userId, int playerId)
+        {
+            var favouritePlayer = _favouriteRepository.GetFavouritePlayer(userId, playerId);
+            if (favouritePlayer != null)
+            {
+                favouritePlayer.ViewCount++;
+                return _favouriteRepository.UpdateFavouritePlayer(favouritePlayer);
+            }
+            return false;
+        }
+
+
     }
 }
