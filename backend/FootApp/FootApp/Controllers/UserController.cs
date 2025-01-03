@@ -13,7 +13,7 @@ public class UserController : ControllerBase
 
     public UserController(UserRepository repo)
     {
-        _userRepository =repo;
+        _userRepository = repo;
     }
 
 

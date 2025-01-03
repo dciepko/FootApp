@@ -73,9 +73,11 @@
 .eventHome,
 .eventAway {
   margin-bottom: 0.5rem;
+  margin-left: 20%;
   font-size: 1.2rem;
   text-align: center;
   height: 2rem;
+  display: flex;
 }
 
 .emptyEvent {

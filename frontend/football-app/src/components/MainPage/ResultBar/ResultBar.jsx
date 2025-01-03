@@ -2,10 +2,6 @@ import { Link } from "react-router-dom";
 import classes from "./ResultBar.module.css";
 
 export default function ResultBar({ fixture, className }) {
-  const backgroundColor = className === "odd" ? "transparent" : "#e6292c";
-  const fontColor = className === "odd" ? "black" : "white";
-  const hooverColor = className === "odd" ? "#8d2829" : "lightgray";
-
   const dynamicClass = className === "odd" ? classes.odd : classes.even;
 
   return (

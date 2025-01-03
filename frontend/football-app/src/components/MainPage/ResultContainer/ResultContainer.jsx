@@ -38,7 +38,7 @@ export default function ResultContainer() {
         <Loader />
       </div>
     );
-  if (error) return <div>Błąd: {error.message}</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <div className={classes.currentResultsList}>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import classes from "./AdditionalContainer.module.css";
-import star from "../../../assets/star-svgrepo-com.svg";
+import star from "../../../assets/Star_Full.png";
 import { useAuth } from "../../../context/AuthContext";
 import DotNavigation from "../../DotNavigation/DotNavigation";
 import { Link } from "react-router-dom";

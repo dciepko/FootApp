@@ -30,6 +30,8 @@ builder.Services.AddCors((options) =>
     });
 });
 
+builder.Logging.AddConsole(); // Dodaj logging do konsoli
+
 builder.Services.AddScoped<DataContext>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
@@ -74,6 +76,25 @@ else
     app.UseCors("ProdCors");
     app.UseHttpsRedirection();
 }
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+if (!string.IsNullOrEmpty(connectionString))
+{
+    try
+    {
+        RunMigrationsHelper.RunMigrations(connectionString);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error during migrations: {ex.Message}");
+        Environment.Exit(1); 
+    }
+}
+else
+{
+    Console.WriteLine("Database connection string is not configured.");
+}
+
 
 app.UseAuthentication();
 app.UseAuthorization();

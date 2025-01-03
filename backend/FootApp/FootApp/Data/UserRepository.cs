@@ -5,14 +5,9 @@ using System.Data;
 
 namespace FootApp.Data
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository(DataContext dbContext) : IUserRepository
     {
-        private readonly DataContext _dbContext;
-
-        public UserRepository(DataContext dbContext)
-        {
-            _dbContext = dbContext;
-        }
+        private readonly DataContext _dbContext = dbContext;
 
         public IEnumerable<User> GetAllUsers()
         {

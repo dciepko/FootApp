@@ -1,6 +1,10 @@
 import React from "react";
 import classes from "./MatchInfoPage.module.css";
 import { Link } from "react-router-dom";
+import goalImg from "../../../assets/Ball.png";
+import yellowCardImg from "../../../assets/Yellow_Card.png";
+import redCardImg from "../../../assets/Red_Card.png";
+import subImg from "../../../assets/Change.png";
 
 export default function MatchInfoPage({ data }) {
   const matchData = data;
@@ -82,6 +86,20 @@ export default function MatchInfoPage({ data }) {
                     <strong>{event.time.elapsed}'</strong> - {event.player.name}{" "}
                     ({event.detail})
                   </p>
+                  &nbsp;&nbsp;
+                  <p className={classes.imageContainer}>
+                    {event.type === "Goal" ? (
+                      <img className={classes.eventIconImg} src={goalImg} />
+                    ) : event.type === "subst" ? (
+                      <img src={subImg} />
+                    ) : event.type === "Card" ? (
+                      event.detail === "Yellow Card" ? (
+                        <img src={yellowCardImg} />
+                      ) : (
+                        <img src={redCardImg} />
+                      )
+                    ) : null}
+                  </p>
                 </div>
                 <div className={classes.emptyEvent}></div>
               </>
@@ -92,6 +110,20 @@ export default function MatchInfoPage({ data }) {
                   <p>
                     <strong>{event.time.elapsed}'</strong> - {event.player.name}{" "}
                     ({event.detail})
+                  </p>
+                  &nbsp;&nbsp;
+                  <p className={classes.imageContainer}>
+                    {event.type === "Goal" ? (
+                      <img className={classes.eventIconImg} src={goalImg} />
+                    ) : event.type === "subst" ? (
+                      <img src={subImg} />
+                    ) : event.type === "Card" ? (
+                      event.detail === "Yellow Card" ? (
+                        <img src={yellowCardImg} />
+                      ) : (
+                        <img src={redCardImg} />
+                      )
+                    ) : null}
                   </p>
                 </div>
               </>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import classes from "./FavouriteSign.module.css";
-import emptyImg from "../../assets/icons8-favourite-empty.png";
-import fullImg from "../../assets/icons8-favourite-full.png";
+import emptyImg from "../../assets/Star_Empty.png";
+import fullImg from "../../assets/Star_Full.png";
 
 export default function FavouriteSign({ type, user, entityId, leagueId }) {
   const [isFavourite, setIsFavourite] = useState(null);
