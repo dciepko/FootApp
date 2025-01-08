@@ -124,7 +124,7 @@ export default function AdditionalContainer() {
                       ? favouritesData[currentPage].team.name
                       : favouritesData[currentPage].player.name}
                   </h2>
-                  <div className={classes.favoruiteImg}>
+                  <div className={classes.favouriteImg}>
                     <img
                       src={
                         favouritesData[currentPage].team

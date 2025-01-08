@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { useSearchTeamAndLeagueData } from "../../hooks/useSearch/useSearchTeamAndLeagueData";
 import NavMenu from "../../components/NavMenu/NavMenu";
 import classes from "./SearchPage.module.css";
-import noResultsIcon from "../../assets/sad.png";
+import noResultsIcon from "../../assets/Search_unhappy.png";
+import searchIcon from "../../assets/Search_happy.png";
 import { Link } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
 
@@ -26,6 +27,8 @@ export default function SearchPage() {
       (result) => result && result.response && result.response.length > 0
     );
 
+  const showInitialIcon = input.trim() === "" && !isLoading;
+
   return (
     <main>
       <NavMenu />
@@ -43,6 +46,15 @@ export default function SearchPage() {
         <div className={classes.resultsContent}>
           {isLoading ? (
             <Loader />
+          ) : showInitialIcon ? (
+            <div className={classes.noResultsContainer}>
+              <div className={classes.imageContainer}>
+                <img src={searchIcon} alt="Search icon" />
+              </div>
+              <div className={classes.noResults}>
+                Start typing to search for a league or a team
+              </div>
+            </div>
           ) : hasResults ? (
             <div>
               {searchResults.map((result, index) => (

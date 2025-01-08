@@ -9,7 +9,7 @@ namespace FootApp.Helpers
         {
             var upgrader = DeployChanges.To
                 .SqlDatabase(connectionString)
-                .WithScriptsFromFileSystem(Path.Combine(Directory.GetCurrentDirectory(), "Migrations")) // Zmiana na Directory.GetCurrentDirectory()
+                .WithScriptsFromFileSystem(Path.Combine(Directory.GetCurrentDirectory(), "Migrations")) 
                 .LogToConsole()
                 .Build();
 

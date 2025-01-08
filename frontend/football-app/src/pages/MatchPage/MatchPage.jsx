@@ -17,8 +17,10 @@ export default function MatchPage() {
   const { data: matchData, isLoading, error } = useMatchData(matchId);
 
   if (isLoading) return <Loader />;
-  if (error) return <div>Błąd: {error.message}</div>;
-  if (!matchData) return <div>Brak danych do wyświetlenia.</div>;
+  if (error) return <div>Error: {error.message}</div>;
+  if (!matchData) return <div>No available data.</div>;
+
+  const pages = ["info", "statistics", "players"];
 
   const renderContent = () => {
     switch (currentContent) {

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import classes from "./SearchPlayerPage.module.css";
-import noResultsIcon from "../../../assets/sad.png";
+import noResultsIcon from "../../../assets/Search_unhappy.png";
+import searchIcon from "../../../assets/Search_happy.png";
 import { useEffect, useState } from "react";
 import { useSearchPlayerData } from "../../../hooks/useSearch/useSearchPlayerData";
 import Loader from "../../Loader/Loader";
@@ -22,7 +23,8 @@ export default function SearchPlayerPage({ id }) {
     debouncedInput
   );
 
-  const hasResults = searchResults;
+  const hasResults = searchResults && searchResults.length > 0;
+  const showInitialIcon = input.trim() === "" && !isLoading;
 
   return (
     <div className={classes.mainSection}>
@@ -39,6 +41,15 @@ export default function SearchPlayerPage({ id }) {
       <div className={classes.resultsContent}>
         {isLoading ? (
           <Loader />
+        ) : showInitialIcon ? (
+          <div className={classes.noResultsContainer}>
+            <div className={classes.imageContainer}>
+              <img src={searchIcon} alt="Search icon" />
+            </div>
+            <div className={classes.noResults}>
+              Start typing to search for a player.
+            </div>
+          </div>
         ) : hasResults ? (
           <div>
             {searchResults.map((result, index) => (

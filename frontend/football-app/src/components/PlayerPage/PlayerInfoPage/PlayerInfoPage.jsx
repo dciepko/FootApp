@@ -69,15 +69,6 @@ export default function PlayerInfoPage({ id, newestSeason }) {
               <span>No Club Logo Available</span>
             )}
           </div>
-          <div className={classes.countryImageContainer}>
-            <img
-              src={
-                playerInfo.statistics[playerInfo.statistics.length - 1].team
-                  .logo
-              }
-              alt="Country Logo"
-            />
-          </div>
         </div>
       </div>
       <div className={classes.infoPart}>
