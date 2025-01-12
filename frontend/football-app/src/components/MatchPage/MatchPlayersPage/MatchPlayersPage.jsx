@@ -1,5 +1,4 @@
 import classes from "./MatchPlayersPage.module.css";
-import fixturesData from "../../../data/fixture.json";
 import Field from "../../Field/Field";
 import { Link } from "react-router-dom";
 

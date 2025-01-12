@@ -39,9 +39,9 @@ builder.Services.AddScoped<IFavouritesRepository, FavouritesRepository>();
 builder.Services.AddScoped<FavouriteService>();
 builder.Services.AddScoped<AuthHelper>();
 
-/*var redisConfig = builder.Configuration.GetConnectionString("RedisConnection");
+var redisConfig = builder.Configuration.GetConnectionString("RedisConnection");
 builder.Services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect(redisConfig));
-*/
+
 builder.Services.AddHttpClient<FootballApiService>();
 
 

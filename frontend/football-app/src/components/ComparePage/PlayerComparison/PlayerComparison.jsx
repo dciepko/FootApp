@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import PlayerStatsModal from "../../PlayerStatsModal/PlayerStatsModal";
 import classes from "./PlayerComparison.module.css";
 import { useSearchTeamAndLeagueData } from "../../../hooks/useSearch/useSearchTeamLeagueCountryData";
@@ -18,6 +18,9 @@ export default function PlayerComparison() {
   const [selectedEntityId, setSelectedEntityId] = useState(null);
   const [selectedPlayer, setSelectedPlayer] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const maxValues = useRef({});
+  const minValues = useRef({});
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -41,6 +44,19 @@ export default function PlayerComparison() {
     selectedEntityId,
     playerSearchInputs[selectedIndex]
   );
+
+  useEffect(() => {
+    if (!selectedPlayer && Object.keys(selectedPlayer).length === 0) {
+      if (Object.keys(maxValues.current).length === 0) {
+        initializeExtremes(selectedPlayer.statistics, ["team", "league"]);
+      } else {
+        updateExtremes(selectedPlayer.statistics, maxValues, minValues, [
+          "team",
+          "league",
+        ]);
+      }
+    }
+  }, [selectedPlayer]);
 
   const addContainer = () => {
     if (containers.length < 4) {
@@ -138,6 +154,7 @@ export default function PlayerComparison() {
     );
     setSelectedPlayer(player);
     setSelectedIndex(null);
+    initializeExtremes(player.statistics[0], ["team", "league"]);
   };
 
   const calculateCardTotals = (cards) => {
@@ -156,6 +173,25 @@ export default function PlayerComparison() {
     return name.toUpperCase().replace(/_/g, " ");
   };
 
+  const renderStatWithHighlight = (path, value, key) => {
+    if (typeof value !== "number") return value;
+    const maxValue = getNestedValue(maxValues.current, path);
+    const minValue = getNestedValue(minValues.current, path);
+    const isMax = value === maxValue;
+    const isMin = value === minValue;
+
+    let className = "";
+    if (isMax) className = classes.highlightMax;
+    if (isMin) className = classes.highlightMin;
+    if (isMax && isMin) className = "";
+
+    return (
+      <p key={key} className={className}>
+        {key}: <span>{value}</span>
+      </p>
+    );
+  };
+
   const renderStats = (stats) => {
     if (!stats || typeof stats !== "object") {
       return <p>No statistics available.</p>;
@@ -164,20 +200,19 @@ export default function PlayerComparison() {
     const excludedCategories = ["team", "league"];
     const statElements = [];
 
-    const renderNestedCategory = (categoryData) => {
+    const renderNestedCategory = (categoryData, currentPath = []) => {
       return Object.entries(categoryData).map(([key, value]) => {
+        const newPath = [...currentPath, key];
         if (typeof value === "object" && value !== null) {
           return (
             <div key={key}>
               <h5>{formatStatName(key)}</h5>
-              {renderNestedCategory(value)}
+              {renderNestedCategory(value, newPath)}
             </div>
           );
         }
         return (
-          <p key={key}>
-            {key}: {value !== null ? value : "N/A"}
-          </p>
+          <div key={key}>{renderStatWithHighlight(newPath, value, key)}</div>
         );
       });
     };
@@ -224,7 +259,7 @@ export default function PlayerComparison() {
         statElements.push(
           <p key={category}>
             {formatStatName(category)}:
-            {categoryData !== null ? categoryData : "N/A"}
+            {renderStatWithHighlight([category], categoryData)}
           </p>
         );
       }

@@ -67,6 +67,7 @@ export default function TeamComparison() {
       }));
       if (statisticsData) {
         if (Object.keys(maxValues.current) === null) {
+          console.log("To wogole kurwa weszlo?");
           initializeExtremes(statisticsData.response, [
             "team",
             "lineups",
@@ -74,6 +75,8 @@ export default function TeamComparison() {
             "form",
           ]);
         } else {
+          console.log("To wogole kurwa weszlo? 2");
+          console.log(maxValues.current);
           updateExtremes(statisticsData.response, maxValues, minValues, [
             "team",
             "lineups",
@@ -132,9 +135,10 @@ export default function TeamComparison() {
 
   const renderStatWithHighlight = (path, value, key) => {
     if (typeof value !== "number") return value;
-
+    console.log(value);
     const maxValue = getNestedValue(maxValues.current, path);
     const minValue = getNestedValue(minValues.current, path);
+    console.log(maxValue);
 
     const isMax = value === maxValue;
     const isMin = value === minValue;

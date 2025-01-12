@@ -1,5 +1,4 @@
 import classes from "./MatchStatisticsPage.module.css";
-import fixtureData from "../../../data/fixture.json";
 import { Link } from "react-router-dom";
 
 export default function MatchStatisticsPage({ data }) {
