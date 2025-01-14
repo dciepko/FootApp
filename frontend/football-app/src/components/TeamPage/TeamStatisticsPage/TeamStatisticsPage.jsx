@@ -163,12 +163,7 @@ export default function TeamStatisticsPage({ data }) {
         />
       ),
     },
-    {
-      statName: "Lineups",
-      mostUsedFormation: teamStatitsticsData.lineups?.[0]?.formation || "",
-      gamesPlayed: teamStatitsticsData.lineups?.[0]?.played || 0,
-      formationField: "",
-    },
+
     {
       statName: "Cards",
       yellow: totalYellow,

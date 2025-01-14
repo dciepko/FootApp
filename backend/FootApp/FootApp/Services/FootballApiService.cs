@@ -18,7 +18,6 @@ public class FootballApiService
         var db = _redis.GetDatabase();
         var cacheKey = $"football_data:{endpoint}";
 
-        // Sprawdź cache
         var cachedData = await db.StringGetAsync(cacheKey);
         if (!cachedData.IsNullOrEmpty)
         {

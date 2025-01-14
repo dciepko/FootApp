@@ -30,7 +30,7 @@ builder.Services.AddCors((options) =>
     });
 });
 
-builder.Logging.AddConsole(); // Dodaj logging do konsoli
+builder.Logging.AddConsole(); 
 
 builder.Services.AddScoped<DataContext>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();

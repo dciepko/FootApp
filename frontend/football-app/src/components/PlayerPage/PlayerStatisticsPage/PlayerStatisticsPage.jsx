@@ -127,33 +127,7 @@ export default function PlayerStatisticsPage({
         />
       ),
     },
-    {
-      statName: "Passes",
-      total: currentCompetitionStats.passes.total,
-      key: currentCompetitionStats.passes.key,
-      accuracy: currentCompetitionStats.passes.accuracy,
-    },
-    {
-      statName: "Tackles",
-      total: currentCompetitionStats.tackles.total,
-      blocks: currentCompetitionStats.tackles.blocks,
-      interceptions: currentCompetitionStats.tackles.interceptions,
-      chart: (
-        <SimpleBarChart
-          data={[
-            { name: "Total", value: currentCompetitionStats.tackles.total },
-            {
-              name: "Blocks",
-              value: currentCompetitionStats.tackles.blocks,
-            },
-            {
-              name: "Interceptions",
-              value: currentCompetitionStats.tackles.interceptions,
-            },
-          ]}
-        />
-      ),
-    },
+
     {
       statName: "Duels",
       total: currentCompetitionStats.duels.total,
