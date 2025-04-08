@@ -11,7 +11,6 @@ export function useSearchTeamAndLeagueData(input) {
       for (const endpoint of endpoints) {
         try {
           const result = await fetchFootballData(endpoint);
-          console.log(`Data for ${endpoint}:`, result);
           results.push(result);
         } catch (error) {
           console.error(`Error fetching ${endpoint}:`, error);

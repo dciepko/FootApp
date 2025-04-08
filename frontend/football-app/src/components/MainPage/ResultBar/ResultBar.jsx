@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import classes from "./ResultBar.module.css";
 
 export default function ResultBar({ fixture, className }) {

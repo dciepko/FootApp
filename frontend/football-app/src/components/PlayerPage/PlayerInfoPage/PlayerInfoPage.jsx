@@ -45,8 +45,6 @@ export default function PlayerInfoPage({ id, newestSeason }) {
   const clubName = clubInfo ? clubInfo.team.name : "No club";
   const clubLogo = clubInfo ? clubInfo.team.logo : null;
 
-  console.log(playerInfo);
-
   return (
     <div className={classes.infoContainer}>
       <div className={classes.imagesPart}>

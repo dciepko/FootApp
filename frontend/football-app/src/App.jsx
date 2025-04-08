@@ -11,7 +11,6 @@ import MatchPage from "./pages/MatchPage/MatchPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import BetsPage from "./pages/BetsPage/BetsPage";
 import ComparePage from "./pages/ComparePage/ComparePage";
-import SimulationsPage from "./pages/SimulationsPage/SimulationsPage";
 import LIVEPage from "./pages/LIVEPage/LIVEPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
 import ErrorBoundary from "./errors/ErrorBoundary";
@@ -50,11 +49,6 @@ const App = () => {
           path: "/bets",
           element: <BetsPage />,
         },
-        {
-          path: "/simulations",
-          element: <SimulationsPage />,
-        },
-
         {
           path: "/league/:leagueId",
           element: <SingleLeaguePage />,

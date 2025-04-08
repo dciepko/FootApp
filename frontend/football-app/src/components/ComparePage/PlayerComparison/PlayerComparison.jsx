@@ -5,7 +5,6 @@ import { useSearchTeamAndLeagueData } from "../../../hooks/useSearch/useSearchTe
 import { useSearchPlayerData } from "../../../hooks/useSearch/useSearchPlayerData";
 import { initializeExtremes } from "../../../utils/ComparePages/initializeExtremes";
 import { updateExtremes } from "../../../utils/ComparePages/updateExtremes";
-import { calculateCardTotals } from "../../../utils/ComparePages/calculateCardTotals";
 import { getNestedValue } from "../../../utils/ComparePages/getNestedValue";
 
 export default function PlayerComparison() {
@@ -274,7 +273,6 @@ export default function PlayerComparison() {
         {containers.map((container, index) => (
           <div key={index} className={classes.comparisonContainer}>
             <div className={classes.containerHeader}>
-              {/* Wyświetlanie wybranej encji lub zawodnika */}
               {container.entity ? (
                 <div className={classes.selectedEntity}>
                   {container.entity.team
@@ -302,7 +300,6 @@ export default function PlayerComparison() {
                 />
               )}
 
-              {/* Przycisk usuwania kontenera */}
               {containers.length > 2 && (
                 <button
                   className={`${classes.removeButton} ${
@@ -316,7 +313,6 @@ export default function PlayerComparison() {
               )}
             </div>
 
-            {/* Showdown dla encji */}
             {selectedIndex === index && searchInput && !container.player && (
               <div className={classes.showdownContainer}>
                 {isLoadingSearch ? (
@@ -353,7 +349,6 @@ export default function PlayerComparison() {
               </div>
             )}
 
-            {/* Wyświetlanie inputu wyszukiwania zawodnika i wyników */}
             {container.entity && (
               <div className={classes.containerHeader}>
                 {container.player ? (
@@ -380,7 +375,6 @@ export default function PlayerComparison() {
               </div>
             )}
 
-            {/*Wyświetlanie showdowna dla zawodnika */}
             {container.entity &&
               playerSearchInputs &&
               selectedIndex === index &&
@@ -409,7 +403,6 @@ export default function PlayerComparison() {
                 </div>
               )}
 
-            {/* Wyświetlanie statystyk zawodnika */}
             {container.player && (
               <div className={classes.playerStats}>
                 {renderStats(container.player.statistics[0])}

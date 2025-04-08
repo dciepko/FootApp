@@ -1,41 +1,39 @@
 ﻿using System.Data;
+using System.Data.Common;
 using Dapper;
 using Microsoft.Data.SqlClient;
 
 namespace FootApp.Data
 {
-    public class DataContext
+    public class DataContext: IDisposable
     {
-        private readonly IConfiguration _config;
+        private readonly SqlConnection _dbConnection;
         public DataContext(IConfiguration config)
         {
-            _config = config;
+            _dbConnection = new SqlConnection(config.GetConnectionString("DefaultConnection"));
+            _dbConnection.Open(); 
         }
 
         public IEnumerable<T> LoadData<T>(string sql)
         {
             Console.WriteLine(sql);
-            IDbConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
-            return dbConnection.Query<T>(sql);
+            return _dbConnection.Query<T>(sql);
         }
 
         public T LoadDataSingle<T>(string sql)
         {
             Console.WriteLine(sql);
-            IDbConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
-            return dbConnection.QuerySingleOrDefault<T>(sql);
+            return _dbConnection.QuerySingleOrDefault<T>(sql);
         }
 
         public bool ExecuteSql(string sql)
         {
-            IDbConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
-            return dbConnection.Execute(sql) > 0;
+            return _dbConnection.Execute(sql) > 0;
         }
 
         public int ExecuteSqlWithRowCount(string sql)
         {
-            IDbConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
-            return dbConnection.Execute(sql);
+            return _dbConnection.Execute(sql);
         }
 
         public bool ExecuteSqlWithParameters(string sql, List<SqlParameter> parameters)
@@ -47,16 +45,18 @@ namespace FootApp.Data
                 commandWithParams.Parameters.Add(parameter);
             }
 
-            SqlConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
-            dbConnection.Open();
 
-            commandWithParams.Connection = dbConnection;
+            commandWithParams.Connection = _dbConnection;
 
             int rowsAffected = commandWithParams.ExecuteNonQuery();
 
-            dbConnection.Close();
 
             return rowsAffected > 0;
+        }
+
+        public void Dispose()
+        {
+            _dbConnection?.Close();  
         }
     }
 }

@@ -1,5 +1,3 @@
-// LeaguesContainerPlaceBar.jsx
-
 import classes from "./LeaguesContainerPlaceBar.module.css";
 
 export default function LeaguesContainerPlaceBar({ place }) {

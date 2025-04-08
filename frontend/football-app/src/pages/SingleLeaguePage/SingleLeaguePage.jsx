@@ -211,7 +211,9 @@ export default function SingleLeaguePage() {
             </div>
           </div>
         ) : (
-          <div>Brak danych o lidze.</div>
+          <div className={classes.informationContainer}>
+            <div>No data available.</div>
+          </div>
         )}
         {renderContent()}
       </div>

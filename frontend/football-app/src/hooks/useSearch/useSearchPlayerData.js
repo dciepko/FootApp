@@ -24,7 +24,6 @@ export function useSearchPlayerData(entityType, entityId, input) {
 
       try {
         const result = await fetchFootballData(endpoint);
-        console.log(`Data for ${endpoint}:`, result);
         return result.response || [];
       } catch (error) {
         console.error(`Error fetching ${endpoint}:`, error);

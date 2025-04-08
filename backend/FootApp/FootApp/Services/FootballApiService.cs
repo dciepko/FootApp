@@ -30,7 +30,7 @@ public class FootballApiService
         {
             var response = await _httpClient.GetStringAsync($"https://v3.football.api-sports.io/{endpoint}");
 
-            await db.StringSetAsync(cacheKey, response, TimeSpan.FromMinutes(10)); 
+            await db.StringSetAsync(cacheKey, response, TimeSpan.FromMinutes(10));
             Console.WriteLine($"[CACHE] Data cached with key: {cacheKey} for 10 minutes.");
             return response;
         }

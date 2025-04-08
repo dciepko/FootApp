@@ -1,5 +1,4 @@
 export const initializeExtremes = (stats, excludedCategories) => {
-  console.log(stats);
   const traverseAndInitialize = (data, maxObj, minObj) => {
     Object.entries(data).forEach(([key, value]) => {
       if (excludedCategories.includes(key)) return;

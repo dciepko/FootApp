@@ -19,7 +19,6 @@ const PlayerStatsModal = ({ isOpen, onClose, containers }) => {
   const prepareChartDataForCategory = (category) => {
     return containers.map((container) => {
       const playerData = container.player?.statistics?.[0]?.[category];
-      console.log(playerData);
       const values = [];
 
       const processStats = (data, prefix = "") => {
@@ -40,7 +39,6 @@ const PlayerStatsModal = ({ isOpen, onClose, containers }) => {
 
       if (playerData && typeof playerData === "object") {
         processStats(playerData);
-        console.log("si");
       } else if (playerData !== undefined) {
         values.push({
           name: category,
@@ -48,9 +46,7 @@ const PlayerStatsModal = ({ isOpen, onClose, containers }) => {
           player: container.player.player.name,
           color: getPlayerColor(container.player.player.name),
         });
-        console.log("nope");
       }
-      console.log(values);
 
       return values;
     });

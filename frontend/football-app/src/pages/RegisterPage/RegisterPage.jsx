@@ -5,6 +5,7 @@ import {
   hasMinLength,
   isEmail,
   isNotEmpty,
+  isPassword,
 } from "../../utils/validationFunctions";
 import classes from "./RegisterPage.module.css";
 import logo from "../../assets/goalvision-high-resolution-logo-transparent.png";
@@ -39,7 +40,10 @@ export default function RegisterPage() {
     handleInputChange: handlePasswordChange,
     handleInputBlur: handlePasswordBlur,
     hasError: passwordHasError,
-  } = useInput("", (value) => isNotEmpty(value) && hasMinLength(value, 6));
+  } = useInput(
+    "",
+    (value) => isNotEmpty(value) && hasMinLength(value, 6) && isPassword(value)
+  );
   const {
     value: passwordRepeatValue,
     handleInputChange: handlePasswordRepeatChange,

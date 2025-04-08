@@ -56,7 +56,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = async (registrationData) => {
-    console.log(JSON.stringify(registrationData));
     try {
       const response = await fetch("http://localhost:5156/Auth/Register", {
         method: "POST",
