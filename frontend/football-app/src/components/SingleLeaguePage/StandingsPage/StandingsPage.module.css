@@ -1,0 +1,24 @@
+.helpBar {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  background-color: #e6292c;
+  color: white;
+}
+
+.singleStanding a {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  font-size: 1.2rem;
+  border-bottom: 1px gray solid;
+  padding: 0.5rem 0;
+}
+
+.singleStanding:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}
+
+.groupName {
+  font-size: 1.8rem;
+  padding: 0.8rem 0 0.8rem 0.5rem;
+}

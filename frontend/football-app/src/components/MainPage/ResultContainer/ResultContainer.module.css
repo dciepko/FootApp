@@ -1,0 +1,9 @@
+.currentResultsList {
+  height: 78%;
+  max-width: 80%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+  position: absolute;
+  z-index: 5;
+}

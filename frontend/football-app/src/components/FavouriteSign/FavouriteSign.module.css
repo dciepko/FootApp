@@ -1,0 +1,26 @@
+.starContainer {
+  width: 90%;
+  height: 5rem;
+  padding: 0.7rem 0 0 1rem;
+  z-index: 100;
+  display: flex; /* Dodanie elastyczności */
+  align-items: center; /* Centrowanie pionowe */
+  justify-content: center; /* Centrowanie poziome */
+  overflow: hidden; /* Zapobieganie wychodzeniu obrazu poza kontener */
+}
+
+.favourite,
+.notFavourite {
+  width: 100%; /* Dostosowanie szerokości do kontenera */
+  height: 100%; /* Dostosowanie wysokości do kontenera */
+  display: flex; /* Dostosowanie pozycji obrazu */
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.favourite img,
+.notFavourite img {
+  max-width: 100%; /* Zapewnienie, że obraz nie przekroczy kontenera */
+  max-height: 100%; /* Zapewnienie, że obraz nie przekroczy kontenera */
+  object-fit: contain; /* Zapewnienie proporcji obrazu */
+}

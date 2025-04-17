@@ -1,0 +1,21 @@
+.player {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.8em;
+  background-size: cover;
+  text-align: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 8vh;
+  width: 4.5vw;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.playerInfo {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 4px;
+  border-radius: 4px;
+}

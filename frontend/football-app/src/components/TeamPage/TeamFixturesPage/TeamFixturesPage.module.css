@@ -1,0 +1,119 @@
+.fixturesPage {
+  height: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.choosePart {
+  height: 12%;
+  max-height: 12%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #e6edf1;
+  padding-top: 1.5rem;
+}
+
+.chooseSection {
+  display: flex;
+  align-items: center;
+  width: 90%;
+}
+
+.singleMatch {
+  display: grid;
+  grid-template-columns: 41% 5% 2% 5% 47%;
+  font-size: 1.2rem;
+  border-bottom: 1px gray solid;
+  padding: 0.5rem 0;
+}
+
+.singleMatch:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}
+
+.singleMatch span {
+  display: flex;
+  justify-content: center;
+}
+
+.dateHeader {
+  width: 100%;
+  background-color: #e6292c;
+  padding-left: 0.5rem;
+  color: white;
+}
+
+.toggleContainer {
+  display: flex;
+  justify-content: space-around;
+  margin: 0.5rem 0;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  background-color: lightgray;
+  width: 30%;
+  border: none;
+  cursor: pointer;
+  clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0% 75%, 0 0);
+  font-family: "Chakra Petch", sans-serif;
+  position: relative;
+}
+
+.activeButton {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  width: 30%;
+  background-color: #e6292c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0% 75%, 0 0);
+  font-family: "Chakra Petch", sans-serif;
+  position: relative;
+}
+
+.button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.activeButton::before {
+  width: 200%;
+  height: 200%;
+  top: -100%;
+  left: -100%;
+  content: "";
+  position: absolute;
+  background-color: #8d2829;
+  transition: transform 0.25s ease;
+  transform: translate(-100%, -100%);
+  z-index: 0;
+}
+
+.button::before {
+  width: 200%;
+  height: 200%;
+  top: -100%;
+  left: -100%;
+  content: "";
+  position: absolute;
+  background-color: rgb(160, 160, 160);
+  transition: transform 0.25s ease;
+  transform: translate(-100%, -100%);
+  z-index: 0;
+}
+
+.button:hover::before,
+.activeButton:hover::before {
+  transform: translate(0, 0);
+}
+
+.button span,
+.activeButton span {
+  position: relative;
+  z-index: 5;
+}

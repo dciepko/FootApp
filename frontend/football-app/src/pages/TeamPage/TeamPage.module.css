@@ -1,0 +1,77 @@
+main {
+  max-height: 87%;
+  height: 87%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-left: 0.2rem gray solid;
+  border-right: 0.2rem gray solid;
+  border-bottom: 0.2rem gray solid;
+}
+
+.mainSection {
+  max-height: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+}
+.contentContainerStandings {
+  max-height: 85%;
+  height: 85%;
+  display: grid;
+  grid-template-columns: 93% 7%;
+}
+
+.contentContainerStandings .mainPart {
+  overflow: auto;
+}
+
+.arrowPart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrowButton {
+  background-color: #e6292c;
+  font-size: 1.5rem;
+  clip-path: polygon(90% 0, 100% 25%, 100% 100%, 10% 100%, 0% 75%, 0 0);
+  border: none;
+  width: 60%;
+  cursor: pointer;
+  color: white;
+}
+
+.arrowButton:hover {
+  background-color: #8d2829;
+}
+
+.firstPage .mainPart,
+.inBetweenPage .mainPart,
+.lastPage .mainPart {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.firstPage {
+  max-height: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 93% 7%;
+}
+
+.inBetweenPage {
+  max-height: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 7% 86% 7%;
+  grid-template-rows: 1fr;
+  overflow: hidden;
+}
+
+.lastPage {
+  max-height: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 7% 93%;
+}

@@ -1,0 +1,25 @@
+.win,
+.draw,
+.lose {
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15%;
+  margin: 0.1rem;
+}
+
+.win {
+  background-color: green;
+}
+
+.draw {
+  background-color: yellow;
+  color: black;
+}
+
+.lose {
+  background-color: red;
+}

@@ -1,0 +1,49 @@
+.standingsPage {
+  height: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.choosePart {
+  height: 12%;
+  max-height: 12%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #e6edf1;
+  padding-top: 1.5rem;
+}
+
+.chooseSection {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  height: 100%;
+}
+
+.standingsSection {
+  height: 88%;
+  max-height: 88%;
+}
+
+.standingsTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.helpBar {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  margin-bottom: 1rem;
+  border-bottom: 1px gray solid;
+}
+
+.standing {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 1.2fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  font-size: 1.2rem;
+  padding: 0.5rem 0;
+}

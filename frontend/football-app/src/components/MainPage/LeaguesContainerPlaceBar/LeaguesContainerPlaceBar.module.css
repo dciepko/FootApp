@@ -1,0 +1,15 @@
+/* LeaguesContainerPlaceBar.module.css */
+
+.placeBarItem {
+  list-style: none;
+  width: 100%;
+  font-size: 1.2rem;
+  font-family: "Chakra Petch", sans-serif;
+  display: grid;
+  grid-template-columns: 10% 60% 15% 15%;
+  padding: 0.2rem 0 0 0.2rem;
+}
+
+.placeBarItem:hover {
+  background-color: #cccccc;
+}

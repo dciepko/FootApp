@@ -14,7 +14,7 @@
 .logoPicture {
   width: 6rem;
   height: 6rem;
-  background-image: url("../../assets/logoprz2.jpg");
+  background-image: url("../../assets/goalvision-high-resolution-logo-transparent.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -28,35 +28,26 @@
 }
 
 .buttonContainer {
-  width: 30%;
+  width: 40%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
 .headerButton {
+  width: 35%;
   padding: 0.6rem 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   text-decoration: none;
-  background-color: black;
+  background-color: #e6292c;
   color: white;
   font-family: "Chakra Petch", sans-serif;
   font-size: 1.6rem;
   clip-path: polygon(85% 0, 100% 25%, 100% 100%, 15% 100%, 0% 75%, 0 0);
-}
-
-.headerButton::after {
-  width: calc(100% - 0.3rem);
-  height: calc(100% - 0.3rem);
-  content: "";
-  position: absolute;
-  background-color: #e6292c;
-  z-index: -1;
-  clip-path: inherit;
-  box-sizing: border-box;
+  cursor: pointer;
 }
 
 .headerButton::before {
@@ -79,4 +70,11 @@
 .headerButton span {
   position: relative;
   z-index: 5;
+  color: white;
+}
+
+.welcomeSign {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
 }
